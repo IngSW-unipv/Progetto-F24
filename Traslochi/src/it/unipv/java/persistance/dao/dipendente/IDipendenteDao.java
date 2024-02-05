@@ -1,4 +1,4 @@
-package it.unipv.java.model.Dao.dipendente;
+package it.unipv.java.persistance.dao.dipendente;
 
 import java.util.List;
 

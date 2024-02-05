@@ -1,6 +1,6 @@
-package it.unipv.java.model.Dao.dipendente;
+package it.unipv.java.dao.dipendente;
 
-import it.unipv.java.model.DatabaseConnection;
+import it.unipv.java.dao.DatabaseConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

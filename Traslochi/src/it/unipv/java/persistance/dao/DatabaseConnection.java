@@ -1,4 +1,4 @@
-package it.unipv.java.model;
+package it.unipv.java.persistance.dao;
 	import java.io.FileInputStream;
 	import java.sql.Connection;
 	import java.sql.DriverManager;
