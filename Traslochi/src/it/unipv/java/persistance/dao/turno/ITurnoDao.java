@@ -7,8 +7,8 @@ import it.unipv.java.model.Turno;
 
 public interface ITurnoDao {
 	public List<Turno> getAllTurni();
-    public Turno getTurni(Turno t);
-    public boolean createTurni(Turno t);
-    public boolean updateTurni(Turno t);
-    public boolean deleteTurni(Turno t);
+    public Turno getTurno(Turno t);
+    public boolean createTurno(Turno t);
+    public boolean updateTurno(Turno t);
+    public boolean deleteTurno(Turno t);
 }

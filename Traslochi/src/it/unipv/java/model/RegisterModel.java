@@ -5,6 +5,7 @@ public class RegisterModel {
 	private String Cognome;
 	private String IdCliente;
 	private String IdDipendente;
+	private String IdResponsabile;
 	private String Email;
 	private String Password;
 
@@ -44,6 +45,12 @@ public class RegisterModel {
 	}
 	public void setIdDipendente(String idDipendente) {
 		IdDipendente = idDipendente;
+	}
+	public String getIdResponsabile() {
+		return IdResponsabile;
+	}
+	public void setIdResponsabile(String idResponsabile) {
+		IdResponsabile = idResponsabile;
 	}
 	
 }

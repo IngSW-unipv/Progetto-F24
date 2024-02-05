@@ -4,9 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.List;
 
-import it.unipv.java.model.LoginModel;
 import it.unipv.java.model.Prenotazione;
-import it.unipv.java.model.RegisterModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 
 public class PrenotazioneDao implements IPrenotazioneDao{
