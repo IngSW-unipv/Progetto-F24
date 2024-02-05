@@ -8,7 +8,7 @@ import it.unipv.java.model.RegisterModel;
 public interface IClienteDao {
 	public List<Cliente> getAllClienti();
     public Cliente getCliente(LoginModel login);
-    public void createCliente(RegisterModel register);
-    public void updateCliente(Cliente c);
-    public void deleteCliente(Cliente c);
+    public boolean createCliente(RegisterModel register);
+    public boolean updateCliente(Cliente c);
+    public boolean deleteCliente(Cliente c);
 }

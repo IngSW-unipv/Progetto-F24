@@ -8,7 +8,7 @@ import it.unipv.java.model.Responsabile;
 public interface IResponsabileDao {
 	public List<Responsabile> getAllResponsabili();
     public Responsabile getResponsabile(LoginModel login);
-    public void createResponsabile(RegisterModel register);
-    public void updateResponsabile(Responsabile r);
-    public void deleteResponsabile(Responsabile r);
+    public boolean createResponsabile(RegisterModel register);
+    public boolean updateResponsabile(Responsabile r);
+    public boolean deleteResponsabile(Responsabile r);
 }

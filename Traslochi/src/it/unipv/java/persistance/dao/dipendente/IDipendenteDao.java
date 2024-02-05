@@ -10,7 +10,7 @@ import it.unipv.java.model.RegisterModel;
 public interface IDipendenteDao {
     public List<Dipendente> getAllDipendenti();
     public Dipendente getDipendente(LoginModel login);
-    public void createDipendente(RegisterModel register);
-    public void updateDipendente(Dipendente d);
-    public void deleteDipendente(Dipendente d);
+    public boolean createDipendente(RegisterModel register);
+    public boolean updateDipendente(Dipendente d);
+    public boolean deleteDipendente(Dipendente d);
 }

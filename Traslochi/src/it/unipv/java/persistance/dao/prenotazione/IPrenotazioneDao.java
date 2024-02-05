@@ -7,8 +7,8 @@ import it.unipv.java.model.RegisterModel;
 
 public interface IPrenotazioneDao {
 	public List<Prenotazione> getAllPrenotazioni();
-    public Prenotazione getPrenotazione(LoginModel login);
-    public void createPrenotazione(RegisterModel register);
-    public void updatePrenotazione(Prenotazione p);
-    public void deletePrenotazione(Prenotazione p);
+    public Prenotazione getPrenotazione(Prenotazione p);
+    public boolean createPrenotazione(Prenotazione p);
+    public boolean updatePrenotazione(Prenotazione p);
+    public boolean deletePrenotazione(Prenotazione p);
 }
