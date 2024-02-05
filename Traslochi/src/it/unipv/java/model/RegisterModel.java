@@ -1,56 +1,69 @@
 package it.unipv.java.model;
 
 public class RegisterModel {
-	private String Nome;
-	private String Cognome;
-	private String IdCliente;
-	private String IdDipendente;
-	private String IdResponsabile;
-	private String Email;
-	private String Password;
+	private String nome;
+	private String cognome;
+	private String idCliente;
+	private String idDipendente;
+	private String idResponsabile;
+	private String email;
+	private String password;
 
 	
 	public String getNome() {
-		return Nome;
+		return nome;
 	}
+	
 	public void setNome(String nome) {
-		Nome = nome;
+		nome = nome;
 	}
+	
 	public String getCognome() {
-		return Cognome;
+		return cognome;
 	}
+	
 	public void setCognome(String cognome) {
-		Cognome = cognome;
+		cognome = cognome;
 	}
+	
 	public String getEmail() {
-		return Email;
+		return email;
 	}
+	
 	public void setEmail(String email) {
-		Email = email;
+		email = email;
 	}
+	
 	public String getPassword() {
-		return Password;
+		return password;
 	}
+	
 	public void setPassword(String password) {
-		Password = password;
+		password = password;
 	}
+	
 	public String getIdCliente() {
-		return IdCliente;
+		return idCliente;
 	}
+	
 	public void setIdCliente(String idCliente) {
-		IdCliente = idCliente;
+		idCliente = idCliente;
 	}
+	
 	public String getIdDipendente() {
-		return IdDipendente;
+		return idDipendente;
 	}
+	
 	public void setIdDipendente(String idDipendente) {
-		IdDipendente = idDipendente;
+		idDipendente = idDipendente;
 	}
+	
 	public String getIdResponsabile() {
-		return IdResponsabile;
+		return idResponsabile;
 	}
+	
 	public void setIdResponsabile(String idResponsabile) {
-		IdResponsabile = idResponsabile;
+		idResponsabile = idResponsabile;
 	}
 	
 }
