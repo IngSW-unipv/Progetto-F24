@@ -1,39 +1,28 @@
-package it.unipv.java.dao.dipendente;
+package it.unipv.java.persistance.dao.dipendente;
 
-import it.unipv.java.dao.DatabaseConnection;
+import java.util.List;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List; 
+import it.unipv.java.model.Dipendente;
+import it.unipv.java.model.LoginModel;
+import it.unipv.java.model.RegisterModel;
+import it.unipv.java.persistance.dao.DatabaseConnection;
 
-public class DipendenteDAO implements IDipendenteDAO{
-	
-	private String schema;
-	private Connection conn;
-	
-	public DipendenteDAO() {
-		super();
-		this.schema = "PROVA"; //anche in un file configurazione 
-		// chiede al FACTORY di costruire la connessione e il factory gliela da  
-	}
+public class DipendenteDao implements IDipendenteDao{
 
 	@Override
-	public List<DipendenteDAO> getAllDipendenti() {
+	public List<Dipendente> getAllDipendenti() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public DipendenteDAO getDipendente(Login login) {
+	public Dipendente getDipendente(LoginModel login) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void createDipendente(RegisterModel reg, Responsabile res) {
+	public void createDipendente(RegisterModel register) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -45,11 +34,10 @@ public class DipendenteDAO implements IDipendenteDAO{
 	}
 
 	@Override
-	public void deleteDipendente(DipendenteDAO d) {
+	public void deleteDipendente(Dipendente d) {
 		// TODO Auto-generated method stub
 		
 	}
 
- 
-
+	
 }
