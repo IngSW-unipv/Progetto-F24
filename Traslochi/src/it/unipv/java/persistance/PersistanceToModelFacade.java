@@ -1,4 +1,4 @@
-package it.unipv.java.persistance.dao;
+package it.unipv.java.persistance;
 
 public class PersistanceToModelFacade {
 
