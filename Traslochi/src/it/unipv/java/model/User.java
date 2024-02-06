@@ -1,9 +1,9 @@
 package it.unipv.java.model;
 
 public abstract class User {
-String nome;
-String cognome;
-String email; 
+private String nome;
+private String cognome;
+private String email; 
 private UserType userType;
 public User() {
 	// TODO Auto-generated constructor stub
