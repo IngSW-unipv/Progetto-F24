@@ -3,7 +3,6 @@ package it.unipv.java.persistance.dao.turno;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.List;
-
 import it.unipv.java.model.Turno;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 
@@ -13,7 +12,7 @@ public class TurnoDao implements ITurnoDao{
 	
 	public TurnoDao() {
 		super();
-		this.schema = "NOME SCHEMA";	//Inserisci Qui nome schema Turno
+		this.schema = "NOME SCHEMA"; //Inserisci Qui nome schema Turno
 	}
 	
 	@Override
@@ -21,7 +20,7 @@ public class TurnoDao implements ITurnoDao{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+ 
 	@Override
 	public Turno getTurno(Turno t) {
 		// TODO Auto-generated method stub
@@ -55,15 +54,13 @@ public class TurnoDao implements ITurnoDao{
 	@Override
 	public boolean updateTurno(Turno t) {
 		return false;
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub 
 	}
 
 	@Override
 	public boolean deleteTurno(Turno t) {
 		return false;
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub 
 	}
 
 }
