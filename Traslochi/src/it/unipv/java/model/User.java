@@ -19,8 +19,8 @@ public void setNome(String nome) {
 public String getCognome() {
 	return cognome;
 }
-public void setCognome(String congnome) {
-	this.cognome = congnome;
+public void setCognome(String cognome) {
+	this.cognome = cognome;
 }
 public String getEmail() {
 	return email;
@@ -59,6 +59,14 @@ public void modificaProfilo(User  u) {
 	u.email = email;
 	u.userType = userType;
 //MANCA PARTE PER MODIFICA NEL DB
+}
+
+public String getPassword() {
+	return password;
+}
+
+public void setPassword(String password) {
+	this.password = password;
 }
 
 }
