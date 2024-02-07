@@ -5,9 +5,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
-
 import java.awt.Color;
-
 import javax.swing.JSeparator;
 import java.awt.Toolkit;
 import javax.swing.JButton;
@@ -36,6 +34,8 @@ public class LoginView extends JFrame {
 	private JLabel lblNewLabel_2;
 	private JButton registerButton;
 	private JLabel lblNewLabel_1;
+	
+	
 
 	public LoginView() {
 		setResizable(false);
@@ -91,6 +91,7 @@ public class LoginView extends JFrame {
 		loginButton.setForeground(Color.WHITE);
 		loginButton.setBackground(new Color(0, 128, 255));
 		loginButton.setBounds(20, 156, 162, 28);
+		loginButton.setFocusable(false);
 		panelLogin.add(loginButton);
 		
 		textAreaEmail = new JTextArea();
@@ -109,6 +110,7 @@ public class LoginView extends JFrame {
 		registerButton.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		registerButton.setBackground(new Color(0, 128, 255));
 		registerButton.setBounds(20, 222, 162, 28);
+		registerButton.setFocusable(false);
 		panelLogin.add(registerButton);
 		
 		lblNewLabel_1 = new JLabel("OR");
