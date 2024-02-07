@@ -19,7 +19,7 @@ public class ResponsabileDao implements IResponsabileDao{
 	
 	public ResponsabileDao() {
 		super();
-		this.schema = "NOME SCHEMA";	//Inserisci Qui nome schema Responsabile
+		this.schema = "Traslochi";	//Inserisci Qui nome schema Responsabile
 	}
 	
 	@Override
