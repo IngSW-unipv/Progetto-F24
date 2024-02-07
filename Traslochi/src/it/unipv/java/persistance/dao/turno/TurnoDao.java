@@ -12,15 +12,51 @@ public class TurnoDao implements ITurnoDao{
 	
 	public TurnoDao() {
 		super();
-		this.schema = "NOME SCHEMA"; //Inserisci Qui nome schema Turno
+		this.schema = "Traslochi"; //Inserisci Qui nome schema Turno
 	}
 	
 	@Override
 	public List<Turno> getAllTurni() {
-		// TODO Auto-generated method stub
-		return null;
+		    List<Turno> turni = new ArrayList<>();
+	   
+	    Statement stmt = null;
+	    ResultSet rs = null;
+
+	    try {
+ 	        conn = DatabaseConnection.startConnection(conn, schema);
+
+ 	        stmt = conn.createStatement();
+
+ 	        String sql = "SELECT * FROM TURNO";
+	        rs = stmt.executeQuery(sql);
+
+	        // Process the result set
+	        while (rs.next()) {
+	            Turno t = new Turno();
+	            t.setOrario(rs.getString("Turno")); // Adjust the method names and types accordingly 
+	            turni.add(t);
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        
+	    } finally {
+ 	        try {
+	            if (rs != null) rs.close();
+	            if (stmt != null) stmt.close();
+	            DatabaseConnection.closeConnection(conn);
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	    }
+
+	    return turni;
 	}
- 
+	}
+	
+
+
+
+	
 	@Override
 	public Turno getTurno(Turno t) {
 		// TODO Auto-generated method stub
