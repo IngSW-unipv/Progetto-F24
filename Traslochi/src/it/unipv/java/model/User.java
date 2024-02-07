@@ -4,6 +4,7 @@ public abstract class User {
 private String nome;
 private String cognome;
 private String email; 
+private String password;
 private UserType userType;
 public User() {
 	// TODO Auto-generated constructor stub
