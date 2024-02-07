@@ -168,7 +168,7 @@ public Cliente getCliente(LoginModel login) {
 	    String query = "DELETE FROM Clienti WHERE idCliente = ?"; // Use the actual column name for client ID
 	    try (PreparedStatement st1 = conn.prepareStatement(query)) {
 	         
-	    	st1.setInt(1, c.getIdCliente()); // Assuming idCliente is an integer. Use setString if it's a VARCHAR
+	    	st1.setString(1, c.getIdCliente()); // Assuming idCliente is an integer. Use setString if it's a VARCHAR
 	        
 	    	st1.executeUpdate();
 	        
