@@ -34,6 +34,8 @@ public class LoginView extends JFrame {
 	private JTextArea textAreaEmail;
 	private JPanel panel;
 	private JLabel lblNewLabel_2;
+	private JButton registerButton;
+	private JLabel lblNewLabel_1;
 
 	public LoginView() {
 		setResizable(false);
@@ -62,23 +64,23 @@ public class LoginView extends JFrame {
 		panelLogin.add(lblNewLabel);
 		
 		separator = new JSeparator();
-		separator.setBounds(10, 99, 191, 2);
+		separator.setBounds(10, 83, 191, 2);
 		panelLogin.add(separator);
 		
 		emailLabel = new JLabel("Email");
 		emailLabel.setForeground(Color.GRAY);
 		emailLabel.setFont(new Font("Yu Gothic Light", Font.PLAIN, 11));
-		emailLabel.setBounds(10, 63, 46, 14);
+		emailLabel.setBounds(10, 48, 46, 14);
 		panelLogin.add(emailLabel);
 		
 		passwordLabel = new JLabel("Password");
 		passwordLabel.setForeground(Color.GRAY);
 		passwordLabel.setFont(new Font("Yu Gothic Light", Font.PLAIN, 11));
-		passwordLabel.setBounds(10, 137, 60, 14);
+		passwordLabel.setBounds(10, 96, 60, 14);
 		panelLogin.add(passwordLabel);
 		
 		separator_1 = new JSeparator();
-		separator_1.setBounds(10, 171, 191, 14);
+		separator_1.setBounds(10, 131, 191, 14);
 		panelLogin.add(separator_1);
 		
 		loginButton = new JButton("Login");
@@ -88,17 +90,32 @@ public class LoginView extends JFrame {
 		loginButton.setIcon(null);
 		loginButton.setForeground(Color.WHITE);
 		loginButton.setBackground(new Color(0, 128, 255));
-		loginButton.setBounds(21, 208, 162, 28);
+		loginButton.setBounds(20, 156, 162, 28);
 		panelLogin.add(loginButton);
 		
 		textAreaEmail = new JTextArea();
-		textAreaEmail.setBounds(10, 77, 191, 22);
+		textAreaEmail.setBounds(10, 63, 191, 22);
 		panelLogin.add(textAreaEmail);
 		
 		textAreaPassword = new JPasswordField();
 		textAreaPassword.setBorder(null);
-		textAreaPassword.setBounds(10, 150, 191, 20);
+		textAreaPassword.setBounds(10, 108, 191, 20);
 		panelLogin.add(textAreaPassword);
+		
+		registerButton = new JButton("Register");
+		registerButton.setForeground(Color.WHITE);
+		registerButton.setFont(new Font("Tahoma", Font.BOLD, 11));
+		registerButton.setBorderPainted(false);
+		registerButton.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+		registerButton.setBackground(new Color(0, 128, 255));
+		registerButton.setBounds(20, 222, 162, 28);
+		panelLogin.add(registerButton);
+		
+		lblNewLabel_1 = new JLabel("OR");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 10));
+		lblNewLabel_1.setForeground(SystemColor.textHighlight);
+		lblNewLabel_1.setBounds(92, 197, 15, 14);
+		panelLogin.add(lblNewLabel_1);
 		
 		panel = new JPanel();
 		panel.setBounds(220, 0, 222, 261);
@@ -126,7 +143,9 @@ public class LoginView extends JFrame {
 		loginButton.addActionListener(listenForLogin);
 	}
 	
-	
+	void addRegisterListener(ActionListener listenForRegister) {
+		registerButton.addActionListener(listenForRegister);
+	}
 	
 	
 }
