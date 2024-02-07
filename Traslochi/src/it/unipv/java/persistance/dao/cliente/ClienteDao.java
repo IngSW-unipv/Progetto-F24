@@ -102,9 +102,7 @@ public Cliente getCliente(LoginModel login) {
 	    
 	    return cliente;
 	}
-	
-	
-
+	 
 	@Override
 	public boolean createCliente(RegisterModel register) {
 		conn=DatabaseConnection.startConnection(conn,schema);
@@ -133,7 +131,7 @@ public Cliente getCliente(LoginModel login) {
 		return esito;
 		
 	}
-
+ 
 	@Override
 	public boolean updateCliente(Cliente c) {
 
@@ -159,8 +157,7 @@ public Cliente getCliente(LoginModel login) {
 		return true;
 
 	}
-	
-	
+	 
 	
 	@Override
 	public boolean deleteCliente(Cliente c) { 
