@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JTextArea;
 import javax.swing.JPasswordField;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
 
 public class RegisterView extends JFrame {
 
@@ -38,7 +39,7 @@ public class RegisterView extends JFrame {
 	private JLabel labelRipetiPassword;
 	private JSeparator separator_3;
 	private JLabel iconaPass2;
-	private JButton bottoneConfermaReg;
+	private JButton registerConfirmButton;
 	private JTextArea nome;
 	private JTextArea cognome;
 	private JTextArea codiceFiscale;
@@ -160,14 +161,14 @@ public class RegisterView extends JFrame {
 		iconaPass2.setBounds(96, 368, 13, 28);
 		iconaUser3.add(iconaPass2);
 		
-		bottoneConfermaReg = new JButton("Conferma Registrazione");
-		bottoneConfermaReg.setFont(new Font("Tahoma", Font.BOLD, 11));
-		bottoneConfermaReg.setBorder(null);
-		bottoneConfermaReg.setBackground(SystemColor.textHighlight);
-		bottoneConfermaReg.setForeground(SystemColor.text);
-		bottoneConfermaReg.setBounds(120, 425, 238, 23);
-		bottoneConfermaReg.setFocusable(false);
-		iconaUser3.add(bottoneConfermaReg);
+		registerConfirmButton = new JButton("Conferma Registrazione");
+		registerConfirmButton.setFont(new Font("Tahoma", Font.BOLD, 11));
+		registerConfirmButton.setBorder(null);
+		registerConfirmButton.setBackground(SystemColor.textHighlight);
+		registerConfirmButton.setForeground(SystemColor.text);
+		registerConfirmButton.setBounds(120, 425, 238, 23);
+		registerConfirmButton.setFocusable(false);
+		iconaUser3.add(registerConfirmButton);
 		
 		nome = new JTextArea();
 		nome.setBorder(null);
@@ -230,8 +231,21 @@ public class RegisterView extends JFrame {
 		return ripetiPassword.getPassword();
 	}
 	
+	public void setPassRipetuta(String pass) {
+		ripetiPassword.setText(pass);
+	}
 	
+	public JButton getBottoneConfermaReg() {
+		return registerConfirmButton;
+	}
 	
+	public JPasswordField getJPasswordField() {
+		return password;
+	}
+	
+	public void riprovaPassword() {
+		setPassRipetuta(" ");
+	}
 	
 	
 	
