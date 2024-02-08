@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import it.unipv.java.model.RegisterModel;
 import it.unipv.java.persistance.dao.cliente.ClienteDao;
+import it.unipv.java.view.LoginView;
 import it.unipv.java.view.RegisterView;
 import it.unipv.java.view.WarningView;
 
@@ -14,6 +15,7 @@ public class RegisterController {
 	private RegisterModel registerModel;
 	private ClienteDao clienteDao;
 	private WarningView warningView;
+	private LoginView loginView;
 	
 	public RegisterController(RegisterView registerView, RegisterModel registerModel, ClienteDao clienteDao, WarningView warningView) {
 		this.registerView= registerView;
@@ -29,7 +31,7 @@ public class RegisterController {
 		
 		warningView.getBottoneRiprova().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				riprovaPassword();
+				registerView.riprovaPassword();
 				warningView.closeWindow();
 			}
 		});
@@ -47,15 +49,28 @@ public class RegisterController {
 		
 		
 		
-		
+		//MANCA DA IMPLEMENTARE SE LA MAIL NON ESISTE GIA'
 		//CONTROLLO SE PASS= PASSRIPETUTA
 		if(!password.equals(passwordRipetuta)) {
 			warningView.mostraErrorMessage();
-			registerView.riprovaPassword();
+		} else if(password.equals(passwordRipetuta)) {
+			registerModel.setNome(nome);
+			registerModel.setCognome(cognome);
+			registerModel.setEmail(email);
+			registerModel.setPassword(password);
+			
+			boolean registrazioneSuccesso = clienteDao.createCliente(registerModel);
+			
+			if(registrazioneSuccesso) {
+				registerView.dispose(); // CHIUDI SCHERMATA REGISTRAZIONE
+		        loginView.setVisible(true); // APRI SCHERMATA LOGIN
+			}
+			
+			
+			
+			
 		}
 	}
 	
-	private void riprovaPassword() {
-		registerView.setPassRipetuta(" ");
-	}
+	
 }
