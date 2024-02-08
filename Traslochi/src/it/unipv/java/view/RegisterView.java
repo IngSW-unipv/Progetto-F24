@@ -55,9 +55,13 @@ public class RegisterView extends JFrame {
 		setBounds(100, 100, 515, 534);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		
+		
+		this.setLocationRelativeTo(null); //CENTRA IL FRAME AL CENTRO DEL PC
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
 		
 		iconaUser3 = new JPanel();
 		iconaUser3.setBackground(SystemColor.text);

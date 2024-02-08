@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import javax.swing.border.EtchedBorder;
 import java.awt.Dimension;
+import java.awt.EventQueue;
 import java.awt.event.ActionListener;
 import java.awt.SystemColor;
 import javax.swing.JTextArea;
@@ -37,10 +38,23 @@ public class LoginView extends JFrame {
 	
 	
 
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					LoginView login = new LoginView();
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
 	public LoginView() {
 		setTitle("Login ");
 		setResizable(false);
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\nikola.manev\\Downloads\\Logo-Bidons.png")); // DA SOSTITUIRE LINK 
+		setIconImage(Toolkit.getDefaultToolkit().getImage("/Traslochi/resources/IconaLogin.png")); // DA SOSTITUIRE LINK 
 		setBackground(SystemColor.textHighlight);
 		setForeground(new Color(0, 128, 255));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -50,6 +64,9 @@ public class LoginView extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		this.setLocationRelativeTo(null); //CENTRA FRAME AL CENTRO DEL PC
+		this.setVisible(true);
 		
 		panelLogin = new JPanel();
 		panelLogin.setBackground(Color.WHITE);
@@ -132,6 +149,7 @@ public class LoginView extends JFrame {
 		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\nikola.manev\\Downloads\\bidons9.jpg")); // DA SOSTITUIRE LINK 
 		lblNewLabel_2.setBounds(-16, 0, 238, 261);
 		panel.add(lblNewLabel_2);
+		
 	}
 	
 	public String getEmail() {

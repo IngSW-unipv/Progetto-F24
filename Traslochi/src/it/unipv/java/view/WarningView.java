@@ -83,15 +83,17 @@ public class WarningView {
 	}
 	
 	public void mostraErrorPassword() {
+		initialize();
 		labelPassword.setVisible(true);
 		labelEmail.setVisible(false);
-		initialize();
+		
 	}
 	
 	public void mostraErrorEmail() {
+		initialize();
 		labelPassword.setVisible(false);
 		labelEmail.setVisible(true);
-		initialize();
+		
 	}
 	
 	public JButton getBottoneRiprova() {
