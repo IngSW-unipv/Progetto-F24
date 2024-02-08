@@ -40,7 +40,7 @@ public class RegisterController {
 	
 	private void confermaRegistrazione() {
 		//PRENDO I DATI DALLA VIEW
-		String nome= registerView.getNome();
+		//String nome= registerView.getNome();
 		String cognome = registerView.getCognome();
 		String codiceFiscale = registerView.getCF();
 		String email = registerView.getEmail();
@@ -54,17 +54,17 @@ public class RegisterController {
 		} else if(clienteDao.checkExistingEmail(email)) {
 			warningView.mostraErrorEmail();
 		}else if(password.equals(passwordRipetuta) && clienteDao.checkExistingEmail(email) == false) {
-			registerModel.setNome(nome);
+			registerModel.setNome(registerView.getNome());
 			registerModel.setCognome(cognome);
 			registerModel.setEmail(email);
 			registerModel.setPassword(password);
 			
-			boolean registrazioneSuccesso = clienteDao.createCliente(registerModel);
+			/*boolean registrazioneSuccesso = clienteDao.createCliente(registerModel);
 			
 			if(registrazioneSuccesso) {
 				registerView.dispose(); // CHIUDI SCHERMATA REGISTRAZIONE
 		        loginView.setVisible(true); // APRI SCHERMATA LOGIN
-			}
+			} */
 			
 		}
 	}
