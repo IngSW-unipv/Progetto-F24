@@ -1,38 +1,42 @@
 package it.unipv.java.model;
 
 public class Prenotazione {
-	private String idPrenotazione;
-	private String idCliente;
-	private String indirizzoConsegna;
-	private String indirizzoRitiro;
+	
+	private int idPrenotazione;
+	private int idCliente;
+	private Indirizzo indirizzoConsegna;
+	private Indirizzo indirizzoRitiro;
 	private String dataRitiro;
 	private String dataConsegna;
 	private String metodoPagamento;
-	private String importoPagato;
+	private Float importoPagato;
 	private String statoPrenotazione;
 	
-	public String getIdPrenotazione() {
+	public Prenotazione() {
+		// TODO Auto-generated constructor stub
+	}
+	public int getIdPrenotazione() {
 		return idPrenotazione;
 	}
-	public void setIdPrenotazione(String idPrenotazione) {
+	public void setIdPrenotazione(int idPrenotazione) {
 		this.idPrenotazione = idPrenotazione;
 	}
-	public String getIdCliente() {
+	public int getIdCliente() {
 		return idCliente;
 	}
-	public void setIdCliente(String idCliente) {
+	public void setIdCliente(int idCliente) {
 		this.idCliente = idCliente;
 	}
-	public String getIndirizzoConsegna() {
+	public Indirizzo getIndirizzoConsegna() {
 		return indirizzoConsegna;
 	}
-	public void setIndirizzoConsegna(String indirizzoConsegna) {
+	public void setIndirizzoConsegna(Indirizzo indirizzoConsegna) {
 		this.indirizzoConsegna = indirizzoConsegna;
 	}
-	public String getIndirizzoRitiro() {
+	public Indirizzo getIndirizzoRitiro() {
 		return indirizzoRitiro;
 	}
-	public void setIndirizzoRitiro(String indirizzoRitiro) {
+	public void setIndirizzoRitiro(Indirizzo indirizzoRitiro) {
 		this.indirizzoRitiro = indirizzoRitiro;
 	}
 	public String getDataRitiro() {
@@ -53,10 +57,10 @@ public class Prenotazione {
 	public void setMetodoPagamento(String metodoPagamento) {
 		this.metodoPagamento = metodoPagamento;
 	}
-	public String getImportoPagato() {
+	public Float getImportoPagato() {
 		return importoPagato;
 	}
-	public void setImportoPagato(String importoPagato) {
+	public void setImportoPagato(Float importoPagato) {
 		this.importoPagato = importoPagato;
 	}
 	public String getStatoPrenotazione() {
@@ -66,4 +70,5 @@ public class Prenotazione {
 		this.statoPrenotazione = statoPrenotazione;
 	}
 	
+	 
 }

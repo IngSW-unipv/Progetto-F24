@@ -1,15 +1,19 @@
 package it.unipv.java.model;
 
-public class Cliente extends User{
-	private String idCliente;
-	public Cliente() {
-		// TODO Auto-generated constructor stub
+public class Cliente extends UserModel {
+	private int idCliente;
+	
+    // Costruttore della classe Cliente che chiama il costruttore della classe base UserModel
+    public Cliente(String nome, String cognome,String cf, String email, String password, UserType userType, int idCliente) {
+        super(nome, cognome,cf, email, password, userType);
+        this.idCliente = idCliente;
+     }
+ 
+	public int getIdCliente() {
+	    return idCliente;
 	}
-	public String getIdCliente() {
-		return idCliente;
+
+	public void setIdCliente(int idCliente) {
+	    this.idCliente = idCliente;
 	}
-	public void setIdCliente(String idCliente) {
-		this.idCliente = idCliente;
 	}
-	 
-}

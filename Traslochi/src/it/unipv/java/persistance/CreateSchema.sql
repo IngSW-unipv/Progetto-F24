@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS Prenotazioni (
     DataRitiro DATE,
     DataConsegna DATE,
     MetodoDiPagamento VARCHAR(50),
-    ImportoPagato DECIMAL(10, 2),
+    ImportoPagato INT(10, 2),
     StatoPrenotazione VARCHAR(50),
     FOREIGN KEY (IDCliente) REFERENCES Cliente(IDCliente)
 );

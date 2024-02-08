@@ -1,6 +1,7 @@
 package it.unipv.java.model;
 
 public class RegisterModel {
+	
 	private String nome;
 	private String cognome;
 	private String idCliente;
@@ -9,6 +10,18 @@ public class RegisterModel {
 	private String email;
 	private String password;
 
+	public RegisterModel() {
+		// TODO Auto-generated constructor stub
+	}
+	public RegisterModel(String nome, String cognome, String idCliente, String idDipendente, String idResponsabile, String email, String password) {
+        this.nome = nome;
+        this.cognome = cognome;
+        this.idCliente = idCliente;
+        this.idDipendente = idDipendente;
+        this.idResponsabile = idResponsabile;
+        this.email = email;
+        this.password = password;
+    }
 	
 	public String getNome() {
 		return nome;
