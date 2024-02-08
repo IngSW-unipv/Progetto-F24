@@ -129,7 +129,7 @@ public class LoginView extends JFrame {
 		lblNewLabel_2.setIconTextGap(0);
 		lblNewLabel_2.setMaximumSize(new Dimension(6, 5));
 		lblNewLabel_2.setSize(new Dimension(4, 4));
-		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\nikola.manev\\Downloads\\bidons9.jpg")); // DA SOSTITUIRE LINK 
+		lblNewLabel_2.setIcon(new ImageIcon("Progetto-F24\\Traslochi\\resources\\bidons9.jpg")); // DA SOSTITUIRE LINK 
 		lblNewLabel_2.setBounds(-16, 0, 238, 261);
 		panel.add(lblNewLabel_2);
 	}

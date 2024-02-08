@@ -47,7 +47,7 @@ public class WarningView {
 	
 	private void initialize() {
 		frame = new JFrame();
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\nikola.manev\\Downloads\\bidons.jpg"));
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("Progetto-F24\\Traslochi\\resources\\bidons.jpg"));
 		frame.setUndecorated(true);
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 232, 81);
