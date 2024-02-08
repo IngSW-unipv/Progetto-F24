@@ -62,8 +62,10 @@ public class ClienteDao implements IClienteDao{
 
 	    return clienti;
 	}
+	
+	
 	@Override
-public Cliente getCliente(LoginModel login) {
+    public Cliente getCliente(LoginModel login) {
 		
 		Cliente cliente = null;
 	    conn = DatabaseConnection.startConnection(conn, schema);
@@ -103,6 +105,8 @@ public Cliente getCliente(LoginModel login) {
 	    return cliente;
 	}
 	 
+	
+	
 	@Override
 	public boolean createCliente(RegisterModel register) {
 		conn=DatabaseConnection.startConnection(conn,schema);

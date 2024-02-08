@@ -13,7 +13,7 @@ import javax.swing.JTextArea;
 import javax.swing.JPasswordField;
 import java.awt.Toolkit;
 
-public class RegistrazioneView extends JFrame {
+public class RegisterView extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -46,7 +46,7 @@ public class RegistrazioneView extends JFrame {
 	private JLabel labelTitolo;
 	
 
-	public RegistrazioneView() {
+	public RegisterView() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\nikola.manev\\Downloads\\bidons.jpg"));
 		setResizable(false);
 		setTitle("Registrazione");
