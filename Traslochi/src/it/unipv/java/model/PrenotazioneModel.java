@@ -6,9 +6,9 @@ public class PrenotazioneModel {
     private int idPrenotazione;
     private int idCliente;
     private String indirizzoDiConsegna;
-    private Date dataRitiro;
-    private Date dataConsegna;
-    private String metodoDiPagamento;
+    private String dataRitiro;
+    private String dataConsegna;
+    private String metodoPagamento;
     private float importoPagato;
     private String statoPrenotazione;
 
@@ -25,16 +25,16 @@ public class PrenotazioneModel {
         return indirizzoDiConsegna;
     }
 
-    public Date getDataRitiro() {
+    public String getDataRitiro() {
         return dataRitiro;
     }
 
-    public Date getDataConsegna() {
+    public String getDataConsegna() {
         return dataConsegna;
     }
 
-    public String getMetodoDiPagamento() {
-        return metodoDiPagamento;
+    public String getMetodoPagamento() {
+        return metodoPagamento;
     }
 
     public Float getImportoPagato() {
@@ -58,16 +58,16 @@ public class PrenotazioneModel {
         this.indirizzoDiConsegna = indirizzoDiConsegna;
     }
 
-    public void setDataRitiro(Date dataRitiro) {
+    public void setDataRitiro(String dataRitiro) {
         this.dataRitiro = dataRitiro;
     }
 
-    public void setDataConsegna(Date dataConsegna) {
+    public void setDataConsegna(String dataConsegna) {
         this.dataConsegna = dataConsegna;
     }
 
     public void setMetodoDiPagamento(String metodoDiPagamento) {
-        this.metodoDiPagamento = metodoDiPagamento;
+        this.metodoPagamento = metodoDiPagamento;
     }
 
     public void setImportoPagato(Float importoPagato) {
