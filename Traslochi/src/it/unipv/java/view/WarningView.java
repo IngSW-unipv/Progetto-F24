@@ -13,7 +13,7 @@ import java.awt.SystemColor;
 import java.awt.Toolkit;
 import java.awt.Point;
 
-public class PassWarningView {
+public class WarningView {
 
 	private JFrame frame;
 	private RegisterView registerView;
@@ -28,7 +28,7 @@ public class PassWarningView {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PassWarningView window = new PassWarningView();
+					WarningView window = new WarningView();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -40,7 +40,7 @@ public class PassWarningView {
 	/**
 	 * Create the application.
 	 */
-	public PassWarningView() {
+	public WarningView() {
 		initialize();
 	}
 

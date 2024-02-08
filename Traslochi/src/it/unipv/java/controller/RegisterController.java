@@ -7,17 +7,17 @@ import it.unipv.java.model.RegisterModel;
 import it.unipv.java.persistance.dao.cliente.ClienteDao;
 import it.unipv.java.view.LoginView;
 import it.unipv.java.view.RegisterView;
-import it.unipv.java.view.PassWarningView;
+import it.unipv.java.view.WarningView;
 
 public class RegisterController {
 
 	private RegisterView registerView;
 	private RegisterModel registerModel;
 	private ClienteDao clienteDao;
-	private PassWarningView warningView;
+	private WarningView warningView;
 	private LoginView loginView;
 	
-	public RegisterController(RegisterView registerView, RegisterModel registerModel, ClienteDao clienteDao, PassWarningView warningView) {
+	public RegisterController(RegisterView registerView, RegisterModel registerModel, ClienteDao clienteDao, WarningView warningView) {
 		this.registerView= registerView;
 		this.registerModel= registerModel;
 		this.clienteDao= clienteDao;
