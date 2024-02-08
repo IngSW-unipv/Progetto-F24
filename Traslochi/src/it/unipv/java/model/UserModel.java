@@ -23,7 +23,7 @@ public abstract class UserModel {
         this.password = password;
         this.userType = userType;
     }
-
+ 
     // Getter e Setter per tutti gli attributi
     public String getNome() {
         return nome;

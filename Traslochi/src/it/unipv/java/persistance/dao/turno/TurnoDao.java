@@ -8,14 +8,15 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import it.unipv.java.model.Cliente;
-import it.unipv.java.model.Dipendente;
+import it.unipv.java.model.ClienteModel;
+import it.unipv.java.model.DipendenteModel;
 import it.unipv.java.model.LoginModel;
-import it.unipv.java.model.Turno;
+import it.unipv.java.model.TurnoModel;
 import it.unipv.java.model.TurnoModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 
 public class TurnoDao implements ITurnoDao{
+	
 	private String schema;
 	private Connection conn;
 	
@@ -24,8 +25,8 @@ public class TurnoDao implements ITurnoDao{
 		this.schema = "Traslochi"; //nome schema 
 	}
 	
-	public List<Turno> getAllTurni() {
-	    List<Turno> turni = new ArrayList<>();
+	public List<TurnoModel> getAllTurni() {
+	    List<TurnoModel> turni = new ArrayList<>();
 	    Connection conn = null; 
 	    try {
 	        conn = DatabaseConnection.startConnection(conn, schema); // Ensure this method returns a valid connection object
@@ -36,7 +37,7 @@ public class TurnoDao implements ITurnoDao{
 
 	            // Process the result set
 	            while (rs.next()) {
-	                Turno t = new Turno(); 
+	            	TurnoModel t = new TurnoModel(); 
 	                t.setOrario(rs.getTime("Orario"));  
 	                turni.add(t);
 	            }
@@ -51,8 +52,8 @@ public class TurnoDao implements ITurnoDao{
 	}
 
  
-	public Turno getTurno(Dipendente d) {
-	    Turno t = null;
+	public TurnoModel getTurno(DipendenteModel d) {
+		TurnoModel t = null;
 	    Connection conn = null; // Ensure conn is declared and initialized
 
  	    String sql = "SELECT * FROM Turno "
@@ -71,7 +72,7 @@ public class TurnoDao implements ITurnoDao{
  	            rs = pstmt.executeQuery();
 	            
  	            if (rs.next()) {
-	                t = new Turno();
+	                t = new TurnoModel();
  	                t.setOrario(rs.getTime("ORARIO")); 
  	            }
 	        }
@@ -91,7 +92,8 @@ public class TurnoDao implements ITurnoDao{
 
 
  	public boolean createTurno(TurnoModel t) {
-	    Connection conn = DatabaseConnection.startConnection(conn, schema);
+		conn=DatabaseConnection.startConnection(conn,schema);
+
 	    PreparedStatement st1;
 
 	    boolean esito = true;
@@ -123,7 +125,7 @@ public class TurnoDao implements ITurnoDao{
 	}
 
  
-	public boolean updateTurno(Turno t) {
+	public boolean updateTurno(TurnoModel t) {
 	    Connection conn = null;
 	    boolean success = true;
 
@@ -152,7 +154,7 @@ public class TurnoDao implements ITurnoDao{
 
 
 	@Override
-	public boolean deleteTurno(Turno turno) {
+	public boolean deleteTurno(TurnoModel turno) {
 	    Connection conn = null;
 	    PreparedStatement st1 = null;
 	    boolean esito = false;

@@ -7,9 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import it.unipv.java.model.Cliente;
-import it.unipv.java.model.Prenotazione;
-import it.unipv.java.model.PrenotazioneModel;
+import it.unipv.java.model.ClienteModel;
+ import it.unipv.java.model.PrenotazioneModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 
 public class PrenotazioneDao implements IPrenotazioneDao{
@@ -27,8 +26,8 @@ public class PrenotazioneDao implements IPrenotazioneDao{
 	// Assuming DatabaseConnection is a utility class that handles the connection to the database
 
 	@Override
-	public List<Prenotazione> getAllPrenotazioni() {
-	    List<Prenotazione> prenotazioni = new ArrayList<>();
+	public List<PrenotazioneModel> getAllPrenotazioni() {
+	    List<PrenotazioneModel> prenotazioni = new ArrayList<>();
 	    Connection conn = null;
 	    ResultSet rs = null;
 
@@ -38,10 +37,10 @@ public class PrenotazioneDao implements IPrenotazioneDao{
 	        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
 	            rs = stmt.executeQuery();
 	            while (rs.next()) {
-	                Prenotazione p = new Prenotazione();
+	            	PrenotazioneModel p = new PrenotazioneModel();
 	                p.setIdPrenotazione(rs.getString("IDPrenotazione"));
-	                p.setIdCliente(rs.getString("IDCliente"));
-	                p.setIndirizzoConsegna(rs.getString("IndirizzoDiConsegna"));
+	                p.setIdCliente(rs.getInt("IDCliente"));
+	                p.setIndirizzoConsegna(rs.getIndirizzo("IndirizzoDiConsegna"));
 	                p.setDataRitiro(rs.getString("DataRitiro"));
 	                p.setDataConsegna(rs.getString("DataConsegna"));
 	                p.setMetodoPagamento(rs.getString("MetodoDiPagamento"));

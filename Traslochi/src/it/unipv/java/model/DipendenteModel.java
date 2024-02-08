@@ -1,16 +1,15 @@
 package it.unipv.java.model;
  
-public class Dipendente extends UserModel {
+public class DipendenteModel extends UserModel {
     private int idDipendente;
     private String mezzo;
 
     // Costruttore di default che chiama il costruttore della superclasse
-    public Dipendente() {
-        super();
-    }
+    public DipendenteModel() {
+     }
     
     // Costruttore parametrizzato per inizializzare un Dipendente con tutti gli attributi
-    public Dipendente(String nome, String cognome,String cf, String email, String password, UserType userType, int idDipendente, String mezzo) {
+    public DipendenteModel(String nome, String cognome,String cf, String email, String password, UserType userType, int idDipendente, String mezzo) {
         super(nome, cognome,cf, email, password, userType);
         this.idDipendente = idDipendente;
         this.mezzo = mezzo;
