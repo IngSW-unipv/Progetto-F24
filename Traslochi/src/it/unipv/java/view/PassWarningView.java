@@ -18,6 +18,8 @@ public class PassWarningView {
 	private JFrame frame;
 	private RegisterView registerView;
 	private JButton riprovaButton;
+	private JLabel labelPassword;
+	private JLabel labelEmail;
 
 	/**
 	 * Launch the application.
@@ -58,11 +60,11 @@ public class PassWarningView {
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("  Attenzione, le password non combaciano!");
-		lblNewLabel.setForeground(SystemColor.textHighlight);
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 10));
-		lblNewLabel.setBounds(10, 0, 233, 54);
-		panel.add(lblNewLabel);
+		labelPassword = new JLabel("  Attenzione, le password non combaciano!");
+		labelPassword.setForeground(SystemColor.textHighlight);
+		labelPassword.setFont(new Font("Tahoma", Font.BOLD, 10));
+		labelPassword.setBounds(10, 0, 233, 54);
+		panel.add(labelPassword);
 		
 		riprovaButton = new JButton("Riprova");
 		riprovaButton.setBackground(SystemColor.textHighlight);
@@ -72,9 +74,23 @@ public class PassWarningView {
 		riprovaButton.setBounds(68, 42, 89, 23);
 		panel.add(riprovaButton);
 		riprovaButton.setFocusable(false);
+		
+		labelEmail = new JLabel("Questa email esiste già!");
+		labelEmail.setForeground(SystemColor.textHighlight);
+		labelEmail.setFont(new Font("Tahoma", Font.BOLD, 10));
+		labelEmail.setBounds(49, 0, 132, 54);
+		panel.add(labelEmail);
 	}
 	
-	public void mostraErrorMessage() {
+	public void mostraErrorPassword() {
+		labelPassword.setVisible(true);
+		labelEmail.setVisible(false);
+		initialize();
+	}
+	
+	public void mostraErrorEmail() {
+		labelPassword.setVisible(false);
+		labelEmail.setVisible(true);
 		initialize();
 	}
 	

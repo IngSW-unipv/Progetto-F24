@@ -48,18 +48,11 @@ public class RegisterController {
 		String passwordRipetuta = new String(registerView.getPassRipetuta());
 		
 		
-		
-		//MANCA DA IMPLEMENTARE SE LA MAIL NON ESISTE GIA'
-		
-		
-		//CONTROLLO SE PASS= PASSRIPETUTA
+		//CONTROLLO SE PASS= PASSRIPETUTA e SE MAIL ESISTE GIA'
 		if(!password.equals(passwordRipetuta)) {
-			warningView.mostraErrorMessage();
+			warningView.mostraErrorPassword();
 		} else if(clienteDao.checkExistingEmail(email)) {
-			
-			//CREARE VIEW EMAILWARNINGVIEW E IMPLEMENTARLA QUA
-			
-			
+			warningView.mostraErrorEmail();
 		}else if(password.equals(passwordRipetuta) && clienteDao.checkExistingEmail(email) == false) {
 			registerModel.setNome(nome);
 			registerModel.setCognome(cognome);
