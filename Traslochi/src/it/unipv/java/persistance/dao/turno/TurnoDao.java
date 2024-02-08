@@ -3,13 +3,16 @@ package it.unipv.java.persistance.dao.turno;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 import it.unipv.java.model.Cliente;
+import it.unipv.java.model.Dipendente;
 import it.unipv.java.model.LoginModel;
 import it.unipv.java.model.Turno;
+import it.unipv.java.model.TurnoModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 
 public class TurnoDao implements ITurnoDao{
@@ -18,140 +21,171 @@ public class TurnoDao implements ITurnoDao{
 	
 	public TurnoDao() {
 		super();
-		this.schema = "Traslochi"; //Inserisci Qui nome schema Turno
+		this.schema = "Traslochi"; //nome schema 
 	}
 	
-	@Override
 	public List<Turno> getAllTurni() {
-		    List<Turno> turni = new ArrayList<>();
-	   
-	    Statement stmt = null;
-	    ResultSet rs = null;
-
+	    List<Turno> turni = new ArrayList<>();
+	    Connection conn = null; 
 	    try {
- 	        conn = DatabaseConnection.startConnection(conn, schema);
+	        conn = DatabaseConnection.startConnection(conn, schema); // Ensure this method returns a valid connection object
 
- 	        stmt = conn.createStatement();
+	        String sql = "SELECT * FROM Turno";
+	        try (Statement stmt = conn.createStatement();
+	             ResultSet rs = stmt.executeQuery(sql)) {
 
- 	        String sql = "SELECT * FROM TURNO";
-	        rs = stmt.executeQuery(sql);
-
-	        // Process the result set
-	        while (rs.next()) {
-	            Turno t = new Turno();
-	            t.setOrario(rs.getString("Turno")); // Adjust the method names and types accordingly 
-	            turni.add(t);
+	            // Process the result set
+	            while (rs.next()) {
+	                Turno t = new Turno(); 
+	                t.setOrario(rs.getTime("Orario"));  
+	                turni.add(t);
+	            }
 	        }
-	    } catch (Exception e) {
+	    } catch (SQLException e) {
 	        e.printStackTrace();
-	        
 	    } finally {
- 	        try {
-	            if (rs != null) rs.close();
-	            if (stmt != null) stmt.close();
-	            DatabaseConnection.closeConnection(conn);
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	        }
+	        DatabaseConnection.closeConnection(conn); // Ensure the connection is closed properly
 	    }
 
 	    return turni;
 	}
+
  
-public Turno getTurno(LoginModel login) {
-		
-		Turno t = null;
-	    conn = DatabaseConnection.startConnection(conn, schema);
-	     
-	    String sql = "SELECT * FROM TURNO join DipTurno  WHERE EMAIL = ? AND PASSWORD = ?";
-	    ResultSet rs = null;
+	public Turno getTurno(Dipendente d) {
+	    Turno t = null;
+	    Connection conn = null; // Ensure conn is declared and initialized
+
+ 	    String sql = "SELECT * FROM Turno "
+	               + "JOIN Dipendente ON Turno.idDipendente = Dipendente.idDipendente "
+	               + "WHERE Dipendente.EMAIL = ? AND Dipendente.PASSWORD = ?";
 	    
-	    try (PreparedStatement pstmt = conn.prepareStatement(sql); ){ 
-	        
-	        // Set the parameters
-	        pstmt.setString(1, login.getEmail());
-	        pstmt.setString(2, login.getPassword());
-	        
-	        // Execute the query
-	        rs = pstmt.executeQuery();
-	        
-	        // Process the result set
-	        if (rs.next()) {
-	            t = new Turno();
-	            t.setOrario(rs.getString("ORARIO")); 
- 	        }
-	    } catch (Exception e) {
+	    ResultSet rs = null;
+
+	    try {
+	        conn = DatabaseConnection.startConnection(conn, schema); // Ensure this method returns a valid connection object
+	        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+	            
+ 	            pstmt.setString(1, d.getEmail());
+	            pstmt.setString(2, d.getPassword());
+	            
+ 	            rs = pstmt.executeQuery();
+	            
+ 	            if (rs.next()) {
+	                t = new Turno();
+ 	                t.setOrario(rs.getTime("ORARIO")); 
+ 	            }
+	        }
+	    } catch (SQLException e) {
 	        e.printStackTrace();
 	    } finally {
  	        try {
 	            if (rs != null) rs.close();
-	             
-	            DatabaseConnection.closeConnection(conn);
-	        } catch (Exception e) {
+	        } catch (SQLException e) {
 	            e.printStackTrace();
 	        }
+	        DatabaseConnection.closeConnection(conn);
 	    }
-	    
+
 	    return t;
 	}
 
-	@Override
-	public boolean createTurno(Turno t,Responsabile r, Dipendente d) {
-		conn=DatabaseConnection.startConnection(conn,schema);
-		PreparedStatement st1;
-		
-		boolean esito=true;
-//DA RIVEDERE
-		try
-		{
-			String query="INSERT INTO TURNI(ORARIO) VALUES(?) WHERE idDipendente=idResponsabile";
-			
-			st1 = conn.prepareStatement(query);
-			st1.setString(1,t.getOrario());
-			st1.executeUpdate(query);
-		}catch (Exception e){
-			e.printStackTrace();
-			esito=false;
-			}
 
-		DatabaseConnection.closeConnection(conn);
-		return esito;
+ 	public boolean createTurno(TurnoModel t) {
+	    Connection conn = DatabaseConnection.startConnection(conn, schema);
+	    PreparedStatement st1;
+
+	    boolean esito = true;
+
+	    try {
+ 	        String query = "INSERT INTO Turno (Orario, IDResponsabile, idDipendente, IDMezzo) VALUES (?, ?, ?, ?)";
+
+	        st1 = conn.prepareStatement(query);
+	        st1.setTime(1, t.getOrario());
+	        st1.setInt(2, t.getIdResponsabile());
+	        st1.setInt(3, t.getIdDipendente());
+	        st1.setInt(4, t.getIdMezzo());
+
+	        
+	        if (t.getIdDipendente() == t.getIdResponsabile()) {
+	            st1.executeUpdate();
+	        } else {
+	            
+	            esito = false;
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        esito = false;
+	    } finally {
+	        DatabaseConnection.closeConnection(conn);
+	    }
+
+	    return esito;
 	}
 
-	@Override
-	public boolean updateTurno(Turno t) {
-		
-		conn = DatabaseConnection.startConnection(conn, schema);
-		String query = "UPDATE TURNO  SET ORARIO=?, WHERE idDipendente=?";
-
-		try (PreparedStatement st1 = conn.prepareStatement(query)) {
-
-			st1.setString(1, c.getNome());
-			st1.setString(2, c.getCognome());
-			st1.setString(3, c.getEmail());
-			st1.setString(4, c.getPassword());
-			st1.setString(5, c.getIdCliente());
-
-			st1.executeUpdate(query);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		} finally {
-			DatabaseConnection.closeConnection(conn);
-		}
-		return true;
-	}
-
-	
  
-	
+	public boolean updateTurno(Turno t) {
+	    Connection conn = null;
+	    boolean success = true;
 
-	 
-	@Override
-	public boolean deleteTurno(Turno t) {
-		return false;
-		// TODO Auto-generated method stub 
+	    try {
+ 	        conn = DatabaseConnection.startConnection(conn, schema);
+	         
+	        String query = "UPDATE Turno SET Orario=? WHERE idDipendente=?";
+ 
+	        try (PreparedStatement st1 = conn.prepareStatement(query)) {
+	            
+	            
+	            st1.setTime(1, t.getOrario()); 
+	            st1.setInt(2, t.getIdDipendente());  
+
+ 	            st1.executeUpdate(); 
+
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	            success = false;
+	        }
+	    } finally {
+ 	        DatabaseConnection.closeConnection(conn);
+	    }
+	    return success;
 	}
+
+
+	@Override
+	public boolean deleteTurno(Turno turno) {
+	    Connection conn = null;
+	    PreparedStatement st1 = null;
+	    boolean esito = false;
+
+	    try {
+ 	        conn = DatabaseConnection.startConnection(conn, schema);
+
+ 	        String query = "DELETE FROM Turno WHERE Orario = ? AND IDResponsabile = ?";
+
+ 	        st1 = conn.prepareStatement(query);
+
+ 	        st1.setTime(1, turno.getOrario());
+	        st1.setInt(2, turno.getIdResponsabile());
+
+ 	        int rowsAffected = st1.executeUpdate();
+	        esito = rowsAffected > 0;  
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        esito = false;  
+	    } finally {
+	        
+	        if (st1 != null) {
+	            try {
+	                st1.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	        DatabaseConnection.closeConnection(conn);
+	    }
+
+	    return esito;
+	}
+
 
 }

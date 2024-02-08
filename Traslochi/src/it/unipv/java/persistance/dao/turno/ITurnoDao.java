@@ -7,11 +7,12 @@ import it.unipv.java.model.LoginModel;
 import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.Responsabile;
 import it.unipv.java.model.Turno;
+import it.unipv.java.model.TurnoModel;
 
 public interface ITurnoDao {
-	public List<Turno> getAllTurni(Turno t,Responsabile r);
-    public Turno getTurno(Turno t,Dipendente d);
-    public boolean createTurno(Turno t,Responsabile r);
-    public boolean updateTurno(Turno t,Responsabile r);
-    public boolean deleteTurno(Turno t,Responsabile r);
+	public List<Turno> getAllTurni();
+    public Turno getTurno(Dipendente d);
+    public boolean createTurno(TurnoModel t);
+    public boolean updateTurno(Turno t);
+    public boolean deleteTurno(Turno t);
 }
