@@ -40,7 +40,7 @@ public class LoginView extends JFrame {
 	public LoginView() {
 		setTitle("Login ");
 		setResizable(false);
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\nikola.manev\\Downloads\\Logo-Bidons.png")); // DA SOSTITUIRE LINK 
+		setIconImage(Toolkit.getDefaultToolkit().getImage("Progetto-F24\\Traslochi\\resources\\IconaLogin.png")); // DA SOSTITUIRE LINK 
 		setBackground(SystemColor.textHighlight);
 		setForeground(new Color(0, 128, 255));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
