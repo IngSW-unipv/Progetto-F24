@@ -7,17 +7,17 @@ import it.unipv.java.model.RegisterModel;
 import it.unipv.java.persistance.dao.cliente.ClienteDao;
 import it.unipv.java.view.LoginView;
 import it.unipv.java.view.RegisterView;
-import it.unipv.java.view.WarningView;
+import it.unipv.java.view.PassWarningView;
 
 public class RegisterController {
 
 	private RegisterView registerView;
 	private RegisterModel registerModel;
 	private ClienteDao clienteDao;
-	private WarningView warningView;
+	private PassWarningView warningView;
 	private LoginView loginView;
 	
-	public RegisterController(RegisterView registerView, RegisterModel registerModel, ClienteDao clienteDao, WarningView warningView) {
+	public RegisterController(RegisterView registerView, RegisterModel registerModel, ClienteDao clienteDao, PassWarningView warningView) {
 		this.registerView= registerView;
 		this.registerModel= registerModel;
 		this.clienteDao= clienteDao;
@@ -50,10 +50,17 @@ public class RegisterController {
 		
 		
 		//MANCA DA IMPLEMENTARE SE LA MAIL NON ESISTE GIA'
+		
+		
 		//CONTROLLO SE PASS= PASSRIPETUTA
 		if(!password.equals(passwordRipetuta)) {
 			warningView.mostraErrorMessage();
-		} else if(password.equals(passwordRipetuta)) {
+		} else if(clienteDao.checkExistingEmail(email)) {
+			
+			//CREARE VIEW EMAILWARNINGVIEW E IMPLEMENTARLA QUA
+			
+			
+		}else if(password.equals(passwordRipetuta) && clienteDao.checkExistingEmail(email) == false) {
 			registerModel.setNome(nome);
 			registerModel.setCognome(cognome);
 			registerModel.setEmail(email);
@@ -65,9 +72,6 @@ public class RegisterController {
 				registerView.dispose(); // CHIUDI SCHERMATA REGISTRAZIONE
 		        loginView.setVisible(true); // APRI SCHERMATA LOGIN
 			}
-			
-			
-			
 			
 		}
 	}

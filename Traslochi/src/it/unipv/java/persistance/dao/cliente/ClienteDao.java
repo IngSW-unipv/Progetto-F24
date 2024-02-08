@@ -182,6 +182,35 @@ public class ClienteDao implements IClienteDao{
 		}
 		return true;
 	}
+	
+	public boolean checkExistingEmail(String email) {
+		conn= DatabaseConnection.startConnection(conn, schema);
+		String query = "SELECT * FROM CLIENTI WHERE EMAIL = ?";
+		ResultSet rs= null;
+		
+		try (PreparedStatement pstmt = conn.prepareStatement(query)) { 
+	        // Set the parameter
+	        pstmt.setString(1, email);
+	        
+	        // Execute the query
+	        rs = pstmt.executeQuery();
+	        
+	        // If the result set has at least one row, the email exists
+	        return rs.next();
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        return false;
+	    } finally {
+	        try {
+	            if (rs != null) rs.close();
+	             
+	            DatabaseConnection.closeConnection(conn);
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	    }
+		
+	}
 
  	}
 

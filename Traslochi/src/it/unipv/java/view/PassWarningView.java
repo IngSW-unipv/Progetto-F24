@@ -2,7 +2,6 @@ package it.unipv.java.view;
 
 import java.awt.EventQueue;
 import it.unipv.java.view.RegisterView;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
@@ -14,7 +13,7 @@ import java.awt.SystemColor;
 import java.awt.Toolkit;
 import java.awt.Point;
 
-public class WarningView {
+public class PassWarningView {
 
 	private JFrame frame;
 	private RegisterView registerView;
@@ -27,7 +26,7 @@ public class WarningView {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					WarningView window = new WarningView();
+					PassWarningView window = new PassWarningView();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,7 +38,7 @@ public class WarningView {
 	/**
 	 * Create the application.
 	 */
-	public WarningView() {
+	public PassWarningView() {
 		initialize();
 	}
 
