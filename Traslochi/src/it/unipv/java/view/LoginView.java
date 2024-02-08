@@ -21,7 +21,7 @@ public class LoginView extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JPasswordField textAreaPassword;
+	private JPasswordField Password;
 	private JPanel panelLogin;
 	private JLabel lblNewLabel;
 	private JSeparator separator;
@@ -29,7 +29,7 @@ public class LoginView extends JFrame {
 	private JLabel passwordLabel;
 	private JSeparator separator_1;
 	private JButton loginButton;
-	private JTextArea textAreaEmail;
+	private JTextArea Email;
 	private JPanel panel;
 	private JLabel lblNewLabel_2;
 	private JButton registerButton;
@@ -38,6 +38,7 @@ public class LoginView extends JFrame {
 	
 
 	public LoginView() {
+		setTitle("Login ");
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\nikola.manev\\Downloads\\Logo-Bidons.png"));
 		setBackground(SystemColor.textHighlight);
@@ -94,16 +95,16 @@ public class LoginView extends JFrame {
 		loginButton.setFocusable(false);
 		panelLogin.add(loginButton);
 		
-		textAreaEmail = new JTextArea();
-		textAreaEmail.setBounds(10, 63, 191, 22);
-		panelLogin.add(textAreaEmail);
+		Email = new JTextArea();
+		Email.setBounds(10, 63, 191, 22);
+		panelLogin.add(Email);
 		
-		textAreaPassword = new JPasswordField();
-		textAreaPassword.setBorder(null);
-		textAreaPassword.setBounds(10, 108, 191, 20);
-		panelLogin.add(textAreaPassword);
+		Password = new JPasswordField();
+		Password.setBorder(null);
+		Password.setBounds(10, 108, 191, 20);
+		panelLogin.add(Password);
 		
-		registerButton = new JButton("Register");
+		registerButton = new JButton("Registrati");
 		registerButton.setForeground(Color.WHITE);
 		registerButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		registerButton.setBorderPainted(false);
@@ -116,7 +117,7 @@ public class LoginView extends JFrame {
 		lblNewLabel_1 = new JLabel("OR");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 10));
 		lblNewLabel_1.setForeground(SystemColor.textHighlight);
-		lblNewLabel_1.setBounds(92, 197, 15, 14);
+		lblNewLabel_1.setBounds(95, 197, 15, 14);
 		panelLogin.add(lblNewLabel_1);
 		
 		panel = new JPanel();
@@ -134,11 +135,11 @@ public class LoginView extends JFrame {
 	}
 	
 	public String getEmail() {
-		return textAreaEmail.getText();
+		return Email.getText();
 	}
 	
 	public String getPassword() {
-		return textAreaPassword.getSelectedText();
+		return Password.getSelectedText();
 	}
 	
 	void addLoginListener(ActionListener listenForLogin) {
