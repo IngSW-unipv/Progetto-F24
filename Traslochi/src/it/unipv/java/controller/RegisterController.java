@@ -15,7 +15,7 @@ public class RegisterController {
 	private RegisterModel registerModel;
 	private ClienteDao clienteDao;
 	private WarningView warningView;
-	private LoginView loginView;
+	
 	
 	public RegisterController(RegisterView registerView, RegisterModel registerModel, ClienteDao clienteDao, WarningView warningView) {
 		this.registerView= registerView;
@@ -39,25 +39,19 @@ public class RegisterController {
 	}
 	
 	private void confermaRegistrazione() {
-		//PRENDO I DATI DALLA VIEW
-		//String nome= registerView.getNome();
-		String cognome = registerView.getCognome();
-		String codiceFiscale = registerView.getCF();
-		String email = registerView.getEmail();
-		String password = new String(registerView.getPass());
-		String passwordRipetuta = new String(registerView.getPassRipetuta());
-		
 		
 		//CONTROLLO SE PASS= PASSRIPETUTA e SE MAIL ESISTE GIA'
-		if(!password.equals(passwordRipetuta)) {
+		if(!registerView.getPass().equals(registerView.getPassRipetuta())) {
 			warningView.mostraErrorPassword();
-		} else if(clienteDao.checkExistingEmail(email)) {
+		} else if(clienteDao.checkExistingEmail(registerView.getEmail())) {
 			warningView.mostraErrorEmail();
-		}else if(password.equals(passwordRipetuta) && clienteDao.checkExistingEmail(email) == false) {
+		}else if(registerView.getPass().equals(registerView.getPassRipetuta()) && clienteDao.checkExistingEmail(registerView.getEmail()) == false) {
 			registerModel.setNome(registerView.getNome());
-			registerModel.setCognome(cognome);
-			registerModel.setEmail(email);
-			registerModel.setPassword(password);
+			registerModel.setCognome(registerView.getCognome());
+			registerModel.setEmail(registerView.getEmail());
+			registerModel.setPassword(registerView.getPass());
+			registerModel.setIdCliente(registerView.getCF());
+			
 			
 			/*boolean registrazioneSuccesso = clienteDao.createCliente(registerModel);
 			

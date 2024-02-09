@@ -8,12 +8,9 @@ public class RegisterModel {
 	private String idDipendente;
 	private String idResponsabile;
 	private String email;
-	private String password;
+	private char[] password;
 
-	public RegisterModel() {
-		// TODO Auto-generated constructor stub
-	}
-	public RegisterModel(String nome, String cognome, String idCliente, String idDipendente, String idResponsabile, String email, String password) {
+	public RegisterModel(String nome, String cognome,String idCliente, String idDipendente, String idResponsabile, String email, char[] password) {
         this.nome = nome;
         this.cognome = cognome;
         this.idCliente = idCliente;
@@ -28,7 +25,7 @@ public class RegisterModel {
 	}
 	
 	public void setNome(String nome) {
-		nome = nome;
+		this.nome = nome;
 	}
 	
 	public String getCognome() {
@@ -36,7 +33,7 @@ public class RegisterModel {
 	}
 	
 	public void setCognome(String cognome) {
-		cognome = cognome;
+		this.cognome = cognome;
 	}
 	
 	public String getEmail() {
@@ -44,15 +41,15 @@ public class RegisterModel {
 	}
 	
 	public void setEmail(String email) {
-		email = email;
+		this.email = email;
 	}
 	
-	public String getPassword() {
+	public char[] getPassword() {
 		return password;
 	}
 	
-	public void setPassword(String password) {
-		password = password;
+	public void setPassword(char[] cs) {
+		this.password = cs;
 	}
 	
 	public String getIdCliente() {
@@ -60,7 +57,7 @@ public class RegisterModel {
 	}
 	
 	public void setIdCliente(String idCliente) {
-		idCliente = idCliente;
+		this.idCliente = idCliente;
 	}
 	
 	public String getIdDipendente() {
@@ -68,7 +65,7 @@ public class RegisterModel {
 	}
 	
 	public void setIdDipendente(String idDipendente) {
-		idDipendente = idDipendente;
+		this.idDipendente = idDipendente;
 	}
 	
 	public String getIdResponsabile() {
@@ -76,7 +73,7 @@ public class RegisterModel {
 	}
 	
 	public void setIdResponsabile(String idResponsabile) {
-		idResponsabile = idResponsabile;
+		this.idResponsabile = idResponsabile;
 	}
 	
 }
