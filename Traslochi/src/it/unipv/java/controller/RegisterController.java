@@ -2,7 +2,6 @@ package it.unipv.java.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import it.unipv.java.model.RegisterModel;
 import it.unipv.java.persistance.dao.cliente.ClienteDao;
 import it.unipv.java.view.LoginView;
@@ -15,7 +14,7 @@ public class RegisterController {
 	private RegisterModel registerModel;
 	private ClienteDao clienteDao;
 	private WarningView warningView;
-	
+	private LoginView loginView;
 	
 	public RegisterController(RegisterView registerView, RegisterModel registerModel, ClienteDao clienteDao, WarningView warningView) {
 		this.registerView= registerView;
