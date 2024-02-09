@@ -8,9 +8,9 @@ public class RegisterModel {
 	private String idDipendente;
 	private String idResponsabile;
 	private String email;
-	private char[] password;
+	private String password;
 
-	public RegisterModel(String nome, String cognome,String idCliente, String idDipendente, String idResponsabile, String email, char[] password) {
+	public RegisterModel(String nome, String cognome,String idCliente, String idDipendente, String idResponsabile, String email, String password) {
         this.nome = nome;
         this.cognome = cognome;
         this.idCliente = idCliente;
@@ -44,11 +44,11 @@ public class RegisterModel {
 		this.email = email;
 	}
 	
-	public char[] getPassword() {
+	public String getPassword() {
 		return password;
 	}
 	
-	public void setPassword(char[] cs) {
+	public void setPassword(String cs) {
 		this.password = cs;
 	}
 	
