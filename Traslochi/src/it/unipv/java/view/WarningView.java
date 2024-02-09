@@ -21,9 +21,7 @@ public class WarningView {
 	private JLabel labelPassword;
 	private JLabel labelEmail;
 
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -37,9 +35,7 @@ public class WarningView {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
+	
 	public WarningView() {
 		initialize();
 	}
@@ -47,13 +43,13 @@ public class WarningView {
 	
 	private void initialize() {
 		frame = new JFrame();
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("Progetto-F24\\Traslochi\\resources\\bidons.jpg"));
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("resources/IconaLogin.png"));
 		frame.setUndecorated(true);
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 232, 81);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		frame.setLocationRelativeTo(registerView.getJPasswordField());
+		frame.setLocationRelativeTo(null);
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 0, 243, 102);

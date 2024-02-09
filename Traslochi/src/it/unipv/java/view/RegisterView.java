@@ -7,6 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JSeparator;
 import java.awt.SystemColor;
+import java.awt.EventQueue;
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
@@ -46,9 +47,22 @@ public class RegisterView extends JFrame {
 	private JTextArea email;
 	private JLabel labelTitolo;
 	
+	
+	
+
+	
+    public static void main(String[] args) {
+	        // Crea un'istanza della finestra di registrazione
+	        RegisterView registerView = new RegisterView();
+	        
+	        // Imposta la visibilità della finestra
+	        registerView.setVisible(true);
+	    }
+	
+
 
 	public RegisterView() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("Progetto-F24\\\\Traslochi\\\\resources\\\\bidons.jpg"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("resources/Register"));
 		setResizable(false);
 		setTitle("Registrazione");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -56,6 +70,9 @@ public class RegisterView extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		
+		String imagePath = "resources/IconaLogin.png";
+		ImageIcon iconLogin= new ImageIcon(imagePath);
+		setIconImage(iconLogin.getImage());
 		
 		this.setLocationRelativeTo(null); //CENTRA IL FRAME AL CENTRO DEL PC
 
@@ -70,7 +87,7 @@ public class RegisterView extends JFrame {
 		iconaUser3.setLayout(null);
 		
 		iconaUser1 = new JLabel("");
-		iconaUser1.setIcon(new ImageIcon("Progetto-F24\\Traslochi\\resources\\user5%.png"));
+		iconaUser1.setIcon(new ImageIcon("resources/iconaUser.png")); // da cambiare
 		iconaUser1.setBounds(38, 98, 13, 28);
 		iconaUser3.add(iconaUser1);
 		
@@ -108,12 +125,12 @@ public class RegisterView extends JFrame {
 		iconaUser3.add(separator_2);
 		
 		iconaUser2 = new JLabel("");
-		iconaUser2.setIcon(new ImageIcon("Progetto-F24\\Traslochi\\resources\\user5%.png"));
+		iconaUser2.setIcon(new ImageIcon("resources/iconaUser.png")); // da cambiare
 		iconaUser2.setBounds(265, 98, 13, 28);
 		iconaUser3.add(iconaUser2);
 		
 		iconaUser4 = new JLabel("");
-		iconaUser4.setIcon(new ImageIcon("Progetto-F24\\Traslochi\\resources\\user5%.png"));
+		iconaUser4.setIcon(new ImageIcon("resources/iconaUser.png")); // da cambiare
 		iconaUser4.setBounds(96, 163, 13, 28);
 		iconaUser3.add(iconaUser4);
 		
@@ -124,7 +141,7 @@ public class RegisterView extends JFrame {
 		iconaUser3.add(labelEmail);
 		
 		iconaMail = new JLabel("");
-		iconaMail.setIcon(new ImageIcon("Progetto-F24\\Traslochi\\resources\\iconaMail5%.jpg"));
+		iconaMail.setIcon(new ImageIcon("resources/iconaMail.jpg"));
 		iconaMail.setBounds(96, 229, 23, 28);
 		iconaUser3.add(iconaMail);
 		
@@ -145,7 +162,7 @@ public class RegisterView extends JFrame {
 		iconaUser3.add(separator_2_1_1);
 		
 		iconPass1 = new JLabel("");
-		iconPass1.setIcon(new ImageIcon("Progetto-F24\\Traslochi\\resources\\iconaPass5%.png"));
+		iconPass1.setIcon(new ImageIcon("resources/iconaPassword.png"));
 		iconPass1.setBounds(96, 299, 13, 28);
 		iconaUser3.add(iconPass1);
 		
@@ -161,7 +178,7 @@ public class RegisterView extends JFrame {
 		iconaUser3.add(separator_3);
 		
 		iconaPass2 = new JLabel("");
-		iconaPass2.setIcon(new ImageIcon("Progetto-F24\\Traslochi\\resources\\iconaPass5%.png"));
+		iconaPass2.setIcon(new ImageIcon("resources/iconaPassword.png"));
 		iconaPass2.setBounds(96, 368, 13, 28);
 		iconaUser3.add(iconaPass2);
 		

@@ -36,7 +36,6 @@ public class LoginView extends JFrame {
 	private JButton registerButton;
 	private JLabel lblNewLabel_1;
 	
-	
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -54,8 +53,12 @@ public class LoginView extends JFrame {
 	public LoginView() {
 		setTitle("Login ");
 		setResizable(false);
-		setIconImage(Toolkit.getDefaultToolkit().getImage("/Traslochi/resources/IconaLogin.png")); // DA SOSTITUIRE LINK 
-		setIconImage(Toolkit.getDefaultToolkit().getImage("Progetto-F24\\Traslochi\\resources\\IconaLogin.png")); // DA SOSTITUIRE LINK 
+	
+		String imagePath = "resources/IconaLogin.png";
+		ImageIcon iconLogin= new ImageIcon(imagePath);
+		setIconImage(iconLogin.getImage());
+		
+		
 		setBackground(SystemColor.textHighlight);
 		setForeground(new Color(0, 128, 255));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -147,7 +150,9 @@ public class LoginView extends JFrame {
 		lblNewLabel_2.setIconTextGap(0);
 		lblNewLabel_2.setMaximumSize(new Dimension(6, 5));
 		lblNewLabel_2.setSize(new Dimension(4, 4));
-		lblNewLabel_2.setIcon(new ImageIcon("Progetto-F24\\Traslochi\\resources\\bidons9.jpg")); // DA SOSTITUIRE LINK 
+		
+		
+		lblNewLabel_2.setIcon(new ImageIcon("resources/immagineLoginPanel.jpg")); // DA SOSTITUIRE LINK 
 		lblNewLabel_2.setBounds(-16, 0, 238, 261);
 		panel.add(lblNewLabel_2);
 		
