@@ -80,28 +80,30 @@ public class LoginView extends JFrame {
 		panelLogin.setLayout(null);
 		
 		lblNewLabel = new JLabel("Sign In");
-		lblNewLabel.setForeground(new Color(0, 128, 255));
+		lblNewLabel.setForeground(SystemColor.textHighlight);
 		lblNewLabel.setFont(new Font("Segoe UI Black", Font.PLAIN, 18));
 		lblNewLabel.setBounds(10, 0, 72, 52);
 		panelLogin.add(lblNewLabel);
 		
 		separator = new JSeparator();
+		separator.setForeground(new Color(100, 149, 237));
 		separator.setBounds(10, 83, 191, 2);
 		panelLogin.add(separator);
 		
 		emailLabel = new JLabel("Email");
-		emailLabel.setForeground(Color.GRAY);
+		emailLabel.setForeground(new Color(100, 149, 237));
 		emailLabel.setFont(new Font("Yu Gothic Light", Font.PLAIN, 11));
 		emailLabel.setBounds(10, 48, 46, 14);
 		panelLogin.add(emailLabel);
 		
 		passwordLabel = new JLabel("Password");
-		passwordLabel.setForeground(Color.GRAY);
+		passwordLabel.setForeground(new Color(100, 149, 237));
 		passwordLabel.setFont(new Font("Yu Gothic Light", Font.PLAIN, 11));
 		passwordLabel.setBounds(10, 96, 60, 14);
 		panelLogin.add(passwordLabel);
 		
 		separator_1 = new JSeparator();
+		separator_1.setForeground(new Color(100, 149, 237));
 		separator_1.setBounds(10, 131, 191, 14);
 		panelLogin.add(separator_1);
 		
@@ -111,7 +113,7 @@ public class LoginView extends JFrame {
 		loginButton.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		loginButton.setIcon(null);
 		loginButton.setForeground(Color.WHITE);
-		loginButton.setBackground(new Color(0, 128, 255));
+		loginButton.setBackground(SystemColor.textHighlight);
 		loginButton.setBounds(20, 156, 162, 28);
 		loginButton.setFocusable(false);
 		panelLogin.add(loginButton);
@@ -130,14 +132,14 @@ public class LoginView extends JFrame {
 		registerButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		registerButton.setBorderPainted(false);
 		registerButton.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		registerButton.setBackground(new Color(0, 128, 255));
+		registerButton.setBackground(SystemColor.textHighlight);
 		registerButton.setBounds(20, 222, 162, 28);
 		registerButton.setFocusable(false);
 		panelLogin.add(registerButton);
 		
 		lblNewLabel_1 = new JLabel("OR");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 10));
-		lblNewLabel_1.setForeground(SystemColor.textHighlight);
+		lblNewLabel_1.setForeground(new Color(100, 149, 237));
 		lblNewLabel_1.setBounds(95, 197, 15, 14);
 		panelLogin.add(lblNewLabel_1);
 		

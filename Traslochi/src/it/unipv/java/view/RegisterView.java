@@ -14,6 +14,7 @@ import javax.swing.JTextArea;
 import javax.swing.JPasswordField;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
+import java.awt.Color;
 
 public class RegisterView extends JFrame {
 
@@ -102,21 +103,21 @@ public class RegisterView extends JFrame {
 		iconaUser3.add(separator_1);
 		
 		labelNome = new JLabel("Nome");
-		labelNome.setFont(new Font("Tahoma", Font.BOLD, 11));
-		labelNome.setForeground(SystemColor.textHighlight);
+		labelNome.setFont(new Font("Tahoma", Font.BOLD, 13));
+		labelNome.setForeground(new Color(100, 149, 237));
 		labelNome.setBounds(61, 84, 46, 14);
 		iconaUser3.add(labelNome);
 		
 		labelCognome = new JLabel("Cognome");
-		labelCognome.setForeground(SystemColor.textHighlight);
-		labelCognome.setFont(new Font("Tahoma", Font.BOLD, 11));
-		labelCognome.setBounds(286, 84, 72, 14);
+		labelCognome.setForeground(new Color(100, 149, 237));
+		labelCognome.setFont(new Font("Tahoma", Font.BOLD, 13));
+		labelCognome.setBounds(286, 80, 72, 23);
 		iconaUser3.add(labelCognome);
 		
 		labelCF = new JLabel("Codice Fiscale");
-		labelCF.setForeground(SystemColor.textHighlight);
-		labelCF.setFont(new Font("Tahoma", Font.BOLD, 12));
-		labelCF.setBounds(120, 147, 85, 14);
+		labelCF.setForeground(new Color(100, 149, 237));
+		labelCF.setFont(new Font("Tahoma", Font.BOLD, 13));
+		labelCF.setBounds(120, 147, 107, 14);
 		iconaUser3.add(labelCF);
 		
 		separator_2 = new JSeparator();
@@ -135,8 +136,8 @@ public class RegisterView extends JFrame {
 		iconaUser3.add(iconaUser4);
 		
 		labelEmail = new JLabel("Email");
-		labelEmail.setForeground(SystemColor.textHighlight);
-		labelEmail.setFont(new Font("Tahoma", Font.BOLD, 12));
+		labelEmail.setForeground(new Color(100, 149, 237));
+		labelEmail.setFont(new Font("Tahoma", Font.BOLD, 13));
 		labelEmail.setBounds(120, 218, 85, 14);
 		iconaUser3.add(labelEmail);
 		
@@ -151,8 +152,8 @@ public class RegisterView extends JFrame {
 		iconaUser3.add(separator_2_1);
 		
 		labelPassword = new JLabel("Password");
-		labelPassword.setFont(new Font("Tahoma", Font.BOLD, 12));
-		labelPassword.setForeground(SystemColor.textHighlight);
+		labelPassword.setFont(new Font("Tahoma", Font.BOLD, 13));
+		labelPassword.setForeground(new Color(100, 149, 237));
 		labelPassword.setBounds(120, 285, 85, 14);
 		iconaUser3.add(labelPassword);
 		
@@ -167,8 +168,8 @@ public class RegisterView extends JFrame {
 		iconaUser3.add(iconPass1);
 		
 		labelRipetiPassword = new JLabel("Ripeti Password");
-		labelRipetiPassword.setForeground(SystemColor.textHighlight);
-		labelRipetiPassword.setFont(new Font("Tahoma", Font.BOLD, 12));
+		labelRipetiPassword.setForeground(new Color(100, 149, 237));
+		labelRipetiPassword.setFont(new Font("Tahoma", Font.BOLD, 13));
 		labelRipetiPassword.setBounds(120, 356, 107, 14);
 		iconaUser3.add(labelRipetiPassword);
 		
@@ -185,7 +186,7 @@ public class RegisterView extends JFrame {
 		registerConfirmButton = new JButton("Conferma Registrazione");
 		registerConfirmButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		registerConfirmButton.setBorder(null);
-		registerConfirmButton.setBackground(SystemColor.textHighlight);
+		registerConfirmButton.setBackground(new Color(30, 144, 255));
 		registerConfirmButton.setForeground(SystemColor.text);
 		registerConfirmButton.setBounds(120, 425, 238, 23);
 		registerConfirmButton.setFocusable(false);
@@ -222,7 +223,7 @@ public class RegisterView extends JFrame {
 		iconaUser3.add(ripetiPassword);
 		
 		labelTitolo = new JLabel("Registrazione");
-		labelTitolo.setForeground(SystemColor.textHighlight);
+		labelTitolo.setForeground(new Color(100, 149, 237));
 		labelTitolo.setFont(new Font("Tahoma", Font.BOLD, 20));
 		labelTitolo.setBounds(176, 29, 139, 32);
 		iconaUser3.add(labelTitolo);
