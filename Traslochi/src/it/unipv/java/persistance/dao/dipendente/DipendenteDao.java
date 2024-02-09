@@ -7,7 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import it.unipv.java.model.Dipendente;
+import it.unipv.java.model.DipendenteModel;
 import it.unipv.java.model.LoginModel;
 import it.unipv.java.model.RegisterModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
@@ -22,8 +22,8 @@ public class DipendenteDao implements IDipendenteDao {
 	}
 
 	@Override
-	public List<Dipendente> getAllDipendenti() {
-	    List<Dipendente> dipendenti = new ArrayList<>();
+	public List<DipendenteModel> getAllDipendenti() {
+	    List<DipendenteModel> dipendenti = new ArrayList<>();
 	   
 	    Statement stmt = null;
 	    ResultSet rs = null;
@@ -38,8 +38,8 @@ public class DipendenteDao implements IDipendenteDao {
 
 	        // Process the result set
 	        while (rs.next()) {
-	            Dipendente dipendente = new Dipendente();
-	            dipendente.setIdDipendente(rs.getString("IDDIPENDENTI")); // Adjust the method names and types accordingly
+	        	DipendenteModel dipendente = new DipendenteModel();
+	            dipendente.setIdDipendente(rs.getInt("IDDIPENDENTI")); // Adjust the method names and types accordingly
 	            dipendente.setNome(rs.getString("NOME"));
 	            dipendente.setCognome(rs.getString("COGNOME"));
 	            dipendente.setEmail(rs.getString("EMAIL"));
@@ -64,9 +64,9 @@ public class DipendenteDao implements IDipendenteDao {
 
 
 	@Override
-	public Dipendente getDipendente(LoginModel login) {
+	public DipendenteModel getDipendente(LoginModel login) {
 		
-	    Dipendente dipendente = null;
+		DipendenteModel dipendente = null;
 	    conn = DatabaseConnection.startConnection(conn, schema);
 	     
 	    String sql = "SELECT * FROM DIPENDENTI WHERE EMAIL = ? AND PASSWORD = ?";
@@ -83,8 +83,8 @@ public class DipendenteDao implements IDipendenteDao {
 	        
 	        // Process the result set
 	        if (rs.next()) {
-	            dipendente = new Dipendente();
-	            dipendente.setIdDipendente(rs.getString("IDDIPENDENTI"));
+	            dipendente = new DipendenteModel();
+	            dipendente.setIdDipendente(rs.getInt("IDDIPENDENTI"));
 	            dipendente.setNome(rs.getString("NOME"));
 	            dipendente.setCognome(rs.getString("COGNOME"));
 	            dipendente.setEmail(rs.getString("EMAIL"));
@@ -130,7 +130,7 @@ public class DipendenteDao implements IDipendenteDao {
 	}
 
 	@Override
-	public boolean updateDipendente(Dipendente d) {
+	public boolean updateDipendente(DipendenteModel d) {
 
 		conn = DatabaseConnection.startConnection(conn, schema);
 		String query = "UPDATE DIPENDENTI SET NOME=?,COGNOME=?,EMAIL=?,PASSWORD=? WHERE id=?";
@@ -141,7 +141,7 @@ public class DipendenteDao implements IDipendenteDao {
 			st1.setString(2, d.getCognome());
 			st1.setString(3, d.getEmail());
 			st1.setString(4, d.getPassword());
-			st1.setString(5, d.getIdDipendente());
+			st1.setInt(5, d.getIdDipendente());
 
 			st1.executeUpdate(query);
 
@@ -156,7 +156,7 @@ public class DipendenteDao implements IDipendenteDao {
 	}
 
 	@Override
-	public boolean deleteDipendente(Dipendente d) {
+	public boolean deleteDipendente(DipendenteModel d) {
 
 		conn = DatabaseConnection.startConnection(conn, schema);
 
@@ -164,7 +164,7 @@ public class DipendenteDao implements IDipendenteDao {
 
 		try (PreparedStatement st1 = conn.prepareStatement(query)) {
 
-			st1.setString(1, d.getIdDipendente());
+			st1.setInt(1, d.getIdDipendente());
 			st1.executeUpdate(query);
 
 		} catch (Exception e) {

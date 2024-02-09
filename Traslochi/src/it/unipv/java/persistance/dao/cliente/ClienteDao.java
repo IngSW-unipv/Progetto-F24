@@ -7,8 +7,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import it.unipv.java.model.Cliente;
-import it.unipv.java.model.Dipendente;
+import it.unipv.java.model.ClienteModel;
+import it.unipv.java.model.DipendenteModel;
 import it.unipv.java.model.LoginModel;
 import it.unipv.java.model.RegisterModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
@@ -23,8 +23,8 @@ public class ClienteDao implements IClienteDao{
 	}
 	
 	@Override
-	public List<Cliente> getAllClienti(){
-	    List<Cliente> clienti = new ArrayList<>();
+	public List<ClienteModel> getAllClienti(){
+	    List<ClienteModel> clienti = new ArrayList<>();
 	   
 	    Statement stmt = null;
 	    ResultSet rs = null;
@@ -39,8 +39,8 @@ public class ClienteDao implements IClienteDao{
 
 	        // Process the result set
 	        while (rs.next()) {
-	            Cliente c = new Cliente();
-	            c.setIdCliente(rs.getString("IDDIPENDENTI")); // Adjust the method names and types accordingly
+	        	ClienteModel c = new ClienteModel();
+	            c.setIdCliente(rs.getInt("IDDIPENDENTI")); // Adjust the method names and types accordingly
 	            c.setNome(rs.getString("NOME"));
 	            c.setCognome(rs.getString("COGNOME"));
 	            c.setEmail(rs.getString("EMAIL"));
@@ -65,9 +65,9 @@ public class ClienteDao implements IClienteDao{
 	
 	
 	@Override
-    public Cliente getCliente(LoginModel login) {
+    public ClienteModel getCliente(LoginModel login) {
 		
-		Cliente cliente = null;
+		ClienteModel cliente = null;
 	    conn = DatabaseConnection.startConnection(conn, schema);
 	     
 	    String sql = "SELECT * FROM CLIENTE WHERE EMAIL = ? AND PASSWORD = ?";
@@ -84,8 +84,8 @@ public class ClienteDao implements IClienteDao{
 	        
 	        // Process the result set
 	        if (rs.next()) {
-	            cliente = new Cliente();
-	            cliente.setIdCliente(rs.getString("IDDIPENDENTI"));
+	        	ClienteModel c = new ClienteModel();
+	            cliente.setIdCliente(rs.getInt("IDDIPENDENTI"));
 	            cliente.setNome(rs.getString("NOME"));
 	            cliente.setCognome(rs.getString("COGNOME"));
 	            cliente.setEmail(rs.getString("EMAIL"));
@@ -137,7 +137,7 @@ public class ClienteDao implements IClienteDao{
 	}
  
 	@Override
-	public boolean updateCliente(Cliente c) {
+	public boolean updateCliente(ClienteModel c) {
 
 		conn = DatabaseConnection.startConnection(conn, schema);
 		String query = "UPDATE CLIENTI SET NOME=?,COGNOME=?,EMAIL=?,PASSWORD=? WHERE id=?";
@@ -148,7 +148,7 @@ public class ClienteDao implements IClienteDao{
 			st1.setString(2, c.getCognome());
 			st1.setString(3, c.getEmail());
 			st1.setString(4, c.getPassword());
-			st1.setString(5, c.getIdCliente());
+			st1.setInt(5, c.getIdCliente());
 
 			st1.executeUpdate(query);
 
@@ -164,12 +164,12 @@ public class ClienteDao implements IClienteDao{
 	 
 	
 	@Override
-	public boolean deleteCliente(Cliente c) { 
+	public boolean deleteCliente(ClienteModel c) { 
 	    
 	    String query = "DELETE FROM Clienti WHERE idCliente = ?"; // Use the actual column name for client ID
 	    try (PreparedStatement st1 = conn.prepareStatement(query)) {
 	         
-	    	st1.setString(1, c.getIdCliente()); // Assuming idCliente is an integer. Use setString if it's a VARCHAR
+	    	st1.setInt(1, c.getIdCliente()); // Assuming idCliente is an integer. Use setString if it's a VARCHAR
 	        
 	    	st1.executeUpdate();
 	        
@@ -210,8 +210,7 @@ public class ClienteDao implements IClienteDao{
 	        }
 	    }
 		
-	}
-
+	} 
  	}
 
 

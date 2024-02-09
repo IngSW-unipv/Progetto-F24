@@ -6,11 +6,10 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
-import it.unipv.java.model.Dipendente;
+ 
 import it.unipv.java.model.LoginModel;
 import it.unipv.java.model.RegisterModel;
-import it.unipv.java.model.Responsabile;
+import it.unipv.java.model.ResponsabileModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 
 public class ResponsabileDao implements IResponsabileDao{
@@ -23,9 +22,9 @@ public class ResponsabileDao implements IResponsabileDao{
 	}
 	
 	@Override
-	public List<Responsabile> getAllResponsabili() {
+	public List<ResponsabileModel> getAllResponsabili() {
 		
-		   List<Responsabile> responsabili = new ArrayList<>();
+		   List<ResponsabileModel> responsabili = new ArrayList<>();
 		   
 		    Statement stmt = null;
 		    ResultSet rs = null;
@@ -40,8 +39,8 @@ public class ResponsabileDao implements IResponsabileDao{
 
 		        // Process the result set
 		        while (rs.next()) {
-		            Responsabile r = new Responsabile();
-		            r.setIdResponsabile(rs.getString("IDDIPENDENTI")); // Adjust the method names and types accordingly
+		        	ResponsabileModel r = new ResponsabileModel();
+		            r.setIdResponsabile(rs.getInt("IDDIPENDENTI")); // Adjust the method names and types accordingly
 		            r.setNome(rs.getString("NOME"));
 		            r.setCognome(rs.getString("COGNOME"));
 		            r.setEmail(rs.getString("EMAIL"));
@@ -65,8 +64,8 @@ public class ResponsabileDao implements IResponsabileDao{
 	}
 
 	@Override
-	public Responsabile getResponsabile(LoginModel login) {
-		Responsabile r = null;
+	public ResponsabileModel getResponsabile(LoginModel login) {
+		ResponsabileModel r = null;
 		    conn = DatabaseConnection.startConnection(conn, schema);
 		     
 		    String sql = "SELECT * FROM RESPONSABILE WHERE EMAIL = ? AND PASSWORD = ?";
@@ -83,8 +82,8 @@ public class ResponsabileDao implements IResponsabileDao{
 		        
 		        // Process the result set
 		        if (rs.next()) {
-		            r = new Responsabile();
-		            r.setIdResponsabile(rs.getString("IDDIPENDENTI"));
+		            r = new ResponsabileModel();
+		            r.setIdResponsabile(rs.getInt("IDDIPENDENTI"));
 		            r.setNome(rs.getString("NOME"));
 		            r.setCognome(rs.getString("COGNOME"));
 		            r.setEmail(rs.getString("EMAIL"));
@@ -134,7 +133,7 @@ public class ResponsabileDao implements IResponsabileDao{
 	}
 
 	@Override
-	public boolean updateResponsabile(Responsabile r) {
+	public boolean updateResponsabile(ResponsabileModel r) {
 		conn = DatabaseConnection.startConnection(conn, schema);
 		String query = "UPDATE RESPONSABILE SET NOME=?,COGNOME=?,EMAIL=?,PASSWORD=? WHERE id=?";
 
@@ -144,7 +143,7 @@ public class ResponsabileDao implements IResponsabileDao{
 			st1.setString(2, r.getCognome());
 			st1.setString(3, r.getEmail());
 			st1.setString(4, r.getPassword());
-			st1.setString(5, r.getIdResponsabile());
+			st1.setInt(5, r.getIdResponsabile());
 
 			st1.executeUpdate(query);
 
@@ -159,14 +158,14 @@ public class ResponsabileDao implements IResponsabileDao{
 	}
 
 	@Override
-	public boolean deleteResponsabile(Responsabile r) {
+	public boolean deleteResponsabile(ResponsabileModel r) {
 		conn = DatabaseConnection.startConnection(conn, schema);
 
 		String query = "DELETE FROM RESPONSABILE WHERE idResponsabile = ? ";
 
 		try (PreparedStatement st1 = conn.prepareStatement(query)) {
 
-			st1.setString(1, r.getIdResponsabile());
+			st1.setInt(1, r.getIdResponsabile());
 			st1.executeUpdate(query);
 
 		} catch (Exception e) {

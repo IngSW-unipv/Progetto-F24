@@ -48,7 +48,7 @@ public class RegisterView extends JFrame {
 	
 
 	public RegisterView() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\nikola.manev\\Downloads\\bidons.jpg"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("Progetto-F24\\\\Traslochi\\\\resources\\\\bidons.jpg"));
 		setResizable(false);
 		setTitle("Registrazione");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -70,7 +70,7 @@ public class RegisterView extends JFrame {
 		iconaUser3.setLayout(null);
 		
 		iconaUser1 = new JLabel("");
-		iconaUser1.setIcon(new ImageIcon("C:\\Users\\nikola.manev\\Downloads\\user5%.png"));
+		iconaUser1.setIcon(new ImageIcon("Progetto-F24\\Traslochi\\resources\\user5%.png"));
 		iconaUser1.setBounds(38, 98, 13, 28);
 		iconaUser3.add(iconaUser1);
 		
@@ -108,12 +108,12 @@ public class RegisterView extends JFrame {
 		iconaUser3.add(separator_2);
 		
 		iconaUser2 = new JLabel("");
-		iconaUser2.setIcon(new ImageIcon("C:\\Users\\nikola.manev\\Downloads\\user5%.png"));
+		iconaUser2.setIcon(new ImageIcon("Progetto-F24\\Traslochi\\resources\\user5%.png"));
 		iconaUser2.setBounds(265, 98, 13, 28);
 		iconaUser3.add(iconaUser2);
 		
 		iconaUser4 = new JLabel("");
-		iconaUser4.setIcon(new ImageIcon("C:\\Users\\nikola.manev\\Downloads\\user5%.png"));
+		iconaUser4.setIcon(new ImageIcon("Progetto-F24\\Traslochi\\resources\\user5%.png"));
 		iconaUser4.setBounds(96, 163, 13, 28);
 		iconaUser3.add(iconaUser4);
 		
@@ -124,7 +124,7 @@ public class RegisterView extends JFrame {
 		iconaUser3.add(labelEmail);
 		
 		iconaMail = new JLabel("");
-		iconaMail.setIcon(new ImageIcon("C:\\Users\\nikola.manev\\Downloads\\iconaMail5%.jpg"));
+		iconaMail.setIcon(new ImageIcon("Progetto-F24\\Traslochi\\resources\\iconaMail5%.jpg"));
 		iconaMail.setBounds(96, 229, 23, 28);
 		iconaUser3.add(iconaMail);
 		
@@ -145,7 +145,7 @@ public class RegisterView extends JFrame {
 		iconaUser3.add(separator_2_1_1);
 		
 		iconPass1 = new JLabel("");
-		iconPass1.setIcon(new ImageIcon("C:\\Users\\nikola.manev\\Downloads\\iconaPass5%.png"));
+		iconPass1.setIcon(new ImageIcon("Progetto-F24\\Traslochi\\resources\\iconaPass5%.png"));
 		iconPass1.setBounds(96, 299, 13, 28);
 		iconaUser3.add(iconPass1);
 		
@@ -161,7 +161,7 @@ public class RegisterView extends JFrame {
 		iconaUser3.add(separator_3);
 		
 		iconaPass2 = new JLabel("");
-		iconaPass2.setIcon(new ImageIcon("C:\\Users\\nikola.manev\\Downloads\\iconaPass5%.png"));
+		iconaPass2.setIcon(new ImageIcon("Progetto-F24\\Traslochi\\resources\\iconaPass5%.png"));
 		iconaPass2.setBounds(96, 368, 13, 28);
 		iconaUser3.add(iconaPass2);
 		
