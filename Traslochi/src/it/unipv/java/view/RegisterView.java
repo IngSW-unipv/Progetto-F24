@@ -244,12 +244,12 @@ public class RegisterView extends JFrame {
 		return email.getText();
 	}
 	
-	public char[] getPass() {
-		return password.getPassword();
+	public String getPass() {
+		 return new String(password.getPassword());
 	}
 	
-	public char[] getPassRipetuta() {
-		return ripetiPassword.getPassword();
+	public String getPassRipetuta() {
+		return new String(ripetiPassword.getPassword());
 	}
 	
 	public void setPassRipetuta(String pass) {

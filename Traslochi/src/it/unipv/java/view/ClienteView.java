@@ -11,11 +11,21 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.SystemColor;
 import javax.swing.JButton;
+import java.awt.Font;
+import javax.swing.JSeparator;
+import java.awt.GridLayout;
+import javax.swing.JTextArea;
+import javax.swing.JCheckBox;
+import javax.swing.SpringLayout;
+import javax.swing.JLabel;
+import javax.swing.JDesktopPane;
+import javax.swing.SwingConstants;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 
 public class ClienteView extends JFrame {
 
     private JPanel contentPane;
-    private JButton btnNewButton;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
@@ -38,18 +48,15 @@ public class ClienteView extends JFrame {
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
-        GridBagLayout gbl_contentPane = new GridBagLayout();
-        gbl_contentPane.columnWidths = new int[]{107, 121, 171, 159, 142, 114, 143, 115, 173, 0};
-        gbl_contentPane.rowHeights = new int[]{61, 67, 74, 69, 69, 55, 66, 65, 61, 0};
-        gbl_contentPane.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-        gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-        contentPane.setLayout(gbl_contentPane);
-        
-        btnNewButton = new JButton("New button");
-        GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-        gbc_btnNewButton.insets = new Insets(0, 0, 5, 5);
-        gbc_btnNewButton.gridx = 2;
-        gbc_btnNewButton.gridy = 0;
-        contentPane.add(btnNewButton, gbc_btnNewButton);
+        GroupLayout gl_contentPane = new GroupLayout(contentPane);
+        gl_contentPane.setHorizontalGroup(
+        	gl_contentPane.createParallelGroup(Alignment.LEADING)
+        		.addGap(0, 1208, Short.MAX_VALUE)
+        );
+        gl_contentPane.setVerticalGroup(
+        	gl_contentPane.createParallelGroup(Alignment.LEADING)
+        		.addGap(0, 563, Short.MAX_VALUE)
+        );
+        contentPane.setLayout(gl_contentPane);
     }
 }
