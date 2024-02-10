@@ -33,20 +33,14 @@ public class AuthGestor {
 		}
 	}
 
-	public static boolean authUser(RegisterModel rm) {
-		
-		rm.getEmail() fa un controllo di quello che
-		return false;
+ 
+
+ 
+	public static boolean registerUser(UserModel um) {
 		// TODO Auto-generated method stub
-		
+		return false;
 	}
 
-	public static boolean registerUser(RegisterModel registerModel) {
-		//qua creo id
-		return false;
-		// TODO Auto-generated method stub
-		
-	}
-
+ 
  
 }

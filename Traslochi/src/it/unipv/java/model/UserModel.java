@@ -1,6 +1,6 @@
 package it.unipv.java.model;
 
-public abstract class UserModel {
+public  class UserModel {
     
     private String nome;
     private String cognome;
@@ -11,8 +11,7 @@ public abstract class UserModel {
 
     // Costruttore vuoto
     public UserModel() {
-        // Inizializzazione di default se necessaria
-    }
+     }
 
     // Costruttore completo
     public UserModel(String nome, String cognome,String cf, String email, String password, UserType userType) {
