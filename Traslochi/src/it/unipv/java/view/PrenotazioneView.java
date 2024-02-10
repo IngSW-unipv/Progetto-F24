@@ -445,6 +445,8 @@ public class PrenotazioneView extends JFrame {
 		);
 		panelBancomat.setLayout(gl_panelBancomat);
 		contentPane.setLayout(gl_contentPane);
+		panelBancomat.setVisible(false);
+		
 		
 		//AZIONE RADIO BUTTON
 		radioContanti.addActionListener(new ActionListener() {
