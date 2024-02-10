@@ -66,7 +66,7 @@ public class ClienteDao implements IClienteDao{
 	
 	
 	@Override
-    public ClienteModel getCliente(LoginModel login) {
+    public ClienteModel getCliente(AuthGestor ag) {
 		
 		ClienteModel cliente = null;
 	    conn = DatabaseConnection.startConnection(conn, schema);
@@ -77,8 +77,8 @@ public class ClienteDao implements IClienteDao{
 	    try (PreparedStatement pstmt = conn.prepareStatement(sql); ){ 
 	        
 	        // Set the parameters
-	        pstmt.setString(1, login.getEmail());
-	        pstmt.setString(2, login.getPassword());
+	        pstmt.setString(1,ag.getRm().getUm().getEmail());
+	        pstmt.setString(2,ag.getRm().getUm().getEmail());
 	        
 	        // Execute the query
 	        rs = pstmt.executeQuery();
@@ -105,8 +105,39 @@ public class ClienteDao implements IClienteDao{
 	    
 	    return cliente;
 	}
-	 
-	
+	  
+	public boolean verifyCredentials(AuthGestor ag) {
+		ag.getRm().getUm().getEmail();
+		ag.getRm().getUm().getPassword();
+		
+         Cliente cliente = getCliente(email);
+        
+        if (cliente == null) {
+            // Nessun utente trovato con questa email
+            return false;
+        }
+
+         //String hashedPassword = cliente.getPassword();
+        // new BCryptPasswordEncoder().matches(passwordProvided, hashedPassword);
+    }
+	public boolean verifyCredentials(String email, String password) {
+	    // Assumendo di avere una connessione al database 'connection'
+	    try (PreparedStatement stmt = connection.prepareStatement("SELECT password FROM utenti WHERE email = ?")) {
+	        stmt.setString(1, email);
+	        try (ResultSet rs = stmt.executeQuery()) {
+	            if (rs.next()) {
+	                String storedPasswordHash = rs.getString("password");
+	                // Utilizza BCrypt o un'altra libreria di hashing per verificare la password
+	                return BCrypt.checkpw(password, storedPasswordHash);
+	            }
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	        // Gestisci l'eccezione
+	    }
+	    return false;
+	}
+
 	
 	@Override
 	public boolean createCliente(AuthGestor ag) {
@@ -119,12 +150,11 @@ public class ClienteDao implements IClienteDao{
 		{
 			String query="INSERT INTO CLIENTI (NOME,COGNOME,EMAIL,PASSWORD,IDCLIENTE) VALUES(?,?,?,?,?)";
 			st1 = conn.prepareStatement(query);
-			st1.setString(1,ag.getNome());
-			st1.setString(2,ag.getCognome());
-			st1.setString(3,ag.getEmail());
-			st1.setString(4,ag.getPassword());
-			st1.setString(5,ag.getIdCliente());
-			
+			st1.setString(1,ag.getRm().getUm().getNome());
+			st1.setString(2,ag.getRm().getUm().getCognome());
+			st1.setString(3,ag.getRm().getUm().getEmail());
+			st1.setString(4,ag.getRm().getUm().getPassword());
+			st1.setString(5,ag.getRm().getUm().getId()); 
 			st1.executeUpdate(query);
 
 		}catch (Exception e){
@@ -161,9 +191,7 @@ public class ClienteDao implements IClienteDao{
 		}
 		return true;
 
-	}
-	 
-	
+	} 
 	@Override
 	public boolean deleteCliente(ClienteModel c) { 
 	    
