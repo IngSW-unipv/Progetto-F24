@@ -5,31 +5,7 @@
 <version>8.1.0</version>
 <packaging>jar</packaging>
 <name>MySQL Connector/J</name>
-<description>JDBC Type 4 driver for MySQL.</description>
-<url>http://dev.mysql.com/doc/connector-j/en/</url>
-<licenses>
-<license>
-<name>The GNU General Public License, v2 with Universal FOSS Exception, v1.0</name>
-<distribution>repo</distribution>
-<comments>For detailed license information see the LICENSE file in this distribution.</comments>
-</license>
-</licenses>
-<organization>
-<name>Oracle Corporation</name>
-<url>https://www.oracle.com/</url>
-</organization>
-<developers>
-<developer>
-<name>Filipe Silva</name>
-<email>filipe.silva@oracle.com</email>
-<organization>Oracle Corporation</organization>
-<organizationUrl>https://www.oracle.com/</organizationUrl>
-</developer>
-</developers>
-<scm>
-<connection>scm:git:git@github.com:mysql/mysql-connector-j.git</connection>
-<url>https://github.com/mysql/mysql-connector-j</url>
-</scm>
+ 
 <dependencies>
 <dependency>
 <groupId>com.google.protobuf</groupId>
@@ -42,5 +18,22 @@
 <version>2.47.0</version>
 <optional>true</optional>
 </dependency>
+<dependency>
+    <groupId>com.miglayout</groupId>
+    <artifactId>miglayout-swing</artifactId>
+    <version>5.2</version> 
+</dependency>
+<dependency>
+    <groupId>com.jgoodies</groupId>
+    <artifactId>jgoodies-forms</artifactId>
+    <version>1.8.0</version>
+</dependency>
+ 
+<dependency>
+    <groupId>com.jgoodies</groupId>
+    <artifactId>jgoodies-common</artifactId>
+    <version>1.8.0</version>
+</dependency>
+
 </dependencies>
 </project>
