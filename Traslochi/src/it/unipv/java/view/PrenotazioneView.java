@@ -28,6 +28,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.MatteBorder;
 import javax.swing.ImageIcon;
 import javax.swing.JTextPane;
+import java.awt.Toolkit;
 
 public class PrenotazioneView extends JFrame {
 
@@ -72,6 +73,8 @@ public class PrenotazioneView extends JFrame {
 	 * Create the frame.
 	 */
 	public PrenotazioneView() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("resources/IconaLogin.png"));
+		setTitle("Bidons");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1421, 684);
 		contentPane = new JPanel();
@@ -198,19 +201,19 @@ public class PrenotazioneView extends JFrame {
 		buttonConfermaPren.setBorder(null);
 		
 		JLabel lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\nikola.manev\\Desktop\\immagini java\\IconaMetodoPag3%.jpg"));
+		lblNewLabel_3.setIcon(new ImageIcon("resources/IconaMetodoPag.jpg"));
 		
 		JLabel lblNewLabel_3_3 = new JLabel("");
-		lblNewLabel_3_3.setIcon(new ImageIcon("C:\\Users\\nikola.manev\\Desktop\\immagini java\\iconaData4%.png"));
+		lblNewLabel_3_3.setIcon(new ImageIcon("resources/iconaData.png"));
 		
 		JLabel lblNewLabel_3_4 = new JLabel("");
-		lblNewLabel_3_4.setIcon(new ImageIcon("C:\\Users\\nikola.manev\\Desktop\\immagini java\\iconaData4%.png"));
+		lblNewLabel_3_4.setIcon(new ImageIcon("resources/iconaData.png"));
 		
 		JLabel lblNewLabel_3_3_1 = new JLabel("");
-		lblNewLabel_3_3_1.setIcon(new ImageIcon("C:\\Users\\nikola.manev\\Desktop\\immagini java\\iconaIndirizzo4%.jpg"));
+		lblNewLabel_3_3_1.setIcon(new ImageIcon("resources/iconaIndirizzo.jpg"));
 		
 		JLabel lblNewLabel_3_3_1_1 = new JLabel("");
-		lblNewLabel_3_3_1_1.setIcon(new ImageIcon("C:\\Users\\nikola.manev\\Desktop\\immagini java\\iconaIndirizzo4%.jpg"));
+		lblNewLabel_3_3_1_1.setIcon(new ImageIcon("resources/iconaIndirizzo.jpg"));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
