@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import it.unipv.java.model.AuthGestor;
 import it.unipv.java.model.ClienteModel;
 import it.unipv.java.model.DipendenteModel;
 import it.unipv.java.model.LoginModel;
@@ -108,7 +109,7 @@ public class ClienteDao implements IClienteDao{
 	
 	
 	@Override
-	public boolean createCliente(RegisterModel register) {
+	public boolean createCliente(AuthGestor ag) {
 		conn=DatabaseConnection.startConnection(conn,schema);
 		PreparedStatement st1;
 		
@@ -118,11 +119,11 @@ public class ClienteDao implements IClienteDao{
 		{
 			String query="INSERT INTO CLIENTI (NOME,COGNOME,EMAIL,PASSWORD,IDCLIENTE) VALUES(?,?,?,?,?)";
 			st1 = conn.prepareStatement(query);
-			st1.setString(1,register.getNome());
-			st1.setString(2,register.getCognome());
-			st1.setString(3,register.getEmail());
-			st1.setString(4,register.getPassword());
-			st1.setString(5,register.getIdCliente());
+			st1.setString(1,ag.getNome());
+			st1.setString(2,ag.getCognome());
+			st1.setString(3,ag.getEmail());
+			st1.setString(4,ag.getPassword());
+			st1.setString(5,ag.getIdCliente());
 			
 			st1.executeUpdate(query);
 
