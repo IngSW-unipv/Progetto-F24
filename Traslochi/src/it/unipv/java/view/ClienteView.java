@@ -65,7 +65,7 @@ public class ClienteView extends JFrame {
     	setIconImage(Toolkit.getDefaultToolkit().getImage("resources/IconaLogin.png"));
     	setTitle("Bidons");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 1450, 686);
+        setBounds(100, 100, 1421, 684);
         setResizable(true); // Imposta la finestra come ridimensionabile
 
         contentPane = new JPanel();
@@ -246,22 +246,20 @@ public class ClienteView extends JFrame {
         		.addGroup(gl_panel.createSequentialGroup()
         			.addGap(83)
         			.addComponent(homePageLabel, GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
-        			.addGap(974)
+        			.addGap(937)
         			.addComponent(buttonVisProfilo, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE)
-        			.addGap(1170))
+        			.addGap(1207))
         );
         gl_panel.setVerticalGroup(
         	gl_panel.createParallelGroup(Alignment.LEADING)
         		.addGroup(gl_panel.createSequentialGroup()
-        			.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-        				.addGroup(gl_panel.createSequentialGroup()
-        					.addContainerGap()
-        					.addComponent(homePageLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        				.addGroup(gl_panel.createSequentialGroup()
-        					.addGap(21)
-        					.addComponent(buttonVisProfilo, GroupLayout.DEFAULT_SIZE, 15, Short.MAX_VALUE)
-        					.addGap(12)))
+        			.addContainerGap()
+        			.addComponent(homePageLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         			.addGap(19))
+        		.addGroup(gl_panel.createSequentialGroup()
+        			.addGap(21)
+        			.addComponent(buttonVisProfilo, GroupLayout.DEFAULT_SIZE, 15, Short.MAX_VALUE)
+        			.addGap(31))
         );
         panel.setLayout(gl_panel);
         contentPane.setLayout(gl_contentPane);
