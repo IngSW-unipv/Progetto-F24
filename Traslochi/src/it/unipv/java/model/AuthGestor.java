@@ -67,13 +67,12 @@ public class AuthGestor {
     public static boolean loginUser(UserModel loginuser) {
         UserType userType = determineUserType(loginuser.getEmail());
         boolean loginSuccess = false;
-
-        // Qui dovresti implementare la logica di login basata sul tipo di utente
-        // Questo richiederà di confrontare email e password hashata con quelle nel database
-        // Ad esempio:
-        // if (userType == UserType.CLIENTE) {
-        //     loginSuccess = new ClienteDao().verifyCredentials(loginuser.getEmail(), loginuser.getPassword());
-        // }
+ 
+     
+          if (userType == UserType.CLIENTE) {
+            loginSuccess = new ClienteDao().verifyCredentials(loginuser.getEmail(), loginuser.getPassword());
+        }else if() {}
+          
         // Similmente per Dipendente e Responsabile
 
         return loginSuccess;
