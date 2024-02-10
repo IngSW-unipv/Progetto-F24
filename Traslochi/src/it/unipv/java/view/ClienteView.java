@@ -65,7 +65,7 @@ public class ClienteView extends JFrame {
     	setIconImage(Toolkit.getDefaultToolkit().getImage("resources/IconaLogin.png"));
     	setTitle("Bidons");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 1421, 684);
+        setBounds(100, 100, 1421, 681);
         setResizable(true); // Imposta la finestra come ridimensionabile
 
         contentPane = new JPanel();
