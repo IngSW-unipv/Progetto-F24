@@ -50,12 +50,7 @@ public class PrenotazioneView extends JFrame {
 	private JPanel panelBancomat;
 	
 	
-	
-	
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -69,9 +64,6 @@ public class PrenotazioneView extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public PrenotazioneView() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("resources/IconaLogin.png"));
 		setTitle("Bidons");
