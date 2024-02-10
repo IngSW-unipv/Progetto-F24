@@ -29,10 +29,21 @@ import java.awt.Color;
 import javax.swing.JTextPane;
 import javax.swing.JList;
 import javax.swing.JTable;
+import javax.swing.border.MatteBorder;
+import javax.swing.JScrollPane;
+import javax.swing.JScrollBar;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.LineBorder;
+import javax.swing.AbstractListModel;
+import javax.swing.UIManager;
 
 public class ClienteView extends JFrame {
 
     private JPanel contentPane;
+    private JButton buttonVisProfilo;
+    private JTextPane txtPaneTesto;
+    private JButton buttonPrenotazione;
+    private JList listPrenotazioni;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
@@ -48,130 +59,204 @@ public class ClienteView extends JFrame {
     }
 
     public ClienteView() {
+    	setTitle("Bidons");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 1450, 686);
         setResizable(true); // Imposta la finestra come ridimensionabile
 
         contentPane = new JPanel();
-        contentPane.setBackground(new Color(255, 255, 255));
-        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        contentPane.setBackground(SystemColor.text);
+        contentPane.setBorder(null);
         setContentPane(contentPane);
         
         JPanel panel = new JPanel();
         panel.setBackground(new Color(30, 144, 255));
         panel.setBorder(null);
         
-        JLabel lblNewLabel_1 = new JLabel("Trasloco veloce e sicuro");
-        lblNewLabel_1.setForeground(SystemColor.activeCaption);
-        lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 30));
+        JLabel labelTrasloco = new JLabel("Trasloco veloce e sicuro");
+        labelTrasloco.setForeground(SystemColor.activeCaption);
+        labelTrasloco.setFont(new Font("Tahoma", Font.BOLD, 30));
         
-        JTextPane txtpnScegliBidonsPer = new JTextPane();
-        txtpnScegliBidonsPer.setForeground(SystemColor.activeCaption);
-        txtpnScegliBidonsPer.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
-        txtpnScegliBidonsPer.setBackground(SystemColor.text);
-        txtpnScegliBidonsPer.setText("Scegli Bidons per il tuo trasloco: un'azienda giovane e dinamica  conosciuta sul territorio per l’attenzione al cliente e la competenza professionale. Nata a Pavia nel 2023, l’azienda lavora in modo trasparente flessibile, così da poter offrire un servizio impeccabile a prezzo vantaggioso.");
+        txtPaneTesto = new JTextPane();
+        txtPaneTesto.setForeground(SystemColor.windowText);
+        txtPaneTesto.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
+        txtPaneTesto.setBackground(SystemColor.inactiveCaptionBorder);
+        txtPaneTesto.setText("Scegli Bidons per il tuo trasloco: un'azienda giovane e dinamica  conosciuta sul territorio per l’attenzione al cliente e la competenza professionale. Nata a Pavia nel 2023, l’azienda lavora in modo trasparente flessibile, così da poter offrire un servizio impeccabile a prezzo vantaggioso.");
+        txtPaneTesto.setEditable(false);
+        
         
         JLabel lblNewLabel_2 = new JLabel("");
         lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\nikola.manev\\Desktop\\immagini java\\traslochiImmagine50%.png"));
         
         JSeparator separator = new JSeparator();
+        separator.setForeground(SystemColor.textHighlight);
         
-        JLabel lblNewLabel_3 = new JLabel("Per prenotare un Trasloco");
-        lblNewLabel_3.setForeground(SystemColor.activeCaption);
-        lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 30));
+        JLabel labelPren = new JLabel("Per prenotare un Trasloco");
+        labelPren.setForeground(SystemColor.activeCaption);
+        labelPren.setFont(new Font("Tahoma", Font.BOLD, 30));
         
-        JButton btnNewButton = new JButton("Prenota Servizio");
-        btnNewButton.setForeground(Color.WHITE);
-        btnNewButton.setBackground(SystemColor.textHighlight);
-        btnNewButton.setBorder(null);
-        btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
+        buttonPrenotazione = new JButton("Prenota Servizio");
+        buttonPrenotazione.setForeground(Color.WHITE);
+        buttonPrenotazione.setBackground(SystemColor.textHighlight);
+        buttonPrenotazione.setBorder(null);
+        buttonPrenotazione.setFont(new Font("Tahoma", Font.BOLD, 15));
+        buttonPrenotazione.setFocusable(false);
         
-        JLabel lblNewLabel_4 = new JLabel("Cronologia delle Prenotazioni");
-        lblNewLabel_4.setForeground(SystemColor.activeCaption);
-        lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 30));
+        JLabel labelCronologia = new JLabel("Cronologia delle Prenotazioni");
+        labelCronologia.setForeground(SystemColor.activeCaption);
+        labelCronologia.setFont(new Font("Tahoma", Font.BOLD, 30));
+        
+        JSeparator separator_1 = new JSeparator();
+        separator_1.setForeground(SystemColor.textHighlight);
+        
+        JSeparator separator_2 = new JSeparator();
+        separator_2.setForeground(SystemColor.textHighlight);
         
         JPanel panel_1 = new JPanel();
+        panel_1.setFont(new Font("Tahoma", Font.BOLD, 11));
+        panel_1.setBackground(SystemColor.inactiveCaption);
+        
+        JLabel lblNewLabel = new JLabel("");
+        lblNewLabel.setBackground(SystemColor.inactiveCaptionBorder);
+        lblNewLabel.setIcon(new ImageIcon("C:\\Users\\nikola.manev\\Desktop\\immagini java\\bookPren5%.jpg"));
+        
+        JLabel lblNewLabel_1 = new JLabel("");
+        lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\nikola.manev\\Desktop\\immagini java\\IconaLista5%.png"));
+        lblNewLabel_1.setBackground(SystemColor.inactiveCaptionBorder);
         GroupLayout gl_contentPane = new GroupLayout(contentPane);
         gl_contentPane.setHorizontalGroup(
         	gl_contentPane.createParallelGroup(Alignment.LEADING)
-        		.addComponent(panel, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 1424, Short.MAX_VALUE)
+        		.addComponent(panel, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 2571, Short.MAX_VALUE)
         		.addGroup(gl_contentPane.createSequentialGroup()
         			.addGap(91)
         			.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-        				.addComponent(separator, GroupLayout.PREFERRED_SIZE, 381, GroupLayout.PREFERRED_SIZE)
+        				.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+        					.addGroup(gl_contentPane.createSequentialGroup()
+        						.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+        							.addGroup(gl_contentPane.createSequentialGroup()
+        								.addComponent(labelTrasloco, GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE)
+        								.addGap(227))
+        							.addComponent(lblNewLabel_2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        						.addGap(88)
+        						.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+        							.addGroup(gl_contentPane.createSequentialGroup()
+        								.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
+        								.addGap(10))
+        							.addGroup(gl_contentPane.createSequentialGroup()
+        								.addComponent(lblNewLabel_1)
+        								.addGap(18))))
+        					.addGroup(gl_contentPane.createSequentialGroup()
+        						.addComponent(txtPaneTesto, GroupLayout.DEFAULT_SIZE, 552, Short.MAX_VALUE)
+        						.addGap(207)))
         				.addGroup(gl_contentPane.createSequentialGroup()
-        					.addGap(9)
-        					.addComponent(lblNewLabel_3, GroupLayout.PREFERRED_SIZE, 406, GroupLayout.PREFERRED_SIZE))
-        				.addComponent(txtpnScegliBidonsPer, GroupLayout.PREFERRED_SIZE, 527, GroupLayout.PREFERRED_SIZE)
-        				.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 397, GroupLayout.PREFERRED_SIZE)
-        				.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 373, GroupLayout.PREFERRED_SIZE))
-        			.addGap(71)
-        			.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+        					.addComponent(separator, GroupLayout.PREFERRED_SIZE, 381, GroupLayout.PREFERRED_SIZE)
+        					.addGap(378)))
+        			.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+        				.addGroup(gl_contentPane.createSequentialGroup()
+        					.addComponent(separator_1, GroupLayout.PREFERRED_SIZE, 402, GroupLayout.PREFERRED_SIZE)
+        					.addGap(1319))
         				.addGroup(gl_contentPane.createSequentialGroup()
         					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-        						.addComponent(lblNewLabel_4, GroupLayout.PREFERRED_SIZE, 481, GroupLayout.PREFERRED_SIZE)
-        						.addComponent(lblNewLabel_2))
-        					.addGap(135))
+        						.addGroup(gl_contentPane.createSequentialGroup()
+        							.addComponent(buttonPrenotazione, GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
+        							.addPreferredGap(ComponentPlacement.RELATED))
+        						.addComponent(labelPren, GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
+        						.addComponent(labelCronologia, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        					.addGap(1275))
         				.addGroup(gl_contentPane.createSequentialGroup()
-        					.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        					.addGap(28))))
+        					.addComponent(separator_2, GroupLayout.PREFERRED_SIZE, 455, GroupLayout.PREFERRED_SIZE)
+        					.addContainerGap(1266, Short.MAX_VALUE))
+        				.addGroup(gl_contentPane.createSequentialGroup()
+        					.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+        					.addGap(1182))))
         );
         gl_contentPane.setVerticalGroup(
-        	gl_contentPane.createParallelGroup(Alignment.TRAILING)
-        		.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+        	gl_contentPane.createParallelGroup(Alignment.LEADING)
+        		.addGroup(gl_contentPane.createSequentialGroup()
         			.addComponent(panel, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
-        			.addPreferredGap(ComponentPlacement.UNRELATED)
-        			.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+        			.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
         				.addGroup(gl_contentPane.createSequentialGroup()
-        					.addGap(24)
-        					.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
-        					.addPreferredGap(ComponentPlacement.RELATED)
-        					.addComponent(separator, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        					.addGap(42)
-        					.addComponent(txtpnScegliBidonsPer, GroupLayout.PREFERRED_SIZE, 126, GroupLayout.PREFERRED_SIZE))
-        				.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 334, GroupLayout.PREFERRED_SIZE))
-        			.addGap(24)
-        			.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-        				.addComponent(lblNewLabel_3, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE)
-        				.addComponent(lblNewLabel_4, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
-        			.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-        				.addGroup(gl_contentPane.createSequentialGroup()
-        					.addGap(38)
-        					.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))
+        					.addGap(36)
+        					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+        						.addComponent(labelTrasloco, GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
+        						.addComponent(labelPren)))
         				.addGroup(gl_contentPane.createSequentialGroup()
         					.addPreferredGap(ComponentPlacement.RELATED)
-        					.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)))
-        			.addContainerGap())
+        					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)))
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
+        				.addComponent(separator_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(separator, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        			.addGap(21)
+        			.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+        				.addComponent(txtPaneTesto, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(buttonPrenotazione, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))
+        			.addGap(39)
+        			.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+        				.addGroup(gl_contentPane.createSequentialGroup()
+        					.addComponent(lblNewLabel_2, GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
+        					.addGap(22))
+        				.addGroup(gl_contentPane.createSequentialGroup()
+        					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+        						.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(labelCronologia, GroupLayout.PREFERRED_SIZE, 48, GroupLayout.PREFERRED_SIZE))
+        					.addPreferredGap(ComponentPlacement.RELATED)
+        					.addComponent(separator_2, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
+        					.addGap(18)
+        					.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 222, GroupLayout.PREFERRED_SIZE)
+        					.addContainerGap())))
         );
+        
+        listPrenotazioni = new JList();
+        listPrenotazioni.setSelectionForeground(SystemColor.desktop);
+        listPrenotazioni.setForeground(SystemColor.textText);
+        listPrenotazioni.setBackground(SystemColor.inactiveCaption);
+        listPrenotazioni.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        listPrenotazioni.setModel(new AbstractListModel() {
+        	String[] values = new String[] {};
+        	public int getSize() {
+        		return values.length;
+        	}
+        	public Object getElementAt(int index) {
+        		return values[index];
+        	}
+        });
         GroupLayout gl_panel_1 = new GroupLayout(panel_1);
         gl_panel_1.setHorizontalGroup(
         	gl_panel_1.createParallelGroup(Alignment.LEADING)
-        		.addGap(0, 707, Short.MAX_VALUE)
+        		.addGroup(gl_panel_1.createSequentialGroup()
+        			.addContainerGap()
+        			.addComponent(listPrenotazioni, GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE)
+        			.addContainerGap())
         );
         gl_panel_1.setVerticalGroup(
         	gl_panel_1.createParallelGroup(Alignment.LEADING)
-        		.addGap(0, 127, Short.MAX_VALUE)
+        		.addGroup(gl_panel_1.createSequentialGroup()
+        			.addContainerGap()
+        			.addComponent(listPrenotazioni, GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+        			.addContainerGap())
         );
         panel_1.setLayout(gl_panel_1);
         
-        JButton btnNewButton_2 = new JButton("Visualizza Profilo");
-        btnNewButton_2.setForeground(SystemColor.window);
-        btnNewButton_2.setBackground(SystemColor.textHighlight);
-        btnNewButton_2.setBorder(null);
-        btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 11));
+        JLabel homePageLabel = new JLabel("Home Page");
+        homePageLabel.setForeground(new Color(248, 248, 255));
+        homePageLabel.setFont(new Font("Tahoma", Font.PLAIN, 30));
         
-        JLabel lblNewLabel = new JLabel("Home Page");
-        lblNewLabel.setForeground(new Color(248, 248, 255));
-        lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 30));
+        buttonVisProfilo = new JButton("Visualizza Profilo");
+        buttonVisProfilo.setForeground(SystemColor.window);
+        buttonVisProfilo.setFont(new Font("Tahoma", Font.BOLD, 11));
+        buttonVisProfilo.setBorder(null);
+        buttonVisProfilo.setBackground(SystemColor.textHighlight);
+        buttonVisProfilo.setFocusable(false);
         GroupLayout gl_panel = new GroupLayout(panel);
         gl_panel.setHorizontalGroup(
         	gl_panel.createParallelGroup(Alignment.LEADING)
         		.addGroup(gl_panel.createSequentialGroup()
         			.addGap(83)
-        			.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 184, GroupLayout.PREFERRED_SIZE)
-        			.addPreferredGap(ComponentPlacement.RELATED, 762, Short.MAX_VALUE)
-        			.addComponent(btnNewButton_2, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE)
-        			.addGap(19))
+        			.addComponent(homePageLabel, GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+        			.addGap(974)
+        			.addComponent(buttonVisProfilo, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE)
+        			.addGap(1170))
         );
         gl_panel.setVerticalGroup(
         	gl_panel.createParallelGroup(Alignment.LEADING)
@@ -179,11 +264,12 @@ public class ClienteView extends JFrame {
         			.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
         				.addGroup(gl_panel.createSequentialGroup()
         					.addContainerGap()
-        					.addComponent(lblNewLabel))
+        					.addComponent(homePageLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         				.addGroup(gl_panel.createSequentialGroup()
         					.addGap(21)
-        					.addComponent(btnNewButton_2)))
-        			.addContainerGap(19, Short.MAX_VALUE))
+        					.addComponent(buttonVisProfilo, GroupLayout.DEFAULT_SIZE, 15, Short.MAX_VALUE)
+        					.addGap(12)))
+        			.addGap(19))
         );
         panel.setLayout(gl_panel);
         contentPane.setLayout(gl_contentPane);
