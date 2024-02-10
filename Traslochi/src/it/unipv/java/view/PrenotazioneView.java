@@ -27,6 +27,7 @@ import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 import javax.swing.border.MatteBorder;
 import javax.swing.ImageIcon;
+import javax.swing.JTextPane;
 
 public class PrenotazioneView extends JFrame {
 
@@ -178,6 +179,7 @@ public class PrenotazioneView extends JFrame {
 		panelBancomat.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, new Color(30, 144, 255), new Color(100, 149, 237), null, null));
 		
 		importoDaPagare = new JTextField();
+		importoDaPagare.setEditable(false);
 		importoDaPagare.setBackground(new Color(240, 248, 255));
 		importoDaPagare.setBorder(null);
 		importoDaPagare.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -239,30 +241,28 @@ public class PrenotazioneView extends JFrame {
 											.addComponent(dataRitiro)
 											.addComponent(separator_2, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE))
 										.addGroup(gl_contentPane.createSequentialGroup()
-											.addPreferredGap(ComponentPlacement.RELATED)
 											.addComponent(importoDaPagare, GroupLayout.PREFERRED_SIZE, 137, GroupLayout.PREFERRED_SIZE)
 											.addPreferredGap(ComponentPlacement.RELATED)
 											.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
 											.addPreferredGap(ComponentPlacement.RELATED)))
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-											.addGroup(gl_contentPane.createSequentialGroup()
-												.addGap(190)
-												.addComponent(lblNewLabel_3_4)
-												.addPreferredGap(ComponentPlacement.UNRELATED)
-												.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-													.addComponent(lblDataDiConsegna, GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
-													.addGroup(gl_contentPane.createSequentialGroup()
-														.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-															.addComponent(dataConsegna, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-															.addComponent(separator_2_1, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))
-														.addGap(324))))
-											.addGroup(gl_contentPane.createSequentialGroup()
-												.addGap(63)
-												.addComponent(panelBancomat, GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE)))
+										.addGroup(gl_contentPane.createSequentialGroup()
+											.addGap(190)
+											.addComponent(lblNewLabel_3_4)
+											.addPreferredGap(ComponentPlacement.UNRELATED)
+											.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+												.addComponent(lblDataDiConsegna, GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
+												.addGroup(gl_contentPane.createSequentialGroup()
+													.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+														.addComponent(dataConsegna, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+														.addComponent(separator_2_1, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))
+													.addGap(324))))
 										.addGroup(gl_contentPane.createSequentialGroup()
 											.addGap(187)
-											.addComponent(buttonConfermaPren, GroupLayout.PREFERRED_SIZE, 341, GroupLayout.PREFERRED_SIZE))))
+											.addComponent(buttonConfermaPren, GroupLayout.PREFERRED_SIZE, 341, GroupLayout.PREFERRED_SIZE))
+										.addGroup(gl_contentPane.createSequentialGroup()
+											.addGap(63)
+											.addComponent(panelBancomat, GroupLayout.DEFAULT_SIZE, 781, Short.MAX_VALUE))))
 								.addComponent(separator_1, GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
 								.addComponent(lblIndirizzoDiConsegna, GroupLayout.PREFERRED_SIZE, 419, GroupLayout.PREFERRED_SIZE)
 								.addComponent(indirizzoConsegna)
@@ -312,7 +312,6 @@ public class PrenotazioneView extends JFrame {
 							.addComponent(separator_2_1, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)))
 					.addGap(39)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(panelBancomat, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
 								.addComponent(lblNewLabel_3, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
@@ -322,7 +321,8 @@ public class PrenotazioneView extends JFrame {
 								.addComponent(radioCarta)
 								.addComponent(radioContanti))
 							.addGap(53)
-							.addComponent(lblImportoDaPagare, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)))
+							.addComponent(lblImportoDaPagare, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
+						.addComponent(panelBancomat, GroupLayout.PREFERRED_SIZE, 117, GroupLayout.PREFERRED_SIZE))
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(18)
@@ -332,118 +332,93 @@ public class PrenotazioneView extends JFrame {
 							.addGap(43))
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(9)
-							.addComponent(buttonConfermaPren, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
-							.addContainerGap())))
+							.addComponent(buttonConfermaPren, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE))))
 		);
 		
 		JLabel labelNomeTitCarta = new JLabel("Nome del Titolare della carta");
+		labelNomeTitCarta.setBounds(13, 14, 173, 15);
 		labelNomeTitCarta.setForeground(new Color(70, 130, 180));
 		labelNomeTitCarta.setFont(new Font("Tahoma", Font.BOLD, 12));
 		
 		JSeparator separator_3 = new JSeparator();
+		separator_3.setBounds(13, 55, 226, 2);
 		
 		textField_5 = new JTextField();
+		textField_5.setBounds(13, 35, 226, 14);
 		textField_5.setBackground(new Color(240, 248, 255));
 		textField_5.setBorder(null);
 		textField_5.setColumns(10);
 		
 		JLabel labelNumCarta = new JLabel("Numero della Carta di Credito");
+		labelNumCarta.setBounds(394, 14, 201, 15);
 		labelNumCarta.setForeground(new Color(70, 130, 180));
 		labelNumCarta.setFont(new Font("Tahoma", Font.BOLD, 12));
 		
 		JSeparator separator_3_1 = new JSeparator();
+		separator_3_1.setBounds(394, 55, 226, 2);
 		
 		JLabel labelCVC = new JLabel("CVC :");
+		labelCVC.setBounds(13, 81, 32, 15);
 		labelCVC.setForeground(new Color(70, 130, 180));
 		labelCVC.setFont(new Font("Tahoma", Font.BOLD, 12));
 		
 		textField_6 = new JTextField();
+		textField_6.setBounds(49, 78, 60, 22);
 		textField_6.setBackground(new Color(248, 248, 255));
 		textField_6.setColumns(10);
 		textField_6.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		
 		JLabel labelDataScad = new JLabel("Data di Scadenza :");
+		labelDataScad.setBounds(394, 81, 113, 15);
 		labelDataScad.setForeground(new Color(70, 130, 180));
 		labelDataScad.setFont(new Font("Tahoma", Font.BOLD, 12));
 		
 		textField_7 = new JTextField();
+		textField_7.setBounds(517, 79, 24, 20);
 		textField_7.setColumns(10);
 		
 		textField_8 = new JTextField();
+		textField_8.setBounds(559, 79, 24, 20);
 		textField_8.setColumns(10);
 		
 		textField_9 = new JTextField();
+		textField_9.setBounds(601, 79, 24, 20);
 		textField_9.setColumns(10);
 		
 		JLabel lblNewLabel_3_1 = new JLabel("/");
+		lblNewLabel_3_1.setBounds(587, 82, 4, 14);
 		
 		JLabel lblNewLabel_3_2 = new JLabel("/");
+		lblNewLabel_3_2.setBounds(548, 82, 4, 14);
 		
 		textField_10 = new JTextField();
+		textField_10.setBounds(394, 35, 226, 14);
 		textField_10.setBackground(new Color(240, 248, 255));
 		textField_10.setColumns(10);
 		textField_10.setBorder(null);
-		GroupLayout gl_panelBancomat = new GroupLayout(panelBancomat);
-		gl_panelBancomat.setHorizontalGroup(
-			gl_panelBancomat.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panelBancomat.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_panelBancomat.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panelBancomat.createParallelGroup(Alignment.LEADING, false)
-							.addComponent(separator_3, GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-							.addComponent(textField_5))
-						.addGroup(gl_panelBancomat.createSequentialGroup()
-							.addComponent(labelCVC, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(textField_6, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE))
-						.addComponent(labelNomeTitCarta))
-					.addGap(118)
-					.addGroup(gl_panelBancomat.createParallelGroup(Alignment.LEADING)
-						.addComponent(labelNumCarta, GroupLayout.PREFERRED_SIZE, 201, GroupLayout.PREFERRED_SIZE)
-						.addComponent(separator_3_1, GroupLayout.PREFERRED_SIZE, 226, GroupLayout.PREFERRED_SIZE)
-						.addGroup(gl_panelBancomat.createSequentialGroup()
-							.addComponent(labelDataScad, GroupLayout.PREFERRED_SIZE, 113, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(textField_7, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
-							.addGap(7)
-							.addComponent(lblNewLabel_3_2, GroupLayout.PREFERRED_SIZE, 4, GroupLayout.PREFERRED_SIZE)
-							.addGap(7)
-							.addComponent(textField_8, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(lblNewLabel_3_1, GroupLayout.PREFERRED_SIZE, 4, GroupLayout.PREFERRED_SIZE)
-							.addGap(10)
-							.addComponent(textField_9, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE))
-						.addComponent(textField_10, GroupLayout.PREFERRED_SIZE, 226, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(145, Short.MAX_VALUE))
-		);
-		gl_panelBancomat.setVerticalGroup(
-			gl_panelBancomat.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panelBancomat.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_panelBancomat.createParallelGroup(Alignment.BASELINE)
-						.addComponent(labelNumCarta, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE)
-						.addComponent(labelNomeTitCarta))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_panelBancomat.createParallelGroup(Alignment.BASELINE)
-						.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textField_10, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_panelBancomat.createParallelGroup(Alignment.LEADING)
-						.addComponent(separator_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(separator_3_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(21)
-					.addGroup(gl_panelBancomat.createParallelGroup(Alignment.BASELINE)
-						.addComponent(textField_6, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE)
-						.addComponent(labelCVC, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE)
-						.addComponent(labelDataScad, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textField_7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textField_8, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textField_9, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblNewLabel_3_1)
-						.addComponent(lblNewLabel_3_2))
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-		);
-		panelBancomat.setLayout(gl_panelBancomat);
+		panelBancomat.setLayout(null);
+		panelBancomat.add(separator_3);
+		panelBancomat.add(textField_5);
+		panelBancomat.add(labelCVC);
+		panelBancomat.add(textField_6);
+		panelBancomat.add(labelNomeTitCarta);
+		panelBancomat.add(labelNumCarta);
+		panelBancomat.add(separator_3_1);
+		panelBancomat.add(labelDataScad);
+		panelBancomat.add(textField_7);
+		panelBancomat.add(lblNewLabel_3_2);
+		panelBancomat.add(textField_8);
+		panelBancomat.add(lblNewLabel_3_1);
+		panelBancomat.add(textField_9);
+		panelBancomat.add(textField_10);
+		
+		JTextPane txtContanti = new JTextPane();
+		txtContanti.setBackground(new Color(240, 248, 255));
+		txtContanti.setCaretColor(new Color(240, 248, 255));
+		txtContanti.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		txtContanti.setText("I contanti dovranno essere consegnati al nostro Dipendente incaricato di svolgere il Trasloco. Nel caso di mancato pagamento la vostra prenotazione verrà annullata.");
+		txtContanti.setBounds(10, 14, 761, 92);
+		panelBancomat.add(txtContanti);
 		contentPane.setLayout(gl_contentPane);
 		panelBancomat.setVisible(false);
 		
@@ -453,9 +428,23 @@ public class PrenotazioneView extends JFrame {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        if (radioContanti.isSelected()) {
-		            panelBancomat.setVisible(false);
+		            separator_3.setVisible(false);
+		        	panelBancomat.setVisible(true);
 		            radioCarta.setSelected(false);
-		           
+		            textField_5.setVisible(false);
+		            labelCVC.setVisible(false);
+		            textField_6.setVisible(false);
+		            labelNomeTitCarta.setVisible(false);
+		            labelNumCarta.setVisible(false);
+		            separator_3_1.setVisible(false);
+		            labelDataScad.setVisible(false);
+		            textField_7.setVisible(false);
+		            lblNewLabel_3_2.setVisible(false);
+		            textField_8.setVisible(false);
+		            lblNewLabel_3_1.setVisible(false);
+		            textField_9.setVisible(false);
+		            textField_10.setVisible(false);
+		           txtContanti.setVisible(true);
 		        }
 		    }
 		});
@@ -466,6 +455,21 @@ public class PrenotazioneView extends JFrame {
 		        if (radioCarta.isSelected()) {
 		            panelBancomat.setVisible(true);
 		            radioContanti.setSelected(false);
+		            txtContanti.setVisible(false);
+		            textField_5.setVisible(true);
+		            labelCVC.setVisible(true);
+		            textField_6.setVisible(true);
+		            labelNomeTitCarta.setVisible(true);
+		            labelNumCarta.setVisible(true);
+		            separator_3_1.setVisible(true);
+		            labelDataScad.setVisible(true);
+		            textField_7.setVisible(true);
+		            lblNewLabel_3_2.setVisible(true);
+		            textField_8.setVisible(true);
+		            lblNewLabel_3_1.setVisible(true);
+		            textField_9.setVisible(true);
+		            textField_10.setVisible(true);
+		            separator_3.setVisible(true);
 		        }
 		    }
 		});
