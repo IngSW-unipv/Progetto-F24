@@ -119,7 +119,7 @@ public class DipendenteDao implements IDipendenteDao {
 			st1.setString(2, ag.getRm().getUm().getCf());
 			st1.setString(3, ag.getRm().getUm().getEmail());
 			st1.setString(4, ag.getRm().getUm().getPassword());
-			 st1.setString(5, ag.getId());
+			 st1.setString(5, ag.getRm().getUm().getId());
 
 			st1.executeUpdate(query);
 

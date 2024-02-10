@@ -35,8 +35,8 @@ public class RegisterController {
 				um.setEmail(rv.getEmail());
 				um.setPassword(rv.getPass());
 
-				rm.
-
+				rm.setUserModel(um);
+				//PER RICHI
 				if (rm.confermaRegistrazione()) {
 					// rv.showMessage("Registrazione completata con successo!");
 				} else {
