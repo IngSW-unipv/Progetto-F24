@@ -38,6 +38,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.AbstractListModel;
 import javax.swing.UIManager;
+import java.awt.Toolkit;
 
 public class ClienteView extends JFrame {
 
@@ -61,6 +62,7 @@ public class ClienteView extends JFrame {
     }
 
     public ClienteView() {
+    	setIconImage(Toolkit.getDefaultToolkit().getImage("resources/IconaLogin.png"));
     	setTitle("Bidons");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 1450, 686);
@@ -88,7 +90,7 @@ public class ClienteView extends JFrame {
         
         
         JLabel lblNewLabel_2 = new JLabel("");
-        lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\nikola.manev\\Desktop\\immagini java\\traslochiImmagine50%.png"));
+        lblNewLabel_2.setIcon(new ImageIcon("resources/traslochiImmagine.png"));
         
         JSeparator separator = new JSeparator();
         separator.setForeground(SystemColor.textHighlight);
@@ -121,10 +123,10 @@ public class ClienteView extends JFrame {
         
         JLabel lblNewLabel = new JLabel("");
         lblNewLabel.setBackground(SystemColor.inactiveCaptionBorder);
-        lblNewLabel.setIcon(new ImageIcon("C:\\Users\\nikola.manev\\Desktop\\immagini java\\bookPren5%.jpg"));
+        lblNewLabel.setIcon(new ImageIcon("resources/bookPren.jpg"));
         
         JLabel lblNewLabel_1 = new JLabel("");
-        lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\nikola.manev\\Desktop\\immagini java\\IconaLista5%.png"));
+        lblNewLabel_1.setIcon(new ImageIcon("resources/IconaLista.png"));
         lblNewLabel_1.setBackground(SystemColor.inactiveCaptionBorder);
         GroupLayout gl_contentPane = new GroupLayout(contentPane);
         gl_contentPane.setHorizontalGroup(
