@@ -1,8 +1,15 @@
 package it.unipv.java.model;
 
 public class AuthGestor {
-	//SI OCCUPERA DI GESTIRE SE I DATI INSERITI SONO DI UN DIPENDENTE,RESPONSABILE O CLIENTE
+	//SI OCCUPERA DI GESTIRE SE I DATI INSERITI e tamite il dominio dell'email verifica il tipo di user SONO DI UN DIPENDENTE,RESPONSABILE O CLIENTE
 	RegisterModel rm;
+	String id;//questo id puo essere idCliente,idResponsabile,idDipendente
+	
+	
+	public AuthGestor() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	
 	private void confermaRegistrazione() {
 		
@@ -16,22 +23,30 @@ public class AuthGestor {
 			registerModel.setCognome(registerView.getCognome());
 			registerModel.setEmail(registerView.getEmail());
 			registerModel.setPassword(registerView.getPass());
-			registerModel.setIdCliente(registerView.getCF());
-			
-			
+			registerModel.setIdCliente(registerView.getCF()); 
 			/*boolean registrazioneSuccesso = clienteDao.createCliente(registerModel);
 			
 			if(registrazioneSuccesso) {
 				registerView.dispose(); // CHIUDI SCHERMATA REGISTRAZIONE
 		        loginView.setVisible(true); // APRI SCHERMATA LOGIN
 			} */
-			
 		}
 	}
 
-	public static void authUser(RegisterModel rm) {
+	public static boolean authUser(RegisterModel rm) {
+		
+		rm.getEmail() fa un controllo di quello che
+		return false;
 		// TODO Auto-generated method stub
 		
 	}
 
+	public static boolean registerUser(RegisterModel registerModel) {
+		//qua creo id
+		return false;
+		// TODO Auto-generated method stub
+		
+	}
+
+ 
 }
