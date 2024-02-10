@@ -7,8 +7,7 @@ public class ClienteModel extends UserModel {
        
 	}
 
-	// Costruttore della classe Cliente che chiama il costruttore della classe base
-	// UserModel
+ 	// UserModel
 	public ClienteModel(String nome, String cognome, String cf, String email, String password, UserType userType,
 			int idCliente) {
 		super(nome, cognome, cf, email, password, userType);
