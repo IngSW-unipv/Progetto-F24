@@ -27,7 +27,15 @@ public class RegisterModel {
         return true; // Tutti i controlli di validità superati
     }
 
-    // Metodo per impostare o sostituire l'istanza di UserModel
+    public UserModel getUm() {
+		return um;
+	}
+
+	public void setUm(UserModel um) {
+		this.um = um;
+	}
+
+	// Metodo per impostare o sostituire l'istanza di UserModel
     public void setUserModel(UserModel um) {
         this.um = um;
     }

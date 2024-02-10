@@ -6,7 +6,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
- 
+
+import it.unipv.java.model.AuthGestor;
 import it.unipv.java.model.LoginModel;
 import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.ResponsabileModel;
@@ -104,7 +105,7 @@ public class ResponsabileDao implements IResponsabileDao{
 	}
 
 	@Override
-	public boolean createResponsabile(RegisterModel register) {
+	public boolean createResponsabile(AuthGestor ag) {
 		conn=DatabaseConnection.startConnection(conn,schema);
 		PreparedStatement st1;
 		
@@ -116,11 +117,11 @@ public class ResponsabileDao implements IResponsabileDao{
 					+ "VALUES(?,?,?,?,?)";
 			
 			st1 = conn.prepareStatement(query);
-			st1.setString(1,register.getNome());
-			st1.setString(2,register.getCognome());
-			st1.setString(3,register.getEmail());
-			st1.setString(4,register.getPassword());
-			st1.setString(5,register.getIdResponsabile());
+			st1.setString(1,ag.getNome());
+			st1.setString(2,ag.getCognome());
+			st1.setString(3,ag.getEmail());
+			st1.setString(4,ag.getPassword());
+			st1.setString(5,ag.getIdResponsabile());
 			st1.executeUpdate(query);
 
 		}catch (Exception e){

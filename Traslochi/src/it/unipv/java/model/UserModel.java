@@ -1,96 +1,106 @@
 package it.unipv.java.model;
 
 public class UserModel {
-    
-    private String nome;
-    private String cognome;
-    private String cf;
-    private String email;
-    private String password;
-    private UserType userType;
 
-     public UserModel() {
-     }
+	private String nome;
+	private String cognome;
+	private String cf;
+	private String email;
+	private String password;
+	private UserType userType;
+	private String id;
 
-     public UserModel(String nome, String cognome, String cf, String email, String password, UserType userType) {
-        this.nome = nome;
-        this.cognome = cognome;
-        this.cf = cf;
-        this.email = email;
-        this.password = password;
-        this.userType = userType;
-    }
- 
-     public String getNome() {
-        return nome;
-    }
+	public UserModel() {
+	}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public UserModel(String nome, String cognome, String cf, String email, String password, UserType userType) {
+		this.nome = nome;
+		this.cognome = cognome;
+		this.cf = cf;
+		this.email = email;
+		this.password = password;
+		this.userType = userType;
+	}
 
-    public String getCognome() {
-        return cognome;
-    }
+	public String getNome() {
+		return nome;
+	}
 
-    public void setCognome(String cognome) {
-        this.cognome = cognome;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public String getCf() {
-        return cf;
-    }
+	public String getCognome() {
+		return cognome;
+	}
 
-    public void setCf(String cf) {
-        this.cf = cf;
-    }
+	public void setCognome(String cognome) {
+		this.cognome = cognome;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public String getCf() {
+		return cf;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public void setCf(String cf) {
+		this.cf = cf;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public UserType getUserType() {
-        return userType;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public void setUserType(UserType userType) {
-        this.userType = userType;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-     public boolean isDipendente() {
-        return userType == UserType.DIPENDENTE;
-    }
+	public UserType getUserType() {
+		return userType;
+	}
 
-    public boolean isCliente() {
-        return userType == UserType.CLIENTE;
-    }
-    public boolean isResponsabile() {
-        return userType == UserType.RESPONSABILE;
-    }
+	public void setUserType(UserType userType) {
+		this.userType = userType;
+	}
 
-    public void visualizzaProfilo() {
-        System.out.println("Nome: " + nome);
-        System.out.println("Cognome: " + cognome);
-        System.out.println("Email: " + email);
-        System.out.println("Tipo Utente: " + userType);
-    }
+	public boolean isDipendente() {
+		return userType == UserType.DIPENDENTE;
+	}
 
-    public void modificaProfilo(String nome, String cognome, String email, UserType userType) {
-        this.nome = nome;
-        this.cognome = cognome;
-        this.email = email;
-        this.userType = userType;
-    }
+	public boolean isCliente() {
+		return userType == UserType.CLIENTE;
+	}
+
+	public boolean isResponsabile() {
+		return userType == UserType.RESPONSABILE;
+	}
+
+	public void visualizzaProfilo() {
+		System.out.println("Nome: " + nome);
+		System.out.println("Cognome: " + cognome);
+		System.out.println("Email: " + email);
+		System.out.println("Tipo Utente: " + userType);
+	}
+
+	public void modificaProfilo(String nome, String cognome, String email, UserType userType) {
+		this.nome = nome;
+		this.cognome = cognome;
+		this.email = email;
+		this.userType = userType;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 }

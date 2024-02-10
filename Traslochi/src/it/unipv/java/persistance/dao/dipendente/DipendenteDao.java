@@ -7,9 +7,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import it.unipv.java.model.AuthGestor;
 import it.unipv.java.model.DipendenteModel;
 import it.unipv.java.model.LoginModel;
 import it.unipv.java.model.RegisterModel;
+import it.unipv.java.model.UserModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 
 public class DipendenteDao implements IDipendenteDao {
@@ -105,18 +107,19 @@ public class DipendenteDao implements IDipendenteDao {
 	}
 
 	@Override
-	public boolean createDipendente(RegisterModel register) {
+	public boolean createDipendente(AuthGestor ag) {
 
 		conn = DatabaseConnection.startConnection(conn, schema);
 
-		String query = "INSERT INTO DIPENDENTI (NOME,COGNOME,EMAIL,PASSWORD,IDDIPENDENTI) VALUES(?,?,?,?,?)";
+		String query = "INSERT INTO DIPENDENTI (NOME,COGNOME,CF,EMAIL,PASSWORD,IDDIPENDENTI) VALUES(?,?,?,?,?,?)";
 
 		try (PreparedStatement st1 = conn.prepareStatement(query)) {
-			st1.setString(1, register.getNome());
-			st1.setString(2, register.getCognome());
-			st1.setString(3, register.getEmail());
-			st1.setString(4, register.getPassword());
-			st1.setString(5, register.getIdDipendente());
+			st1.setString(1, ag.getRm().getUm().getNome());
+			st1.setString(2, ag.getRm().getUm().getCognome());
+			st1.setString(2, ag.getRm().getUm().getCf());
+			st1.setString(3, ag.getRm().getUm().getEmail());
+			st1.setString(4, ag.getRm().getUm().getPassword());
+			 st1.setString(5, ag.getId());
 
 			st1.executeUpdate(query);
 
