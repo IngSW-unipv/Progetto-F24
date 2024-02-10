@@ -28,16 +28,17 @@ CREATE TABLE IF NOT EXISTS Responsabile (
 -- Creating the 'Turno' table with corrected foreign key references
 CREATE TABLE IF NOT EXISTS Turno (
     OrarioInizio TIME,
-    IDResponsabile INT,
-    idDipendente INT,  
-    PRIMARY KEY (Orario, IDResponsabile),
+    IDResponsabile VARCHAR(255),
+    idDipendente VARCHAR(255),  
+    PRIMARY KEY (OrarioInizio, IDResponsabile),
     FOREIGN KEY (idDipendente) REFERENCES Dipendente(idDipendente),
-	FOREIGN KEY (IDResponsabile) REFERENCES Responsabile(IDResponsabile)
+    FOREIGN KEY (IDResponsabile) REFERENCES Responsabile(IDResponsabile)
 );
+
 
 -- Creating the 'Cliente' table
 CREATE TABLE IF NOT EXISTS Cliente (
-    IDCliente INT PRIMARY KEY,
+    IDCliente VARCHAR(255) PRIMARY KEY,
     Nome VARCHAR(255),
     Cognome VARCHAR(255),
     CF VARCHAR(16) UNIQUE,
@@ -48,8 +49,8 @@ CREATE TABLE IF NOT EXISTS Cliente (
 
 -- Creating the 'Prenotazioni' table
 CREATE TABLE IF NOT EXISTS Prenotazioni (
-    IDPrenotazione INT PRIMARY KEY,
-    IDCliente INT, 
+    IDPrenotazione VARCHAR(255) PRIMARY KEY,
+    IDCliente VARCHAR(255), 
     IndirizzoDiConsegna VARCHAR(255),
     IndirizzoDiRitiro VARCHAR(255),
     DataRitiro DATE,
