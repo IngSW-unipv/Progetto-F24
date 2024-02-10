@@ -1,7 +1,9 @@
 package it.unipv.java.view;
 
 import java.awt.EventQueue;
-
+import javax.swing.text.BadLocationException;
+import javax.swing.text.StyledDocument;
+import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -43,7 +45,7 @@ public class ClienteView extends JFrame {
     private JButton buttonVisProfilo;
     private JTextPane txtPaneTesto;
     private JButton buttonPrenotazione;
-    private JList listPrenotazioni;
+    private JTextPane textPrenotazioni;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
@@ -113,8 +115,9 @@ public class ClienteView extends JFrame {
         separator_2.setForeground(SystemColor.textHighlight);
         
         JPanel panel_1 = new JPanel();
+        panel_1.setBorder(new BevelBorder(BevelBorder.LOWERED, SystemColor.textHighlight, SystemColor.textHighlight, SystemColor.textHighlight, SystemColor.textHighlight));
         panel_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-        panel_1.setBackground(SystemColor.inactiveCaption);
+        panel_1.setBackground(SystemColor.inactiveCaptionBorder);
         
         JLabel lblNewLabel = new JLabel("");
         lblNewLabel.setBackground(SystemColor.inactiveCaptionBorder);
@@ -207,33 +210,24 @@ public class ClienteView extends JFrame {
         					.addContainerGap())))
         );
         
-        listPrenotazioni = new JList();
-        listPrenotazioni.setSelectionForeground(SystemColor.desktop);
-        listPrenotazioni.setForeground(SystemColor.textText);
-        listPrenotazioni.setBackground(SystemColor.inactiveCaption);
-        listPrenotazioni.setFont(new Font("Tahoma", Font.PLAIN, 15));
-        listPrenotazioni.setModel(new AbstractListModel() {
-        	String[] values = new String[] {};
-        	public int getSize() {
-        		return values.length;
-        	}
-        	public Object getElementAt(int index) {
-        		return values[index];
-        	}
-        });
+        textPrenotazioni = new JTextPane();
+        textPrenotazioni.setFont(new Font("Tahoma", Font.BOLD, 13));
+        textPrenotazioni.setEditable(false);
+        textPrenotazioni.setBackground(SystemColor.inactiveCaptionBorder);
+        textPrenotazioni.setDisabledTextColor(SystemColor.inactiveCaption);
         GroupLayout gl_panel_1 = new GroupLayout(panel_1);
         gl_panel_1.setHorizontalGroup(
         	gl_panel_1.createParallelGroup(Alignment.LEADING)
         		.addGroup(gl_panel_1.createSequentialGroup()
         			.addContainerGap()
-        			.addComponent(listPrenotazioni, GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE)
+        			.addComponent(textPrenotazioni, GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE)
         			.addContainerGap())
         );
         gl_panel_1.setVerticalGroup(
         	gl_panel_1.createParallelGroup(Alignment.LEADING)
         		.addGroup(gl_panel_1.createSequentialGroup()
         			.addContainerGap()
-        			.addComponent(listPrenotazioni, GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+        			.addComponent(textPrenotazioni, GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
         			.addContainerGap())
         );
         panel_1.setLayout(gl_panel_1);
@@ -274,4 +268,25 @@ public class ClienteView extends JFrame {
         panel.setLayout(gl_panel);
         contentPane.setLayout(gl_contentPane);
     }
+    
+    public void aggiornaPrenotazioni(String prenotazione) {
+    	StyledDocument doc = textPrenotazioni.getStyledDocument();
+        try {
+            // Aggiungi il testo al TextPane con un ritorno a capo alla fine
+            doc.insertString(doc.getLength(), prenotazione + "\n", null);
+        } catch (BadLocationException e) {
+            e.printStackTrace();
+        }
+    }
+   
+    
+    public JButton getBottoneVisProfilo() {
+    	return buttonVisProfilo;
+    }
+    
+    public JButton getBottonePrenotazione() {
+    	return buttonPrenotazione;
+    }
+    
+    
 }
