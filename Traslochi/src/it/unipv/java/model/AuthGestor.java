@@ -16,7 +16,7 @@ public class AuthGestor {
 			throw new IllegalArgumentException("CF non valido");
 		}
 
-		String baseId = cf.substring(0, 5); // Estrai le prime 5 cifre dal CF
+		String baseId = cf.substring(0, 5); // estraggo le prime 5 cifre dal CF
 
 		// Genera 3 numeri interi casuali in ordine crescente
 		Random random = new Random();

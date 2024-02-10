@@ -10,5 +10,10 @@ public class LoginController {
 	public LoginController(LoginModel lm, LoginView lv) {
 		this.lm = lm;
 		this.lv = lv;
+		setlisteners();
+	}
+	
+	private void setlisteners() {
+		
 	}
 }
