@@ -1,30 +1,27 @@
 package it.unipv.java.model;
 
-public  class UserModel {
+public class UserModel {
     
     private String nome;
     private String cognome;
     private String cf;
-    private String email; 
+    private String email;
     private String password;
     private UserType userType;
 
-    // Costruttore vuoto
-    public UserModel() {
+     public UserModel() {
      }
 
-    // Costruttore completo
-    public UserModel(String nome, String cognome,String cf, String email, String password, UserType userType) {
+     public UserModel(String nome, String cognome, String cf, String email, String password, UserType userType) {
         this.nome = nome;
         this.cognome = cognome;
-        this.cf=cf;
+        this.cf = cf;
         this.email = email;
         this.password = password;
         this.userType = userType;
     }
  
-    // Getter e Setter per tutti gli attributi
-    public String getNome() {
+     public String getNome() {
         return nome;
     }
 
@@ -38,6 +35,14 @@ public  class UserModel {
 
     public void setCognome(String cognome) {
         this.cognome = cognome;
+    }
+
+    public String getCf() {
+        return cf;
+    }
+
+    public void setCf(String cf) {
+        this.cf = cf;
     }
 
     public String getEmail() {
@@ -64,21 +69,22 @@ public  class UserModel {
         this.userType = userType;
     }
 
-    // Metodi isDipendente e isCliente per controllare il tipo di utente
-    public boolean isDipendente() {
+     public boolean isDipendente() {
         return userType == UserType.DIPENDENTE;
     }
 
     public boolean isCliente() {
         return userType == UserType.CLIENTE;
     }
+    public boolean isResponsabile() {
+        return userType == UserType.RESPONSABILE;
+    }
 
-    // Metodi per visualizzare e modificare il profilo
-    public void visualizzaProfilo(UserModel u) {
-        System.out.println("Nome: " + u.getNome());
-        System.out.println("Cognome: " + u.getCognome());
-        System.out.println("Email: " + u.getEmail());
-        System.out.println("Tipo Utente: " + u.getUserType());
+    public void visualizzaProfilo() {
+        System.out.println("Nome: " + nome);
+        System.out.println("Cognome: " + cognome);
+        System.out.println("Email: " + email);
+        System.out.println("Tipo Utente: " + userType);
     }
 
     public void modificaProfilo(String nome, String cognome, String email, UserType userType) {
