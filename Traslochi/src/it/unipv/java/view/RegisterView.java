@@ -48,9 +48,7 @@ public class RegisterView extends JFrame {
 	private JTextArea email;
 	private JLabel labelTitolo;
 	
-	
-	
-
+	 
 	
     public static void main(String[] args) {
 	        // Crea un'istanza della finestra di registrazione
@@ -88,7 +86,7 @@ public class RegisterView extends JFrame {
 		iconaUser3.setLayout(null);
 		
 		iconaUser1 = new JLabel("");
-		iconaUser1.setIcon(new ImageIcon("resources/iconaUser.png")); // da cambiare
+		iconaUser1.setIcon(new ImageIcon("resources/iconaUser.png"));  
 		iconaUser1.setBounds(38, 98, 13, 28);
 		iconaUser3.add(iconaUser1);
 		
@@ -126,12 +124,12 @@ public class RegisterView extends JFrame {
 		iconaUser3.add(separator_2);
 		
 		iconaUser2 = new JLabel("");
-		iconaUser2.setIcon(new ImageIcon("resources/iconaUser.png")); // da cambiare
+		iconaUser2.setIcon(new ImageIcon("resources/iconaUser.png"));  
 		iconaUser2.setBounds(265, 98, 13, 28);
 		iconaUser3.add(iconaUser2);
 		
 		iconaUser4 = new JLabel("");
-		iconaUser4.setIcon(new ImageIcon("resources/iconaUser.png")); // da cambiare
+		iconaUser4.setIcon(new ImageIcon("resources/iconaUser.png"));  
 		iconaUser4.setBounds(96, 163, 13, 28);
 		iconaUser3.add(iconaUser4);
 		
