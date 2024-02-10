@@ -7,6 +7,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+
+import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -29,17 +31,25 @@ import javax.swing.ImageIcon;
 public class PrenotazioneView extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
+	private JTextField indirizzoRitiro;
+	private JTextField indirizzoConsegna;
+	private JTextField dataRitiro;
+	private JTextField dataConsegna;
+	private JTextField importoDaPagare;
 	private JTextField textField_5;
 	private JTextField textField_6;
 	private JTextField textField_7;
 	private JTextField textField_8;
 	private JTextField textField_9;
 	private JTextField textField_10;
+	private JButton buttonTornaIndietro;
+	private JRadioButton radioCarta;
+	private JRadioButton radioContanti;
+	private JPanel panelBancomat;
+	
+	
+	
+	
 
 	/**
 	 * Launch the application.
@@ -77,20 +87,20 @@ public class PrenotazioneView extends JFrame {
 		lblPrenotazione.setForeground(new Color(248, 248, 255));
 		lblPrenotazione.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		
-		JButton btnNewButton = new JButton("<");
-		btnNewButton.addActionListener(new ActionListener() {
+		buttonTornaIndietro = new JButton("<");
+		buttonTornaIndietro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 13));
-		btnNewButton.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, SystemColor.controlText, SystemColor.controlText, new Color(153, 180, 209), new Color(153, 180, 209)));
-		btnNewButton.setBackground(SystemColor.textHighlight);
+		buttonTornaIndietro.setFont(new Font("Tahoma", Font.BOLD, 13));
+		buttonTornaIndietro.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, SystemColor.controlText, SystemColor.controlText, new Color(153, 180, 209), new Color(153, 180, 209)));
+		buttonTornaIndietro.setBackground(SystemColor.textHighlight);
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE)
+					.addComponent(buttonTornaIndietro, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE)
 					.addGap(43)
 					.addComponent(lblPrenotazione, GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
 					.addGap(2245))
@@ -104,7 +114,7 @@ public class PrenotazioneView extends JFrame {
 							.addComponent(lblPrenotazione, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 						.addGroup(gl_panel.createSequentialGroup()
 							.addGap(23)
-							.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)))
+							.addComponent(buttonTornaIndietro, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)))
 					.addContainerGap())
 		);
 		panel.setLayout(gl_panel);
@@ -133,57 +143,57 @@ public class PrenotazioneView extends JFrame {
 		
 		JSeparator separator_2_1 = new JSeparator();
 		
-		textField = new JTextField();
-		textField.setBorder(null);
-		textField.setColumns(10);
+		indirizzoRitiro = new JTextField();
+		indirizzoRitiro.setBorder(null);
+		indirizzoRitiro.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBorder(null);
-		textField_1.setColumns(10);
+		indirizzoConsegna = new JTextField();
+		indirizzoConsegna.setBorder(null);
+		indirizzoConsegna.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setBorder(null);
-		textField_2.setColumns(10);
+		dataRitiro = new JTextField();
+		dataRitiro.setBorder(null);
+		dataRitiro.setColumns(10);
 		
-		textField_3 = new JTextField();
-		textField_3.setBorder(null);
-		textField_3.setColumns(10);
+		dataConsegna = new JTextField();
+		dataConsegna.setBorder(null);
+		dataConsegna.setColumns(10);
 		
 		JLabel lblMetodoDiPagamento = new JLabel("Metodo di Pagamento");
 		lblMetodoDiPagamento.setForeground(new Color(70, 130, 180));
 		lblMetodoDiPagamento.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("Carta");
-		rdbtnNewRadioButton.setBackground(new Color(100, 149, 237));
+		radioCarta = new JRadioButton("Carta");
+		radioCarta.setBackground(new Color(100, 149, 237));
 		
-		JRadioButton rdbtnContanti = new JRadioButton("Contanti");
-		rdbtnContanti.setBackground(new Color(100, 149, 237));
+		radioContanti = new JRadioButton("Contanti");
+		radioContanti.setBackground(new Color(100, 149, 237));
 		
 		JLabel lblImportoDaPagare = new JLabel("Importo da Pagare");
 		lblImportoDaPagare.setForeground(new Color(70, 130, 180));
 		lblImportoDaPagare.setFont(new Font("Tahoma", Font.BOLD, 20));
 		
-		JPanel panelBancomat = new JPanel();
+		panelBancomat = new JPanel();
 		panelBancomat.setBackground(new Color(240, 248, 255));
 		panelBancomat.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, new Color(30, 144, 255), new Color(100, 149, 237), null, null));
 		
-		textField_4 = new JTextField();
-		textField_4.setBackground(new Color(240, 248, 255));
-		textField_4.setBorder(null);
-		textField_4.setHorizontalAlignment(SwingConstants.RIGHT);
-		textField_4.setText("0");
-		textField_4.setFont(new Font("Tahoma", Font.BOLD, 20));
-		textField_4.setColumns(10);
+		importoDaPagare = new JTextField();
+		importoDaPagare.setBackground(new Color(240, 248, 255));
+		importoDaPagare.setBorder(null);
+		importoDaPagare.setHorizontalAlignment(SwingConstants.RIGHT);
+		importoDaPagare.setText("0");
+		importoDaPagare.setFont(new Font("Tahoma", Font.BOLD, 20));
+		importoDaPagare.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("€");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblNewLabel_1.setForeground(new Color(0, 0, 0));
 		
-		JButton btnNewButton_1 = new JButton("Conferma Prenotazione");
-		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_1.setForeground(new Color(248, 248, 255));
-		btnNewButton_1.setBackground(new Color(30, 144, 255));
-		btnNewButton_1.setBorder(null);
+		JButton buttonConfermaPren = new JButton("Conferma Prenotazione");
+		buttonConfermaPren.setFont(new Font("Tahoma", Font.BOLD, 15));
+		buttonConfermaPren.setForeground(new Color(248, 248, 255));
+		buttonConfermaPren.setBackground(new Color(30, 144, 255));
+		buttonConfermaPren.setBorder(null);
 		
 		JLabel lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\nikola.manev\\Desktop\\immagini java\\IconaMetodoPag3%.jpg"));
@@ -218,19 +228,19 @@ public class PrenotazioneView extends JFrame {
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 										.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 											.addGroup(gl_contentPane.createSequentialGroup()
-												.addComponent(rdbtnNewRadioButton)
+												.addComponent(radioCarta)
 												.addGap(77)
-												.addComponent(rdbtnContanti))
+												.addComponent(radioContanti))
 											.addComponent(lblMetodoDiPagamento, GroupLayout.PREFERRED_SIZE, 155, GroupLayout.PREFERRED_SIZE)
 											.addGroup(gl_contentPane.createSequentialGroup()
 												.addComponent(lblImportoDaPagare, GroupLayout.PREFERRED_SIZE, 297, GroupLayout.PREFERRED_SIZE)
 												.addPreferredGap(ComponentPlacement.RELATED))
 											.addComponent(lblDataDiRitiro, GroupLayout.PREFERRED_SIZE, 297, GroupLayout.PREFERRED_SIZE)
-											.addComponent(textField_2)
+											.addComponent(dataRitiro)
 											.addComponent(separator_2, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE))
 										.addGroup(gl_contentPane.createSequentialGroup()
 											.addPreferredGap(ComponentPlacement.RELATED)
-											.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, 137, GroupLayout.PREFERRED_SIZE)
+											.addComponent(importoDaPagare, GroupLayout.PREFERRED_SIZE, 137, GroupLayout.PREFERRED_SIZE)
 											.addPreferredGap(ComponentPlacement.RELATED)
 											.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
 											.addPreferredGap(ComponentPlacement.RELATED)))
@@ -244,7 +254,7 @@ public class PrenotazioneView extends JFrame {
 													.addComponent(lblDataDiConsegna, GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
 													.addGroup(gl_contentPane.createSequentialGroup()
 														.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-															.addComponent(textField_3, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+															.addComponent(dataConsegna, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
 															.addComponent(separator_2_1, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))
 														.addGap(324))))
 											.addGroup(gl_contentPane.createSequentialGroup()
@@ -252,12 +262,12 @@ public class PrenotazioneView extends JFrame {
 												.addComponent(panelBancomat, GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE)))
 										.addGroup(gl_contentPane.createSequentialGroup()
 											.addGap(187)
-											.addComponent(btnNewButton_1, GroupLayout.PREFERRED_SIZE, 341, GroupLayout.PREFERRED_SIZE))))
+											.addComponent(buttonConfermaPren, GroupLayout.PREFERRED_SIZE, 341, GroupLayout.PREFERRED_SIZE))))
 								.addComponent(separator_1, GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
 								.addComponent(lblIndirizzoDiConsegna, GroupLayout.PREFERRED_SIZE, 419, GroupLayout.PREFERRED_SIZE)
-								.addComponent(textField_1)
+								.addComponent(indirizzoConsegna)
 								.addComponent(separator, GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
-								.addComponent(textField, Alignment.TRAILING)
+								.addComponent(indirizzoRitiro, Alignment.TRAILING)
 								.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 419, GroupLayout.PREFERRED_SIZE))))
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
@@ -270,7 +280,7 @@ public class PrenotazioneView extends JFrame {
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addComponent(indirizzoRitiro, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(separator, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 						.addComponent(lblNewLabel_3_3_1_1, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE))
@@ -279,7 +289,7 @@ public class PrenotazioneView extends JFrame {
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addComponent(lblIndirizzoDiConsegna, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addComponent(indirizzoConsegna, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 							.addGap(3)
 							.addComponent(separator_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 						.addComponent(lblNewLabel_3_3_1, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE))
@@ -288,7 +298,7 @@ public class PrenotazioneView extends JFrame {
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addComponent(lblDataDiRitiro, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addComponent(dataRitiro, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(separator_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 						.addComponent(lblNewLabel_3_3, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
@@ -297,7 +307,7 @@ public class PrenotazioneView extends JFrame {
 								.addComponent(lblNewLabel_3_4, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
 								.addComponent(lblDataDiConsegna, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addComponent(dataConsegna, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 							.addGap(3)
 							.addComponent(separator_2_1, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)))
 					.addGap(39)
@@ -309,26 +319,26 @@ public class PrenotazioneView extends JFrame {
 								.addComponent(lblMetodoDiPagamento, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
 							.addGap(18)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-								.addComponent(rdbtnNewRadioButton)
-								.addComponent(rdbtnContanti))
+								.addComponent(radioCarta)
+								.addComponent(radioContanti))
 							.addGap(53)
 							.addComponent(lblImportoDaPagare, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)))
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(18)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-								.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+								.addComponent(importoDaPagare, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
 								.addComponent(lblNewLabel_1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 							.addGap(43))
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(9)
-							.addComponent(btnNewButton_1, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
+							.addComponent(buttonConfermaPren, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
 							.addContainerGap())))
 		);
 		
-		JLabel lblNewLabel_2 = new JLabel("Nome del Titolare della carta");
-		lblNewLabel_2.setForeground(new Color(70, 130, 180));
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 12));
+		JLabel labelNomeTitCarta = new JLabel("Nome del Titolare della carta");
+		labelNomeTitCarta.setForeground(new Color(70, 130, 180));
+		labelNomeTitCarta.setFont(new Font("Tahoma", Font.BOLD, 12));
 		
 		JSeparator separator_3 = new JSeparator();
 		
@@ -337,24 +347,24 @@ public class PrenotazioneView extends JFrame {
 		textField_5.setBorder(null);
 		textField_5.setColumns(10);
 		
-		JLabel lblNewLabel_2_1 = new JLabel("Numero della Carta di Credito");
-		lblNewLabel_2_1.setForeground(new Color(70, 130, 180));
-		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.BOLD, 12));
+		JLabel labelNumCarta = new JLabel("Numero della Carta di Credito");
+		labelNumCarta.setForeground(new Color(70, 130, 180));
+		labelNumCarta.setFont(new Font("Tahoma", Font.BOLD, 12));
 		
 		JSeparator separator_3_1 = new JSeparator();
 		
-		JLabel lblNewLabel_2_2 = new JLabel("CVC :");
-		lblNewLabel_2_2.setForeground(new Color(70, 130, 180));
-		lblNewLabel_2_2.setFont(new Font("Tahoma", Font.BOLD, 12));
+		JLabel labelCVC = new JLabel("CVC :");
+		labelCVC.setForeground(new Color(70, 130, 180));
+		labelCVC.setFont(new Font("Tahoma", Font.BOLD, 12));
 		
 		textField_6 = new JTextField();
 		textField_6.setBackground(new Color(248, 248, 255));
 		textField_6.setColumns(10);
 		textField_6.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 0)));
 		
-		JLabel lblNewLabel_2_2_1 = new JLabel("Data di Scadenza :");
-		lblNewLabel_2_2_1.setForeground(new Color(70, 130, 180));
-		lblNewLabel_2_2_1.setFont(new Font("Tahoma", Font.BOLD, 12));
+		JLabel labelDataScad = new JLabel("Data di Scadenza :");
+		labelDataScad.setForeground(new Color(70, 130, 180));
+		labelDataScad.setFont(new Font("Tahoma", Font.BOLD, 12));
 		
 		textField_7 = new JTextField();
 		textField_7.setColumns(10);
@@ -383,16 +393,16 @@ public class PrenotazioneView extends JFrame {
 							.addComponent(separator_3, GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
 							.addComponent(textField_5))
 						.addGroup(gl_panelBancomat.createSequentialGroup()
-							.addComponent(lblNewLabel_2_2, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
+							.addComponent(labelCVC, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(textField_6, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE))
-						.addComponent(lblNewLabel_2))
+						.addComponent(labelNomeTitCarta))
 					.addGap(118)
 					.addGroup(gl_panelBancomat.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblNewLabel_2_1, GroupLayout.PREFERRED_SIZE, 201, GroupLayout.PREFERRED_SIZE)
+						.addComponent(labelNumCarta, GroupLayout.PREFERRED_SIZE, 201, GroupLayout.PREFERRED_SIZE)
 						.addComponent(separator_3_1, GroupLayout.PREFERRED_SIZE, 226, GroupLayout.PREFERRED_SIZE)
 						.addGroup(gl_panelBancomat.createSequentialGroup()
-							.addComponent(lblNewLabel_2_2_1, GroupLayout.PREFERRED_SIZE, 113, GroupLayout.PREFERRED_SIZE)
+							.addComponent(labelDataScad, GroupLayout.PREFERRED_SIZE, 113, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addComponent(textField_7, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
 							.addGap(7)
@@ -411,8 +421,8 @@ public class PrenotazioneView extends JFrame {
 				.addGroup(gl_panelBancomat.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(gl_panelBancomat.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel_2_1, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblNewLabel_2))
+						.addComponent(labelNumCarta, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE)
+						.addComponent(labelNomeTitCarta))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_panelBancomat.createParallelGroup(Alignment.BASELINE)
 						.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
@@ -424,8 +434,8 @@ public class PrenotazioneView extends JFrame {
 					.addGap(21)
 					.addGroup(gl_panelBancomat.createParallelGroup(Alignment.BASELINE)
 						.addComponent(textField_6, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblNewLabel_2_2, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblNewLabel_2_2_1, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE)
+						.addComponent(labelCVC, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE)
+						.addComponent(labelDataScad, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE)
 						.addComponent(textField_7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(textField_8, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(textField_9, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
@@ -435,5 +445,35 @@ public class PrenotazioneView extends JFrame {
 		);
 		panelBancomat.setLayout(gl_panelBancomat);
 		contentPane.setLayout(gl_contentPane);
+		
+		//AZIONE RADIO BUTTON
+		radioContanti.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        if (radioContanti.isSelected()) {
+		            panelBancomat.setVisible(false);
+		            radioCarta.setSelected(false);
+		           
+		        }
+		    }
+		});
+
+		radioCarta.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        if (radioCarta.isSelected()) {
+		            panelBancomat.setVisible(true);
+		            radioContanti.setSelected(false);
+		        }
+		    }
+		});
+
+		
+		
+		
+		
+		
+		
+		
 	}
 }
