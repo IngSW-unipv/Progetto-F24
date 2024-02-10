@@ -32,7 +32,7 @@ public class RegisterController {
 				rm.setCognome(rv.getCognome());
 				rm.setEmail(rv.getEmail());
 				rm.setPassword(rv.getPass());
-				rm.setIdCliente(rv.getCF()); 
+			  
 			
 		            if (rm.confermaRegistrazione()) {
 		                //rv.showMessage("Registrazione completata con successo!");

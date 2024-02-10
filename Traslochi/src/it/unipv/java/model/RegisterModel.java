@@ -2,10 +2,10 @@ package it.unipv.java.model;
 
 public class RegisterModel {
 
-	private String nome;// dalla view
-	private String cognome;// dalla view
- 	private String email;// dalla view
-	private String password;// dalla view
+	private String nome;         // dalla view
+	private String cognome;     // dalla view
+ 	private String email;      // dalla view
+	private String password;  // dalla view
 
 	public RegisterModel(String nome, String cognome, String id, String email, String password) {
 		this.nome = nome;
@@ -70,16 +70,26 @@ public class RegisterModel {
 		return true; // Tutti i controlli di validità superati
 	}
 
-	public Boolean confermaRegistrazione() {
-		if (!validaDati()) {
-			//RITORNARNARE AL CONTROLLER IL PERCHE E LO DARA ALLA VIEW
-			return false; // Dati non validi, registrazione non può procedere
-		}else {
-			
-			AuthGestor.authUser(this);
-		}
-  
-		return true;  
+	public boolean confermaRegistrazione() {
+	    if (!validaDati()) {
+ 	        //gestione nella view
+	        return false; // I dati non sono validi, la registrazione non può procedere
+	    } else {
+	        try {
+ 	            boolean registrazioneRiuscita = AuthGestor.registerUser(this);
+	            if (!registrazioneRiuscita) { 
+	                System.err.println("Registrazione fallita a causa di un errore nel processo di salvataggio.");//fare questo per la view
+	                return false; 
+	            }
+	        } catch (Exception e) {
+	             
+	            System.err.println("Errore durante la registrazione: " + e.getMessage());//fare questo per la view
+	            return false; // Restituisce false per indicare che la registrazione non è riuscita a causa di un'eccezione 
+	        }
+	    }
+	  //fare questo per la view
+	    return true; // Restituisce true se la registrazione è avvenuta con successo
 	}
+
 
 }// fine register model
