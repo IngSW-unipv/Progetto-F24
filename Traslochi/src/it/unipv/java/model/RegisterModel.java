@@ -1,15 +1,13 @@
 package it.unipv.java.model;
 
 public class RegisterModel {
-    private UserModel um; // Istanza di UserModel per gestire le proprietà dell'utente
-
-    // Costruttore che accetta un UserModel
+    private UserModel um;  
+ 
     public RegisterModel(UserModel um) {
         this.um = um;
     }
 
-    // Metodo per validare i dati dell'utente
-    public boolean validaDati() {
+     public boolean validaDati() {
         if (um.getNome() == null || um.getNome().trim().isEmpty()) {
             return false;
         }

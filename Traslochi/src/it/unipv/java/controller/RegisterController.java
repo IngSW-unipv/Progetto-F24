@@ -36,8 +36,7 @@ public class RegisterController {
 				um.setPassword(rv.getPass());
 
 				rm.setUserModel(um);
-				//PER RICHI
-				if (rm.confermaRegistrazione()) {
+ 				if (rm.confermaRegistrazione()) {
 					// rv.showMessage("Registrazione completata con successo!");
 				} else {
 					// rv.showErrorMessage("Errore nella registrazione. Verifica i dati inseriti.");

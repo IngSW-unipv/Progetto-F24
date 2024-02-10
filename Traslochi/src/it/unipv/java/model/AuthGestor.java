@@ -9,9 +9,20 @@ public class AuthGestor {
 	RegisterModel rm;
 
 	public AuthGestor() {
+		
+	}
+	
+	public RegisterModel getRm() {
+		return rm;
 	}
 
+	public void setRm(RegisterModel rm) {
+		this.rm = rm;
+	}
+	
+	
 	public String generateIdFromCf(String cf) {
+		
 		if (cf == null || cf.length() < 5) {
 			throw new IllegalArgumentException("CF non valido");
 		}
@@ -55,12 +66,8 @@ public class AuthGestor {
 		return true;
 	}
 
-	public RegisterModel getRm() {
-		return rm;
-	}
-
-	public void setRm(RegisterModel rm) {
-		this.rm = rm;
-	}
+	
+	
+	
 
 }

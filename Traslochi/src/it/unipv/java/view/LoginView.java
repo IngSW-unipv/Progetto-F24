@@ -159,7 +159,12 @@ public class LoginView extends JFrame {
 		panel.add(lblNewLabel_2);
 		
 	}
-	
+	public JButton getLoginButton() {
+		return loginButton;
+	}
+	public JButton getRegisterButton() {
+		return registerButton;
+	}
 	public String getEmail() {
 		return Email.getText();
 	}
