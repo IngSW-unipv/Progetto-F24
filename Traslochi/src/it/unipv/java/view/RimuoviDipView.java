@@ -17,6 +17,7 @@ import javax.swing.JSeparator;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JTextField;
 import java.awt.Color;
+import java.awt.Toolkit;
 
 public class RimuoviDipView extends JDialog {
 
@@ -25,9 +26,8 @@ public class RimuoviDipView extends JDialog {
 	private JTextField idDipendente;
 	private JTextField codiceFiscale;
 
-	/**
-	 * Launch the application.
-	 */
+	
+	
 	public static void main(String[] args) {
 		try {
 			RimuoviDipView dialog = new RimuoviDipView();
@@ -38,10 +38,11 @@ public class RimuoviDipView extends JDialog {
 		}
 	}
 
-	/**
-	 * Create the dialog.
-	 */
+	
+
 	public RimuoviDipView() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("resources/IconaLogin.png"));
+		setTitle("Bidons");
 		setBounds(100, 100, 391, 256);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(SystemColor.inactiveCaptionBorder);
@@ -132,6 +133,7 @@ public class RimuoviDipView extends JDialog {
 				buttonConfermaRim.setBorder(null);
 				buttonConfermaRim.setActionCommand("OK");
 				getRootPane().setDefaultButton(buttonConfermaRim);
+				buttonConfermaRim.setFocusable(false);
 			}
 			GroupLayout gl_buttonPane = new GroupLayout(buttonPane);
 			gl_buttonPane.setHorizontalGroup(
