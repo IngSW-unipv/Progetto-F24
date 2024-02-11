@@ -7,11 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import it.unipv.java.model.AuthGestor;
-import it.unipv.java.model.DipendenteModel;
-import it.unipv.java.model.LoginModel;
-import it.unipv.java.model.RegisterModel;
-import it.unipv.java.model.UserModel;
+import it.unipv.java.model.DataAccessFacade; 
 import it.unipv.java.persistance.dao.DatabaseConnection;
 import it.unipv.java.persistance.dao.PasswordUtil;
 
@@ -26,7 +22,7 @@ public class DipendenteDao implements IDipendenteDao {
 	
 	
 	@Override
-	public boolean createDipendente(AuthGestor c) {
+	public boolean createDipendente(DataAccessFacade c) {
 
 	    conn = DatabaseConnection.startConnection(conn, schema);
 	    PreparedStatement st1;
@@ -52,9 +48,9 @@ public class DipendenteDao implements IDipendenteDao {
 	}
 	
 	
-
+	// DA IMPLEMENTARE devo vedere dipendente view
 	@Override
-	public boolean updateDipendente(AuthGestor u) {
+	public boolean updateDipendente(DataAccessFacade u) {
 /*
 		conn = DatabaseConnection.startConnection(conn, schema);
 		String query = "UPDATE DIPENDENTI SET NOME=?,COGNOME=?,EMAIL=?,PASSWORD=? WHERE id=?";
@@ -80,11 +76,11 @@ public class DipendenteDao implements IDipendenteDao {
 	}
 
 	
-	
+	//DA IMPLEMENTARE devo vedere responsabile
 	@Override
-	public boolean deleteDipendente(DipendenteModel d) {
+	public boolean deleteDipendente(DataAccessFacade u) {
 
-		conn = DatabaseConnection.startConnection(conn, schema);
+		/*conn = DatabaseConnection.startConnection(conn, schema);
 
 		String query = "DELETE FROM Dipendenti WHERE idDipendente = ? ";
 
@@ -98,13 +94,14 @@ public class DipendenteDao implements IDipendenteDao {
 			return false;
 		} finally {
 			DatabaseConnection.closeConnection(conn);
-		}
+		}*/
 		return true;
 	}
-	@Override
-	public List<DipendenteModel> getAllDipendenti() {
-	    List<DipendenteModel> dipendenti = new ArrayList<>();
-	   
+	
+	@Override //il responsabile fa alldipendenti
+	public List<DataAccessFacade> getAllDipendenti() {
+		List<DataAccessFacade> dipendenti = new ArrayList<>();  //come si fa?
+	   /*
 	    Statement stmt = null;
 	    ResultSet rs = null;
 
@@ -118,7 +115,7 @@ public class DipendenteDao implements IDipendenteDao {
 
 	        // Process the result set
 	        while (rs.next()) {
-	        	DipendenteModel dipendente = new DipendenteModel();
+	            DataAccessFacade dipendente = DataAccessFacade.getInstance();
 	            dipendente.setIdDipendente(rs.getInt("IDDIPENDENTI")); // Adjust the method names and types accordingly
 	            dipendente.setNome(rs.getString("NOME"));
 	            dipendente.setCognome(rs.getString("COGNOME"));
@@ -138,12 +135,13 @@ public class DipendenteDao implements IDipendenteDao {
 	            e.printStackTrace();
 	        }
 	    }
-
+ */
 	    return dipendenti;
+	   
 	}
 
 	@Override
-	public boolean getDipendente(AuthGestor ag) {
+	public boolean getDipendente(    DataAccessFacade  ag) {
 		
 	    boolean loginSuccess = false;
 	    conn = DatabaseConnection.startConnection(conn, schema); 
