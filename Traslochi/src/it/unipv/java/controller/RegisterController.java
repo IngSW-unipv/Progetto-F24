@@ -15,16 +15,8 @@ public class RegisterController {
 	private LoginView lv;
 	
 
-<<<<<<< Updated upstream
- 
-	public RegisterController() {
- 	}
- 
-	public RegisterController(RegisterView registerView, RegisterModel registerModel, WarningView warningView) {
-=======
 	
 	public RegisterController(RegisterView registerView, RegisterModel registerModel) {
->>>>>>> Stashed changes
 		this.rv = registerView;
 		this.rm = registerModel;
 		initcomponents();
@@ -35,6 +27,8 @@ public class RegisterController {
 		rv.getBottoneConfermaReg().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Creazione di un nuovo UserModel con i dati raccolti dalla view
+				
+				
 				UserModel um = new UserModel();
 				um.setNome(rv.getNome());
 				um.setCognome(rv.getCognome());
@@ -43,22 +37,17 @@ public class RegisterController {
 
 				rm.setUserModel(um);
  				if (rm.confermaRegistrazione()) {
-<<<<<<< Updated upstream
-					// rv.showMessage("Registrazione completata con successo!"); //passare alla view 
-=======
-					rv.setVisible(false);
+					
 					lv.setVisible(true);
 					WarningView wv= new WarningView();
 					wv.registrEffettuata();
-					
->>>>>>> Stashed changes
 				} else {
 					// rv.showErrorMessage("Errore nella registrazione. Verifica i dati inseriti.");
 				}
 			}
 		});
 	}
-	
+
 	
 	/*
 	 * warningView.getBottoneRiprova().addActionListener(new ActionListener() {
