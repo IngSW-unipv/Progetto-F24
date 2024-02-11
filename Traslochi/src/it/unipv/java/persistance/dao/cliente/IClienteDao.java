@@ -1,17 +1,13 @@
 package it.unipv.java.persistance.dao.cliente;
 
-import java.util.List;
-
-import it.unipv.java.model.DataAccessFacade;
-import it.unipv.java.model.ClienteModel;
-import it.unipv.java.model.LoginModel;
-import it.unipv.java.model.RegisterModel;
+import java.util.List; 
+import it.unipv.java.model.UserModel;
 
 public interface IClienteDao {
-    public boolean createCliente(DataAccessFacade c);
-    public boolean updateCliente(DataAccessFacade u);
-    public List<DataAccessFacade> getAllClienti();
-    public boolean getCliente(DataAccessFacade arg);
-    public boolean deleteCliente(DataAccessFacade d); 
+    public boolean createCliente(UserModel c);
+    public boolean updateCliente(UserModel u);
+    public List<UserModel> getAllClienti();
+    public boolean getCliente(UserModel arg);
+    public boolean deleteCliente(UserModel d); 
 	
 }
