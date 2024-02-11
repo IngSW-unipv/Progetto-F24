@@ -5,17 +5,23 @@ import it.unipv.java.persistance.dao.dipendente.DipendenteDao;
 import it.unipv.java.persistance.dao.responsabile.ResponsabileDao;
 import java.util.Random;
 
-public class AuthGestor {
+public class DataAccessFacade  {
 	RegisterModel rm;
 	LoginModel lm;
-	
-	
-	
-	
-	
-	public AuthGestor() {
-	}
+    private static DataAccessFacade instance;
 
+    private DataAccessFacade() {
+    }
+    public static DataAccessFacade getInstance() {
+        if (instance == null) {
+            synchronized (DataAccessFacade.class) {
+                if (instance == null) {
+                    instance = new DataAccessFacade();
+                }
+            }
+        }
+        return instance;
+    }
 	public RegisterModel getRm() {
 		return rm;
 	}

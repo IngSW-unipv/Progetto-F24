@@ -8,8 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import at.favre.lib.crypto.bcrypt.BCrypt;
-import it.unipv.java.model.AuthGestor;
-import it.unipv.java.model.ClienteModel;
+ import it.unipv.java.model.DataAccessFacade;
+import it.unipv.java.model.UserModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 import it.unipv.java.persistance.dao.PasswordUtil;
 
@@ -23,18 +23,18 @@ public class ClienteDao implements IClienteDao {
 	}
 
 	@Override
-	public boolean createCliente(AuthGestor ag) {
+	public boolean createCliente(UserModel ag) {
 		conn = DatabaseConnection.startConnection(conn, schema);
 		PreparedStatement st1;
 		boolean esito = true;
 		try {
 			String query = "INSERT INTO CLIENTI (NOME,COGNOME,EMAIL,PASSWORD,IDCLIENTE) VALUES(?,?,?,?,?)";
 			st1 = conn.prepareStatement(query);
-			st1.setString(1, ag.getRm().getUm().getNome());
-			st1.setString(2, ag.getRm().getUm().getCognome());
-			st1.setString(3, ag.getRm().getUm().getEmail());
-			st1.setString(4, ag.getRm().getUm().getPassword());
-			st1.setString(5, ag.getRm().getUm().getId());
+			st1.setString(1, ag.getNome());
+			st1.setString(2, ag.getCognome());
+			st1.setString(3, ag.getEmail());
+			st1.setString(4, ag.getPassword());
+			st1.setString(5, ag.getId());
 			st1.executeUpdate(query);
 
 		} catch (Exception e) {
@@ -49,18 +49,18 @@ public class ClienteDao implements IClienteDao {
 
 	
 	@Override
-	public boolean updateCliente(AuthGestor ag) {
+	public boolean updateCliente(UserModel ag) {
 
 		conn = DatabaseConnection.startConnection(conn, schema);
 		String query = "UPDATE CLIENTI SET NOME=?,COGNOME=?,EMAIL=?,PASSWORD=? WHERE id=?";
 
 		try (PreparedStatement st1 = conn.prepareStatement(query)) {
 
-			st1.setString(1, ag.getRm().getUm().getNome());
-			st1.setString(2, ag.getRm().getUm().getCognome());
-			st1.setString(3, ag.getRm().getUm().getEmail());
-			st1.setString(4, ag.getRm().getUm().getPassword());
-			st1.setString(5, ag.getRm().getUm().getId());
+			st1.setString(1, ag.getNome());
+			st1.setString(2, ag.getCognome());
+			st1.setString(3, ag.getEmail());
+			st1.setString(4, ag.getPassword());
+			st1.setString(5, ag.getId());
 
 			st1.executeUpdate(query);
 
@@ -75,12 +75,12 @@ public class ClienteDao implements IClienteDao {
 	}
 
 	@Override
-	public boolean deleteCliente(AuthGestor ag) {
+	public boolean deleteCliente(UserModel  ag) {
 
 		String query = "DELETE FROM Clienti WHERE idCliente = ?";
 		try (PreparedStatement st1 = conn.prepareStatement(query)) {
 
-			st1.setString(1, ag.getRm().getUm().getId());
+			st1.setString(1, ag.getId());
 
 			st1.executeUpdate();
 
@@ -94,9 +94,9 @@ public class ClienteDao implements IClienteDao {
 	}
 
 	@Override
-	public List<AuthGestor> getAllClienti() {
-		List<ClienteModel> clienti = new ArrayList<>();
-
+	public List<UserModel> getAllClienti() {
+		List<DataAccessFacade> clienti = new ArrayList<>();
+/*
 		Statement stmt = null;
 		ResultSet rs = null;
 
@@ -110,7 +110,7 @@ public class ClienteDao implements IClienteDao {
 
 			// Process the result set
 			while (rs.next()) {
-				ClienteModel c = new ClienteModel();
+				DataAccessFacade c = new DataAccessFacade();
 				c.setIdCliente(rs.getInt("IDDIPENDENTI")); // Adjust the method names and types accordingly
 				c.setNome(rs.getString("NOME"));
 				c.setCognome(rs.getString("COGNOME"));
@@ -132,12 +132,12 @@ public class ClienteDao implements IClienteDao {
 				e.printStackTrace();
 			}
 		}
-
+*/
 		return clienti;
 	}
 
 	@Override
-	public boolean getCliente(AuthGestor ag) {
+	public boolean getCliente(UserModel ag) {
 		boolean clienteEsiste = false;
 		conn = DatabaseConnection.startConnection(conn, schema);
 

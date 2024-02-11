@@ -7,11 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import it.unipv.java.model.AuthGestor;
-import it.unipv.java.model.DipendenteModel;
-import it.unipv.java.model.LoginModel;
-import it.unipv.java.model.RegisterModel;
-import it.unipv.java.model.UserModel;
+import it.unipv.java.model.DataAccessFacade; 
 import it.unipv.java.persistance.dao.DatabaseConnection;
 import it.unipv.java.persistance.dao.PasswordUtil;
 
@@ -26,7 +22,7 @@ public class DipendenteDao implements IDipendenteDao {
 	
 	
 	@Override
-	public boolean createDipendente(AuthGestor ag) {
+	public boolean createDipendente(DataAccessFacade c) {
 
 	    conn = DatabaseConnection.startConnection(conn, schema);
 	    PreparedStatement st1;
@@ -34,12 +30,12 @@ public class DipendenteDao implements IDipendenteDao {
 	    try {
 	        String query = "INSERT INTO CLIENTI (NOME,COGNOME,EMAIL,PASSWORD,IDCLIENTE) VALUES(?,?,?,?,?)";
 	        st1 = conn.prepareStatement(query);
-	        st1.setString(1, ag.getRm().getUm().getNome());
-	        st1.setString(2, ag.getRm().getUm().getCognome());
-	        st1.setString(3, ag.getRm().getUm().getEmail());
- 	        String hashedPassword = PasswordUtil.hashPassword(ag.getRm().getUm().getPassword());
+	        st1.setString(1, c.getRm().getUm().getNome());
+	        st1.setString(2, c.getRm().getUm().getCognome());
+	        st1.setString(3, c.getRm().getUm().getEmail());
+ 	        String hashedPassword = PasswordUtil.hashPassword(c.getRm().getUm().getPassword());
 	        st1.setString(4, hashedPassword);
-	        st1.setString(5, ag.getRm().getUm().getId());
+	        st1.setString(5, c.getRm().getUm().getId());
  	        st1.executeUpdate();
 
 	    }  catch (Exception e) {
@@ -52,16 +48,16 @@ public class DipendenteDao implements IDipendenteDao {
 	}
 	
 	
-
+	// DA IMPLEMENTARE devo vedere dipendente view
 	@Override
-	public boolean updateDipendente(DipendenteModel d) {
-
+	public boolean updateDipendente(DataAccessFacade u) {
+/*
 		conn = DatabaseConnection.startConnection(conn, schema);
 		String query = "UPDATE DIPENDENTI SET NOME=?,COGNOME=?,EMAIL=?,PASSWORD=? WHERE id=?";
 
 		try (PreparedStatement st1 = conn.prepareStatement(query)) {
-
-			st1.setString(1, d.getNome());
+			DIPENDE DALLA VIEW
+			st1.setString(1, u.get
 			st1.setString(2, d.getCognome());
 			st1.setString(3, d.getEmail());
 			st1.setString(4, d.getPassword());
@@ -74,15 +70,17 @@ public class DipendenteDao implements IDipendenteDao {
 			return false;
 		} finally {
 			DatabaseConnection.closeConnection(conn);
-		}
+		}*/
 		return true;
 
 	}
 
+	
+	//DA IMPLEMENTARE devo vedere responsabile
 	@Override
-	public boolean deleteDipendente(DipendenteModel d) {
+	public boolean deleteDipendente(DataAccessFacade u) {
 
-		conn = DatabaseConnection.startConnection(conn, schema);
+		/*conn = DatabaseConnection.startConnection(conn, schema);
 
 		String query = "DELETE FROM Dipendenti WHERE idDipendente = ? ";
 
@@ -96,13 +94,14 @@ public class DipendenteDao implements IDipendenteDao {
 			return false;
 		} finally {
 			DatabaseConnection.closeConnection(conn);
-		}
+		}*/
 		return true;
 	}
-	@Override
-	public List<DipendenteModel> getAllDipendenti() {
-	    List<DipendenteModel> dipendenti = new ArrayList<>();
-	   
+	
+	@Override //il responsabile fa alldipendenti
+	public List<DataAccessFacade> getAllDipendenti() {
+		List<DataAccessFacade> dipendenti = new ArrayList<>();  //come si fa?
+	   /*
 	    Statement stmt = null;
 	    ResultSet rs = null;
 
@@ -116,7 +115,7 @@ public class DipendenteDao implements IDipendenteDao {
 
 	        // Process the result set
 	        while (rs.next()) {
-	        	DipendenteModel dipendente = new DipendenteModel();
+	            DataAccessFacade dipendente = DataAccessFacade.getInstance();
 	            dipendente.setIdDipendente(rs.getInt("IDDIPENDENTI")); // Adjust the method names and types accordingly
 	            dipendente.setNome(rs.getString("NOME"));
 	            dipendente.setCognome(rs.getString("COGNOME"));
@@ -136,12 +135,13 @@ public class DipendenteDao implements IDipendenteDao {
 	            e.printStackTrace();
 	        }
 	    }
-
+ */
 	    return dipendenti;
+	   
 	}
 
 	@Override
-	public boolean getDipendente(AuthGestor ag) {
+	public boolean getDipendente(    DataAccessFacade  ag) {
 		
 	    boolean loginSuccess = false;
 	    conn = DatabaseConnection.startConnection(conn, schema); 

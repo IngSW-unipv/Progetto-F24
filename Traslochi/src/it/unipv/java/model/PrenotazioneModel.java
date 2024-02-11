@@ -2,6 +2,8 @@ package it.unipv.java.model;
 
 import java.util.Date;
 
+import it.unipv.java.controller.DataAccessSingleton;
+
 public class PrenotazioneModel {
     private int idPrenotazione;
     private int idCliente;
@@ -16,7 +18,8 @@ public class PrenotazioneModel {
     private String scadGiorno;
     private String scadMese;
     private String scadAnno;
-
+    private DataAccessSingleton dbAccess;
+    
     // Getters
     public int getIdPrenotazione() {
         return idPrenotazione;
@@ -123,5 +126,27 @@ public class PrenotazioneModel {
 		this.scadAnno = scadAnno;
 	}
     
-    
+    //Methods
+	 public boolean validaDati() {
+	       //Validazione Dati
+		/*  if (um.getNome() == null || um.getNome().trim().isEmpty()) {
+	            return false;
+	        }
+	        if (um.getCognome() == null || um.getCognome().trim().isEmpty()) {
+	            return false;
+	        }
+	        // Utilizza una regex per validare l'email
+	        if (um.getEmail() == null || !um.getEmail().matches("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}")) {
+	            return false;
+	        }
+	        // Controlla che la password sia lunga almeno 8 caratteri
+	        if (um.getPassword() == null || um.getPassword().length() < 8) {
+	            return false;
+	        }
+	    */
+	        return true; // Tutti i controlli di validità superati
+	    }
+	 public void savePrenotazione() {
+		 dbAccess.createPrenotazione();
+	 }
 }
