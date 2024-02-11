@@ -28,10 +28,15 @@ import javax.swing.SwingConstants;
 public class ResponsabileView extends JFrame {
 
 	private JPanel contentPane;
+	private JButton buttonVisProfilo;
+	private JButton buttonAggiungiDip;
+	private JButton buttonAssegnaTurno;
+	private JButton buttonRimuoviDip;
+	private JTextPane tuttePrenotazioni;
+	private JTextPane tuttiTurni;
+	private JTextPane tuttiDipendenti;
 
-	/**
-	 * Launch the application.
-	 */
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -45,12 +50,11 @@ public class ResponsabileView extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+
 	public ResponsabileView() {
+		setTitle("Bidons");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1421, 649);
+		setBounds(100, 100, 1422, 648);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.window);
 		contentPane.setBorder(null);
@@ -65,7 +69,7 @@ public class ResponsabileView extends JFrame {
 		lblPannelloDiControllo.setForeground(new Color(248, 248, 255));
 		lblPannelloDiControllo.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		
-		JButton buttonVisProfilo = new JButton("Visualizza Profilo");
+		buttonVisProfilo = new JButton("Visualizza Profilo");
 		buttonVisProfilo.setForeground(SystemColor.window);
 		buttonVisProfilo.setFont(new Font("Tahoma", Font.BOLD, 11));
 		buttonVisProfilo.setFocusable(false);
@@ -95,17 +99,17 @@ public class ResponsabileView extends JFrame {
 		);
 		panel.setLayout(gl_panel);
 		
-		JButton btnNewButton = new JButton("Aggiungi Dipendente");
-		btnNewButton.setBackground(SystemColor.textHighlight);
-		btnNewButton.setBorder(null);
-		btnNewButton.setForeground(new Color(248, 248, 255));
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
+		buttonAggiungiDip = new JButton("Aggiungi Dipendente");
+		buttonAggiungiDip.setBackground(SystemColor.textHighlight);
+		buttonAggiungiDip.setBorder(null);
+		buttonAggiungiDip.setForeground(new Color(248, 248, 255));
+		buttonAggiungiDip.setFont(new Font("Tahoma", Font.BOLD, 11));
 		
-		JButton btnAssegnaTurno = new JButton("Assegna Turno");
-		btnAssegnaTurno.setBorder(null);
-		btnAssegnaTurno.setBackground(SystemColor.textHighlight);
-		btnAssegnaTurno.setForeground(new Color(248, 248, 255));
-		btnAssegnaTurno.setFont(new Font("Tahoma", Font.BOLD, 11));
+		buttonAssegnaTurno = new JButton("Assegna Turno");
+		buttonAssegnaTurno.setBorder(null);
+		buttonAssegnaTurno.setBackground(SystemColor.textHighlight);
+		buttonAssegnaTurno.setForeground(new Color(248, 248, 255));
+		buttonAssegnaTurno.setFont(new Font("Tahoma", Font.BOLD, 11));
 		
 		JLabel lblNewLabel = new JLabel("DIPENDENTI");
 		lblNewLabel.setForeground(new Color(30, 144, 255));
@@ -144,11 +148,11 @@ public class ResponsabileView extends JFrame {
 		scrollPane_2.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPane_2.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		
-		JButton btnNewButton_1 = new JButton("Rimuovi Dipendente");
-		btnNewButton_1.setBackground(SystemColor.textHighlight);
-		btnNewButton_1.setForeground(SystemColor.text);
-		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnNewButton_1.setBorder(null);
+		buttonRimuoviDip = new JButton("Rimuovi Dipendente");
+		buttonRimuoviDip.setBackground(SystemColor.textHighlight);
+		buttonRimuoviDip.setForeground(SystemColor.text);
+		buttonRimuoviDip.setFont(new Font("Tahoma", Font.BOLD, 11));
+		buttonRimuoviDip.setBorder(null);
 		
 		JSeparator separator = new JSeparator();
 		
@@ -177,11 +181,11 @@ public class ResponsabileView extends JFrame {
 									.addGap(12))
 								.addGroup(gl_contentPane.createSequentialGroup()
 									.addGap(86)
-									.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 125, GroupLayout.PREFERRED_SIZE)
+									.addComponent(buttonAggiungiDip, GroupLayout.PREFERRED_SIZE, 125, GroupLayout.PREFERRED_SIZE)
 									.addPreferredGap(ComponentPlacement.UNRELATED)
-									.addComponent(btnNewButton_1, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)
+									.addComponent(buttonRimuoviDip, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE)
 									.addGap(270)
-									.addComponent(btnAssegnaTurno, GroupLayout.PREFERRED_SIZE, 198, GroupLayout.PREFERRED_SIZE)))
+									.addComponent(buttonAssegnaTurno, GroupLayout.PREFERRED_SIZE, 198, GroupLayout.PREFERRED_SIZE)))
 							.addGap(330)
 							.addComponent(lblPrenotazioni, GroupLayout.PREFERRED_SIZE, 122, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_contentPane.createSequentialGroup()
@@ -224,7 +228,7 @@ public class ResponsabileView extends JFrame {
 								.addGroup(gl_contentPane.createSequentialGroup()
 									.addComponent(separator, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 									.addGap(45)
-									.addComponent(btnAssegnaTurno, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE))
+									.addComponent(buttonAssegnaTurno, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE))
 								.addGroup(gl_contentPane.createSequentialGroup()
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 										.addComponent(lblPrenotazioni, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE)
@@ -232,8 +236,8 @@ public class ResponsabileView extends JFrame {
 										.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 29, GroupLayout.PREFERRED_SIZE))
 									.addGap(18)
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-										.addComponent(btnNewButton, GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-										.addComponent(btnNewButton_1, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE))))
+										.addComponent(buttonAggiungiDip, GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+										.addComponent(buttonRimuoviDip, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE))))
 							.addGap(77)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 								.addComponent(lblNewLabel_1_2)
@@ -258,24 +262,28 @@ public class ResponsabileView extends JFrame {
 							.addContainerGap())))
 		);
 		
-		JTextPane textPane_2 = new JTextPane();
-		textPane_2.setEditable(false);
-		textPane_2.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, SystemColor.window, SystemColor.window, SystemColor.textHighlight, SystemColor.textHighlight));
-		textPane_2.setBackground(SystemColor.inactiveCaptionBorder);
-		scrollPane_2.setViewportView(textPane_2);
+		tuttePrenotazioni = new JTextPane();
+		tuttePrenotazioni.setEditable(false);
+		tuttePrenotazioni.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, SystemColor.window, SystemColor.window, SystemColor.textHighlight, SystemColor.textHighlight));
+		tuttePrenotazioni.setBackground(SystemColor.inactiveCaptionBorder);
+		scrollPane_2.setViewportView(tuttePrenotazioni);
 		
-		JTextPane textPane_1 = new JTextPane();
-		textPane_1.setEditable(false);
-		textPane_1.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, SystemColor.window, SystemColor.window, SystemColor.textHighlight, SystemColor.textHighlight));
-		textPane_1.setBackground(SystemColor.inactiveCaptionBorder);
-		scrollPane_1.setViewportView(textPane_1);
+		tuttiTurni = new JTextPane();
+		tuttiTurni.setEditable(false);
+		tuttiTurni.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, SystemColor.window, SystemColor.window, SystemColor.textHighlight, SystemColor.textHighlight));
+		tuttiTurni.setBackground(SystemColor.inactiveCaptionBorder);
+		scrollPane_1.setViewportView(tuttiTurni);
 		
-		JTextPane txtpnJJJ = new JTextPane();
-		txtpnJJJ.setEditable(false);
-		txtpnJJJ.setBackground(SystemColor.inactiveCaptionBorder);
-		txtpnJJJ.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, SystemColor.window, SystemColor.window, SystemColor.textHighlight, SystemColor.textHighlight));
-		scrollPane.setViewportView(txtpnJJJ);
+		tuttiDipendenti = new JTextPane();
+		tuttiDipendenti.setEditable(false);
+		tuttiDipendenti.setBackground(SystemColor.inactiveCaptionBorder);
+		tuttiDipendenti.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, SystemColor.window, SystemColor.window, SystemColor.textHighlight, SystemColor.textHighlight));
+		scrollPane.setViewportView(tuttiDipendenti);
 		
+		buttonVisProfilo.setFocusable(false);
+		buttonAggiungiDip.setFocusable(false);
+		buttonAssegnaTurno.setFocusable(false);
+		buttonRimuoviDip.setFocusable(false);
 		contentPane.setLayout(gl_contentPane);
 	}
 }
