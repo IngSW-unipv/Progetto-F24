@@ -18,7 +18,7 @@ public class PrenotazioneModel {
     private String scadGiorno;
     private String scadMese;
     private String scadAnno;
-    private DataAccessSingleton dbAccess;
+    private DataAccessFacade dbAccess;
     
     // Getters
     public int getIdPrenotazione() {

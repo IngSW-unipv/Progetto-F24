@@ -3,6 +3,7 @@ package it.unipv.java.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import it.unipv.java.model.DataAccessFacade;
 import it.unipv.java.model.PrenotazioneModel;
 import it.unipv.java.view.ClienteView;
 import it.unipv.java.view.PrenotazioneView;
@@ -10,7 +11,7 @@ import it.unipv.java.view.PrenotazioneView;
 public class PrenotazioneController {
 	private PrenotazioneModel pm;
 	private PrenotazioneView pv;
-	private DataAccessSingleton dbAccess;
+	private DataAccessFacade dbAccess;
 	
 	public PrenotazioneController(PrenotazioneModel pm, PrenotazioneView pv) {
 		this.pm = pm;

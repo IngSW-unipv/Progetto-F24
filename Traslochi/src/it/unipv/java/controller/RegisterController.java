@@ -13,9 +13,10 @@ public class RegisterController {
 	private RegisterModel rm;
 	private WarningView warningView;
 
+ 
 	public RegisterController() {
  	}
-
+ 
 	public RegisterController(RegisterView registerView, RegisterModel registerModel, WarningView warningView) {
 		this.rv = registerView;
 		this.rm = registerModel;
