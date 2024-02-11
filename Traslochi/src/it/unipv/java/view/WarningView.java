@@ -20,6 +20,7 @@ public class WarningView {
 	private JLabel labelPassword;
 	private JLabel labelEmail;
 	private JLabel labelRegistrazione;
+	private JLabel labelErrore;
 
 	
 	public static void main(String[] args) {
@@ -82,6 +83,12 @@ public class WarningView {
 		labelRegistrazione.setFont(new Font("Tahoma", Font.BOLD, 10));
 		labelRegistrazione.setBounds(49, -5, 132, 65);
 		panel.add(labelRegistrazione);
+		
+		labelErrore = new JLabel("Errore, controllare i dati!");
+		labelErrore.setFont(new Font("Tahoma", Font.BOLD, 11));
+		labelErrore.setForeground(SystemColor.textHighlight);
+		labelErrore.setBounds(37, 10, 144, 35);
+		panel.add(labelErrore);
 	}
 	
 	public void mostraErrorPassword() {
@@ -108,6 +115,15 @@ public class WarningView {
 		riprovaButton.setText("ok");
 		
 		
+	}
+	
+	public void mostraErrorGenerale() {
+		initialize();
+		labelPassword.setVisible(false);
+		labelEmail.setVisible(false);
+		labelRegistrazione.setVisible(false);
+		labelErrore.setVisible(true);
+		riprovaButton.setText("Riprova");
 	}
 	
 	public JButton getBottoneRiprova() {

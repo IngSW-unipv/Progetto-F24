@@ -58,7 +58,7 @@ public class DataAccessFacade  {
 		 DataAccessFacade ag = DataAccessFacade.getInstance();
 			String id = ag.generateIdFromCf(rm.getUm().getCf());
 			rm.getUm().setId(id);
-			UserType userType = UserTypeUtil.determineUserType(rm.getUm().getEmail());
+			UserType userType = UserTypeUtil.determineUserType(rm.getUm());
 			rm.getUm().setUserType(userType);
 			boolean esito=false;
 		switch (userType) {
@@ -84,7 +84,7 @@ public class DataAccessFacade  {
     }
     
 	public boolean loginUser(LoginModel lm) {
-	    UserType userType = UserTypeUtil.determineUserType(lm.getUm().getEmail());
+	    UserType userType = UserTypeUtil.determineUserType(lm.getUm());
 	    boolean loginSuccess = false;
 
  	    switch (userType) {

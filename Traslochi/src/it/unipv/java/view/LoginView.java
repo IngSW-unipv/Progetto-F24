@@ -22,7 +22,7 @@ public class LoginView extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JPasswordField Password;
+	private JPasswordField password;
 	private JPanel panelLogin;
 	private JLabel lblNewLabel;
 	private JSeparator separator;
@@ -30,7 +30,7 @@ public class LoginView extends JFrame {
 	private JLabel passwordLabel;
 	private JSeparator separator_1;
 	private JButton loginButton;
-	private JTextArea Email;
+	private JTextArea email;
 	private JPanel panel;
 	private JLabel lblNewLabel_2;
 	private JButton registerButton;
@@ -118,14 +118,14 @@ public class LoginView extends JFrame {
 		loginButton.setFocusable(false);
 		panelLogin.add(loginButton);
 		
-		Email = new JTextArea();
-		Email.setBounds(10, 63, 191, 22);
-		panelLogin.add(Email);
+		email = new JTextArea();
+		email.setBounds(10, 63, 191, 22);
+		panelLogin.add(email);
 		
-		Password = new JPasswordField();
-		Password.setBorder(null);
-		Password.setBounds(10, 108, 191, 20);
-		panelLogin.add(Password);
+		password = new JPasswordField();
+		password.setBorder(null);
+		password.setBounds(10, 108, 191, 20);
+		panelLogin.add(password);
 		
 		registerButton = new JButton("Registrati");
 		registerButton.setForeground(Color.WHITE);
@@ -167,11 +167,19 @@ public class LoginView extends JFrame {
 		return registerButton;
 	}
 	public String getEmail() {
-		return Email.getText();
+		return email.getText();
 	}
 	
 	public String getPassword() {
-		return Password.getSelectedText();
+		return password.getSelectedText();
+	}
+	
+	public void setPassword(String pass) {
+		password.setText(pass);
+	}
+	
+	public void setEmail(String em) {
+		email.setText(em);
 	}
 	
 	void addLoginListener(ActionListener listenForLogin) {
