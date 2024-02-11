@@ -73,20 +73,18 @@ public class DipendenteView extends JFrame {
 				.addGroup(gl_panel.createSequentialGroup()
 					.addGap(83)
 					.addComponent(lblTurniLavorativi, GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
-					.addGap(947)
+					.addGap(728)
 					.addComponent(buttonVisProfilo, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
-					.addGap(1132))
+					.addGap(221))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(lblTurniLavorativi, GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblTurniLavorativi, GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+						.addComponent(buttonVisProfilo, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE))
 					.addGap(19))
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(32)
-					.addComponent(buttonVisProfilo, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(42, Short.MAX_VALUE))
 		);
 		panel.setLayout(gl_panel);
 		
@@ -97,19 +95,17 @@ public class DipendenteView extends JFrame {
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 1496, Short.MAX_VALUE)
-							.addGap(1075))
-						.addComponent(panel, GroupLayout.DEFAULT_SIZE, 2571, Short.MAX_VALUE))
-					.addGap(0))
+						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 1376, GroupLayout.PREFERRED_SIZE)
+						.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 1403, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(1073, Short.MAX_VALUE))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addComponent(panel, GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 75, Short.MAX_VALUE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
-					.addGap(43))
+					.addContainerGap())
 		);
 		
 		JLabel lblNewLabel = new JLabel("Orario di Inizio Turno");

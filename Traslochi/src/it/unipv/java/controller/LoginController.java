@@ -29,6 +29,9 @@ public class LoginController {
 					//istanzio la home page quale? dipende dal valore di ritorno di conferma login se dip,cliente,respons
 					
 					
+					
+					
+					
 				} else {
 					// lm.showErrorMessage("Errore nella registrazione. Verifica i dati inseriti.");
 				}

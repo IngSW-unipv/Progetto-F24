@@ -52,24 +52,13 @@ public class DataAccessFacade  {
 		return baseId + n1 + n2 + n3;
 	}
 
-	// Metodo per determinare il UserType
-	public static UserType determineUserType(String email) {
-		String dominio = email.substring(email.indexOf("@") + 1);
-		if ("bidons.it".equals(dominio)) {
-			return UserType.DIPENDENTE;
-		} else if ("bidonsResp.it".equals(dominio)) {
-			return UserType.RESPONSABILE;
-		} else {
-			return UserType.CLIENTE;
-		}
-	}
 
 	public  boolean registerUser(RegisterModel rm) {
 		
 		 DataAccessFacade ag = DataAccessFacade.getInstance();
 			String id = ag.generateIdFromCf(rm.getUm().getCf());
 			rm.getUm().setId(id);
-			UserType userType = determineUserType(rm.getUm().getEmail());
+			UserType userType = UserTypeUtil.determineUserType(rm.getUm().getEmail());
 			rm.getUm().setUserType(userType);
 			boolean esito=false;
 		switch (userType) {
