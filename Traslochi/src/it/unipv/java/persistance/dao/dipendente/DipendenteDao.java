@@ -26,7 +26,7 @@ public class DipendenteDao implements IDipendenteDao {
 	
 	
 	@Override
-	public boolean createDipendente(AuthGestor ag) {
+	public boolean createDipendente(AuthGestor c) {
 
 	    conn = DatabaseConnection.startConnection(conn, schema);
 	    PreparedStatement st1;
@@ -34,12 +34,12 @@ public class DipendenteDao implements IDipendenteDao {
 	    try {
 	        String query = "INSERT INTO CLIENTI (NOME,COGNOME,EMAIL,PASSWORD,IDCLIENTE) VALUES(?,?,?,?,?)";
 	        st1 = conn.prepareStatement(query);
-	        st1.setString(1, ag.getRm().getUm().getNome());
-	        st1.setString(2, ag.getRm().getUm().getCognome());
-	        st1.setString(3, ag.getRm().getUm().getEmail());
- 	        String hashedPassword = PasswordUtil.hashPassword(ag.getRm().getUm().getPassword());
+	        st1.setString(1, c.getRm().getUm().getNome());
+	        st1.setString(2, c.getRm().getUm().getCognome());
+	        st1.setString(3, c.getRm().getUm().getEmail());
+ 	        String hashedPassword = PasswordUtil.hashPassword(c.getRm().getUm().getPassword());
 	        st1.setString(4, hashedPassword);
-	        st1.setString(5, ag.getRm().getUm().getId());
+	        st1.setString(5, c.getRm().getUm().getId());
  	        st1.executeUpdate();
 
 	    }  catch (Exception e) {
@@ -54,14 +54,14 @@ public class DipendenteDao implements IDipendenteDao {
 	
 
 	@Override
-	public boolean updateDipendente(DipendenteModel d) {
-
+	public boolean updateDipendente(AuthGestor u) {
+/*
 		conn = DatabaseConnection.startConnection(conn, schema);
 		String query = "UPDATE DIPENDENTI SET NOME=?,COGNOME=?,EMAIL=?,PASSWORD=? WHERE id=?";
 
 		try (PreparedStatement st1 = conn.prepareStatement(query)) {
-
-			st1.setString(1, d.getNome());
+			DIPENDE DALLA VIEW
+			st1.setString(1, u.get
 			st1.setString(2, d.getCognome());
 			st1.setString(3, d.getEmail());
 			st1.setString(4, d.getPassword());
@@ -74,11 +74,13 @@ public class DipendenteDao implements IDipendenteDao {
 			return false;
 		} finally {
 			DatabaseConnection.closeConnection(conn);
-		}
+		}*/
 		return true;
 
 	}
 
+	
+	
 	@Override
 	public boolean deleteDipendente(DipendenteModel d) {
 
