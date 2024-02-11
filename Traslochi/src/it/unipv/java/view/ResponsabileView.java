@@ -54,7 +54,7 @@ public class ResponsabileView extends JFrame {
 	public ResponsabileView() {
 		setTitle("Bidons");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1422, 648);
+		setBounds(100, 100, 1400, 648);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.window);
 		contentPane.setBorder(null);

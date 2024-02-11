@@ -65,7 +65,7 @@ public class ClienteView extends JFrame {
     	setIconImage(Toolkit.getDefaultToolkit().getImage("resources/IconaLogin.png"));
     	setTitle("Bidons");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 1421, 681);
+        setBounds(100, 100, 1332, 681);
         setResizable(true); // Imposta la finestra come ridimensionabile
 
         contentPane = new JPanel();
@@ -246,9 +246,9 @@ public class ClienteView extends JFrame {
         		.addGroup(gl_panel.createSequentialGroup()
         			.addGap(83)
         			.addComponent(homePageLabel, GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
-        			.addGap(937)
+        			.addGap(817)
         			.addComponent(buttonVisProfilo, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE)
-        			.addGap(1207))
+        			.addGap(1327))
         );
         gl_panel.setVerticalGroup(
         	gl_panel.createParallelGroup(Alignment.LEADING)
