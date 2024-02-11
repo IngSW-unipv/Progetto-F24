@@ -17,13 +17,9 @@ public class PrenotazioneDao implements IPrenotazioneDao{
 	
 	public PrenotazioneDao() {
 		super();
-		this.schema = "NOME SCHEMA";	//Inserisci Qui nome schema Prenotazione
+		this.schema = "Traslochi";	//Inserisci Qui nome schema Prenotazione
 	}
- 
-	// Assuming Prenotazione and PrenotazioneModel are defined somewhere in your codebase
-	// and have getters and setters for their properties
-
-	// Assuming DatabaseConnection is a utility class that handles the connection to the database
+  
 
 	@Override
 	public List<PrenotazioneModel> getAllPrenotazioni() {
@@ -87,13 +83,12 @@ public class PrenotazioneDao implements IPrenotazioneDao{
 	public boolean createPrenotazione(PrenotazioneModel p) {
 	    Connection conn = null;
 	    boolean esito = true;
-
-	    try {
+ 
 	        conn = DatabaseConnection.startConnection(conn, schema);
 	        String query = "INSERT INTO Prenotazioni(IDPrenotazione, IDCliente, IndirizzoDiConsegna, DataRitiro, DataConsegna, MetodoDiPagamento, ImportoPagato, StatoPrenotazione) VALUES(?,?,?,?,?,?,?,?)";
 	        try (PreparedStatement st1 = conn.prepareStatement(query)) {
-	            st1.setInt(1, p.getIdPrenotazione());
-	            st1.setInt(2, p.getIdCliente());
+	            st1.setString(1, p.getIdPrenotazione());
+	            st1.setString(2, p.getIdCliente());
 	            st1.setString(3, p.getIndirizzoDiConsegna());
 	            st1.setString(4, p.getDataRitiro());
 	            st1.setString(5, p.getDataConsegna());
@@ -101,15 +96,15 @@ public class PrenotazioneDao implements IPrenotazioneDao{
 	            st1.setFloat(7, p.getImportoPagato());
 	            st1.setString(8, p.getStatoPrenotazione());
 	            st1.executeUpdate();
-	        }
+	        
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	        esito = false;
 	    } finally {
 	        DatabaseConnection.closeConnection(conn);
 	    }
-	    return esito;
-	} 
+	       return esito;}
+  
 	
 	public boolean updatePrenotazione(PrenotazioneModel p) {
 	    Connection conn = null;
@@ -119,14 +114,14 @@ public class PrenotazioneDao implements IPrenotazioneDao{
 	        conn = DatabaseConnection.startConnection(conn, schema);
 	        String query = "UPDATE Prenotazioni SET IDCliente=?, IndirizzoDiConsegna=?, DataRitiro=?, DataConsegna=?, MetodoDiPagamento=?, ImportoPagato=?, StatoPrenotazione=? WHERE IDPrenotazione=?";
 	        try (PreparedStatement st1 = conn.prepareStatement(query)) {
-	            st1.setInt(1, p.getIdCliente());
+	            st1.setString(1, p.getIdCliente());
 	            st1.setString(2, p.getIndirizzoDiConsegna());
 	            st1.setString(3, p.getDataRitiro());
 	            st1.setString(4, p.getDataConsegna());
 	            st1.setString(5, p.getMetodoPagamento());
 	            st1.setFloat(6, p.getImportoPagato());
 	            st1.setString(7, p.getStatoPrenotazione());
-	            st1.setInt(8, p.getIdPrenotazione());
+	            st1.setString(8, p.getIdPrenotazione());
 
 	            int rowsUpdated = st1.executeUpdate();
 	            success = rowsUpdated > 0;
