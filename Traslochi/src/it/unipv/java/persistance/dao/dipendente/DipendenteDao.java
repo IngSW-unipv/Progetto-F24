@@ -147,10 +147,8 @@ public class DipendenteDao implements IDipendenteDao {
 	    
 	    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
 	        
- 	        pstmt.setString(1, ag.getLm().getUm().getEmail());
-	        
- 	        rs = pstmt.executeQuery();
-	        
+ 	        pstmt.setString(1, ag.getLm().getUm().getEmail()); 
+ 	        rs = pstmt.executeQuery(); 
  	        if (rs.next()) {
 	            String storedHash = rs.getString("PASSWORD");
  	            if (PasswordUtil.verifyPassword(ag.getLm().getUm().getPassword(), storedHash)) {

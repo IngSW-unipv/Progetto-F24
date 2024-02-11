@@ -8,9 +8,10 @@ import it.unipv.java.model.LoginModel;
 import it.unipv.java.model.RegisterModel;
 
 public interface IClienteDao {
-    public boolean createCliente(AuthGestor register);
-    public boolean updateCliente(AuthGestor ag);
-    public boolean deleteCliente(AuthGestor ag); 
-	public List<ClienteModel> getAllClienti();
-    public ClienteModel getCliente(AuthGestor ag);
+    public boolean createCliente(AuthGestor c);
+    public boolean updateCliente(AuthGestor u);
+    public List<AuthGestor> getAllClienti();
+    public boolean getCliente(AuthGestor arg);
+    public boolean deleteCliente(AuthGestor d); 
+	
 }
