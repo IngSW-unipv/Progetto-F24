@@ -26,7 +26,7 @@ public class ResponsabileDao implements IResponsabileDao{
 	
 
 	@Override
-	public boolean createResponsabile(AuthGestor ag) {
+	public boolean createResponsabile(AuthGestor c) {
 		conn=DatabaseConnection.startConnection(conn,schema);
 		PreparedStatement st1;
 		
@@ -54,8 +54,10 @@ public class ResponsabileDao implements IResponsabileDao{
 		return esito;
 	}
 
+	
+	
 	@Override
-	public boolean updateResponsabile(ResponsabileModel r) {
+	public boolean updateResponsabile(AuthGestor u) {
 		conn = DatabaseConnection.startConnection(conn, schema);
 		String query = "UPDATE RESPONSABILE SET NOME=?,COGNOME=?,EMAIL=?,PASSWORD=? WHERE id=?";
 
@@ -80,7 +82,7 @@ public class ResponsabileDao implements IResponsabileDao{
 	}
 
 	@Override
-	public boolean deleteResponsabile(ResponsabileModel r) {
+	public boolean deleteResponsabile(AuthGestor d) {
 		conn = DatabaseConnection.startConnection(conn, schema);
 
 		String query = "DELETE FROM RESPONSABILE WHERE idResponsabile = ? ";
@@ -98,10 +100,11 @@ public class ResponsabileDao implements IResponsabileDao{
 		}
 		return true;
 	}
+	
 	@Override
-	public List<ResponsabileModel> getAllResponsabili() {
+	public List<AuthGestor> getAllResponsabili() {
 		
-		   List<ResponsabileModel> responsabili = new ArrayList<>();
+		   List<AuthGestor > responsabili = new ArrayList<>();
 		   
 		    Statement stmt = null;
 		    ResultSet rs = null;
@@ -116,7 +119,7 @@ public class ResponsabileDao implements IResponsabileDao{
 
 		        // Process the result set
 		        while (rs.next()) {
-		        	ResponsabileModel r = new ResponsabileModel();
+		        	AuthGestor r = new AuthGestor();
 		            r.setIdResponsabile(rs.getInt("IDDIPENDENTI")); // Adjust the method names and types accordingly
 		            r.setNome(rs.getString("NOME"));
 		            r.setCognome(rs.getString("COGNOME"));
