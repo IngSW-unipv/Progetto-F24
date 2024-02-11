@@ -11,6 +11,11 @@ public class PrenotazioneModel {
     private String metodoPagamento;
     private float importoPagato;
     private String statoPrenotazione;
+    private String indirizzodiRitiro;
+    private String cvc;
+    private String scadGiorno;
+    private String scadMese;
+    private String scadAnno;
 
     // Getters
     public int getIdPrenotazione() {
@@ -77,4 +82,46 @@ public class PrenotazioneModel {
     public void setStatoPrenotazione(String statoPrenotazione) {
         this.statoPrenotazione = statoPrenotazione;
     }
+
+	public String getIndirizzodiRitiro() {
+		return indirizzodiRitiro;
+	}
+
+	public void setIndirizzodiRitiro(String indirizzodiRitiro) {
+		this.indirizzodiRitiro = indirizzodiRitiro;
+	}
+
+	public String getCVC() {
+		return cvc;
+	}
+
+	public void setCVC(String cvc) {
+		this.cvc = cvc;
+	}
+
+	public String getScadGiorno() {
+		return scadGiorno;
+	}
+
+	public void setScadGiorno(String scadGiorno) {
+		this.scadGiorno = scadGiorno;
+	}
+
+	public String getScadMese() {
+		return scadMese;
+	}
+
+	public void setScadMese(String scadMese) {
+		this.scadMese = scadMese;
+	}
+
+	public String getScadAnno() {
+		return scadAnno;
+	}
+
+	public void setScadAnno(String scadAnno) {
+		this.scadAnno = scadAnno;
+	}
+    
+    
 }

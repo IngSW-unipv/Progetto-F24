@@ -159,6 +159,7 @@ public class LoginView extends JFrame {
 		panel.add(lblNewLabel_2);
 		
 	}
+	
 	public JButton getLoginButton() {
 		return loginButton;
 	}
