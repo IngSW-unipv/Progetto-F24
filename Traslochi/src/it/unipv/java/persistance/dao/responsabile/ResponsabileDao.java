@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.unipv.java.model.AuthGestor;
+import it.unipv.java.model.DataAccessFacade;
 import it.unipv.java.model.LoginModel;
 import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.ResponsabileModel;
@@ -26,7 +27,7 @@ public class ResponsabileDao implements IResponsabileDao{
 	
 
 	@Override
-	public boolean createResponsabile(AuthGestor ag) {
+	public boolean createResponsabile(DataAccessFacade c) {
 		conn=DatabaseConnection.startConnection(conn,schema);
 		PreparedStatement st1;
 		
@@ -38,11 +39,11 @@ public class ResponsabileDao implements IResponsabileDao{
 					+ "VALUES(?,?,?,?,?)";
 			
 			st1 = conn.prepareStatement(query);
-			st1.setString(1,ag.getNome());
-			st1.setString(2,ag.getCognome());
-			st1.setString(3,ag.getEmail());
-			st1.setString(4,ag.getPassword());
-			st1.setString(5,ag.getIdResponsabile());
+			st1.setString(1,c.getNome());
+			st1.setString(2,c.getCognome());
+			st1.setString(3,c.getEmail());
+			st1.setString(4,c.getPassword());
+			st1.setString(5,c.getIdResponsabile());
 			st1.executeUpdate(query);
 
 		}catch (Exception e){
@@ -54,18 +55,20 @@ public class ResponsabileDao implements IResponsabileDao{
 		return esito;
 	}
 
+	
+	
 	@Override
-	public boolean updateResponsabile(ResponsabileModel r) {
+	public boolean updateResponsabile(DataAccessFacade u) {
 		conn = DatabaseConnection.startConnection(conn, schema);
 		String query = "UPDATE RESPONSABILE SET NOME=?,COGNOME=?,EMAIL=?,PASSWORD=? WHERE id=?";
 
 		try (PreparedStatement st1 = conn.prepareStatement(query)) {
 
-			st1.setString(1, r.getNome());
-			st1.setString(2, r.getCognome());
-			st1.setString(3, r.getEmail());
-			st1.setString(4, r.getPassword());
-			st1.setInt(5, r.getIdResponsabile());
+			st1.setString(1, u.getNome());
+			st1.setString(2, u.getCognome());
+			st1.setString(3, u.getEmail());
+			st1.setString(4, u.getPassword());
+			st1.setInt(5, u.getIdResponsabile());
 
 			st1.executeUpdate(query);
 
@@ -80,14 +83,14 @@ public class ResponsabileDao implements IResponsabileDao{
 	}
 
 	@Override
-	public boolean deleteResponsabile(ResponsabileModel r) {
+	public boolean deleteResponsabile(DataAccessFacade d) {
 		conn = DatabaseConnection.startConnection(conn, schema);
 
 		String query = "DELETE FROM RESPONSABILE WHERE idResponsabile = ? ";
 
 		try (PreparedStatement st1 = conn.prepareStatement(query)) {
 
-			st1.setInt(1, r.getIdResponsabile());
+		//	st1.setInt(1, d.getIdResponsabile());
 			st1.executeUpdate(query);
 
 		} catch (Exception e) {
@@ -98,10 +101,11 @@ public class ResponsabileDao implements IResponsabileDao{
 		}
 		return true;
 	}
+	
 	@Override
-	public List<ResponsabileModel> getAllResponsabili() {
+	public List<DataAccessFacade> getAllResponsabili() {
 		
-		   List<ResponsabileModel> responsabili = new ArrayList<>();
+		   List<DataAccessFacade > responsabili = new ArrayList<>();
 		   
 		    Statement stmt = null;
 		    ResultSet rs = null;
@@ -116,7 +120,7 @@ public class ResponsabileDao implements IResponsabileDao{
 
 		        // Process the result set
 		        while (rs.next()) {
-		        	ResponsabileModel r = new ResponsabileModel();
+		        	AuthGestor r = new AuthGestor();
 		            r.setIdResponsabile(rs.getInt("IDDIPENDENTI")); // Adjust the method names and types accordingly
 		            r.setNome(rs.getString("NOME"));
 		            r.setCognome(rs.getString("COGNOME"));
@@ -141,7 +145,7 @@ public class ResponsabileDao implements IResponsabileDao{
 	}
 
 	@Override
-	public boolean getResponsabile(AuthGestor ag) {
+	public boolean getResponsabile(DataAccessFacade ag) {
 	    boolean loginSuccess = false;
 	    conn = DatabaseConnection.startConnection(conn, schema);
 	     
