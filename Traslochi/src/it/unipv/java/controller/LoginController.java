@@ -27,7 +27,7 @@ public class LoginController {
 				lm.setUm(loginuser);
 				if (lm.confermaLogin()) {
 					//istanzio la home page quale? dipende dal valore di ritorno di conferma login se dip,cliente,respons
-					
+					lm.checkuser(loginuser);//QUA RITORNA UN USERTYPE
 					
 					
 					

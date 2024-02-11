@@ -16,8 +16,14 @@ public class LoginModel {
 	
 	public boolean confermaLogin() {
         boolean registrazioneRiuscita = DataAccessFacade.getInstance().loginUser(this);
-        
+        if(registrazioneRiuscita) return true;
  		return false;
 	}
- 
+	public UserType checkuser(UserModel um) { 
+ 		return  UserTypeUtil.determineUserType(um);
+	}
+	
+	
+
+
 }//fine loginModel

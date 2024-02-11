@@ -84,7 +84,7 @@ public class DataAccessFacade  {
     }
     
 	public boolean loginUser(LoginModel lm) {
-	    UserType userType = determineUserType(lm.getUm().getEmail());
+	    UserType userType = UserTypeUtil.determineUserType(lm.getUm().getEmail());
 	    boolean loginSuccess = false;
 
  	    switch (userType) {
