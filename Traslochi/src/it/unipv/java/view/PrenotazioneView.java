@@ -48,6 +48,7 @@ public class PrenotazioneView extends JFrame {
 	private JRadioButton radioCarta;
 	private JRadioButton radioContanti;
 	private JPanel panelBancomat;
+	private JButton buttonConfermaPren;
 	
 	
 
@@ -186,7 +187,7 @@ public class PrenotazioneView extends JFrame {
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblNewLabel_1.setForeground(new Color(0, 0, 0));
 		
-		JButton buttonConfermaPren = new JButton("Conferma Prenotazione");
+		buttonConfermaPren = new JButton("Conferma Prenotazione");
 		buttonConfermaPren.setFont(new Font("Tahoma", Font.BOLD, 15));
 		buttonConfermaPren.setForeground(new Color(248, 248, 255));
 		buttonConfermaPren.setBackground(new Color(30, 144, 255));
@@ -468,13 +469,112 @@ public class PrenotazioneView extends JFrame {
 		        }
 		    }
 		});
-
-		
-		
-		
-		
-		
-		
 		
 	}
+
+	
+	public String getIndirizzoRitiro() {
+		return indirizzoRitiro.getText();
+	}
+
+	public void setIndirizzoRitiro(JTextField indirizzoRitiro) {
+		this.indirizzoRitiro = indirizzoRitiro;
+	}
+
+	public String getIndirizzoConsegna() {
+		return indirizzoConsegna.getText();
+	}
+
+	public void setIndirizzoConsegna(JTextField indirizzoConsegna) {
+		this.indirizzoConsegna = indirizzoConsegna;
+	}
+
+	public String getDataRitiro() {
+		return dataRitiro.getText();
+	}
+
+	public void setDataRitiro(JTextField dataRitiro) {
+		this.dataRitiro = dataRitiro;
+	}
+
+	public String getDataConsegna() {
+		return dataConsegna.getText();
+	}
+
+	public void setDataConsegna(JTextField dataConsegna) {
+		this.dataConsegna = dataConsegna;
+	}
+
+	public String getImportoDaPagare() {
+		return importoDaPagare.getText();
+	}
+
+	public void setImportoDaPagare(JTextField importoDaPagare) {
+		this.importoDaPagare = importoDaPagare;
+	}
+
+	public JButton getButtonTornaIndietro() {
+		return buttonTornaIndietro;
+	}
+
+	public void setButtonTornaIndietro(JButton buttonTornaIndietro) {
+		this.buttonTornaIndietro = buttonTornaIndietro;
+	}
+
+	public JButton getButtonConfermaPren() {
+		return buttonConfermaPren;
+	}
+
+	public void setButtonConfermaPren(JButton buttonConfermaPren) {
+		this.buttonConfermaPren = buttonConfermaPren;
+	}
+
+	public JRadioButton getRadioCarta() {
+		return radioCarta;
+	}
+
+	public void setRadioCarta(JRadioButton radioCarta) {
+		this.radioCarta = radioCarta;
+	}
+
+	public JRadioButton getRadioContanti() {
+		return radioContanti;
+	}
+
+	public void setRadioContanti(JRadioButton radioContanti) {
+		this.radioContanti = radioContanti;
+	}
+
+	public String getTextField_6() {
+		return textField_6.getText();
+	}
+
+	public void setTextField_6(JTextField textField_6) {
+		this.textField_6 = textField_6;
+	}
+
+	public String getTextField_7() {
+		return textField_7.getText();
+	}
+
+	public void setTextField_7(JTextField textField_7) {
+		this.textField_7 = textField_7;
+	}
+
+	public String getTextField_8() {
+		return textField_8.getText();
+	}
+
+	public void setTextField_8(JTextField textField_8) {
+		this.textField_8 = textField_8;
+	}
+
+	public String getTextField_9() {
+		return textField_9.getText();
+	}
+
+	public void setTextField_9(JTextField textField_9) {
+		this.textField_9 = textField_9;
+	}
+	
 }
