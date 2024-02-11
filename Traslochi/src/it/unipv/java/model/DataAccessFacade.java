@@ -62,42 +62,49 @@ public class DataAccessFacade  {
 		}
 	}
 
-	public  static boolean registerUser(UserModel um) {
+	public  static boolean registerUser(RegisterModel rm) {
 		
 		 DataAccessFacade ag = DataAccessFacade.getInstance();
-			String id = ag.generateIdFromCf(um.getCf());
-			um.setId(id);
-			UserType userType = determineUserType(um.getEmail());
-			um.setUserType(userType);
+			String id = ag.generateIdFromCf(rm.getUm().getCf());
+			rm.getUm().setId(id);
+			UserType userType = determineUserType(rm.getUm().getEmail());
+			rm.getUm().setUserType(userType);
 			boolean esito=false;
 		switch (userType) {
 		case DIPENDENTE:
-			esito=new DipendenteDao().createDipendente(um);
+			esito=new DipendenteDao().createDipendente(rm);
 			break;
 		case RESPONSABILE:
-			esito=new ResponsabileDao().createResponsabile(um);
+			esito=new ResponsabileDao().createResponsabile(rm);
 			break;
 		case CLIENTE:
-			esito=new ClienteDao().createCliente(um); 
+			esito=new ClienteDao().createCliente(rm); 
 			break;
 		}
 		return esito;
 	}
 
+	
+	
 	public   boolean loginUser(UserModel loginuser) {
+		
 		UserType userType = determineUserType(loginuser.getEmail());
 		boolean loginSuccess = false;
+		
 	    DataAccessFacade ag = DataAccessFacade.getInstance();
+	    
 		ag.setLm(new LoginModel());
+		
 		ag.getLm().setUm(loginuser);
 		if (userType == UserType.CLIENTE) {
-			loginSuccess = new ClienteDao().getCliente(ag);
+			loginSuccess = new ClienteDao().getCliente(lm);
 		} else if (userType == UserType.DIPENDENTE) {
-			loginSuccess = new DipendenteDao().getDipendente(ag);
+			loginSuccess = new DipendenteDao().getDipendente(lm);
 		} else if (userType == UserType.RESPONSABILE) {
-			loginSuccess = new ResponsabileDao().getResponsabile(ag);
+			loginSuccess = new ResponsabileDao().getResponsabile(lm);
 		}
-
+ 
+		
 		return loginSuccess;
 	}
 

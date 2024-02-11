@@ -15,7 +15,8 @@ public class LoginModel {
 	}
 	
 	public boolean confermaLogin() {
-		
+        boolean registrazioneRiuscita = DataAccessFacade.loginuser(um);
+
  		return false;
 	}
  

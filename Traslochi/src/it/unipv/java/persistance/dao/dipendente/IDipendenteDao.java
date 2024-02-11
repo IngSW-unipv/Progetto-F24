@@ -2,6 +2,8 @@ package it.unipv.java.persistance.dao.dipendente;
 
 import java.util.List;
 
+import it.unipv.java.model.LoginModel;
+import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.UserModel; 
  
 
@@ -9,8 +11,8 @@ import it.unipv.java.model.UserModel;
 
 public interface IDipendenteDao {
     public List<UserModel> getAllDipendenti();
-    public boolean getDipendente(UserModel ag);
-    public boolean createDipendente(UserModel ag);
+    public boolean getDipendente(LoginModel ag);
+    public boolean createDipendente(RegisterModel ag);
     public boolean updateDipendente(UserModel ag);
     public boolean deleteDipendente(UserModel ag);
 }

@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import at.favre.lib.crypto.bcrypt.BCrypt;
  import it.unipv.java.model.DataAccessFacade;
+import it.unipv.java.model.LoginModel;
+import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.UserModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 import it.unipv.java.persistance.dao.PasswordUtil;
@@ -23,18 +25,19 @@ public class ClienteDao implements IClienteDao {
 	}
 
 	@Override
-	public boolean createCliente(UserModel ag) {
+	public boolean createCliente(RegisterModel c) {
 		conn = DatabaseConnection.startConnection(conn, schema);
 		PreparedStatement st1;
 		boolean esito = true;
 		try {
 			String query = "INSERT INTO CLIENTI (NOME,COGNOME,EMAIL,PASSWORD,IDCLIENTE) VALUES(?,?,?,?,?)";
 			st1 = conn.prepareStatement(query);
-			st1.setString(1, ag.getNome());
-			st1.setString(2, ag.getCognome());
-			st1.setString(3, ag.getEmail());
-			st1.setString(4, ag.getPassword());
-			st1.setString(5, ag.getId());
+			st1.setString(1, c.getUm().getNome());
+			st1.setString(2, c.getUm().getCognome());
+			st1.setString(3, c.getUm().getEmail());
+			String hashedPassword = PasswordUtil.hashPassword(c.getUm().getPassword());
+			st1.setString(4, hashedPassword);		
+			st1.setString(5, c.getUm().getId());
 			st1.executeUpdate(query);
 
 		} catch (Exception e) {
@@ -135,9 +138,8 @@ public class ClienteDao implements IClienteDao {
 */
 		return clienti;
 	}
-
-	@Override
-	public boolean getCliente(UserModel ag) {
+ 
+	public boolean getCliente(LoginModel ag) {
 		boolean clienteEsiste = false;
 		conn = DatabaseConnection.startConnection(conn, schema);
 

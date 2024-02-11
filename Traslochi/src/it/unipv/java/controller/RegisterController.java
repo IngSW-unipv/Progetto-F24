@@ -14,8 +14,7 @@ public class RegisterController {
 	private WarningView warningView;
 
 	public RegisterController() {
-		// TODO Auto-generated constructor stub
-	}
+ 	}
 
 	public RegisterController(RegisterView registerView, RegisterModel registerModel, WarningView warningView) {
 		this.rv = registerView;

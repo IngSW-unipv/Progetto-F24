@@ -9,6 +9,8 @@ import java.util.List;
 
 import it.unipv.java.model.UserModel;
 import it.unipv.java.model.DataAccessFacade;
+import it.unipv.java.model.LoginModel;
+import it.unipv.java.model.RegisterModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 import it.unipv.java.persistance.dao.PasswordUtil;
 
@@ -24,7 +26,7 @@ public class ResponsabileDao implements IResponsabileDao{
 	
 
 	@Override
-	public boolean createResponsabile(UserModel c) {
+	public boolean createResponsabile(RegisterModel c) {
 		conn=DatabaseConnection.startConnection(conn,schema);
 		PreparedStatement st1;
 		
@@ -36,11 +38,12 @@ public class ResponsabileDao implements IResponsabileDao{
 					+ "VALUES(?,?,?,?,?)";
 			
 			st1 = conn.prepareStatement(query);
-			st1.setString(1,c.getNome());
-			st1.setString(2,c.getCognome());
-			st1.setString(3,c.getEmail());
-			st1.setString(4,c.getPassword());
-			st1.setString(5,c.getId());
+			st1.setString(1,c.getUm().getNome());
+			st1.setString(2,c.getUm().getCognome());
+			st1.setString(3,c.getUm().getEmail());
+			String hashedPassword = PasswordUtil.hashPassword(c.getUm().getPassword());
+			st1.setString(4, hashedPassword);
+			st1.setString(5,c.getUm().getId());
 			st1.executeUpdate(query);
 
 		}catch (Exception e){
@@ -142,7 +145,7 @@ public class ResponsabileDao implements IResponsabileDao{
 	}
 
 	@Override
-	public boolean getResponsabile(UserModel ag) {
+	public boolean getResponsabile(LoginModel ag) {
 	    boolean loginSuccess = false;
 	    conn = DatabaseConnection.startConnection(conn, schema);
 	     
