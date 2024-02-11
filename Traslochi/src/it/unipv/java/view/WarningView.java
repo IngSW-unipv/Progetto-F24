@@ -1,13 +1,13 @@
 package it.unipv.java.view;
 
 import java.awt.EventQueue;
-import it.unipv.java.view.RegisterView;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
+
 import javax.swing.JLabel;
 import java.awt.Font;
-import java.awt.Color;
+
 import javax.swing.JButton;
 import java.awt.SystemColor;
 import java.awt.Toolkit;
@@ -16,10 +16,10 @@ import java.awt.Point;
 public class WarningView {
 
 	private JFrame frame;
-	private RegisterView registerView;
 	private JButton riprovaButton;
 	private JLabel labelPassword;
 	private JLabel labelEmail;
+	private JLabel labelRegistrazione;
 
 	
 	public static void main(String[] args) {
@@ -76,19 +76,37 @@ public class WarningView {
 		labelEmail.setFont(new Font("Tahoma", Font.BOLD, 10));
 		labelEmail.setBounds(49, 0, 132, 54);
 		panel.add(labelEmail);
+		
+		labelRegistrazione = new JLabel("Registrazione Effettuata");
+		labelRegistrazione.setForeground(SystemColor.textHighlight);
+		labelRegistrazione.setFont(new Font("Tahoma", Font.BOLD, 10));
+		labelRegistrazione.setBounds(49, -5, 132, 65);
+		panel.add(labelRegistrazione);
 	}
 	
 	public void mostraErrorPassword() {
 		initialize();
 		labelPassword.setVisible(true);
 		labelEmail.setVisible(false);
-		
+		labelRegistrazione.setVisible(false);
+		riprovaButton.setText("Riprova");
 	}
 	
 	public void mostraErrorEmail() {
 		initialize();
 		labelPassword.setVisible(false);
 		labelEmail.setVisible(true);
+		labelRegistrazione.setVisible(false);
+		riprovaButton.setText("Riprova");
+	}
+	
+	public void registrEffettuata() {
+		initialize();
+		labelPassword.setVisible(false);
+		labelEmail.setVisible(false);
+		labelRegistrazione.setVisible(true);
+		riprovaButton.setText("ok");
+		
 		
 	}
 	

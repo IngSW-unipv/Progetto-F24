@@ -24,7 +24,7 @@ public class LoginController {
 				UserModel loginuser = new UserModel();
 				loginuser.setEmail(lv.getEmail());
 				loginuser.setPassword(lv.getPassword());
-				lm.setUserModel(loginuser);
+				lm.setUm(loginuser);
 				if (lm.confermaLogin()) {
 					//istanzio la home page quale? dipende dal valore di ritorno di conferma login se dip,cliente,respons
 				} else {

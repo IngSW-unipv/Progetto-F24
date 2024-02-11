@@ -62,42 +62,49 @@ public class DataAccessFacade  {
 		}
 	}
 
-	public static boolean registerUser(UserModel um) {
-		AuthGestor ag = new AuthGestor();
-		String id = ag.generateIdFromCf(um.getCf());
-		um.setId(id);
-		UserType userType = determineUserType(um.getEmail());
-		um.setUserType(userType);
-
+	public   boolean registerUser(RegisterModel rm) {
+		
+		 DataAccessFacade ag = DataAccessFacade.getInstance();
+			String id = ag.generateIdFromCf(rm.getUm().getCf());
+			rm.getUm().setId(id);
+			UserType userType = determineUserType(rm.getUm().getEmail());
+			rm.getUm().setUserType(userType);
+			boolean esito=false;
 		switch (userType) {
 		case DIPENDENTE:
-			new DipendenteDao().createDipendente(ag);
+			esito=new DipendenteDao().createDipendente(rm);
 			break;
 		case RESPONSABILE:
-			new ResponsabileDao().createResponsabile(ag);
+			esito=new ResponsabileDao().createResponsabile(rm);
 			break;
 		case CLIENTE:
-			new ClienteDao().createCliente(ag);
+			esito=new ClienteDao().createCliente(rm); 
 			break;
 		}
-		return true;
+		return esito;
 	}
 
-	public static boolean loginUser(UserModel loginuser) {
-		UserType userType = determineUserType(loginuser.getEmail());
-		boolean loginSuccess = false;
-		AuthGestor ag = new AuthGestor();
-		ag.setLm(new LoginModel());
-		ag.getLm().setUm(loginuser);
-		if (userType == UserType.CLIENTE) {
-			loginSuccess = new ClienteDao().getCliente(ag);
-		} else if (userType == UserType.DIPENDENTE) {
-			loginSuccess = new DipendenteDao().getDipendente(ag);
-		} else if (userType == UserType.RESPONSABILE) {
-			loginSuccess = new ResponsabileDao().getResponsabile(ag);
-		}
+	
+	
+	public boolean loginUser(LoginModel lm) {
+	    UserType userType = determineUserType(lm.getUm().getEmail());
+	    boolean loginSuccess = false;
 
-		return loginSuccess;
+	    // A seconda del tipo di utente, chiama il metodo DAO corrispondente.
+	    switch (userType) {
+	        case CLIENTE:
+	            loginSuccess = new ClienteDao().getCliente(lm);
+	            break;
+	        case DIPENDENTE:
+	            loginSuccess = new DipendenteDao().getDipendente(lm);
+	            break;
+	        case RESPONSABILE:
+	            loginSuccess = new ResponsabileDao().getResponsabile(lm);
+	            break;
+	    }
+
+	    return loginSuccess;
 	}
 
-}
+
+}//fine facade
