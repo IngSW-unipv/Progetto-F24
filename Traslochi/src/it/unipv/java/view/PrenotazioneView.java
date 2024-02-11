@@ -92,6 +92,7 @@ public class PrenotazioneView extends JFrame {
 		buttonTornaIndietro.setFont(new Font("Tahoma", Font.BOLD, 13));
 		buttonTornaIndietro.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, SystemColor.controlText, SystemColor.controlText, new Color(153, 180, 209), new Color(153, 180, 209)));
 		buttonTornaIndietro.setBackground(SystemColor.textHighlight);
+		buttonTornaIndietro.setFocusable(false);
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
