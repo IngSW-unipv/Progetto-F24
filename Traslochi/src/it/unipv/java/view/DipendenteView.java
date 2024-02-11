@@ -51,7 +51,7 @@ public class DipendenteView extends JFrame {
 		panel.setBorder(null);
 		panel.setBackground(new Color(30, 144, 255));
 		
-		JLabel lblTurniLavorativi = new JLabel("Turni Lavorativi");
+		JLabel lblTurniLavorativi = new JLabel("Turno Lavorativo");
 		lblTurniLavorativi.setForeground(new Color(248, 248, 255));
 		lblTurniLavorativi.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		
@@ -94,7 +94,7 @@ public class DipendenteView extends JFrame {
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 2571, GroupLayout.PREFERRED_SIZE)
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(19)
+							.addGap(20)
 							.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 1359, GroupLayout.PREFERRED_SIZE)))
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
@@ -102,9 +102,9 @@ public class DipendenteView extends JFrame {
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
-					.addGap(82)
+					.addGap(35)
 					.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 274, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(220, Short.MAX_VALUE))
+					.addContainerGap(267, Short.MAX_VALUE))
 		);
 		contentPane.setLayout(gl_contentPane);
 	}
