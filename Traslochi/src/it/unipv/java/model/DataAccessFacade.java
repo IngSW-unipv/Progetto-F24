@@ -2,7 +2,9 @@ package it.unipv.java.model;
 
 import it.unipv.java.persistance.dao.cliente.ClienteDao;
 import it.unipv.java.persistance.dao.dipendente.DipendenteDao;
+import it.unipv.java.persistance.dao.prenotazione.PrenotazioneDao;
 import it.unipv.java.persistance.dao.responsabile.ResponsabileDao;
+import it.unipv.java.persistance.dao.prenotazione;
 import java.util.Random;
 
 public class DataAccessFacade  {
@@ -84,8 +86,6 @@ public class DataAccessFacade  {
 		return esito;
 	}
 
-	
-	
 	public boolean loginUser(LoginModel lm) {
 	    UserType userType = determineUserType(lm.getUm().getEmail());
 	    boolean loginSuccess = false;
@@ -105,6 +105,9 @@ public class DataAccessFacade  {
 
 	    return loginSuccess;
 	}
-
+	
+	public void createPrenotazione(PrenotazioneModel p) {
+        boolean createSuccess=new PrenotazioneDao().createPrenotazione(p); //booleano se prenotazione creata o meno
+	}
 
 }//fine facade

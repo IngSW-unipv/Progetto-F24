@@ -10,8 +10,7 @@ import it.unipv.java.view.PrenotazioneView;
 
 public class PrenotazioneController {
 	private PrenotazioneModel pm;
-	private PrenotazioneView pv;
-	private DataAccessFacade dbAccess;
+	private PrenotazioneView pv; 
 	
 	public PrenotazioneController(PrenotazioneModel pm, PrenotazioneView pv) {
 		this.pm = pm;
@@ -27,9 +26,10 @@ public class PrenotazioneController {
 				pm.setDataRitiro(pv.getDataRitiro());
 				pm.setDataConsegna(pv.getDataConsegna());
 				pm.setCVC(pv.getTextField_6());
-				pm.setScadGiorno(pv.getTextField_7());
+				//pm.setScadGiorno(pv.getTextField_7());
 				pm.setScadMese(pv.getTextField_8());
 				pm.setScadAnno(pv.getTextField_9());
+				
 				if(!pv.getRadioCarta().isSelected() && !pv.getRadioContanti().isSelected()){
 					//eccezione: pm.showErrorMessage("Seleziona un metodo di pagamento");
 				}
@@ -49,4 +49,4 @@ public class PrenotazioneController {
 			}
 		});
 	}
-}
+}//fine prenotazione controller

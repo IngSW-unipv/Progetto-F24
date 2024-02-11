@@ -1,8 +1,7 @@
 package it.unipv.java.model;
 
 import java.util.Date;
-
-import it.unipv.java.controller.DataAccessSingleton;
+ 
 
 public class PrenotazioneModel {
     private int idPrenotazione;
@@ -14,7 +13,7 @@ public class PrenotazioneModel {
     private float importoPagato;
     private String statoPrenotazione;
     private String indirizzodiRitiro;
-    private String cvc;
+    private String cvc; 
     private String scadGiorno;
     private String scadMese;
     private String scadAnno;
@@ -101,14 +100,7 @@ public class PrenotazioneModel {
 	public void setCVC(String cvc) {
 		this.cvc = cvc;
 	}
-
-	public String getScadGiorno() {
-		return scadGiorno;
-	}
-
-	public void setScadGiorno(String scadGiorno) {
-		this.scadGiorno = scadGiorno;
-	}
+ 
 
 	public String getScadMese() {
 		return scadMese;
@@ -145,8 +137,21 @@ public class PrenotazioneModel {
 	        }
 	    */
 	        return true; // Tutti i controlli di validità superati
-	    }
+	    } 
+	 
+	 
 	 public void savePrenotazione() {
-		 dbAccess.createPrenotazione();
+		 //se i dati inseriti sono validi creo la prentoazione se no richiedo
+		 if(validaDati()) {
+			  dbAccess.createPrenotazione();
+		 }else {
+			 //ritorno al prenotazione controller che ritorna alla view
+		 }
+		
 	 }
+
+	public void setScadGiorno(String textField_7) {
+		// TODO Auto-generated method stub
+		
+	}
 }

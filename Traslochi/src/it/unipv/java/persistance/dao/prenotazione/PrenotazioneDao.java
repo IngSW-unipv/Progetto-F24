@@ -17,13 +17,9 @@ public class PrenotazioneDao implements IPrenotazioneDao{
 	
 	public PrenotazioneDao() {
 		super();
-		this.schema = "NOME SCHEMA";	//Inserisci Qui nome schema Prenotazione
+		this.schema = "Traslochi";	//Inserisci Qui nome schema Prenotazione
 	}
- 
-	// Assuming Prenotazione and PrenotazioneModel are defined somewhere in your codebase
-	// and have getters and setters for their properties
-
-	// Assuming DatabaseConnection is a utility class that handles the connection to the database
+  
 
 	@Override
 	public List<PrenotazioneModel> getAllPrenotazioni() {
