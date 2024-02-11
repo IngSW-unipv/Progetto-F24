@@ -1,7 +1,9 @@
 package it.unipv.java.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 public class PrenotazioneModel {
 	private String idPrenotazione;
@@ -77,10 +79,6 @@ public class PrenotazioneModel {
 		this.metodoPagamento = metodoDiPagamento;
 	}
 
-	public void setImportoPagato(Float importoPagato) {
-		this.importoPagato = importoPagato;
-	}
-
 	public void setStatoPrenotazione(String statoPrenotazione) {
 		this.statoPrenotazione = statoPrenotazione;
 	}
@@ -117,8 +115,46 @@ public class PrenotazioneModel {
 		this.scadAnno = scadAnno;
 	}
 
-	// Methods
-	public boolean validaDati() {
+	public void setImportoPagato() {
+		this.importoPagato = calcolaImporto();
+	}
+
+	public float calcolaImporto() {
+		long giorni = calcolagiorni(this.dataRitiro, this.dataConsegna);
+		float tariffaMinima = 300;
+		float aggiuntaPerGiorno = 50;
+
+		float importo = tariffaMinima + (giorni * aggiuntaPerGiorno);
+
+		return importo;
+	}
+
+	public long calcolagiorni(String datain, String datafin) {
+		
+		SimpleDateFormat myFormat = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			Date date1 = myFormat.parse(datain);
+			Date date2 = myFormat.parse(datafin);
+			long diff = date2.getTime() - date1.getTime();
+			return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}
+
+	public boolean savePrenotazione() {
+		if (validaDati()) {
+			this.setIdPrenotazione(UUID.randomUUID().toString());
+			this.setImportoPagato(); // Calcola automaticamente l'importo
+			boolean createSuccess = DataAccessFacade.getInstance().createPrenotazione(this);
+			return createSuccess;
+		} else {
+			return false;
+		}
+	}
+
+ 	public boolean validaDati() {
 		// Validazione Dati
 		/*
 		 * if (um.getNome() == null || um.getNome().trim().isEmpty()) { return false; }
@@ -132,27 +168,8 @@ public class PrenotazioneModel {
 		return true; // Tutti i controlli di validità superati
 	}
 
-	public boolean savePrenotazione() {
-		// se i dati inseriti sono validi creo la prentoazione se no richiedo
-		if (validaDati()) {
-			this.setIdPrenotazione(generateUniqueId());
-			if (dbAccess.createPrenotazione(this)) {
-				//SE VA TUTTO BENE VA ALLA VIEW
-				return true;
-			} else {
-				//SE VA TUTTO MALE VA ALLA VIEW
-				return false;
-			}
-
-		} else {
-			return false;
-			// ritorno al prenotazione controller che ritorna alla view
-		}
-
-	}
-
 	private String generateUniqueId() {
-		 return UUID.randomUUID().toString();
+		return UUID.randomUUID().toString();
 
 	}
 
