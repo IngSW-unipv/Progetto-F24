@@ -11,6 +11,7 @@ import at.favre.lib.crypto.bcrypt.BCrypt;
 import it.unipv.java.model.AuthGestor;
 import it.unipv.java.model.ClienteModel; 
 import it.unipv.java.persistance.dao.DatabaseConnection;
+import it.unipv.java.persistance.dao.PasswordUtil;
  
 public class ClienteDao implements IClienteDao{
 	private String schema;
@@ -144,12 +145,9 @@ public class ClienteDao implements IClienteDao{
  	        pstmt.setString(1, ag.getLm().getUm().getEmail());
 	        
 	        rs = pstmt.executeQuery();
-	        
-	        if (rs.next()) {
-	            String hashedPassword = rs.getString("PASSWORD");
- 	            if (BCrypt.checkpw(ag.getLm().getUm().getPassword(), hashedPassword)) {
-	                clienteEsiste = true;  
-	            }
+ 	        if (rs.next()) {
+ 	        	String storedHashedPassword = rs.getString("PASSWORD");
+ 	            clienteEsiste = PasswordUtil.verifyPassword(ag.getLm().getUm().getPassword(), storedHashedPassword);
 	        }
 	    } catch (Exception e) {
 	        e.printStackTrace();

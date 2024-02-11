@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class AuthGestor {
     RegisterModel rm;
-
+    LoginModel lm;
     public AuthGestor() {
     }
 
@@ -18,7 +18,11 @@ public class AuthGestor {
     public void setRm(RegisterModel rm) {
         this.rm = rm;
     }
-
+ public LoginModel getLm() {
+	return lm;
+}public void setLm(LoginModel lm) {
+	this.lm = lm;
+}
     public String generateIdFromCf(String cf) {
         if (cf == null || cf.length() < 5) {
             throw new IllegalArgumentException("CF non valido");
@@ -64,17 +68,21 @@ public class AuthGestor {
         return true;
     }
 
-    /*public static boolean loginUser(UserModel loginuser) {
+    public static boolean loginUser(UserModel loginuser) {
         UserType userType = determineUserType(loginuser.getEmail());
         boolean loginSuccess = false;
- 
-     
-          if (userType == UserType.CLIENTE) {
-          //  loginSuccess = new ClienteDao().verifyCredentials(loginuser.getEmail(), loginuser.getPassword());
-        }else if() {}
-          
-        // Similmente per Dipendente e Responsabile
-
+        AuthGestor ag = new AuthGestor();
+        ag.setLm(new LoginModel());   
+        ag.getLm().setUm(loginuser);  
+        if (userType == UserType.CLIENTE) {
+           loginSuccess = new ClienteDao().getCliente(ag);
+        } else if (userType == UserType.DIPENDENTE) {
+           loginSuccess = new DipendenteDao().getDipendente(ag);
+        } else if (userType == UserType.RESPONSABILE) {
+          loginSuccess = new ResponsabileDao().getResponsabile(ag);
+        }
+        
         return loginSuccess;
-    }*/
+    }
+
 }

@@ -12,6 +12,7 @@ import it.unipv.java.model.LoginModel;
 import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.ResponsabileModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
+import it.unipv.java.persistance.dao.PasswordUtil;
 
 public class ResponsabileDao implements IResponsabileDao{
 	private String schema;
@@ -22,87 +23,7 @@ public class ResponsabileDao implements IResponsabileDao{
 		this.schema = "Traslochi";	//Inserisci Qui nome schema Responsabile
 	}
 	
-	@Override
-	public List<ResponsabileModel> getAllResponsabili() {
-		
-		   List<ResponsabileModel> responsabili = new ArrayList<>();
-		   
-		    Statement stmt = null;
-		    ResultSet rs = null;
-
-		    try {
-	 	        conn = DatabaseConnection.startConnection(conn, schema);
-
-	 	        stmt = conn.createStatement();
-
-	 	        String sql = "SELECT * FROM RESPONSABILE";
-		        rs = stmt.executeQuery(sql);
-
-		        // Process the result set
-		        while (rs.next()) {
-		        	ResponsabileModel r = new ResponsabileModel();
-		            r.setIdResponsabile(rs.getInt("IDDIPENDENTI")); // Adjust the method names and types accordingly
-		            r.setNome(rs.getString("NOME"));
-		            r.setCognome(rs.getString("COGNOME"));
-		            r.setEmail(rs.getString("EMAIL"));
-		          
-		            responsabili.add(r);
-		        }
-		    } catch (Exception e) {
-		        e.printStackTrace();
-		        
-		    } finally {
-	 	        try {
-		            if (rs != null) rs.close();
-		            if (stmt != null) stmt.close();
-		            DatabaseConnection.closeConnection(conn);
-		        } catch (Exception e) {
-		            e.printStackTrace();
-		        }
-		    }
-
-		    return responsabili;
-	}
-
-	@Override
-	public ResponsabileModel getResponsabile(LoginModel login) {
-		ResponsabileModel r = null;
-		    conn = DatabaseConnection.startConnection(conn, schema);
-		     
-		    String sql = "SELECT * FROM RESPONSABILE WHERE EMAIL = ? AND PASSWORD = ?";
-		    ResultSet rs = null;
-		    
-		    try (PreparedStatement pstmt = conn.prepareStatement(sql); ){ 
-		        
-		        // Set the parameters
-		        pstmt.setString(1, login.getEmail());
-		        pstmt.setString(2, login.getPassword());
-		        
-		        // Execute the query
-		        rs = pstmt.executeQuery();
-		        
-		        // Process the result set
-		        if (rs.next()) {
-		            r = new ResponsabileModel();
-		            r.setIdResponsabile(rs.getInt("IDDIPENDENTI"));
-		            r.setNome(rs.getString("NOME"));
-		            r.setCognome(rs.getString("COGNOME"));
-		            r.setEmail(rs.getString("EMAIL"));
-	 	        }
-		    } catch (Exception e) {
-		        e.printStackTrace();
-		    } finally {
-	 	        try {
-		            if (rs != null) rs.close();
-		             
-		            DatabaseConnection.closeConnection(conn);
-		        } catch (Exception e) {
-		            e.printStackTrace();
-		        }
-		    }
-		    
-		    return r;
-	}
+	
 
 	@Override
 	public boolean createResponsabile(AuthGestor ag) {
@@ -177,7 +98,82 @@ public class ResponsabileDao implements IResponsabileDao{
 		}
 		return true;
 	}
-
+	@Override
+	public List<ResponsabileModel> getAllResponsabili() {
 		
+		   List<ResponsabileModel> responsabili = new ArrayList<>();
+		   
+		    Statement stmt = null;
+		    ResultSet rs = null;
+
+		    try {
+	 	        conn = DatabaseConnection.startConnection(conn, schema);
+
+	 	        stmt = conn.createStatement();
+
+	 	        String sql = "SELECT * FROM RESPONSABILE";
+		        rs = stmt.executeQuery(sql);
+
+		        // Process the result set
+		        while (rs.next()) {
+		        	ResponsabileModel r = new ResponsabileModel();
+		            r.setIdResponsabile(rs.getInt("IDDIPENDENTI")); // Adjust the method names and types accordingly
+		            r.setNome(rs.getString("NOME"));
+		            r.setCognome(rs.getString("COGNOME"));
+		            r.setEmail(rs.getString("EMAIL"));
+		          
+		            responsabili.add(r);
+		        }
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		        
+		    } finally {
+	 	        try {
+		            if (rs != null) rs.close();
+		            if (stmt != null) stmt.close();
+		            DatabaseConnection.closeConnection(conn);
+		        } catch (Exception e) {
+		            e.printStackTrace();
+		        }
+		    }
+
+		    return responsabili;
 	}
+
+	@Override
+	public boolean getResponsabile(AuthGestor ag) {
+	    boolean loginSuccess = false;
+	    conn = DatabaseConnection.startConnection(conn, schema);
+	     
+	    String sql = "SELECT PASSWORD FROM RESPONSABILE WHERE EMAIL = ?";
+	    ResultSet rs = null;
+	    
+	    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+	         
+	    	pstmt.setString(1, ag.getLm().getUm().getEmail());
+	        
+ 	        rs = pstmt.executeQuery();
+	        
+ 	        if (rs.next()) {
+	        	 String storedHash = rs.getString("PASSWORD");
+	 	            if (PasswordUtil.verifyPassword(ag.getLm().getUm().getPassword(), storedHash)) {
+		                loginSuccess = true; 
+		            }
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    } finally {
+	        try {
+	            if (rs != null) rs.close();
+	            DatabaseConnection.closeConnection(conn);
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	    }
+	    
+	    return loginSuccess;
+	}
+
+	
+}//fine responsabile
  

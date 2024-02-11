@@ -6,10 +6,13 @@ public class LoginModel {
     public LoginModel() {
 	}
  
-	public void setUserModel(UserModel loginuser) {
-		this.um=loginuser;
+	 
+	public UserModel getUm() {
+		return um;
 	}
-
+	public void setUm(UserModel um) {
+		this.um = um;
+	}
 	public boolean confermaLogin() {
 		// TODO Auto-generated method stub
 		return false;
