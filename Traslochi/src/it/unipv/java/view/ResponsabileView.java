@@ -10,8 +10,12 @@ import javax.swing.GroupLayout.Alignment;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+
 import javax.swing.JButton;
 import java.awt.SystemColor;
+import java.awt.Toolkit;
+
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.BevelBorder;
 import java.awt.Font;
@@ -53,8 +57,26 @@ public class ResponsabileView extends JFrame {
 
 	public ResponsabileView() {
 		setTitle("Bidons");
+		  // Ottieni le dimensioni dello schermo
+	    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	    double width = screenSize.getWidth();
+	    double height = screenSize.getHeight();
+
+	    // Imposta le dimensioni della finestra in base a una percentuale dello schermo
+	    double windowWidth = width * 0.8; // 80% della larghezza dello schermo
+	    double windowHeight = height * 0.8; // 80% dell'altezza dello schermo
+
+	    // Imposta la posizione e le dimensioni della finestra
+	    setSize((int) windowWidth, (int) windowHeight);
+	    setExtendedState(JFrame.MAXIMIZED_BOTH);
+	    // Centra la finestra sullo schermo
+	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    contentPane = new JPanel();
+	    contentPane.setBackground(SystemColor.window);
+	    contentPane.setBorder(null);
+	    setContentPane(contentPane);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1400, 648);
+		setSize((int) windowWidth, (int) windowHeight);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.window);
 		contentPane.setBorder(null);
