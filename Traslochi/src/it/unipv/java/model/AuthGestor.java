@@ -8,7 +8,11 @@ import java.util.Random;
 public class AuthGestor {
 	RegisterModel rm;
 	LoginModel lm;
-
+	
+	
+	
+	
+	
 	public AuthGestor() {
 	}
 

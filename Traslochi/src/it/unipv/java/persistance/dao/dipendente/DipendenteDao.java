@@ -23,31 +23,35 @@ public class DipendenteDao implements IDipendenteDao {
 		super();
 		this.schema = "Traslochi"; // Inserisci Qui nome schema Dipendente
 	}
+	
+	
 	@Override
 	public boolean createDipendente(AuthGestor ag) {
 
-		conn = DatabaseConnection.startConnection(conn, schema);
+	    conn = DatabaseConnection.startConnection(conn, schema);
+	    PreparedStatement st1;
+	    boolean esito = true;
+	    try {
+	        String query = "INSERT INTO CLIENTI (NOME,COGNOME,EMAIL,PASSWORD,IDCLIENTE) VALUES(?,?,?,?,?)";
+	        st1 = conn.prepareStatement(query);
+	        st1.setString(1, ag.getRm().getUm().getNome());
+	        st1.setString(2, ag.getRm().getUm().getCognome());
+	        st1.setString(3, ag.getRm().getUm().getEmail());
+ 	        String hashedPassword = PasswordUtil.hashPassword(ag.getRm().getUm().getPassword());
+	        st1.setString(4, hashedPassword);
+	        st1.setString(5, ag.getRm().getUm().getId());
+ 	        st1.executeUpdate();
 
-		String query = "INSERT INTO DIPENDENTI (NOME,COGNOME,CF,EMAIL,PASSWORD,IDDIPENDENTI) VALUES(?,?,?,?,?,?)";
-
-		try (PreparedStatement st1 = conn.prepareStatement(query)) {
-			st1.setString(1, ag.getRm().getUm().getNome());
-			st1.setString(2, ag.getRm().getUm().getCognome());
-			st1.setString(2, ag.getRm().getUm().getCf());
-			st1.setString(3, ag.getRm().getUm().getEmail());
-			st1.setString(4, ag.getRm().getUm().getPassword());
-			 st1.setString(5, ag.getRm().getUm().getId());
-
-			st1.executeUpdate(query);
-
-		} catch (Exception e) {
+	    }  catch (Exception e) {
 			e.printStackTrace();
 			return false;
 		} finally {
-			DatabaseConnection.closeConnection(conn); // Ensuring connection is closed even if an exception occurs
+			DatabaseConnection.closeConnection(conn); 
 		}
 		return true;
 	}
+	
+	
 
 	@Override
 	public boolean updateDipendente(DipendenteModel d) {

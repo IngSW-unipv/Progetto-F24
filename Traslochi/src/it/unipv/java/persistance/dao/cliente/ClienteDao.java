@@ -9,44 +9,45 @@ import java.util.ArrayList;
 import java.util.List;
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import it.unipv.java.model.AuthGestor;
-import it.unipv.java.model.ClienteModel; 
+import it.unipv.java.model.ClienteModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 import it.unipv.java.persistance.dao.PasswordUtil;
- 
-public class ClienteDao implements IClienteDao{
+
+public class ClienteDao implements IClienteDao {
 	private String schema;
 	private Connection conn;
-	
+
 	public ClienteDao() {
 		super();
-		this.schema = "Traslochi"; 
-	} 
+		this.schema = "Traslochi";
+	}
+
 	@Override
 	public boolean createCliente(AuthGestor ag) {
-		conn=DatabaseConnection.startConnection(conn,schema);
-		PreparedStatement st1; 
-		boolean esito=true; 
-		try
-		{
-			String query="INSERT INTO CLIENTI (NOME,COGNOME,EMAIL,PASSWORD,IDCLIENTE) VALUES(?,?,?,?,?)";
+		conn = DatabaseConnection.startConnection(conn, schema);
+		PreparedStatement st1;
+		boolean esito = true;
+		try {
+			String query = "INSERT INTO CLIENTI (NOME,COGNOME,EMAIL,PASSWORD,IDCLIENTE) VALUES(?,?,?,?,?)";
 			st1 = conn.prepareStatement(query);
-			st1.setString(1,ag.getRm().getUm().getNome());
-			st1.setString(2,ag.getRm().getUm().getCognome());
-			st1.setString(3,ag.getRm().getUm().getEmail());
-			st1.setString(4,ag.getRm().getUm().getPassword());
-			st1.setString(5,ag.getRm().getUm().getId()); 
+			st1.setString(1, ag.getRm().getUm().getNome());
+			st1.setString(2, ag.getRm().getUm().getCognome());
+			st1.setString(3, ag.getRm().getUm().getEmail());
+			st1.setString(4, ag.getRm().getUm().getPassword());
+			st1.setString(5, ag.getRm().getUm().getId());
 			st1.executeUpdate(query);
 
-		}catch (Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
-			esito=false;
+			esito = false;
 		}
 
 		DatabaseConnection.closeConnection(conn);
 		return esito;
-		
+
 	}
- 
+
+	
 	@Override
 	public boolean updateCliente(AuthGestor ag) {
 
@@ -55,11 +56,11 @@ public class ClienteDao implements IClienteDao{
 
 		try (PreparedStatement st1 = conn.prepareStatement(query)) {
 
-			st1.setString(1,ag.getRm().getUm().getNome());
-			st1.setString(2,ag.getRm().getUm().getCognome());
-			st1.setString(3,ag.getRm().getUm().getEmail());
-			st1.setString(4,ag.getRm().getUm().getPassword());
-			st1.setString(5,ag.getRm().getUm().getId()); 
+			st1.setString(1, ag.getRm().getUm().getNome());
+			st1.setString(2, ag.getRm().getUm().getCognome());
+			st1.setString(3, ag.getRm().getUm().getEmail());
+			st1.setString(4, ag.getRm().getUm().getPassword());
+			st1.setString(5, ag.getRm().getUm().getId());
 
 			st1.executeUpdate(query);
 
@@ -71,18 +72,19 @@ public class ClienteDao implements IClienteDao{
 		}
 		return true;
 
-	} 
+	}
+
 	@Override
-	public boolean deleteCliente( AuthGestor ag) { 
-	    
-	    String query = "DELETE FROM Clienti WHERE idCliente = ?";  
-	    try (PreparedStatement st1 = conn.prepareStatement(query)) {
-	         
-	    	st1.setString(1,ag.getRm().getUm().getId()); 
-	        
-	    	st1.executeUpdate();
-	        
- 	    } catch (Exception e) {
+	public boolean deleteCliente(AuthGestor ag) {
+
+		String query = "DELETE FROM Clienti WHERE idCliente = ?";
+		try (PreparedStatement st1 = conn.prepareStatement(query)) {
+
+			st1.setString(1, ag.getRm().getUm().getId());
+
+			st1.executeUpdate();
+
+		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
 		} finally {
@@ -90,85 +92,80 @@ public class ClienteDao implements IClienteDao{
 		}
 		return true;
 	}
+
 	@Override
-	public List<ClienteModel> getAllClienti(){
-	    List<ClienteModel> clienti = new ArrayList<>();
-	   
-	    Statement stmt = null;
-	    ResultSet rs = null;
+	public List<AuthGestor> getAllClienti() {
+		List<ClienteModel> clienti = new ArrayList<>();
 
-	    try {
- 	        conn = DatabaseConnection.startConnection(conn, schema);
+		Statement stmt = null;
+		ResultSet rs = null;
 
- 	        stmt = conn.createStatement();
+		try {
+			conn = DatabaseConnection.startConnection(conn, schema);
 
- 	        String sql = "SELECT * FROM CLIENTI";
-	        rs = stmt.executeQuery(sql);
+			stmt = conn.createStatement();
 
-	        // Process the result set
-	        while (rs.next()) {
-	        	ClienteModel c = new ClienteModel();
-	            c.setIdCliente(rs.getInt("IDDIPENDENTI")); // Adjust the method names and types accordingly
-	            c.setNome(rs.getString("NOME"));
-	            c.setCognome(rs.getString("COGNOME"));
-	            c.setEmail(rs.getString("EMAIL"));
-	          
-	            clienti.add(c);
-	        }
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	        
-	    } finally {
- 	        try {
-	            if (rs != null) rs.close();
-	            if (stmt != null) stmt.close();
-	            DatabaseConnection.closeConnection(conn);
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	        }
-	    }
+			String sql = "SELECT * FROM CLIENTI";
+			rs = stmt.executeQuery(sql);
 
-	    return clienti;
+			// Process the result set
+			while (rs.next()) {
+				ClienteModel c = new ClienteModel();
+				c.setIdCliente(rs.getInt("IDDIPENDENTI")); // Adjust the method names and types accordingly
+				c.setNome(rs.getString("NOME"));
+				c.setCognome(rs.getString("COGNOME"));
+				c.setEmail(rs.getString("EMAIL"));
+
+				clienti.add(c);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (stmt != null)
+					stmt.close();
+				DatabaseConnection.closeConnection(conn);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		return clienti;
 	}
-	
-	
+
 	@Override
 	public boolean getCliente(AuthGestor ag) {
-	    boolean clienteEsiste = false;  
-	    conn = DatabaseConnection.startConnection(conn, schema);
-	    
-	    String sql = "SELECT * FROM CLIENTE WHERE EMAIL = ? AND PASSWORD = ?";
-	    ResultSet rs = null;
-	    
-	    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-	        
- 	        pstmt.setString(1, ag.getLm().getUm().getEmail());
-	        
-	        rs = pstmt.executeQuery();
- 	        if (rs.next()) {
- 	        	String storedHashedPassword = rs.getString("PASSWORD");
- 	            clienteEsiste = PasswordUtil.verifyPassword(ag.getLm().getUm().getPassword(), storedHashedPassword);
-	        }
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    } finally {
-	        try {
-	            if (rs != null) rs.close();
-	            DatabaseConnection.closeConnection(conn);
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	        }
-	    }
-	    
-	    return clienteEsiste;  
+		boolean clienteEsiste = false;
+		conn = DatabaseConnection.startConnection(conn, schema);
+
+		String sql = "SELECT * FROM CLIENTE WHERE EMAIL = ? AND PASSWORD = ?";
+		ResultSet rs = null;
+
+		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+			pstmt.setString(1, ag.getLm().getUm().getEmail());
+
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				String storedHashedPassword = rs.getString("PASSWORD");
+				clienteEsiste = PasswordUtil.verifyPassword(ag.getLm().getUm().getPassword(), storedHashedPassword);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				DatabaseConnection.closeConnection(conn);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		return clienteEsiste;
 	}
 
- 
-	
-	
-	
- 
-	
- 	}
-
-
+}
