@@ -40,14 +40,18 @@ public class RegisterModel {
 
     // Metodo per confermare la registrazione
     public boolean confermaRegistrazione() {
+    	
         if (!validaDati()) {
             return false; // I dati non sono validi, la registrazione non può procedere
         } else {
             try {
                 // Assumi che AuthGestor.registerUser possa lavorare direttamente con UserModel
-                boolean registrazioneRiuscita = AuthGestor.registerUser(um);
+            	
+                boolean registrazioneRiuscita = DataAccessFacade.registerUser(um);
                 if (!registrazioneRiuscita) {
+                	
                     System.err.println("Registrazione fallita a causa di un errore nel processo di salvataggio.");
+                    // PASSO AL CONTROLLER
                     return false;
                 }
             } catch (Exception e) {
@@ -57,4 +61,6 @@ public class RegisterModel {
         }
         return true; // Restituisce true se la registrazione è avvenuta con successo
     }
-}
+    
+    
+}//fine RegisterModel

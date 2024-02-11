@@ -62,31 +62,32 @@ public class DataAccessFacade  {
 		}
 	}
 
-	public static boolean registerUser(UserModel um) {
-		AuthGestor ag = new AuthGestor();
-		String id = ag.generateIdFromCf(um.getCf());
-		um.setId(id);
-		UserType userType = determineUserType(um.getEmail());
-		um.setUserType(userType);
-
+	public  static boolean registerUser(UserModel um) {
+		
+		 DataAccessFacade ag = DataAccessFacade.getInstance();
+			String id = ag.generateIdFromCf(um.getCf());
+			um.setId(id);
+			UserType userType = determineUserType(um.getEmail());
+			um.setUserType(userType);
+			boolean esito=false;
 		switch (userType) {
 		case DIPENDENTE:
-			new DipendenteDao().createDipendente(ag);
+			esito=new DipendenteDao().createDipendente(um);
 			break;
 		case RESPONSABILE:
-			new ResponsabileDao().createResponsabile(ag);
+			esito=new ResponsabileDao().createResponsabile(um);
 			break;
 		case CLIENTE:
-			new ClienteDao().createCliente(ag);
+			esito=new ClienteDao().createCliente(um); 
 			break;
 		}
-		return true;
+		return esito;
 	}
 
-	public static boolean loginUser(UserModel loginuser) {
+	public   boolean loginUser(UserModel loginuser) {
 		UserType userType = determineUserType(loginuser.getEmail());
 		boolean loginSuccess = false;
-		AuthGestor ag = new AuthGestor();
+	    DataAccessFacade ag = DataAccessFacade.getInstance();
 		ag.setLm(new LoginModel());
 		ag.getLm().setUm(loginuser);
 		if (userType == UserType.CLIENTE) {

@@ -37,7 +37,7 @@ public class RegisterController {
 
 				rm.setUserModel(um);
  				if (rm.confermaRegistrazione()) {
-					// rv.showMessage("Registrazione completata con successo!");
+					// rv.showMessage("Registrazione completata con successo!"); //passare alla view 
 				} else {
 					// rv.showErrorMessage("Errore nella registrazione. Verifica i dati inseriti.");
 				}

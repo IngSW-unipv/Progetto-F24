@@ -42,7 +42,7 @@ public class LoginView extends JFrame {
 			public void run() {
 				try {
 					LoginView login = new LoginView();
-					
+				 login.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -154,7 +154,7 @@ public class LoginView extends JFrame {
 		lblNewLabel_2.setSize(new Dimension(4, 4));
 		
 		
-		lblNewLabel_2.setIcon(new ImageIcon("resources/immagineLoginPanel.jpg")); // DA SOSTITUIRE LINK 
+		lblNewLabel_2.setIcon(new ImageIcon("resources/immagineLoginPanel.jpg"));  
 		lblNewLabel_2.setBounds(-16, 0, 238, 261);
 		panel.add(lblNewLabel_2);
 		
