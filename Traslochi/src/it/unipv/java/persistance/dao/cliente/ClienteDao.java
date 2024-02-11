@@ -138,36 +138,41 @@ public class ClienteDao implements IClienteDao {
 */
 		return clienti;
 	}
+   
+	
+	public UserModel getCliente(LoginModel ag) {
+	    UserModel um = null;  
+	    conn = DatabaseConnection.startConnection(conn, schema);
+
+	     
+	    String sql = "SELECT idCliente, PASSWORD FROM CLIENTE WHERE EMAIL = ?";
+	    ResultSet rs = null;
+
+	    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+	        pstmt.setString(1, ag.getUm().getEmail());
+	        rs = pstmt.executeQuery();
+
+	        if (rs.next()) {
+	            String storedHashedPassword = rs.getString("PASSWORD");  
  
-	public boolean getCliente(LoginModel ag) {
-		boolean clienteEsiste = false;
-		conn = DatabaseConnection.startConnection(conn, schema);
+	            if (PasswordUtil.verifyPassword(ag.getUm().getPassword(), storedHashedPassword)) {
+	                um = new UserModel();
+ 	                um.setId(rs.getString("idCliente"));
+ 	            }
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    } finally {
+	        try {
+	            if (rs != null) rs.close();
+	            DatabaseConnection.closeConnection(conn);
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	    }
 
-		String sql = "SELECT * FROM CLIENTE WHERE EMAIL = ? AND PASSWORD = ?";
-		ResultSet rs = null;
-
-		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
-			pstmt.setString(1, ag.getUm().getEmail());
-
-			rs = pstmt.executeQuery();
-			if (rs.next()) {
-				String storedHashedPassword = rs.getString("PASSWORD");
-				clienteEsiste = PasswordUtil.verifyPassword(ag.getUm().getPassword(), storedHashedPassword);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (rs != null)
-					rs.close();
-				DatabaseConnection.closeConnection(conn);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-
-		return clienteEsiste;
+	    return um;  
 	}
 
-}
+
+}//fine getCliente

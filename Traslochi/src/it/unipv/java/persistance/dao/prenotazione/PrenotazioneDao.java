@@ -89,7 +89,7 @@ public class PrenotazioneDao implements IPrenotazioneDao{
 	        String query = "INSERT INTO Prenotazioni(IDPrenotazione, IDCliente, IndirizzoDiConsegna, DataRitiro, DataConsegna, MetodoDiPagamento, ImportoPagato, StatoPrenotazione) VALUES(?,?,?,?,?,?,?,?)";
 	        try (PreparedStatement st1 = conn.prepareStatement(query)) {
 	            st1.setInt(1, p.getIdPrenotazione());
-	            st1.setInt(2, p.getIdCliente());
+	            st1.setString(2, p.getIdCliente());
 	            st1.setString(3, p.getIndirizzoDiConsegna());
 	            st1.setString(4, p.getDataRitiro());
 	            st1.setString(5, p.getDataConsegna());
@@ -97,7 +97,7 @@ public class PrenotazioneDao implements IPrenotazioneDao{
 	            st1.setFloat(7, p.getImportoPagato());
 	            st1.setString(8, p.getStatoPrenotazione());
 	            st1.executeUpdate();
-	        }
+	        
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	        esito = false;
@@ -115,7 +115,7 @@ public class PrenotazioneDao implements IPrenotazioneDao{
 	        conn = DatabaseConnection.startConnection(conn, schema);
 	        String query = "UPDATE Prenotazioni SET IDCliente=?, IndirizzoDiConsegna=?, DataRitiro=?, DataConsegna=?, MetodoDiPagamento=?, ImportoPagato=?, StatoPrenotazione=? WHERE IDPrenotazione=?";
 	        try (PreparedStatement st1 = conn.prepareStatement(query)) {
-	            st1.setInt(1, p.getIdCliente());
+	            st1.setString(1, p.getIdCliente());
 	            st1.setString(2, p.getIndirizzoDiConsegna());
 	            st1.setString(3, p.getDataRitiro());
 	            st1.setString(4, p.getDataConsegna());

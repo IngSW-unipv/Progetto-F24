@@ -10,7 +10,7 @@ public interface IClienteDao {
     public boolean createCliente(RegisterModel c);
     public boolean updateCliente(LoginModel u);
     public List<UserModel> getAllClienti();
-    public boolean getCliente(UserModel arg);
+    public UserModel getCliente(UserModel lm);
     public boolean deleteCliente(UserModel d); 
 	
 }

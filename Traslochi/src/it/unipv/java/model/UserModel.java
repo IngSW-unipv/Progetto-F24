@@ -69,6 +69,7 @@ public class UserModel {
 	public void setUserType(UserType userType) {
 		this.userType = userType;
 	}
+	
 
 	public boolean isDipendente() {
 		return userType == UserType.DIPENDENTE;
