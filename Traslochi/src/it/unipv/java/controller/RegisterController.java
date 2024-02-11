@@ -13,7 +13,7 @@ public class RegisterController {
 	private RegisterView rv;
 	private RegisterModel rm;
 	private LoginView lv;
-	
+	private WarningView wv;
 
 	
 	public RegisterController(RegisterView registerView, RegisterModel registerModel) {
@@ -27,8 +27,8 @@ public class RegisterController {
 		rv.getBottoneConfermaReg().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Creazione di un nuovo UserModel con i dati raccolti dalla view
-				
-				
+				boolean control= passControl(rv.getPass());
+				if(control) {
 				UserModel um = new UserModel();
 				um.setNome(rv.getNome());
 				um.setCognome(rv.getCognome());
@@ -37,18 +37,28 @@ public class RegisterController {
 
 				rm.setUserModel(um);
  				if (rm.confermaRegistrazione()) {
-					
+					rv.setVisible(false);
 					lv.setVisible(true);
-					WarningView wv= new WarningView();
 					wv.registrEffettuata();
-				} else {
-					// rv.showErrorMessage("Errore nella registrazione. Verifica i dati inseriti.");
+				} }  else {
+					wv.mostraErrorPassword();
+					wv.getBottoneRiprova().addActionListener(new ActionListener() {
+						 public void actionPerformed(ActionEvent e) { 
+							 rv.riprovaPassword();
+						 } });
+					
 				}
 			}
 		});
 	}
 
-	
+	public Boolean passControl(String pass) {
+		if(pass == rv.getPassRipetuta()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 	/*
 	 * warningView.getBottoneRiprova().addActionListener(new ActionListener() {
 	 * public void actionPerformed(ActionEvent e) { registerView.riprovaPassword();
