@@ -47,7 +47,7 @@ public class RegisterModel {
             try {
                 // Assumi che AuthGestor.registerUser possa lavorare direttamente con UserModel
             	
-                boolean registrazioneRiuscita = DataAccessFacade.registerUser(this);
+                boolean registrazioneRiuscita = DataAccessFacade.getInstance().registerUser(this);
                 if (!registrazioneRiuscita) {
                 	
                     System.err.println("Registrazione fallita a causa di un errore nel processo di salvataggio.");

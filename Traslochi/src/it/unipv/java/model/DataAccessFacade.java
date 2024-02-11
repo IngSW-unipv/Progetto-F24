@@ -62,7 +62,7 @@ public class DataAccessFacade  {
 		}
 	}
 
-	public  static boolean registerUser(RegisterModel rm) {
+	public   boolean registerUser(RegisterModel rm) {
 		
 		 DataAccessFacade ag = DataAccessFacade.getInstance();
 			String id = ag.generateIdFromCf(rm.getUm().getCf());
@@ -86,26 +86,25 @@ public class DataAccessFacade  {
 
 	
 	
-	public   boolean loginUser(UserModel loginuser) {
-		
-		UserType userType = determineUserType(loginuser.getEmail());
-		boolean loginSuccess = false;
-		
-	    DataAccessFacade ag = DataAccessFacade.getInstance();
-	    
-		ag.setLm(new LoginModel());
-		
-		ag.getLm().setUm(loginuser);
-		if (userType == UserType.CLIENTE) {
-			loginSuccess = new ClienteDao().getCliente(lm);
-		} else if (userType == UserType.DIPENDENTE) {
-			loginSuccess = new DipendenteDao().getDipendente(lm);
-		} else if (userType == UserType.RESPONSABILE) {
-			loginSuccess = new ResponsabileDao().getResponsabile(lm);
-		}
- 
-		
-		return loginSuccess;
+	public boolean loginUser(LoginModel lm) {
+	    UserType userType = determineUserType(lm.getUm().getEmail());
+	    boolean loginSuccess = false;
+
+	    // A seconda del tipo di utente, chiama il metodo DAO corrispondente.
+	    switch (userType) {
+	        case CLIENTE:
+	            loginSuccess = new ClienteDao().getCliente(lm);
+	            break;
+	        case DIPENDENTE:
+	            loginSuccess = new DipendenteDao().getDipendente(lm);
+	            break;
+	        case RESPONSABILE:
+	            loginSuccess = new ResponsabileDao().getResponsabile(lm);
+	            break;
+	    }
+
+	    return loginSuccess;
 	}
 
-}
+
+}//fine facade

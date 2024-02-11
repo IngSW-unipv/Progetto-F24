@@ -148,12 +148,12 @@ public class ClienteDao implements IClienteDao {
 
 		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-			pstmt.setString(1, ag.getLm().getUm().getEmail());
+			pstmt.setString(1, ag.getUm().getEmail());
 
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				String storedHashedPassword = rs.getString("PASSWORD");
-				clienteEsiste = PasswordUtil.verifyPassword(ag.getLm().getUm().getPassword(), storedHashedPassword);
+				clienteEsiste = PasswordUtil.verifyPassword(ag.getUm().getPassword(), storedHashedPassword);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
