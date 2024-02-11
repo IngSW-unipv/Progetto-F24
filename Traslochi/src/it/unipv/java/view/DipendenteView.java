@@ -73,9 +73,9 @@ public class DipendenteView extends JFrame {
 				.addGroup(gl_panel.createSequentialGroup()
 					.addGap(83)
 					.addComponent(lblTurniLavorativi, GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
-					.addGap(924)
+					.addGap(947)
 					.addComponent(buttonVisProfilo, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
-					.addGap(1155))
+					.addGap(1132))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
@@ -84,9 +84,9 @@ public class DipendenteView extends JFrame {
 					.addComponent(lblTurniLavorativi, GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
 					.addGap(19))
 				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(21)
-					.addComponent(buttonVisProfilo, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(31, Short.MAX_VALUE))
+					.addGap(32)
+					.addComponent(buttonVisProfilo, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(42, Short.MAX_VALUE))
 		);
 		panel.setLayout(gl_panel);
 		
@@ -139,12 +139,14 @@ public class DipendenteView extends JFrame {
 		buttonInizioTurno.setFont(new Font("Tahoma", Font.BOLD, 13));
 		buttonInizioTurno.setBackground(SystemColor.textHighlight);
 		buttonInizioTurno.setBorder(null);
+		buttonInizioTurno.setFocusable(false);
 		
 		buttonFineTurno = new JButton("Fine Turno");
 		buttonFineTurno.setForeground(SystemColor.text);
 		buttonFineTurno.setFont(new Font("Tahoma", Font.BOLD, 13));
 		buttonFineTurno.setBackground(SystemColor.textHighlight);
 		buttonFineTurno.setBorder(null);
+		buttonFineTurno.setFocusable(false);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setIcon(new ImageIcon("resources/icona tempo.jpg"));
