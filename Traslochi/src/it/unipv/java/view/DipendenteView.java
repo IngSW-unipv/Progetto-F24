@@ -234,4 +234,75 @@ public class DipendenteView extends JFrame {
 		panel_1.setLayout(gl_panel_1);
 		contentPane.setLayout(gl_contentPane);
 	}
+
+
+	public JPanel getContentPane() {
+		return contentPane;
+	}
+
+
+	public void setContentPane(JPanel contentPane) {
+		this.contentPane = contentPane;
+	}
+
+
+	public JButton getButtonVisProfilo() {
+		return buttonVisProfilo;
+	}
+
+
+	public void setButtonVisProfilo(JButton buttonVisProfilo) {
+		this.buttonVisProfilo = buttonVisProfilo;
+	}
+
+
+	public JTextPane getOrarioInizioTurno() {
+		return orarioInizioTurno;
+	}
+
+
+	public void setOrarioInizioTurno(JTextPane orarioInizioTurno) {
+		this.orarioInizioTurno = orarioInizioTurno;
+	}
+
+
+	public JTextPane getOrarioFineTurno() {
+		return orarioFineTurno;
+	}
+
+
+	public void setOrarioFineTurno(JTextPane orarioFineTurno) {
+		this.orarioFineTurno = orarioFineTurno;
+	}
+
+
+	public JTextPane getIndirizzoLavoro() {
+		return indirizzoLavoro;
+	}
+
+
+	public void setIndirizzoLavoro(JTextPane indirizzoLavoro) {
+		this.indirizzoLavoro = indirizzoLavoro;
+	}
+
+
+	public JButton getButtonInizioTurno() {
+		return buttonInizioTurno;
+	}
+
+
+	public void setButtonInizioTurno(JButton buttonInizioTurno) {
+		this.buttonInizioTurno = buttonInizioTurno;
+	}
+
+
+	public JButton getButtonFineTurno() {
+		return buttonFineTurno;
+	}
+
+
+	public void setButtonFineTurno(JButton buttonFineTurno) {
+		this.buttonFineTurno = buttonFineTurno;
+	}
+	
 }

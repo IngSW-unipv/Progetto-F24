@@ -286,4 +286,75 @@ public class ResponsabileView extends JFrame {
 		buttonRimuoviDip.setFocusable(false);
 		contentPane.setLayout(gl_contentPane);
 	}
+
+
+	public JButton getButtonVisProfilo() {
+		return buttonVisProfilo;
+	}
+
+
+	public void setButtonVisProfilo(JButton buttonVisProfilo) {
+		this.buttonVisProfilo = buttonVisProfilo;
+	}
+
+
+	public JButton getButtonAggiungiDip() {
+		return buttonAggiungiDip;
+	}
+
+
+	public void setButtonAggiungiDip(JButton buttonAggiungiDip) {
+		this.buttonAggiungiDip = buttonAggiungiDip;
+	}
+
+
+	public JButton getButtonAssegnaTurno() {
+		return buttonAssegnaTurno;
+	}
+
+
+	public void setButtonAssegnaTurno(JButton buttonAssegnaTurno) {
+		this.buttonAssegnaTurno = buttonAssegnaTurno;
+	}
+
+
+	public JButton getButtonRimuoviDip() {
+		return buttonRimuoviDip;
+	}
+
+
+	public void setButtonRimuoviDip(JButton buttonRimuoviDip) {
+		this.buttonRimuoviDip = buttonRimuoviDip;
+	}
+
+
+	public JTextPane getTuttePrenotazioni() {
+		return tuttePrenotazioni;
+	}
+
+
+	public void setTuttePrenotazioni(JTextPane tuttePrenotazioni) {
+		this.tuttePrenotazioni = tuttePrenotazioni;
+	}
+
+
+	public JTextPane getTuttiTurni() {
+		return tuttiTurni;
+	}
+
+
+	public void setTuttiTurni(JTextPane tuttiTurni) {
+		this.tuttiTurni = tuttiTurni;
+	}
+
+
+	public JTextPane getTuttiDipendenti() {
+		return tuttiDipendenti;
+	}
+
+
+	public void setTuttiDipendenti(JTextPane tuttiDipendenti) {
+		this.tuttiDipendenti = tuttiDipendenti;
+	}
+	
 }
