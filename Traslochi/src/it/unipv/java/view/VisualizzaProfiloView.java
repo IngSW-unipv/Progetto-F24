@@ -60,6 +60,7 @@ public class VisualizzaProfiloView extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 619, 648);
 		contentPane = new JPanel();
+		contentPane.setBackground(SystemColor.inactiveCaptionBorder);
 		contentPane.setBorder(null);
 
 		setContentPane(contentPane);
@@ -116,6 +117,7 @@ public class VisualizzaProfiloView extends JFrame {
 		separator.setForeground(SystemColor.textHighlight);
 		
 		nome = new JTextArea();
+		nome.setBackground(SystemColor.inactiveCaptionBorder);
 		nome.setBorder(null);
 		
 		JLabel labelCognome = new JLabel("Cognome");
@@ -126,6 +128,7 @@ public class VisualizzaProfiloView extends JFrame {
 		separator_1.setForeground(SystemColor.textHighlight);
 		
 		cognome = new JTextArea();
+		cognome.setBackground(SystemColor.inactiveCaptionBorder);
 		cognome.setBorder(null);
 		
 		JLabel labelCF = new JLabel("Codice Fiscale");
@@ -136,6 +139,7 @@ public class VisualizzaProfiloView extends JFrame {
 		separator_2.setForeground(SystemColor.textHighlight);
 		
 		codiceFiscale = new JTextArea();
+		codiceFiscale.setBackground(SystemColor.inactiveCaptionBorder);
 		codiceFiscale.setBorder(null);
 		
 		JLabel labelEmail = new JLabel("Email");
@@ -146,6 +150,7 @@ public class VisualizzaProfiloView extends JFrame {
 		separator_2_1.setForeground(SystemColor.textHighlight);
 		
 		email = new JTextArea();
+		email.setBackground(SystemColor.inactiveCaptionBorder);
 		email.setBorder(null);
 		
 		JLabel labelPassword = new JLabel("Password");
@@ -156,6 +161,7 @@ public class VisualizzaProfiloView extends JFrame {
 		separator_2_1_1.setForeground(SystemColor.textHighlight);
 		
 		passwordField = new JPasswordField();
+		passwordField.setBackground(SystemColor.inactiveCaptionBorder);
 		passwordField.setBorder(null);
 		
 		buttonModPass = new JButton("Modifica");
@@ -212,51 +218,51 @@ public class VisualizzaProfiloView extends JFrame {
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(32)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+						.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblNewLabel_3, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblNewLabel_4, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 2581, GroupLayout.PREFERRED_SIZE)
+						.addComponent(separator, GroupLayout.PREFERRED_SIZE, 175, GroupLayout.PREFERRED_SIZE)
+						.addComponent(labelNome)
+						.addComponent(separator_1, GroupLayout.PREFERRED_SIZE, 175, GroupLayout.PREFERRED_SIZE)
+						.addComponent(labelCognome, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
+						.addComponent(labelCF, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
+						.addComponent(separator_2, GroupLayout.PREFERRED_SIZE, 238, GroupLayout.PREFERRED_SIZE)
+						.addComponent(labelEmail, GroupLayout.PREFERRED_SIZE, 85, GroupLayout.PREFERRED_SIZE)
+						.addComponent(labelPassword, GroupLayout.PREFERRED_SIZE, 85, GroupLayout.PREFERRED_SIZE)
+						.addComponent(separator_2_1_1, GroupLayout.PREFERRED_SIZE, 238, GroupLayout.PREFERRED_SIZE)
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(32)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-								.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblNewLabel_3, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblNewLabel_4, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE))
-							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(nome, GroupLayout.PREFERRED_SIZE, 175, GroupLayout.PREFERRED_SIZE)
+							.addGap(18)
+							.addComponent(buttonModNome, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addComponent(cognome, GroupLayout.PREFERRED_SIZE, 175, GroupLayout.PREFERRED_SIZE)
+							.addGap(18)
+							.addComponent(buttonModCogn, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(separator, GroupLayout.PREFERRED_SIZE, 175, GroupLayout.PREFERRED_SIZE)
-								.addComponent(labelNome)
-								.addComponent(separator_1, GroupLayout.PREFERRED_SIZE, 175, GroupLayout.PREFERRED_SIZE)
-								.addComponent(labelCognome, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
-								.addComponent(labelCF, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
-								.addComponent(separator_2, GroupLayout.PREFERRED_SIZE, 238, GroupLayout.PREFERRED_SIZE)
-								.addComponent(labelEmail, GroupLayout.PREFERRED_SIZE, 85, GroupLayout.PREFERRED_SIZE)
-								.addComponent(labelPassword, GroupLayout.PREFERRED_SIZE, 85, GroupLayout.PREFERRED_SIZE)
-								.addComponent(separator_2_1_1, GroupLayout.PREFERRED_SIZE, 238, GroupLayout.PREFERRED_SIZE)
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addComponent(nome, GroupLayout.PREFERRED_SIZE, 175, GroupLayout.PREFERRED_SIZE)
-									.addGap(18)
-									.addComponent(buttonModNome, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addComponent(cognome, GroupLayout.PREFERRED_SIZE, 175, GroupLayout.PREFERRED_SIZE)
-									.addGap(18)
-									.addComponent(buttonModCogn, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addComponent(codiceFiscale, GroupLayout.PREFERRED_SIZE, 238, GroupLayout.PREFERRED_SIZE)
-										.addComponent(email, GroupLayout.PREFERRED_SIZE, 238, GroupLayout.PREFERRED_SIZE)
-										.addComponent(passwordField, GroupLayout.PREFERRED_SIZE, 238, GroupLayout.PREFERRED_SIZE)
-										.addComponent(separator_2_1, GroupLayout.PREFERRED_SIZE, 238, GroupLayout.PREFERRED_SIZE))
-									.addGap(26)
-									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addComponent(buttonModCF, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE)
-										.addComponent(buttonModEmail, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE)
-										.addComponent(buttonModPass))))))
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+								.addComponent(codiceFiscale, GroupLayout.PREFERRED_SIZE, 238, GroupLayout.PREFERRED_SIZE)
+								.addComponent(email, GroupLayout.PREFERRED_SIZE, 238, GroupLayout.PREFERRED_SIZE)
+								.addComponent(passwordField, GroupLayout.PREFERRED_SIZE, 238, GroupLayout.PREFERRED_SIZE)
+								.addComponent(separator_2_1, GroupLayout.PREFERRED_SIZE, 238, GroupLayout.PREFERRED_SIZE))
+							.addGap(26)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(buttonModCF, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE)
+								.addComponent(buttonModEmail, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE)
+								.addComponent(buttonModPass))))
+					.addContainerGap(231, Short.MAX_VALUE))
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(135)
-					.addComponent(buttonConfScelte, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addComponent(buttonConfScelte, GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)
 					.addGap(2125))
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 603, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(863, Short.MAX_VALUE))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)

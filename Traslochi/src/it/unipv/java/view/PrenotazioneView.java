@@ -213,7 +213,6 @@ public class PrenotazioneView extends JFrame {
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 2571, GroupLayout.PREFERRED_SIZE)
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(37)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
@@ -265,8 +264,9 @@ public class PrenotazioneView extends JFrame {
 								.addComponent(indirizzoConsegna)
 								.addComponent(separator, GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
 								.addComponent(indirizzoRitiro, Alignment.TRAILING)
-								.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 419, GroupLayout.PREFERRED_SIZE))))
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+								.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 419, GroupLayout.PREFERRED_SIZE)))
+						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 1405, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(1166, Short.MAX_VALUE))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
