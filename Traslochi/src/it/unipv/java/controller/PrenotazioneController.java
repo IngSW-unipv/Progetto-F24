@@ -3,9 +3,9 @@ package it.unipv.java.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import it.unipv.java.model.PrenotazioneModel;
 import it.unipv.java.view.ClienteView;
 import it.unipv.java.view.PrenotazioneView;
+import it.unipv.java.model.PrenotazioneModel;
 
 public class PrenotazioneController {
 	private PrenotazioneModel pm;
@@ -25,7 +25,7 @@ public class PrenotazioneController {
 				pm.setDataRitiro(pv.getDataRitiro());
 				pm.setDataConsegna(pv.getDataConsegna());
 				pm.setCVC(pv.getTextField_6());
-				// pm.setScadGiorno(pv.getTextField_7());
+				  pm.setScadGiorno(pv.getTextField_7());
 				pm.setScadMese(pv.getTextField_8());
 				pm.setScadAnno(pv.getTextField_9());
 
