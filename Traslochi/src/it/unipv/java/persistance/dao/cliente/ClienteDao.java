@@ -98,7 +98,7 @@ public class ClienteDao implements IClienteDao {
 
 	@Override
 	public List<UserModel> getAllClienti() {
-		List<DataAccessFacade> clienti = new ArrayList<>();
+		List<UserModel> clienti = new ArrayList<>();
 /*
 		Statement stmt = null;
 		ResultSet rs = null;

@@ -83,12 +83,11 @@ public class PrenotazioneDao implements IPrenotazioneDao{
 	public boolean createPrenotazione(PrenotazioneModel p) {
 	    Connection conn = null;
 	    boolean esito = true;
-
-	    try {
+ 
 	        conn = DatabaseConnection.startConnection(conn, schema);
 	        String query = "INSERT INTO Prenotazioni(IDPrenotazione, IDCliente, IndirizzoDiConsegna, DataRitiro, DataConsegna, MetodoDiPagamento, ImportoPagato, StatoPrenotazione) VALUES(?,?,?,?,?,?,?,?)";
 	        try (PreparedStatement st1 = conn.prepareStatement(query)) {
-	            st1.setInt(1, p.getIdPrenotazione());
+	            st1.setString(1, p.getIdPrenotazione());
 	            st1.setString(2, p.getIdCliente());
 	            st1.setString(3, p.getIndirizzoDiConsegna());
 	            st1.setString(4, p.getDataRitiro());
@@ -104,8 +103,8 @@ public class PrenotazioneDao implements IPrenotazioneDao{
 	    } finally {
 	        DatabaseConnection.closeConnection(conn);
 	    }
-	    return esito;
-	} 
+	       return esito;}
+  
 	
 	public boolean updatePrenotazione(PrenotazioneModel p) {
 	    Connection conn = null;
