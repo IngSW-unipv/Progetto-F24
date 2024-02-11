@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
+ 
 import it.unipv.java.model.AuthGestor;
 import it.unipv.java.model.ClienteModel;
 import it.unipv.java.model.DipendenteModel;
@@ -122,7 +122,7 @@ public class ClienteDao implements IClienteDao{
     }
 	public boolean verifyCredentials(String email, String password) {
 	    // Assumendo di avere una connessione al database 'connection'
-	    try (PreparedStatement stmt = connection.prepareStatement("SELECT password FROM utenti WHERE email = ?")) {
+	    try (PreparedStatement stmt = conn.prepareStatement("SELECT password FROM utenti WHERE email = ?")) {
 	        stmt.setString(1, email);
 	        try (ResultSet rs = stmt.executeQuery()) {
 	            if (rs.next()) {
@@ -143,7 +143,8 @@ public class ClienteDao implements IClienteDao{
 	public boolean createCliente(AuthGestor ag) {
 		conn=DatabaseConnection.startConnection(conn,schema);
 		PreparedStatement st1;
-		
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
 		boolean esito=true;
 
 		try
