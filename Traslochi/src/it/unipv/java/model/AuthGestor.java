@@ -64,17 +64,17 @@ public class AuthGestor {
         return true;
     }
 
-    public static boolean loginUser(UserModel loginuser) {
+    /*public static boolean loginUser(UserModel loginuser) {
         UserType userType = determineUserType(loginuser.getEmail());
         boolean loginSuccess = false;
  
      
           if (userType == UserType.CLIENTE) {
-            loginSuccess = new ClienteDao().verifyCredentials(loginuser.getEmail(), loginuser.getPassword());
+          //  loginSuccess = new ClienteDao().verifyCredentials(loginuser.getEmail(), loginuser.getPassword());
         }else if() {}
           
         // Similmente per Dipendente e Responsabile
 
         return loginSuccess;
-    }
+    }*/
 }

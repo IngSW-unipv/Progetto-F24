@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
- 
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import it.unipv.java.model.AuthGestor;
 import it.unipv.java.model.ClienteModel; 
 import it.unipv.java.persistance.dao.DatabaseConnection;
@@ -19,9 +19,7 @@ public class ClienteDao implements IClienteDao{
 	public ClienteDao() {
 		super();
 		this.schema = "Traslochi"; 
-	}
-	
-	
+	} 
 	@Override
 	public boolean createCliente(AuthGestor ag) {
 		conn=DatabaseConnection.startConnection(conn,schema);
@@ -134,46 +132,39 @@ public class ClienteDao implements IClienteDao{
 	
 	
 	@Override
-    public ClienteModel getCliente(AuthGestor ag) {
-		
-		ClienteModel cliente = null;
+	public boolean getCliente(AuthGestor ag) {
+	    boolean clienteEsiste = false;  
 	    conn = DatabaseConnection.startConnection(conn, schema);
-	     
+	    
 	    String sql = "SELECT * FROM CLIENTE WHERE EMAIL = ? AND PASSWORD = ?";
 	    ResultSet rs = null;
 	    
-	    try (PreparedStatement pstmt = conn.prepareStatement(sql); ){ 
+	    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
 	        
-	        // Set the parameters
-	        pstmt.setString(1,ag.getRm().getUm().getEmail());
-	        pstmt.setString(2,ag.getRm().getUm().getEmail());
+ 	        pstmt.setString(1, ag.getLm().getUm().getEmail());
 	        
-	        // Execute the query
 	        rs = pstmt.executeQuery();
 	        
-	        // Process the result set
 	        if (rs.next()) {
-	        	ClienteModel c = new ClienteModel();
-	            cliente.setIdCliente(rs.getInt("IDDIPENDENTI"));
-	            cliente.setNome(rs.getString("NOME"));
-	            cliente.setCognome(rs.getString("COGNOME"));
-	            cliente.setEmail(rs.getString("EMAIL"));
- 	        }
+	            String hashedPassword = rs.getString("PASSWORD");
+ 	            if (BCrypt.checkpw(ag.getLm().getUm().getPassword(), hashedPassword)) {
+	                clienteEsiste = true;  
+	            }
+	        }
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	    } finally {
- 	        try {
+	        try {
 	            if (rs != null) rs.close();
-	             
 	            DatabaseConnection.closeConnection(conn);
 	        } catch (Exception e) {
 	            e.printStackTrace();
 	        }
 	    }
 	    
-	    return cliente;
+	    return clienteEsiste;  
 	}
-	 
+
  
 	
 	
