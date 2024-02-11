@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.UserModel;
+import it.unipv.java.view.LoginView;
 import it.unipv.java.view.RegisterView;
 import it.unipv.java.view.WarningView;
 
@@ -11,16 +12,21 @@ public class RegisterController {
 
 	private RegisterView rv;
 	private RegisterModel rm;
-	private WarningView warningView;
+	private LoginView lv;
+	
 
+<<<<<<< Updated upstream
  
 	public RegisterController() {
  	}
  
 	public RegisterController(RegisterView registerView, RegisterModel registerModel, WarningView warningView) {
+=======
+	
+	public RegisterController(RegisterView registerView, RegisterModel registerModel) {
+>>>>>>> Stashed changes
 		this.rv = registerView;
 		this.rm = registerModel;
-		this.warningView = warningView;
 		initcomponents();
 
 	}
@@ -37,7 +43,15 @@ public class RegisterController {
 
 				rm.setUserModel(um);
  				if (rm.confermaRegistrazione()) {
+<<<<<<< Updated upstream
 					// rv.showMessage("Registrazione completata con successo!"); //passare alla view 
+=======
+					rv.setVisible(false);
+					lv.setVisible(true);
+					WarningView wv= new WarningView();
+					wv.registrEffettuata();
+					
+>>>>>>> Stashed changes
 				} else {
 					// rv.showErrorMessage("Errore nella registrazione. Verifica i dati inseriti.");
 				}

@@ -30,13 +30,20 @@ public class DashboardController {
 		this.dv = dv;
 		setlisteners(um, dv);
 	}
+	
+	
 	private void setlisteners(UserModel um, ResponsabileView rv) {
 		rv.getButton
 	}
+<<<<<<< Updated upstream
 	private void setlisteners(UserModel um, ClienteView cv) {
 		
 	}
 	private void setlisteners(UserModel um, DipendenteView dv) {
 		
+=======
+	
+	
+>>>>>>> Stashed changes
 	}
-}
+
