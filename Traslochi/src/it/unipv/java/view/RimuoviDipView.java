@@ -47,6 +47,7 @@ public class RimuoviDipView extends JDialog {
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		JTextPane txtpnPerRimuovereUn = new JTextPane();
+		txtpnPerRimuovereUn.setEditable(false);
 		txtpnPerRimuovereUn.setBackground(SystemColor.inactiveCaptionBorder);
 		txtpnPerRimuovereUn.setForeground(SystemColor.textHighlight);
 		txtpnPerRimuovereUn.setFont(new Font("Tahoma", Font.BOLD, 13));
