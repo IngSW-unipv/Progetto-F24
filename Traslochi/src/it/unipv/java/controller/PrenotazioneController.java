@@ -4,7 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import it.unipv.java.model.PrenotazioneModel;
+import it.unipv.java.view.ClienteView;
 import it.unipv.java.view.PrenotazioneView;
+import it.unipv.java.view.RegisterView;
 
 public class PrenotazioneController {
 	public PrenotazioneModel pm;
@@ -31,6 +33,13 @@ public class PrenotazioneController {
 				if(!pv.getRadioCarta().isSelected() && !pv.getRadioContanti().isSelected()){
 					//eccezione: non hai selezionato contanti/carta
 				}
+			}
+		});
+		
+		pv.getButtonTornaIndietro().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ClienteView clienteView = new ClienteView();
+				clienteView.setVisible(true);
 			}
 		});
 	}
