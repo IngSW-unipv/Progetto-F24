@@ -121,7 +121,7 @@ public class PrenotazioneDao implements IPrenotazioneDao{
 	            st1.setString(5, p.getMetodoPagamento());
 	            st1.setFloat(6, p.getImportoPagato());
 	            st1.setString(7, p.getStatoPrenotazione());
-	            st1.setInt(8, p.getIdPrenotazione());
+	            st1.setString(8, p.getIdPrenotazione());
 
 	            int rowsUpdated = st1.executeUpdate();
 	            success = rowsUpdated > 0;
