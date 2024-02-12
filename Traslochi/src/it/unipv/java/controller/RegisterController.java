@@ -32,6 +32,7 @@ public class RegisterController {
 				UserModel um = new UserModel();
 				um.setNome(rv.getNome());
 				um.setCognome(rv.getCognome());
+				um.setCf(rv.getCF());
 				um.setEmail(rv.getEmail());
 				um.setPassword(rv.getPass());
 
