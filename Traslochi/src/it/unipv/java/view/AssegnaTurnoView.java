@@ -17,6 +17,8 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class AssegnaTurnoView extends JDialog {
 
@@ -90,6 +92,10 @@ public class AssegnaTurnoView extends JDialog {
 		indLavoro.setColumns(10);
 		{
 			buttonConfTurno = new JButton("Conferma ");
+			buttonConfTurno.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+				}
+			});
 			buttonConfTurno.setBackground(SystemColor.textHighlight);
 			buttonConfTurno.setForeground(SystemColor.window);
 			buttonConfTurno.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -98,6 +104,7 @@ public class AssegnaTurnoView extends JDialog {
 			getRootPane().setDefaultButton(buttonConfTurno);
 			buttonConfTurno.setFocusable(false);
 		}
+		 
 		GroupLayout gl_contentPanel = new GroupLayout(contentPanel);
 		gl_contentPanel.setHorizontalGroup(
 			gl_contentPanel.createParallelGroup(Alignment.LEADING)
@@ -160,5 +167,56 @@ public class AssegnaTurnoView extends JDialog {
 					.addContainerGap())
 		);
 		contentPanel.setLayout(gl_contentPanel);
+	}
+	public JTextField getIdDip() {
+		return idDip;
+	}
+
+
+
+	public void setIdDip(JTextField idDip) {
+		this.idDip = idDip;
+	}
+
+
+
+	public JTextField getOrarioIniTur() {
+		return orarioIniTur;
+	}
+
+
+
+	public void setOrarioIniTur(JTextField orarioIniTur) {
+		this.orarioIniTur = orarioIniTur;
+	}
+
+
+
+	public JTextField getIndLavoro() {
+		return indLavoro;
+	}
+
+
+
+	public void setIndLavoro(JTextField indLavoro) {
+		this.indLavoro = indLavoro;
+	}
+
+
+
+	public JPanel getContentPanel() {
+		return contentPanel;
+	}
+
+
+
+	public void setButtonConfTurno(JButton buttonConfTurno) {
+		this.buttonConfTurno = buttonConfTurno;
+	}
+
+
+
+	public JButton getButtonConfTurno() {
+		return buttonConfTurno;
 	}
 }

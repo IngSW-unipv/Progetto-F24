@@ -3,45 +3,41 @@ import java.sql.Time;
  
 public class TurnoModel {
  
-    private Time orario; 
-    private int idResponsabile; 
-    private int idDipendente; 
-    private int idMezzo;    
+    private Time orarioini;  
+    private String idDipendente; 
+    private String indLavoro;    
     
     public TurnoModel() {
-    } 
+    }
+
+	public Time getOrarioini() {
+		return orarioini;
+	}
+
+	public void setOrarioini(Time orarioini) {
+		this.orarioini = orarioini;
+	}
+
+	public int getIdDipendente() {
+		return idDipendente;
+	}
+
+	public void setIdDipendente(int idDipendente) {
+		this.idDipendente = idDipendente;
+	}
+
+	public int getIndLavoro() {
+		return indLavoro;
+	}
+
+	public void setIndLavoro(int indLavoro) {
+		this.indLavoro = indLavoro;
+	} 
     
-    public Time getOrario() {
-        return orario;
-    }
-
-    public void setOrario(Time orario) {
-        this.orario = orario;
-    }
-
-    public int getIdResponsabile() {
-        return idResponsabile;
-    }
-
-    public void setIdResponsabile(int idResponsabile) {
-        this.idResponsabile = idResponsabile;
-    }
-
-    public int getIdDipendente() {
-        return idDipendente;
-    }
-
-    public void setIdDipendente(int idDipendente) {
-        this.idDipendente = idDipendente;
-    }
-
-    public int getIdMezzo() {
-        return idMezzo;
-    }
-
-    public void setIdMezzo(int idMezzo) {
-        this.idMezzo = idMezzo;
-    }
+	public boolean aggiungiTurno() {
+		
+	}
+    
 
      
-}
+}//Fine turnModel
