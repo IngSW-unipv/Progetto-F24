@@ -54,6 +54,12 @@ public class ResponsabileController {
  			}
 		});
 	
+	//ORA DEVO MOSTRARE TUTTI I DIPENDENTI DAL DB
+	
+	//ORA DEVO MOSTRARE TUTTE LE PRENOTAZIONI DAL DB
+	
+	//ORA DEVO MOSTRARE TUTTE I TURNI
+	
 }//fine set Listener
 	
 	

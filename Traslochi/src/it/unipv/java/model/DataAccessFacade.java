@@ -9,6 +9,7 @@ import it.unipv.java.persistance.dao.prenotazione.PrenotazioneDao;
 import it.unipv.java.persistance.dao.responsabile.ResponsabileDao;
 import it.unipv.java.persistance.dao.turno.TurnoDao;
 
+import java.util.List;
 import java.util.Random;
 
 public class DataAccessFacade {
@@ -155,6 +156,11 @@ public class DataAccessFacade {
 	public boolean aggiungiTurno(TurnoModel tm) {
 		return	new TurnoDao().createTurno(tm);
  	}
+
+	public List<UserModel> mostraDipendenti() {
+		return new DipendenteDao().getAllDipendenti();
+ 		
+	}
 	
  
 
