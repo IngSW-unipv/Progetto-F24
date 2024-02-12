@@ -278,6 +278,6 @@ public class RegisterView extends JFrame {
 	}
 
 	public void riprovaPassword() {
-		setPassRipetuta(" ");
+		setPassRipetuta("");
 	}
 }

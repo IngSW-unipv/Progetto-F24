@@ -53,12 +53,12 @@ public class RegisterController {
 					lv.setVisible(true);
 					wv.registrEffettuata();
 				} }  else {
-					wv.mostraErrorPassword();
-					wv.getBottoneRiprova().addActionListener(new ActionListener() {
+					WarningView wv1= new WarningView();
+					wv1.mostraErrorPassword();
+					wv1.getBottoneRiprova().addActionListener(new ActionListener() {
 						 public void actionPerformed(ActionEvent e) { 
-							 WarningView wv= new WarningView();
 							 rv.riprovaPassword();
-							 wv.closeWindow();
+							 wv1.closeWindow();
 						 } });
 					
 				}

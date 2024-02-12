@@ -186,6 +186,5 @@ public class WarningView {
 	
 	public void closeWindow() {
         frame.setVisible(false);
-        panel.setVisible(false);
     }
 }
