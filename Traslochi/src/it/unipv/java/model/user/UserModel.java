@@ -113,4 +113,9 @@ public class UserModel {
 	public String toString() {
         return "ID: " + id + ", Nome: " + nome + ", Cognome: " + cognome + ", Email: " + email;
     }
+
+	public String getIdCliente() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

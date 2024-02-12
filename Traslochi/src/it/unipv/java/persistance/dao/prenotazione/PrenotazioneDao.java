@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.unipv.java.model.PrenotazioneModel;
- import it.unipv.java.persistance.dao.DatabaseConnection;
+import it.unipv.java.model.user.UserModel;
+import it.unipv.java.persistance.dao.DatabaseConnection;
 
 public class PrenotazioneDao implements IPrenotazioneDao{
 	private String schema;
@@ -53,8 +54,9 @@ public class PrenotazioneDao implements IPrenotazioneDao{
 	}
 
 	@Override
-	public PrenotazioneModel getPrenotazione(ClienteModel c) {
-		PrenotazioneModel prenotazione = null;
+	public  List <PrenotazioneModel> getPrenotazione(UserModel c) {
+	    List<PrenotazioneModel> prenotazioni = new ArrayList<>();
+
 	    Connection conn = null;
 	    ResultSet rs = null;
 
@@ -62,20 +64,25 @@ public class PrenotazioneDao implements IPrenotazioneDao{
 	        conn = DatabaseConnection.startConnection(conn, schema);
 	        String sql = "SELECT * FROM Prenotazioni WHERE IDCliente = ?";
 	        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-	            stmt.setInt(1, c.getIdCliente());
+	            stmt.setString(1, c.getIdCliente());
 	            rs = stmt.executeQuery();
 	            if (rs.next()) {
-	                prenotazione = new PrenotazioneModel();
-	                prenotazione.setIdPrenotazione(rs.getInt("IDPrenotazione"));
-	                // Set the other fields of prenotazione from the ResultSet
-	            }
+	        		PrenotazioneModel prenotazione  = new PrenotazioneModel();
+	                prenotazione.setIdPrenotazione(rs.getString("IDPrenotazione"));
+	                
+	            	prenotazione.setIndirizzodiRitiro(rs.getString("IndirizzoDiRitiro"));
+	    	        prenotazione.setIndirizzoDiConsegna("IndirizzoDiConsegna");
+	    	        prenotazione.setDataRitiro("DataRitiro");
+	    	        prenotazione.setDataConsegna("DataConsegna");
+	    	        prenotazioni.add(prenotazione);
+ 	            }
 	        }
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	    } finally {
 	        DatabaseConnection.closeConnection(conn);
 	    }
-	    return prenotazione;
+	    return prenotazioni;
 	}
 
 	@Override
@@ -104,7 +111,6 @@ public class PrenotazioneDao implements IPrenotazioneDao{
 	    }
 	       return esito;}
   
-	
 	public boolean updatePrenotazione(PrenotazioneModel p) {
 	    Connection conn = null;
 	    boolean success = true;
@@ -144,7 +150,7 @@ public class PrenotazioneDao implements IPrenotazioneDao{
 	        conn = DatabaseConnection.startConnection(conn, schema);
 	        String query = "DELETE FROM Prenotazioni WHERE IDPrenotazione=?";
 	        try (PreparedStatement st1 = conn.prepareStatement(query)) {
-	            st1.setInt(1, p.getIdPrenotazione());
+	            st1.setString(1, p.getIdPrenotazione());
 
 	            int rowsDeleted = st1.executeUpdate();
 	            success = rowsDeleted > 0;
@@ -159,4 +165,6 @@ public class PrenotazioneDao implements IPrenotazioneDao{
 	    return success;
 	} 
  
-	}
+	  
+ 
+	}//finePrenotazioneDao
