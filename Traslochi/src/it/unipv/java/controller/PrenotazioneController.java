@@ -3,7 +3,7 @@ package it.unipv.java.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import it.unipv.java.view.ClienteDashboardView;
+import it.unipv.java.view.ClienteView;
 import it.unipv.java.view.PrenotazioneView;
 import it.unipv.java.view.WarningView;
 import it.unipv.java.model.PrenotazioneModel;
@@ -12,7 +12,7 @@ public class PrenotazioneController {
 	private PrenotazioneModel pm;
 	private PrenotazioneView pv;
 	private WarningView wv;
-	private ClienteDashboardView cv;
+	private ClienteView cv;
 
 	public PrenotazioneController(PrenotazioneModel pm, PrenotazioneView pv) {
 		this.pm = pm;
@@ -78,7 +78,7 @@ public class PrenotazioneController {
 
 		pv.getButtonTornaIndietro().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ClienteDashboardView clienteView = new ClienteDashboardView();
+				ClienteView clienteView = new ClienteView();
 				clienteView.setVisible(true);
 			}
 		});

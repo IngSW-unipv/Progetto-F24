@@ -126,22 +126,4 @@ public class WarningView {
 	public void closeWindow() {
         frame.setVisible(false);
     }
-
-
-	public void elimEffettuata() {
-		initialize();
-		frame.setVisible(true);
-		label.setText("Dipendente rimosso!");
-		riprovaButton.setText("ok");
-		
-	}
-
-
-	public void elimNonEffettuata() {
-		initialize();
-		frame.setVisible(true);
-		label.setText("Dipendente non presente in memoria!");
-		riprovaButton.setText("Riprova");
-		
-	}
 }

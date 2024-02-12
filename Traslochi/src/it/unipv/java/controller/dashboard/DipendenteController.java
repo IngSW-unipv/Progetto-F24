@@ -5,15 +5,15 @@ import java.awt.event.ActionListener;
 
 import it.unipv.java.model.TurnoModel;
 import it.unipv.java.model.user.UserModel;
-import it.unipv.java.view.DipendenteDashboardView;
+import it.unipv.java.view.DipendenteView;
 import it.unipv.java.view.VisualizzaProfiloView;
 
-public class DipendenteDashboardController {
+public class DipendenteController {
 	private TurnoModel tm;
-	private DipendenteDashboardView dv;
+	private DipendenteView dv;
 	private VisualizzaProfiloView pv;
 	
-	public DipendenteDashboardController(TurnoModel tm, DipendenteDashboardView dv, VisualizzaProfiloView pv) {
+	public DipendenteController(TurnoModel tm, DipendenteView dv, VisualizzaProfiloView pv) {
 		this.tm = tm;
 		this.dv = dv;
 		this.pv = pv;
