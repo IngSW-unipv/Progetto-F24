@@ -18,25 +18,22 @@ public class TurnoModel {
 		this.orarioini = orarioini;
 	}
 
-	public int getIdDipendente() {
+	public String getIdDipendente() {
 		return idDipendente;
 	}
 
-	public void setIdDipendente(int idDipendente) {
+	public void setIdDipendente(String idDipendente) {
 		this.idDipendente = idDipendente;
 	}
 
-	public int getIndLavoro() {
+	public String getIndLavoro() {
 		return indLavoro;
 	}
 
-	public void setIndLavoro(int indLavoro) {
+	public void setIndLavoro(String indLavoro) {
 		this.indLavoro = indLavoro;
-	} 
-    
-	public boolean aggiungiTurno() {
-		
 	}
+ 
     
 
      

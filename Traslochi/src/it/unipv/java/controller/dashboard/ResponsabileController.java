@@ -49,7 +49,7 @@ public class ResponsabileController {
 		
 	at.getButtonConfTurno().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				tm.se(at.getIdDip());
+				tm.setIdDipendente(0);
 				
 				
  			}
