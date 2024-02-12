@@ -97,19 +97,16 @@ public class DipendenteView extends JFrame {
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 1376, GroupLayout.PREFERRED_SIZE)
-						.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 1403, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(1073, Short.MAX_VALUE))
+				.addComponent(panel, GroupLayout.PREFERRED_SIZE, 1376, GroupLayout.PREFERRED_SIZE)
+				.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 1261, GroupLayout.PREFERRED_SIZE)
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 75, Short.MAX_VALUE)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
-					.addContainerGap())
+					.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 384, GroupLayout.PREFERRED_SIZE)
+					.addGap(78))
 		);
 		
 		JLabel lblNewLabel = new JLabel("Orario di Inizio Turno");
