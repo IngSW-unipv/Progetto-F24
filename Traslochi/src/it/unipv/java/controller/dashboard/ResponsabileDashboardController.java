@@ -13,13 +13,13 @@ import it.unipv.java.view.RegisterView;
 import it.unipv.java.view.ResponsabileView;
 import it.unipv.java.view.VisualizzaProfiloView;
 
-public class ResponsabileController {
+public class ResponsabileDashboardController {
 	private UserModel um;
 	private ResponsabileView rv;
  	private AssegnaTurnoView at;
 	private TurnoModel tm;
 	private PrenotazioneModel pm;
-	public ResponsabileController(UserModel um, ResponsabileView rv,  AssegnaTurnoView at,TurnoModel tm) {
+	public ResponsabileDashboardController(UserModel um, ResponsabileView rv,  AssegnaTurnoView at,TurnoModel tm) {
 		this.um = um;
 		this.rv = rv;
  		this.at=at;
