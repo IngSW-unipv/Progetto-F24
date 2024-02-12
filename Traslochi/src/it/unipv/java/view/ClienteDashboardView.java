@@ -40,7 +40,7 @@ import javax.swing.AbstractListModel;
 import javax.swing.UIManager;
 import java.awt.Toolkit;
 
-public class ClienteView extends JFrame {
+public class ClienteDashboardView extends JFrame {
 
     private JPanel contentPane;
     private JButton buttonVisProfilo;
@@ -52,7 +52,7 @@ public class ClienteView extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    ClienteView frame = new ClienteView();
+                    ClienteDashboardView frame = new ClienteDashboardView();
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -61,7 +61,7 @@ public class ClienteView extends JFrame {
         });
     }
 
-    public ClienteView() {
+    public ClienteDashboardView() {
     	setIconImage(Toolkit.getDefaultToolkit().getImage("resources/IconaLogin.png"));
     	setTitle("Bidons");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
