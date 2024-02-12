@@ -19,6 +19,10 @@ import javax.swing.ImageIcon;
 
 public class DipendenteView extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JButton buttonVisProfilo;
 	private JTextPane orarioInizioTurno;

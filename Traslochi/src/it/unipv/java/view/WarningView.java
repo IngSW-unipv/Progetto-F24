@@ -101,7 +101,7 @@ public class WarningView {
 	public void mostraErrorGenerale() {
 		initialize();
 		frame.setVisible(true);
-		label.setText("Errore, riprovare!");
+		label.setText("Errore, riprovare");
 		riprovaButton.setText("Riprova");
 	}
 	

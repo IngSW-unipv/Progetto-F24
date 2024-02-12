@@ -1,5 +1,7 @@
 package it.unipv.java.model.user;
 
+import java.util.List;
+
 import it.unipv.java.model.DataAccessFacade;
 
 public class UserModel {
@@ -85,8 +87,8 @@ public class UserModel {
 		return userType == UserType.RESPONSABILE;
 	}
 
-	public void tuttiDipendenti() {
-		DataAccessFacade.getInstance().mostraDipendenti();
+	public List<UserModel> tuttiDipendenti() {
+		return DataAccessFacade.getInstance().mostraDipendenti();
 	}
 
 	public void modificaProfilo(String nome, String cognome, String email, UserType userType) {
@@ -107,4 +109,8 @@ public class UserModel {
 	public void updateUser(UserModel userModel) {
 		//DA FARE
 	}
+	
+	public String toString() {
+        return "ID: " + id + ", Nome: " + nome + ", Cognome: " + cognome + ", Email: " + email;
+    }
 }

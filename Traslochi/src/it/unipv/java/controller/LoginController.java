@@ -63,8 +63,8 @@ public class LoginController {
 					wv.getBottoneRiprova().addActionListener(new ActionListener() {
 						 public void actionPerformed(ActionEvent e) { 
 							 wv.closeWindow();
-							 lv.setPassword(" ");
-							 lv.setEmail(" ");
+							 lv.setPassword("");
+							 lv.setEmail("");
 						 } });
 				}
 			}
@@ -79,5 +79,6 @@ public class LoginController {
 		});
 
 	}
+	
 
 }// fine loginController

@@ -294,6 +294,7 @@ public class ResponsabileView extends JFrame {
 	}
 
 
+	
 
 	public JButton getButtonAggiungiDip() {
 		return buttonAggiungiDip;
@@ -344,11 +345,9 @@ public class ResponsabileView extends JFrame {
 		this.tuttiTurni = tuttiTurni;
 	}
 
-
 	public JTextPane getTuttiDipendenti() {
 		return tuttiDipendenti;
 	}
-
 
 	public void setTuttiDipendenti(JTextPane tuttiDipendenti) {
 		this.tuttiDipendenti = tuttiDipendenti;

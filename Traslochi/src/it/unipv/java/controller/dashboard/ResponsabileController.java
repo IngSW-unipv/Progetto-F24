@@ -2,6 +2,7 @@ package it.unipv.java.controller.dashboard;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 import it.unipv.java.model.DataAccessFacade;
 import it.unipv.java.model.PrenotazioneModel;
@@ -27,13 +28,7 @@ public class ResponsabileController {
 		setListeners();
 	}
 	
-	private void setListeners() {
-<<<<<<< HEAD
-		
-=======
-		 
->>>>>>> 76fe6f18c14717d7856c5606bfb3d633e2f16f7f
-	
+	private void setListeners() {	
 		rv.getButtonAggiungiDip().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				RegisterView registerView = new RegisterView();
@@ -45,17 +40,28 @@ public class ResponsabileController {
 		
 	at.getButtonConfTurno().addActionListener(new ActionListener() {
 		
-  public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) {
 				tm.setIdDipendente(at.getIdDip());
 				tm.setIndLavoro(at.getIndLavoro());
 				tm.setOrarioini(at.getOrarioIniTur()); 
 				boolean success=tm.aggiungiTurno(); //TI RITORNA DAL DB RESTUIRE QUALCOSA VIEW
+				
  			}
 		});
 	   
 	
 	//ORA DEVO MOSTRARE TUTTI I DIPENDENTI DAL DB
-	 um.tuttiDipendenti();//ARRAYLIST CON TUTTI I DIPENDENTI QUA SI FA BINDING COMPONENTE VIEW E DIPENDENTI, SECONDO ME NON ANDRANNO TUTTI A CAPO SARANNO TUTTI IN UN UNICA FILA
+	List<UserModel> dipendenti= um.tuttiDipendenti();//ARRAYLIST CON TUTTI I DIPENDENTI QUA SI FA BINDING COMPONENTE VIEW E DIPENDENTI, SECONDO ME NON ANDRANNO TUTTI A CAPO SARANNO TUTTI IN UN UNICA FILA
+	StringBuilder sb= new StringBuilder();
+	
+	for(UserModel dipendente : dipendenti) {
+		sb.append(dipendente.toString()).append("\n");
+	}
+	
+	rv.getTuttiDipendenti().setText(sb.toString());
+	
+	
+	
 	//ORA DEVO MOSTRARE TUTTE LE PRENOTAZIONI DAL DB
 	pm.mostratuttePrenotazioni();
 	//ORA DEVO MOSTRARE TUTTE I TURNI
