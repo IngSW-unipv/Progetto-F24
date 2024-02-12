@@ -1,12 +1,10 @@
 package it.unipv.java.model;
 
-import it.unipv.java.model.user.DipendenteModel;
+import it.unipv.java.model.user.UserModel;
 
 public class DeleteModel {
-	DipendenteModel dm;
-	
-	public boolean confermaEliminazione() {
-		if()
-		else return false;
+ 	
+	public boolean confermaEliminazione(UserModel dm) {
+			return DataAccessFacade.getInstance().eliminazioneuser(dm);
 	}
 }
