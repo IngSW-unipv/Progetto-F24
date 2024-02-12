@@ -94,30 +94,44 @@ public class DipendenteDao implements IDipendenteDao {
 	}
 
 	@Override // il responsabile fa alldipendenti
-	public List<DataAccessFacade> getAllDipendenti() {
-		List<DataAccessFacade> dipendenti = new ArrayList<>(); // come si fa?
-		/*
-		 * Statement stmt = null; ResultSet rs = null;
-		 * 
-		 * try { conn = DatabaseConnection.startConnection(conn, schema);
-		 * 
-		 * stmt = conn.createStatement();
-		 * 
-		 * String sql = "SELECT * FROM DIPENDENTI"; rs = stmt.executeQuery(sql);
-		 * 
-		 * // Process the result set while (rs.next()) { DataAccessFacade dipendente =
-		 * DataAccessFacade.getInstance();
-		 * dipendente.setIdDipendente(rs.getInt("IDDIPENDENTI")); // Adjust the method
-		 * names and types accordingly dipendente.setNome(rs.getString("NOME"));
-		 * dipendente.setCognome(rs.getString("COGNOME"));
-		 * dipendente.setEmail(rs.getString("EMAIL"));
-		 * 
-		 * dipendenti.add(dipendente); } } catch (Exception e) { e.printStackTrace();
-		 * 
-		 * } finally { try { if (rs != null) rs.close(); if (stmt != null) stmt.close();
-		 * DatabaseConnection.closeConnection(conn); } catch (Exception e) {
-		 * e.printStackTrace(); } }
-		 */
+	public List<UserModel> getAllDipendenti() {
+		List<UserModel> dipendenti = new ArrayList<>();
+
+		Statement stmt = null;
+		ResultSet rs = null;
+
+		try {
+			conn = DatabaseConnection.startConnection(conn, schema);
+
+			stmt = conn.createStatement();
+
+			String sql = "SELECT * FROM DIPENDENTI";
+			rs = stmt.executeQuery(sql);
+
+			while (rs.next()) {
+				UserModel dipendente = new UserModel();
+				dipendente.setId(rs.getString("IDDIPENDENTI"));
+				dipendente.setNome(rs.getString("NOME"));
+				dipendente.setCognome(rs.getString("COGNOME"));
+				dipendente.setEmail(rs.getString("EMAIL"));
+				dipendenti.add(dipendente);
+			}
+		} catch (
+
+		Exception e) {
+			e.printStackTrace();
+
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (stmt != null)
+					stmt.close();
+				DatabaseConnection.closeConnection(conn);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		return dipendenti;
 
 	}

@@ -9,9 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.unipv.java.model.LoginModel;
-import it.unipv.java.model.TurnoModel;
-import it.unipv.java.model.user.ClienteModel;
-import it.unipv.java.model.user.DipendenteModel;
+import it.unipv.java.model.TurnoModel; 
 import it.unipv.java.model.TurnoModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 
@@ -27,32 +25,35 @@ public class TurnoDao implements ITurnoDao {
 	
 	public List<TurnoModel> getAllTurni() {
 	    List<TurnoModel> turni = new ArrayList<>();
-	    Connection conn = null; 
+	    Connection conn = null;
 	    try {
-	        conn = DatabaseConnection.startConnection(conn, schema); // Ensure this method returns a valid connection object
+			conn=DatabaseConnection.startConnection(conn,schema);
 
 	        String sql = "SELECT * FROM Turno";
 	        try (Statement stmt = conn.createStatement();
 	             ResultSet rs = stmt.executeQuery(sql)) {
 
-	            // Process the result set
+	            // Processa il ResultSet
 	            while (rs.next()) {
-	            	TurnoModel t = new TurnoModel(); 
-	                t.setOrario(rs.getTime("Orario"));  
+	                TurnoModel t = new TurnoModel();
+	                // Supponendo che in TurnoModel ci sia un metodo setOrarioInizio che accetta un parametro di tipo Time
+	                t.setOrarioini(rs.getString("OrarioInizio")); 
+	                t.setIdDipendente(rs.getString("idDipendente"));
+	                t.setIndLavoro(rs.getString("IndirizzoLavoro"));
 	                turni.add(t);
 	            }
 	        }
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	    } finally {
-	        DatabaseConnection.closeConnection(conn); // Ensure the connection is closed properly
+	        DatabaseConnection.closeConnection(conn); // Assicurati che la connessione venga chiusa correttamente
 	    }
 
 	    return turni;
 	}
 
  
-	public TurnoModel getTurno(DipendenteModel d) {
+	/*public TurnoModel getTurno(DipendenteModel d) {
 		TurnoModel t = null;
 	    Connection conn = null; // Ensure conn is declared and initialized
 
@@ -88,7 +89,7 @@ public class TurnoDao implements ITurnoDao {
 	    }
 
 	    return t;
-	}
+	}*/
 
 
  	public boolean createTurno(TurnoModel t) {
@@ -119,68 +120,7 @@ public class TurnoDao implements ITurnoDao {
 	}
 
  
-	public boolean updateTurno(TurnoModel t) {
-	    Connection conn = null;
-	    boolean success = true;
-
-	    try {
- 	        conn = DatabaseConnection.startConnection(conn, schema);
-	         
-	        String query = "UPDATE Turno SET Orario=? WHERE idDipendente=?";
- 
-	        try (PreparedStatement st1 = conn.prepareStatement(query)) {
-	            
-	            
-	            st1.setTime(1, t.getOrarioini()); 
-	            st1.setInt(2, t.getIdDipendente());  
-
- 	            st1.executeUpdate(); 
-
-	        } catch (Exception e) {
-	            e.printStackTrace();
-	            success = false;
-	        }
-	    } finally {
- 	        DatabaseConnection.closeConnection(conn);
-	    }
-	    return success;
-	}
-
-
-	public boolean deleteTurno(TurnoModel turno) {
-	    Connection conn = null;
-	    PreparedStatement st1 = null;
-	    boolean esito = false;
-
-	    try {
- 	        conn = DatabaseConnection.startConnection(conn, schema);
-
- 	        String query = "DELETE FROM Turno WHERE Orario = ? AND IDResponsabile = ?";
-
- 	        st1 = conn.prepareStatement(query);
-
- 	        st1.setTime(1, turno.getOrarioini());
-	        st1.setInt(2, turno.getIdResponsabile());
-
- 	        int rowsAffected = st1.executeUpdate();
-	        esito = rowsAffected > 0;  
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	        esito = false;  
-	    } finally {
-	        
-	        if (st1 != null) {
-	            try {
-	                st1.close();
-	            } catch (SQLException e) {
-	                e.printStackTrace();
-	            }
-	        }
-	        DatabaseConnection.closeConnection(conn);
-	    }
-
-	    return esito;
-	}
+	 
 
 
 }

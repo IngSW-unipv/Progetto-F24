@@ -1,5 +1,7 @@
 package it.unipv.java.model.user;
 
+import it.unipv.java.model.DataAccessFacade;
+
 public class UserModel {
 
 	private String nome;
@@ -83,11 +85,8 @@ public class UserModel {
 		return userType == UserType.RESPONSABILE;
 	}
 
-	public void visualizzaProfilo() {
-		System.out.println("Nome: " + nome);
-		System.out.println("Cognome: " + cognome);
-		System.out.println("Email: " + email);
-		System.out.println("Tipo Utente: " + userType);
+	public void tuttiDipendenti() {
+		DataAccessFacade.getInstance().mostraDipendenti();
 	}
 
 	public void modificaProfilo(String nome, String cognome, String email, UserType userType) {
