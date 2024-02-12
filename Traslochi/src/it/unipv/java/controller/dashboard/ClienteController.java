@@ -14,11 +14,10 @@ public class ClienteController {
 	private ClienteView cv;
 	private VisualizzaProfiloView pv;
 	
-<<<<<<< HEAD:Traslochi/src/it/unipv/java/controller/dashboard/ClienteController.java
+
 	public ClienteController(UserModel um, ClienteView cv, VisualizzaProfiloView pv) {
-=======
+
 	public ClienteDashboardController(UserModel um, ClienteView cv, VisualizzaProfiloView pv) {
->>>>>>> parent of e116bc1 (Updatate):Traslochi/src/it/unipv/java/controller/dashboard/ClienteDashboardController.java
 		this.um = um;
 		this.cv = cv;
 		this.pv = pv;
@@ -45,4 +44,5 @@ public class ClienteController {
 	private void riempiPrenotazioniClienteTXT() {
 		 DataAccessFacade.getInstance().stampaPrenotazioni(um);
 	}
+
 }
