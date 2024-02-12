@@ -45,7 +45,7 @@ public class ClienteController {
 	
 	
 	private void riempiPrenotazioniClienteTXT() {
-<<<<<<< Updated upstream
+
 		PrenotazioneModel pren = new PrenotazioneModel();
 		List<PrenotazioneModel> lista = new ArrayList<PrenotazioneModel>();
 		lista = pren.getPrenotazioniUtente(um);
@@ -59,9 +59,8 @@ public class ClienteController {
 						prenotazione.getDataRitiro() +
 						prenotazione.getDataConsegna() +"/n");
 		}
-=======
 		 DataAccessFacade.getInstance().stampaPrenotazioni(um);
->>>>>>> Stashed changes
+
 	}
 
 }
