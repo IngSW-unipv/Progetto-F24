@@ -20,8 +20,7 @@ public class LoginController {
 	private DipendenteView dv;
 	private ResponsabileView rv;
 
-	public LoginController(LoginModel lm, LoginView lv) {
-		this.lm = lm;
+	public LoginController(LoginView lv) {
 		this.lv = lv;
 		setListeners();
 	}
