@@ -7,8 +7,7 @@ import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.user.UserModel; 
  
 
-//qua ci sara la import per il testing
-
+ 
 public interface IDipendenteDao {
     public List<UserModel> getAllDipendenti();
     public boolean getDipendente(LoginModel ag);

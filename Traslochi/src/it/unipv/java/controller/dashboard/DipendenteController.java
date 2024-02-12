@@ -31,7 +31,7 @@ public class DipendenteController {
         dv.getButtonInizioTurno().addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                  String orarioInizio = LocalTime.now().toString();
-                dv.setOrarioInizioTurno(orarioInizio);
+                dv.setOrarioInizioTurno(orarioInizio); //DAL DATABASE IL RESPONSABILE ASSEGNA TURNO
                 tm.setOrarioini(orarioInizio);  
                 
                 dv.setIndirizzoLavoro(tm.getIndLavoro());

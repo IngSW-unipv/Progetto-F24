@@ -53,9 +53,9 @@ public class TurnoDao implements ITurnoDao {
 	}
 
  
-	/*public TurnoModel getTurno(DipendenteModel d) {
+	public TurnoModel getTurno(DipendenteModel d) {
 		TurnoModel t = null;
-	    Connection conn = null; // Ensure conn is declared and initialized
+	    /*Connection conn = null; // Ensure conn is declared and initialized
 
  	    String sql = "SELECT * FROM Turno "
 	               + "JOIN Dipendente ON Turno.idDipendente = Dipendente.idDipendente "
@@ -87,9 +87,9 @@ public class TurnoDao implements ITurnoDao {
 	        }
 	        DatabaseConnection.closeConnection(conn);
 	    }
-
+*/
 	    return t;
-	}*/
+	}
 
 
  	public boolean createTurno(TurnoModel t) {
