@@ -168,8 +168,10 @@ public class AssegnaTurnoView extends JDialog {
 		);
 		contentPanel.setLayout(gl_contentPanel);
 	}
-	public JTextField getIdDip() {
-		return idDip;
+	
+	
+	public String getIdDip() {
+		return idDip.getText();
 	}
 
 
@@ -180,8 +182,8 @@ public class AssegnaTurnoView extends JDialog {
 
 
 
-	public JTextField getOrarioIniTur() {
-		return orarioIniTur;
+	public String getOrarioIniTur() {
+		return orarioIniTur.getText();
 	}
 
 
@@ -192,8 +194,8 @@ public class AssegnaTurnoView extends JDialog {
 
 
 
-	public JTextField getIndLavoro() {
-		return indLavoro;
+	public String getIndLavoro() {
+		return indLavoro.getText();
 	}
 
 
