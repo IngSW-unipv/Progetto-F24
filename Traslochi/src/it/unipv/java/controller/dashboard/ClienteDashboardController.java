@@ -9,12 +9,12 @@ import it.unipv.java.view.ClienteView;
 import it.unipv.java.view.PrenotazioneView;
 import it.unipv.java.view.VisualizzaProfiloView;
 
-public class ClienteController {
+public class ClienteDashboardController {
 	private UserModel um;
 	private ClienteView cv;
 	private VisualizzaProfiloView pv;
 	
-	public ClienteController(UserModel um, ClienteView cv, VisualizzaProfiloView pv) {
+	public ClienteDashboardController(UserModel um, ClienteView cv, VisualizzaProfiloView pv) {
 		this.um = um;
 		this.cv = cv;
 		this.pv = pv;

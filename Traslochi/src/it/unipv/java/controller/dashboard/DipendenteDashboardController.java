@@ -8,12 +8,12 @@ import it.unipv.java.model.user.UserModel;
 import it.unipv.java.view.DipendenteView;
 import it.unipv.java.view.VisualizzaProfiloView;
 
-public class DipendenteController {
+public class DipendenteDashboardController {
 	private TurnoModel tm;
 	private DipendenteView dv;
 	private VisualizzaProfiloView pv;
 	
-	public DipendenteController(TurnoModel tm, DipendenteView dv, VisualizzaProfiloView pv) {
+	public DipendenteDashboardController(TurnoModel tm, DipendenteView dv, VisualizzaProfiloView pv) {
 		this.tm = tm;
 		this.dv = dv;
 		this.pv = pv;
