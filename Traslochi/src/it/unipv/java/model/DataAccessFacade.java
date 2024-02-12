@@ -132,6 +132,10 @@ public class DataAccessFacade  {
 	       //NON PUO ARRIVARCI A STA SCHERMATA SE NON è LOGGATO
 	    }
 	}
+	public void stampaPrenotazioni(UserModel um) {
+		PrenotazioneDao prenotazione = new PrenotazioneDAO();
+		prenotazione.getPrenotazione(um);
+	}
 
 
 }//fine facade

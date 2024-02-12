@@ -17,10 +17,10 @@ public class ResponsabileController {
 		this.um = um;
 		this.rv = rv;
 		this.pv = pv;
-		setlisteners();
+		setListeners();
 	}
 	
-	private void setlisteners() {
+	private void setListeners() {
 		rv.getButtonVisProfilo().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pv.setVisible(true);

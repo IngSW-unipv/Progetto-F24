@@ -284,6 +284,14 @@ public class ClienteView extends JFrame {
     public JButton getBottonePrenotazione() {
     	return buttonPrenotazione;
     }
+
+	public JTextPane getTextPrenotazioni() {
+		return textPrenotazioni;
+	}
+
+	public void setTextPrenotazioni(JTextPane textPrenotazioni) {
+		this.textPrenotazioni = textPrenotazioni;
+	}
     
     
 }
