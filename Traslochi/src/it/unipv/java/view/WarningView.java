@@ -107,6 +107,7 @@ public class WarningView {
 	
 	public void mostraErrorPassword() {
 		initialize();
+		frame.setVisible(true);
 		labelPassword.setVisible(true);
 		labelEmail.setVisible(false);
 		labelRegistrazione.setVisible(false);
@@ -117,6 +118,7 @@ public class WarningView {
 	
 	public void mostraErrorEmail() {
 		initialize();
+		frame.setVisible(true);
 		labelPassword.setVisible(false);
 		labelEmail.setVisible(true);
 		labelRegistrazione.setVisible(false);
@@ -128,6 +130,7 @@ public class WarningView {
 	
 	public void registrEffettuata() {
 		initialize();
+		frame.setVisible(true);
 		labelPassword.setVisible(false);
 		labelEmail.setVisible(false);
 		labelRegistrazione.setVisible(true);
@@ -141,6 +144,7 @@ public class WarningView {
 	
 	public void mostraErrorGenerale() {
 		initialize();
+		frame.setVisible(true);
 		labelPassword.setVisible(false);
 		labelEmail.setVisible(false);
 		labelRegistrazione.setVisible(false);
@@ -152,6 +156,7 @@ public class WarningView {
 	
 	public void mostraErrorMetodoPag() {
 		initialize();
+		frame.setVisible(true);
 		labelPassword.setVisible(false);
 		labelEmail.setVisible(false);
 		labelRegistrazione.setVisible(false);
@@ -163,6 +168,7 @@ public class WarningView {
 	
 	public void mostraPrenEff() {
 		initialize();
+		frame.setVisible(true);
 		labelPassword.setVisible(false);
 		labelEmail.setVisible(false);
 		labelRegistrazione.setVisible(false);

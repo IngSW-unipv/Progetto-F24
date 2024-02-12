@@ -15,6 +15,7 @@ import javax.swing.JPasswordField;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.Color;
+import javax.swing.border.EtchedBorder;
 
 public class RegisterView extends JFrame {
 
@@ -47,6 +48,7 @@ public class RegisterView extends JFrame {
 	private JTextArea codiceFiscale;
 	private JTextArea email;
 	private JLabel labelTitolo;
+	private JButton buttonReturn;
 
 	public static void main(String[] args) {
 		// Crea un'istanza della finestra di registrazione
@@ -186,23 +188,27 @@ public class RegisterView extends JFrame {
 		iconaUser3.add(registerConfirmButton);
 
 		nome = new JTextArea();
+		nome.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		nome.setBorder(null);
-		nome.setBounds(61, 103, 175, 23);
+		nome.setBounds(61, 103, 175, 14);
 		iconaUser3.add(nome);
 
 		cognome = new JTextArea();
+		cognome.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		cognome.setBorder(null);
-		cognome.setBounds(286, 103, 175, 23);
+		cognome.setBounds(286, 103, 175, 14);
 		iconaUser3.add(cognome);
 
 		codiceFiscale = new JTextArea();
+		codiceFiscale.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		codiceFiscale.setBorder(null);
-		codiceFiscale.setBounds(120, 168, 238, 23);
+		codiceFiscale.setBounds(120, 168, 238, 14);
 		iconaUser3.add(codiceFiscale);
 
 		email = new JTextArea();
+		email.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		email.setBorder(null);
-		email.setBounds(120, 234, 238, 23);
+		email.setBounds(120, 234, 238, 14);
 		iconaUser3.add(email);
 
 		password = new JPasswordField();
@@ -220,6 +226,15 @@ public class RegisterView extends JFrame {
 		labelTitolo.setFont(new Font("Tahoma", Font.BOLD, 20));
 		labelTitolo.setBounds(176, 29, 139, 32);
 		iconaUser3.add(labelTitolo);
+		
+		buttonReturn = new JButton("<");
+		buttonReturn.setForeground(SystemColor.window);
+		buttonReturn.setFont(new Font("Tahoma", Font.BOLD, 11));
+		buttonReturn.setBackground(SystemColor.textHighlight);
+		buttonReturn.setBorder(null);
+		buttonReturn.setBounds(18, 29, 46, 23);
+		iconaUser3.add(buttonReturn);
+		buttonReturn.setFocusable(false);
 	}
 
 	public String getNome() {
@@ -253,7 +268,11 @@ public class RegisterView extends JFrame {
 	public JButton getBottoneConfermaReg() {
 		return registerConfirmButton;
 	}
-
+	
+	public JButton getBottoneReturn() {
+		return buttonReturn;
+	}
+	
 	public JPasswordField getJPasswordField() {
 		return password;
 	}
@@ -261,5 +280,4 @@ public class RegisterView extends JFrame {
 	public void riprovaPassword() {
 		setPassRipetuta(" ");
 	}
-
 }

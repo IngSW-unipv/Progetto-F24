@@ -3,6 +3,8 @@ package it.unipv.java.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
+
 import it.unipv.java.model.DataAccessFacade;
 import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.user.DipendenteModel;
@@ -18,13 +20,12 @@ public class RegisterController {
 	private RegisterView rv;
 	private RegisterModel rm;
 	private LoginView lv;
-	private WarningView wv;
 	private UserTypeUtil utu;
 
+
 	
-	public RegisterController(RegisterView registerView, RegisterModel registerModel) {
+	public RegisterController(RegisterView registerView) {
 		this.rv = registerView;
-		this.rm = registerModel;
 		initcomponents();
 
 	}
@@ -34,6 +35,7 @@ public class RegisterController {
 			public void actionPerformed(ActionEvent e) {
 				// Creazione di un nuovo UserModel con i dati raccolti dalla view
 				boolean control= passControl(rv.getPass());
+				WarningView wv= new WarningView();
 				if(control) {
 				UserModel um = new UserModel();
 				um.setNome(rv.getNome());
@@ -41,10 +43,12 @@ public class RegisterController {
 				um.setCf(rv.getCF());
 				um.setEmail(rv.getEmail());
 				um.setPassword(rv.getPass());
-
-				rm.setUserModel(um);				
+				
+				rm.setUserModel(um);
+				
  				if (rm.confermaRegistrazione()) {
-					rv.setVisible(false);
+ 					wv= new WarningView();
+ 					rv.setVisible(false);
 					lv.setVisible(true);
 					wv.registrEffettuata();
 				} }  else {
@@ -52,11 +56,18 @@ public class RegisterController {
 					wv.getBottoneRiprova().addActionListener(new ActionListener() {
 						 public void actionPerformed(ActionEvent e) { 
 							 rv.riprovaPassword();
+							 wv.closeWindow();
 						 } });
 					
 				}
 			}
 		});
+		rv.getBottoneReturn().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				rv.setVisible(false);	
+			}
+		});
+
 	}
 
 	public Boolean passControl(String pass) {

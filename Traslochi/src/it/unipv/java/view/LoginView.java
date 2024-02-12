@@ -17,6 +17,8 @@ import java.awt.event.ActionListener;
 import java.awt.SystemColor;
 import javax.swing.JTextArea;
 import javax.swing.JPasswordField;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 
 public class LoginView extends JFrame {
 
@@ -77,35 +79,24 @@ public class LoginView extends JFrame {
 		panelLogin.setForeground(Color.WHITE);
 		panelLogin.setBounds(0, 0, 222, 261);
 		contentPane.add(panelLogin);
-		panelLogin.setLayout(null);
 		
 		lblNewLabel = new JLabel("Sign In");
 		lblNewLabel.setForeground(SystemColor.textHighlight);
 		lblNewLabel.setFont(new Font("Segoe UI Black", Font.PLAIN, 18));
-		lblNewLabel.setBounds(10, 0, 72, 52);
-		panelLogin.add(lblNewLabel);
 		
 		separator = new JSeparator();
 		separator.setForeground(new Color(100, 149, 237));
-		separator.setBounds(10, 83, 191, 2);
-		panelLogin.add(separator);
 		
 		emailLabel = new JLabel("Email");
 		emailLabel.setForeground(new Color(100, 149, 237));
 		emailLabel.setFont(new Font("Yu Gothic Light", Font.PLAIN, 11));
-		emailLabel.setBounds(10, 48, 46, 14);
-		panelLogin.add(emailLabel);
 		
 		passwordLabel = new JLabel("Password");
 		passwordLabel.setForeground(new Color(100, 149, 237));
 		passwordLabel.setFont(new Font("Yu Gothic Light", Font.PLAIN, 11));
-		passwordLabel.setBounds(10, 96, 60, 14);
-		panelLogin.add(passwordLabel);
 		
 		separator_1 = new JSeparator();
 		separator_1.setForeground(new Color(100, 149, 237));
-		separator_1.setBounds(10, 131, 191, 14);
-		panelLogin.add(separator_1);
 		
 		loginButton = new JButton("Login");
 		loginButton.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -114,18 +105,11 @@ public class LoginView extends JFrame {
 		loginButton.setIcon(null);
 		loginButton.setForeground(Color.WHITE);
 		loginButton.setBackground(SystemColor.textHighlight);
-		loginButton.setBounds(20, 156, 162, 28);
-		loginButton.setFocusable(false);
-		panelLogin.add(loginButton);
 		
 		email = new JTextArea();
-		email.setBounds(10, 63, 191, 22);
-		panelLogin.add(email);
 		
 		password = new JPasswordField();
 		password.setBorder(null);
-		password.setBounds(10, 108, 191, 20);
-		panelLogin.add(password);
 		
 		registerButton = new JButton("Registrati");
 		registerButton.setForeground(Color.WHITE);
@@ -133,30 +117,93 @@ public class LoginView extends JFrame {
 		registerButton.setBorderPainted(false);
 		registerButton.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		registerButton.setBackground(SystemColor.textHighlight);
-		registerButton.setBounds(20, 222, 162, 28);
 		registerButton.setFocusable(false);
-		panelLogin.add(registerButton);
 		
 		lblNewLabel_1 = new JLabel("OR");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 10));
 		lblNewLabel_1.setForeground(new Color(100, 149, 237));
-		lblNewLabel_1.setBounds(95, 197, 15, 14);
-		panelLogin.add(lblNewLabel_1);
+		GroupLayout gl_panelLogin = new GroupLayout(panelLogin);
+		gl_panelLogin.setHorizontalGroup(
+			gl_panelLogin.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panelLogin.createSequentialGroup()
+					.addGap(10)
+					.addGroup(gl_panelLogin.createParallelGroup(Alignment.LEADING)
+						.addComponent(emailLabel, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)))
+				.addGroup(gl_panelLogin.createSequentialGroup()
+					.addGap(10)
+					.addGroup(gl_panelLogin.createParallelGroup(Alignment.LEADING)
+						.addComponent(email, GroupLayout.PREFERRED_SIZE, 191, GroupLayout.PREFERRED_SIZE)
+						.addComponent(separator, GroupLayout.PREFERRED_SIZE, 191, GroupLayout.PREFERRED_SIZE)))
+				.addGroup(gl_panelLogin.createSequentialGroup()
+					.addGap(10)
+					.addGroup(gl_panelLogin.createParallelGroup(Alignment.LEADING)
+						.addComponent(password, GroupLayout.PREFERRED_SIZE, 191, GroupLayout.PREFERRED_SIZE)
+						.addComponent(passwordLabel, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)))
+				.addGroup(gl_panelLogin.createSequentialGroup()
+					.addGap(10)
+					.addComponent(separator_1, GroupLayout.PREFERRED_SIZE, 191, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_panelLogin.createSequentialGroup()
+					.addGap(20)
+					.addComponent(loginButton, GroupLayout.PREFERRED_SIZE, 162, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_panelLogin.createSequentialGroup()
+					.addGap(95)
+					.addComponent(lblNewLabel_1))
+				.addGroup(gl_panelLogin.createSequentialGroup()
+					.addGap(20)
+					.addComponent(registerButton, GroupLayout.PREFERRED_SIZE, 162, GroupLayout.PREFERRED_SIZE))
+		);
+		gl_panelLogin.setVerticalGroup(
+			gl_panelLogin.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panelLogin.createSequentialGroup()
+					.addGroup(gl_panelLogin.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panelLogin.createSequentialGroup()
+							.addGap(48)
+							.addComponent(emailLabel, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE))
+						.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 52, GroupLayout.PREFERRED_SIZE))
+					.addGap(1)
+					.addGroup(gl_panelLogin.createParallelGroup(Alignment.LEADING)
+						.addComponent(email, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addGroup(gl_panelLogin.createSequentialGroup()
+							.addGap(20)
+							.addComponent(separator, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+					.addGap(11)
+					.addGroup(gl_panelLogin.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panelLogin.createSequentialGroup()
+							.addGap(12)
+							.addComponent(password, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))
+						.addComponent(passwordLabel, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE))
+					.addGap(3)
+					.addComponent(separator_1, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE)
+					.addGap(11)
+					.addComponent(loginButton, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
+					.addGap(13)
+					.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE)
+					.addGap(11)
+					.addComponent(registerButton, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE))
+		);
+		panelLogin.setLayout(gl_panelLogin);
 		
 		panel = new JPanel();
 		panel.setBounds(220, 0, 222, 261);
 		contentPane.add(panel);
-		panel.setLayout(null);
 		
 		lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setIconTextGap(0);
 		lblNewLabel_2.setMaximumSize(new Dimension(6, 5));
-		lblNewLabel_2.setSize(new Dimension(4, 4));
 		
 		
-		lblNewLabel_2.setIcon(new ImageIcon("resources/immagineLoginPanel.jpg"));  
-		lblNewLabel_2.setBounds(-16, 0, 238, 261);
-		panel.add(lblNewLabel_2);
+		lblNewLabel_2.setIcon(new ImageIcon("resources/immagineLoginPanel.jpg"));
+		GroupLayout gl_panel = new GroupLayout(panel);
+		gl_panel.setHorizontalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 222, GroupLayout.PREFERRED_SIZE)
+		);
+		gl_panel.setVerticalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 261, GroupLayout.PREFERRED_SIZE)
+		);
+		panel.setLayout(gl_panel);
 		
 	}
 	
@@ -182,13 +229,7 @@ public class LoginView extends JFrame {
 		email.setText(em);
 	}
 	
-	void addLoginListener(ActionListener listenForLogin) {
-		loginButton.addActionListener(listenForLogin);
-	}
 	
-	void addRegisterListener(ActionListener listenForRegister) {
-		registerButton.addActionListener(listenForRegister);
-	}
 	
 	
 }

@@ -73,6 +73,7 @@ public class LoginController {
 		lv.getRegisterButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				RegisterView registerView = new RegisterView();
+				RegisterController rc= new RegisterController(registerView);
 				registerView.setVisible(true);
 			}
 		});
