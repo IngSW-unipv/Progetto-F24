@@ -2,12 +2,9 @@ package it.unipv.java.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
-
 import it.unipv.java.model.DataAccessFacade;
 import it.unipv.java.model.RegisterModel;
-import it.unipv.java.model.user.DipendenteModel;
 import it.unipv.java.model.user.UserModel;
 import it.unipv.java.model.user.UserType;
 import it.unipv.java.model.user.UserTypeUtil;
@@ -63,15 +60,25 @@ public class RegisterController {
 							 wv1.closeWindow();
 						 } });
 					
-				} else {
+				} else if (!controlNull) {
 					WarningView wv2= new WarningView();
-					wv2.mostraErrorGenerale();;
+					wv2.mostraErrorGenerale();
 					wv2.getBottoneRiprova().addActionListener(new ActionListener() {
 						 public void actionPerformed(ActionEvent e) { 
 							 rv.riprovaPassword();
 							 wv2.closeWindow();
 						 } });
+				} else if(!emailControl(rv.getEmail())) {
+					WarningView wv3= new WarningView();
+					wv3.mostraErrorEmail();
+					wv3.getBottoneRiprova().addActionListener(new ActionListener() {
+						 public void actionPerformed(ActionEvent e) { 
+							 rv.setEmail("");
+							 wv3.closeWindow();
+						 } });
 				}
+				
+				
 			}
 		});
 		rv.getBottoneReturn().addActionListener(new ActionListener() {
@@ -82,7 +89,7 @@ public class RegisterController {
 
 	}
 
-	public Boolean passControl(String pass) {
+	public boolean passControl(String pass) {
 		if(pass.equals(rv.getPassRipetuta())) {
 			return true;
 		} else {
@@ -90,9 +97,9 @@ public class RegisterController {
 		}
 	}
 	
-	public Boolean vuotoControl() {
-		if(!rv.getNome().isBlank() && !rv.getCognome().isBlank() && !rv.getEmail().isBlank()
-				&& !rv.getCF().isBlank() && !rv.getPass().isBlank() && !rv.getPassRipetuta().isBlank()) {
+	public boolean vuotoControl() {
+		if(!rv.getNome().trim().isEmpty() && !rv.getCognome().trim().isEmpty() && !rv.getEmail().trim().isEmpty()
+				&& !rv.getCF().trim().isEmpty() && !rv.getPass().trim().isEmpty() && !rv.getPassRipetuta().trim().isEmpty()) {
 			
 			return true;
 		} else {
@@ -100,7 +107,9 @@ public class RegisterController {
 		}
 	}
 	
-	
+	public boolean emailControl(String email) {
+		return email.contains("@");
+	}
 	
 	
 	

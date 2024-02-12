@@ -8,8 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.unipv.java.model.PrenotazioneModel;
-import it.unipv.java.model.user.ClienteModel;
-import it.unipv.java.persistance.dao.DatabaseConnection;
+ import it.unipv.java.persistance.dao.DatabaseConnection;
 
 public class PrenotazioneDao implements IPrenotazioneDao{
 	private String schema;
@@ -22,7 +21,7 @@ public class PrenotazioneDao implements IPrenotazioneDao{
   
 
 	@Override
-	public List<PrenotazioneModel> getAllPrenotazioni() {
+	public List <PrenotazioneModel> getAllPrenotazioni() {
 	    List<PrenotazioneModel> prenotazioni = new ArrayList<>();
 	    Connection conn = null;
 	    ResultSet rs = null;
@@ -34,8 +33,8 @@ public class PrenotazioneDao implements IPrenotazioneDao{
 	            rs = stmt.executeQuery();
 	            while (rs.next()) {
 	            	PrenotazioneModel p = new PrenotazioneModel();
-	                p.setIdPrenotazione(rs.getInt("IDPrenotazione"));
-	                p.setIdCliente(rs.getInt("IDCliente"));
+	                p.setIdPrenotazione(rs.getString ("IDPrenotazione"));
+	                p.setIdCliente(rs.getString("IDCliente"));
 	                //p.setIndirizzoConsegna(rs.getString() .getIndirizzoDiConsegna("IndirizzoDiConsegna"));
 	                p.setDataRitiro(rs.getString("DataRitiro"));
 	                p.setDataConsegna(rs.getString("DataConsegna"));

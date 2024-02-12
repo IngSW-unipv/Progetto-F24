@@ -7,7 +7,7 @@ import it.unipv.java.model.PrenotazioneModel;
  
 
 public interface IPrenotazioneDao {
-	public List<DataAccessFacade> getAllPrenotazioni();
+	public List<PrenotazioneModel> getAllPrenotazioni();
     public boolean getPrenotazione(DataAccessFacade c);
     public boolean createPrenotazione(PrenotazioneModel  p);
     public boolean updatePrenotazione(DataAccessFacade p);

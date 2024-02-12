@@ -252,6 +252,10 @@ public class RegisterView extends JFrame {
 	public String getEmail() {
 		return email.getText();
 	}
+	
+	public void setEmail(String stringa) {
+		email.setText(stringa);
+	}
 
 	public String getPass() {
 		return new String(password.getPassword());

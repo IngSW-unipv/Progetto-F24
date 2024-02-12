@@ -85,7 +85,7 @@ public class WarningView {
 	public void mostraErrorEmail() {
 		initialize();
 		frame.setVisible(true);
-		label.setText("Email errate, riprovare");
+		label.setText("Email errata, riprovare");
 		riprovaButton.setText("Riprova");
 	}
 	

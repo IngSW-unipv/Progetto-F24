@@ -1,5 +1,6 @@
 package it.unipv.java.model;
 import java.sql.Time;
+import java.util.List;
 
 import javax.swing.JTextField;
  
@@ -35,10 +36,13 @@ public class TurnoModel {
 	public void setIndLavoro(String indLavoro) {
 		this.indLavoro = indLavoro;
 	}
-	public boolean AggiungiTurno() {
+	
+	public boolean aggiungiTurno() {
 		return DataAccessFacade.getInstance().aggiungiTurno(this);
 	}
-    
-
+	
+	public List<TurnoModel> mostraTurni() {
+		return DataAccessFacade.getInstance().mostraTurni();
+	}
      
 }//Fine turnModel
