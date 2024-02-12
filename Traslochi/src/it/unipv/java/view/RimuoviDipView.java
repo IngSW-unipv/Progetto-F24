@@ -25,6 +25,7 @@ public class RimuoviDipView extends JDialog {
 	private JButton buttonConfermaRim;
 	private JTextField idDipendente;
 	private JTextField codiceFiscale;
+	private JButton buttonReturn;
 
 	
 	
@@ -74,13 +75,22 @@ public class RimuoviDipView extends JDialog {
 		codiceFiscale.setBackground(SystemColor.inactiveCaptionBorder);
 		codiceFiscale.setBorder(null);
 		codiceFiscale.setColumns(10);
+		
+		buttonReturn = new JButton("<");
+		buttonReturn.setForeground(SystemColor.window);
+		buttonReturn.setBackground(SystemColor.textHighlight);
+		buttonReturn.setBorder(null);
+		buttonReturn.setFont(new Font("Tahoma", Font.BOLD, 8));
+		buttonReturn.setFocusable(false);
 		GroupLayout gl_contentPanel = new GroupLayout(contentPanel);
 		gl_contentPanel.setHorizontalGroup(
 			gl_contentPanel.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_contentPanel.createSequentialGroup()
 					.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPanel.createSequentialGroup()
-							.addGap(54)
+							.addGap(6)
+							.addComponent(buttonReturn, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(txtpnPerRimuovereUn, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_contentPanel.createSequentialGroup()
 							.addGap(144)
@@ -89,13 +99,13 @@ public class RimuoviDipView extends JDialog {
 								.addComponent(lblNewLabel_1))))
 					.addContainerGap(61, Short.MAX_VALUE))
 				.addGroup(gl_contentPanel.createSequentialGroup()
-					.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING)
+					.addGroup(gl_contentPanel.createParallelGroup(Alignment.TRAILING)
 						.addGroup(gl_contentPanel.createSequentialGroup()
 							.addGap(77)
 							.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING)
 								.addComponent(idDipendente, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
 								.addComponent(separator_1, GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)))
-						.addGroup(Alignment.TRAILING, gl_contentPanel.createSequentialGroup()
+						.addGroup(gl_contentPanel.createSequentialGroup()
 							.addContainerGap(77, Short.MAX_VALUE)
 							.addGroup(gl_contentPanel.createParallelGroup(Alignment.LEADING)
 								.addComponent(separator, GroupLayout.PREFERRED_SIZE, 219, GroupLayout.PREFERRED_SIZE)
@@ -105,7 +115,9 @@ public class RimuoviDipView extends JDialog {
 		gl_contentPanel.setVerticalGroup(
 			gl_contentPanel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPanel.createSequentialGroup()
-					.addComponent(txtpnPerRimuovereUn, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGroup(gl_contentPanel.createParallelGroup(Alignment.TRAILING, false)
+						.addComponent(buttonReturn, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(txtpnPerRimuovereUn, Alignment.LEADING))
 					.addGap(18)
 					.addComponent(lblNewLabel)
 					.addPreferredGap(ComponentPlacement.RELATED)
@@ -118,7 +130,7 @@ public class RimuoviDipView extends JDialog {
 					.addComponent(codiceFiscale, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(separator, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(47, Short.MAX_VALUE))
+					.addContainerGap(22, Short.MAX_VALUE))
 		);
 		contentPanel.setLayout(gl_contentPanel);
 		{
@@ -156,6 +168,7 @@ public class RimuoviDipView extends JDialog {
 
 
 
+
 	public JButton getButtonConfermaRim() {
 		return buttonConfermaRim;
 	}
@@ -166,5 +179,11 @@ public class RimuoviDipView extends JDialog {
 		this.buttonConfermaRim = buttonConfermaRim;
 	}
 
+
+
+	
+	public JButton getBottoneReturn() {
+		return buttonReturn;
+	}
 
 }
