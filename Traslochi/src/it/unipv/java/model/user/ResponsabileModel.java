@@ -1,4 +1,4 @@
-package it.unipv.java.model;
+package it.unipv.java.model.user;
 
 public class ResponsabileModel extends UserModel {
 	int idResponsabile;

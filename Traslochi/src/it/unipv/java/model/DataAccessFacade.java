@@ -1,5 +1,8 @@
 package it.unipv.java.model;
 
+import it.unipv.java.model.user.UserModel;
+import it.unipv.java.model.user.UserType;
+import it.unipv.java.model.user.UserTypeUtil;
 import it.unipv.java.persistance.dao.cliente.ClienteDao;
 import it.unipv.java.persistance.dao.dipendente.DipendenteDao;
 import it.unipv.java.persistance.dao.prenotazione.PrenotazioneDao;
@@ -132,10 +135,16 @@ public class DataAccessFacade  {
 	       //NON PUO ARRIVARCI A STA SCHERMATA SE NON è LOGGATO
 	    }
 	}
+	
 	public void stampaPrenotazioni(UserModel um) {
 		PrenotazioneDao prenotazione = new PrenotazioneDAO();
 		prenotazione.getPrenotazione(um);
+		
+		
 	}
+	
+	
+	
 
 
 }//fine facade

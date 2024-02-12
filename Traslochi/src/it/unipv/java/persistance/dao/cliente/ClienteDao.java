@@ -11,7 +11,7 @@ import at.favre.lib.crypto.bcrypt.BCrypt;
  import it.unipv.java.model.DataAccessFacade;
 import it.unipv.java.model.LoginModel;
 import it.unipv.java.model.RegisterModel;
-import it.unipv.java.model.UserModel;
+import it.unipv.java.model.user.UserModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 import it.unipv.java.persistance.dao.PasswordUtil;
 

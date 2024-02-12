@@ -7,8 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import it.unipv.java.model.ClienteModel;
- import it.unipv.java.model.PrenotazioneModel;
+import it.unipv.java.model.PrenotazioneModel;
+import it.unipv.java.model.user.ClienteModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 
 public class PrenotazioneDao implements IPrenotazioneDao{

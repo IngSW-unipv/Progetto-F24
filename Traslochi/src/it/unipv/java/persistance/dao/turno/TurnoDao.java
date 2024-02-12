@@ -8,14 +8,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import it.unipv.java.model.ClienteModel;
-import it.unipv.java.model.DipendenteModel;
 import it.unipv.java.model.LoginModel;
 import it.unipv.java.model.TurnoModel;
+import it.unipv.java.model.user.ClienteModel;
+import it.unipv.java.model.user.DipendenteModel;
 import it.unipv.java.model.TurnoModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 
-public class TurnoDao implements ITurnoDao{
+public class TurnoDao implements ITurnoDao {
 	
 	private String schema;
 	private Connection conn;
@@ -153,7 +153,6 @@ public class TurnoDao implements ITurnoDao{
 	}
 
 
-	@Override
 	public boolean deleteTurno(TurnoModel turno) {
 	    Connection conn = null;
 	    PreparedStatement st1 = null;

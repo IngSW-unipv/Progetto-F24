@@ -4,7 +4,7 @@ import java.util.List;
 
 import it.unipv.java.model.LoginModel;
 import it.unipv.java.model.RegisterModel;
-import it.unipv.java.model.UserModel; 
+import it.unipv.java.model.user.UserModel; 
  
 
 //qua ci sara la import per il testing

@@ -2,8 +2,13 @@ package it.unipv.java.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import it.unipv.java.model.DataAccessFacade;
 import it.unipv.java.model.RegisterModel;
-import it.unipv.java.model.UserModel;
+import it.unipv.java.model.user.DipendenteModel;
+import it.unipv.java.model.user.UserModel;
+import it.unipv.java.model.user.UserType;
+import it.unipv.java.model.user.UserTypeUtil;
 import it.unipv.java.view.LoginView;
 import it.unipv.java.view.RegisterView;
 import it.unipv.java.view.WarningView;
@@ -14,6 +19,7 @@ public class RegisterController {
 	private RegisterModel rm;
 	private LoginView lv;
 	private WarningView wv;
+	private UserTypeUtil utu;
 
 	
 	public RegisterController(RegisterView registerView, RegisterModel registerModel) {
@@ -36,7 +42,7 @@ public class RegisterController {
 				um.setEmail(rv.getEmail());
 				um.setPassword(rv.getPass());
 
-				rm.setUserModel(um);
+				rm.setUserModel(um);				
  				if (rm.confermaRegistrazione()) {
 					rv.setVisible(false);
 					lv.setVisible(true);
