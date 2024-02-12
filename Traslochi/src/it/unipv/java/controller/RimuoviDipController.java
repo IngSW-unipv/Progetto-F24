@@ -35,14 +35,14 @@ public class RimuoviDipController {
 				//Warning:Fallimento o Successo.
 				WarningView wv= new WarningView();
 				if(delm.confermaEliminazione(dm)) {
-					wv.registrEffettuata();
+					wv.elimEffettuata();
 					wv.getBottoneRiprova().addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) { 
 							wv.closeWindow();
 						} 
 					});
 				}else{
-					wv.mostraErrorPassword();
+					wv.elimNonEffettuata();
 					wv.getBottoneRiprova().addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) { 
 							wv.closeWindow();
