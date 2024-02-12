@@ -23,10 +23,10 @@ public class LoginController {
 	public LoginController(LoginModel lm, LoginView lv) {
 		this.lm = lm;
 		this.lv = lv;
-		setlisteners();
+		setListeners();
 	}
 
-	private void setlisteners() {
+	private void setListeners() {
 		lv.getLoginButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				UserModel loginuser = new UserModel();

@@ -117,6 +117,7 @@ public class VisualizzaProfiloView extends JFrame {
 		separator.setForeground(SystemColor.textHighlight);
 		
 		nome = new JTextArea();
+		nome.setEditable(false);
 		nome.setBackground(SystemColor.inactiveCaptionBorder);
 		nome.setBorder(null);
 		
@@ -128,6 +129,7 @@ public class VisualizzaProfiloView extends JFrame {
 		separator_1.setForeground(SystemColor.textHighlight);
 		
 		cognome = new JTextArea();
+		cognome.setEditable(false);
 		cognome.setBackground(SystemColor.inactiveCaptionBorder);
 		cognome.setBorder(null);
 		
@@ -139,6 +141,7 @@ public class VisualizzaProfiloView extends JFrame {
 		separator_2.setForeground(SystemColor.textHighlight);
 		
 		codiceFiscale = new JTextArea();
+		codiceFiscale.setEditable(false);
 		codiceFiscale.setBackground(SystemColor.inactiveCaptionBorder);
 		codiceFiscale.setBorder(null);
 		
@@ -150,6 +153,7 @@ public class VisualizzaProfiloView extends JFrame {
 		separator_2_1.setForeground(SystemColor.textHighlight);
 		
 		email = new JTextArea();
+		email.setEditable(false);
 		email.setBackground(SystemColor.inactiveCaptionBorder);
 		email.setBorder(null);
 		
@@ -161,6 +165,7 @@ public class VisualizzaProfiloView extends JFrame {
 		separator_2_1_1.setForeground(SystemColor.textHighlight);
 		
 		passwordField = new JPasswordField();
+		passwordField.setEditable(false);
 		passwordField.setBackground(SystemColor.inactiveCaptionBorder);
 		passwordField.setBorder(null);
 		
@@ -341,4 +346,94 @@ public class VisualizzaProfiloView extends JFrame {
 		buttonModNome.setFocusable(false);
 		buttonConfScelte.setFocusable(false);
 	}
+	
+	
+	public String getNome() {
+		return nome.getText();
+	}
+	
+	public void setNome(String altro) {
+		nome.setText(altro);
+	}
+	
+    public String getCognome() {
+		return cognome.getText();
+	}
+	
+    public void setCognome(String altro) {
+    	cognome.setText(altro);
+	}
+
+    public String getEmail() {
+		return email.getText();
+	}
+	
+    public void setEmail(String altro) {
+    	email.setText(altro);
+	}
+    
+    public String getCodFis() {
+		return codiceFiscale.getText();
+	}
+	
+    public void setCF(String altro) {
+    	codiceFiscale.setText(altro);
+	}
+    
+    public String getPassword() {
+    	return new String(passwordField.getPassword());
+	}
+    
+    public void setPassword(String altro) {
+    	passwordField.setText(altro);
+	}
+	
+	public JButton getBottoneNome() {
+		return buttonModNome;
+	}
+	
+	public JButton getBottoneCognome() {
+		return buttonModCogn;
+	}
+	
+	public JButton getBottoneEmail() {
+		return buttonModEmail;
+	}
+	
+	public JButton getBottoneCF() {
+		return buttonModCF;
+	}
+	
+	public JButton getBottonePassw() {
+		return buttonModPass;
+	}
+	
+	public JButton getBottoneConferma() {
+		return buttonConfScelte;
+	}
+	
+	public JTextArea getNomeArea() {
+		return nome;
+	}
+	
+	public JTextArea getCognomeArea() {
+		return cognome;
+	}
+	
+	public JTextArea getEmailArea() {
+		return email;
+	}
+	
+	public JTextArea getCfArea() {
+		return codiceFiscale;
+	}
+	
+	public JPasswordField getPassArea() {
+		return passwordField;
+	}
+	
+	
+	
+	
+	
 }
