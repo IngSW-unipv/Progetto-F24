@@ -2,9 +2,7 @@ package it.unipv.java.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
-
 import it.unipv.java.model.DataAccessFacade;
 import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.user.UserModel;
@@ -64,13 +62,23 @@ public class RegisterController {
 					
 				} else if (!controlNull) {
 					WarningView wv2= new WarningView();
-					wv2.mostraErrorGenerale();;
+					wv2.mostraErrorGenerale();
 					wv2.getBottoneRiprova().addActionListener(new ActionListener() {
 						 public void actionPerformed(ActionEvent e) { 
 							 rv.riprovaPassword();
 							 wv2.closeWindow();
 						 } });
+				} else if(!emailControl(rv.getEmail())) {
+					WarningView wv3= new WarningView();
+					wv3.mostraErrorEmail();
+					wv3.getBottoneRiprova().addActionListener(new ActionListener() {
+						 public void actionPerformed(ActionEvent e) { 
+							 rv.setEmail("");
+							 wv3.closeWindow();
+						 } });
 				}
+				
+				
 			}
 		});
 		rv.getBottoneReturn().addActionListener(new ActionListener() {
@@ -99,7 +107,9 @@ public class RegisterController {
 		}
 	}
 	
-	
+	public boolean emailControl(String email) {
+		return email.contains("@");
+	}
 	
 	
 	

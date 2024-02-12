@@ -28,11 +28,7 @@ public class ResponsabileController {
 	}
 	
 	private void setListeners() {
-		rv.getButtonVisProfilo().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				pv.setVisible(true);
-			}
-		});
+		
 	
 		rv.getButtonAggiungiDip().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
