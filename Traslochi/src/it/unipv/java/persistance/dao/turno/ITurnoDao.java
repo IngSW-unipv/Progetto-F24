@@ -7,9 +7,7 @@ import it.unipv.java.model.TurnoModel;
  
 
 public interface ITurnoDao {
-	public List<DataAccessFacade> getAllTurni();
-    public boolean getTurno(DataAccessFacade g);
+	public List<TurnoModel> getAllTurni();
+    public boolean getTurno(); //fatta da un dipendente
     public boolean createTurno(TurnoModel c);
-    public boolean updateTurno(DataAccessFacade u);
-    public boolean deleteTurno(DataAccessFacade d);
-}
+ }
