@@ -51,24 +51,37 @@ public class DipendenteDao implements IDipendenteDao {
 
 	// DA IMPLEMENTARE devo vedere dipendente view
 	@Override
-	public boolean updateDipendente(DataAccessFacade u) {
-		/*
-		 * conn = DatabaseConnection.startConnection(conn, schema); String query =
-		 * "UPDATE DIPENDENTI SET NOME=?,COGNOME=?,EMAIL=?,PASSWORD=? WHERE id=?";
-		 * 
-		 * try (PreparedStatement st1 = conn.prepareStatement(query)) { DIPENDE DALLA
-		 * VIEW st1.setString(1, u.get st1.setString(2, d.getCognome());
-		 * st1.setString(3, d.getEmail()); st1.setString(4, d.getPassword());
-		 * st1.setInt(5, d.getIdDipendente());
-		 * 
-		 * st1.executeUpdate(query);
-		 * 
-		 * } catch (Exception e) { e.printStackTrace(); return false; } finally {
-		 * DatabaseConnection.closeConnection(conn); }
-		 */
-		return true;
+	public boolean updateDipendente(UserModel u) {
+ 	    Connection conn = null;
 
+	    try {
+ 	        conn = DatabaseConnection.startConnection(conn, schema);
+	        
+ 	        String query = "UPDATE DIPENDENTI SET NOME=?, COGNOME=?, EMAIL=?, PASSWORD=? WHERE ID=?";
+	        
+ 	        try (PreparedStatement st1 = conn.prepareStatement(query)) {
+	            
+ 	            st1.setString(1, u.getNome());
+	            st1.setString(2, u.getCognome());
+	            st1.setString(3, u.getEmail());
+	            
+ 	            String hashedPassword = PasswordUtil.hashPassword(u.getPassword());
+	            st1.setString(4, hashedPassword);
+	            
+ 	            st1.setString(5, u.getId());
+	            
+ 	            int affectedRows = st1.executeUpdate();
+	            
+ 	            return affectedRows > 0;
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        return false;
+	    } finally {
+ 	        DatabaseConnection.closeConnection(conn);
+	    }
 	}
+
 
 	// DA IMPLEMENTARE devo vedere responsabile
 	@Override
