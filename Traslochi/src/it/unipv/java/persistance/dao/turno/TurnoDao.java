@@ -106,8 +106,7 @@ public class TurnoDao implements ITurnoDao {
 	        st1.setString(1, t.getOrarioini());
  	        st1.setString(3, t.getIdDipendente());
 	        st1.setString(4, t.getIndLavoro());
-
-	        
+ 
 	  
 	    } catch (SQLException e) {
 	        e.printStackTrace();
