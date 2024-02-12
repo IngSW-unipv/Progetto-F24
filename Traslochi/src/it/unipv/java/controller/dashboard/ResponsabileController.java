@@ -3,6 +3,7 @@ package it.unipv.java.controller.dashboard;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import it.unipv.java.model.DataAccessFacade;
 import it.unipv.java.model.TurnoModel;
 import it.unipv.java.model.user.UserModel;
 import it.unipv.java.view.AssegnaTurnoView;
@@ -17,11 +18,12 @@ public class ResponsabileController {
 	private AssegnaTurnoView at;
 	private TurnoModel tm;
 	
-	public ResponsabileController(UserModel um, ResponsabileView rv, VisualizzaProfiloView pv,AssegnaTurnoView at) {
+	public ResponsabileController(UserModel um, ResponsabileView rv, VisualizzaProfiloView pv,AssegnaTurnoView at,TurnoModel tm) {
 		this.um = um;
 		this.rv = rv;
 		this.pv = pv;
 		this.at=at;
+		this.tm=tm;
 		setListeners();
 	}
 	
@@ -48,12 +50,15 @@ public class ResponsabileController {
 */
 		
 	at.getButtonConfTurno().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				tm.setIdDipendente(0);
-				
-				
+		
+  public void actionPerformed(ActionEvent e) {
+				tm.setIdDipendente(at.getIdDip());
+				tm.setIndLavoro(at.getIndLavoro());
+				tm.setOrarioini(at.getOrarioIniTur()); 
+				boolean success=tm.AggiungiTurno();
  			}
 		});
+	
 }//fine set Listener
 	
 	

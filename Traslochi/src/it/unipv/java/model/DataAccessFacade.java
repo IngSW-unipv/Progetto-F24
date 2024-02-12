@@ -7,6 +7,8 @@ import it.unipv.java.persistance.dao.cliente.ClienteDao;
 import it.unipv.java.persistance.dao.dipendente.DipendenteDao;
 import it.unipv.java.persistance.dao.prenotazione.PrenotazioneDao;
 import it.unipv.java.persistance.dao.responsabile.ResponsabileDao;
+import it.unipv.java.persistance.dao.turno.TurnoDao;
+
 import java.util.Random;
 
 public class DataAccessFacade {
@@ -148,6 +150,10 @@ public class DataAccessFacade {
 	public boolean eliminazioneuser(UserModel us) {
  		
 		return  new DipendenteDao().deleteDipendente(us);
+ 	}
+
+	public boolean aggiungiTurno(TurnoModel tm) {
+		return	new TurnoDao().createTurno(tm);
  	}
 	
  

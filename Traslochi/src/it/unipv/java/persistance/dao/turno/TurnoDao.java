@@ -102,9 +102,8 @@ public class TurnoDao implements ITurnoDao {
  	        String query = "INSERT INTO Turno (Orario, IDResponsabile, idDipendente, IDMezzo) VALUES (?, ?, ?, ?)";
 
 	        st1 = conn.prepareStatement(query);
-	        st1.setTime(1, t.getOrario());
-	        st1.setInt(2, t.getIdResponsabile());
-	        st1.setInt(3, t.getIdDipendente());
+	        st1.setTime(1, t.getOrarioini());
+ 	        st1.setInt(3, t.getIdDipendente());
 	        st1.setInt(4, t.getIdMezzo());
 
 	        
@@ -137,7 +136,7 @@ public class TurnoDao implements ITurnoDao {
 	        try (PreparedStatement st1 = conn.prepareStatement(query)) {
 	            
 	            
-	            st1.setTime(1, t.getOrario()); 
+	            st1.setTime(1, t.getOrarioini()); 
 	            st1.setInt(2, t.getIdDipendente());  
 
  	            st1.executeUpdate(); 
@@ -165,7 +164,7 @@ public class TurnoDao implements ITurnoDao {
 
  	        st1 = conn.prepareStatement(query);
 
- 	        st1.setTime(1, turno.getOrario());
+ 	        st1.setTime(1, turno.getOrarioini());
 	        st1.setInt(2, turno.getIdResponsabile());
 
  	        int rowsAffected = st1.executeUpdate();

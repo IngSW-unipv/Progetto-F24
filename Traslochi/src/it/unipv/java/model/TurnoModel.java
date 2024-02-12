@@ -1,39 +1,43 @@
 package it.unipv.java.model;
 import java.sql.Time;
+
+import javax.swing.JTextField;
  
 public class TurnoModel {
  
-    private Time orarioini;  
-    private String idDipendente; 
-    private String indLavoro;    
+    private JTextField orarioini;  
+    private JTextField idDipendente; 
+    private JTextField indLavoro;    
     
     public TurnoModel() {
     }
 
-	public Time getOrarioini() {
+	public JTextField getOrarioini() {
 		return orarioini;
 	}
 
-	public void setOrarioini(Time orarioini) {
-		this.orarioini = orarioini;
+	public void setOrarioini(JTextField jTextField) {
+		this.orarioini = jTextField;
 	}
 
-	public String getIdDipendente() {
+	public JTextField getIdDipendente() {
 		return idDipendente;
 	}
 
-	public void setIdDipendente(String idDipendente) {
-		this.idDipendente = idDipendente;
+	public void setIdDipendente(JTextField jTextField) {
+		this.idDipendente = jTextField;
 	}
 
-	public String getIndLavoro() {
+	public JTextField getIndLavoro() {
 		return indLavoro;
 	}
 
-	public void setIndLavoro(String indLavoro) {
-		this.indLavoro = indLavoro;
+	public void setIndLavoro(JTextField jTextField) {
+		this.indLavoro = jTextField;
 	}
- 
+	public boolean AggiungiTurno() {
+		return DataAccessFacade.getInstance().aggiungiTurno(this);
+	}
     
 
      
