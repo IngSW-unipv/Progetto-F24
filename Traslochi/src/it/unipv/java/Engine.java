@@ -10,13 +10,5 @@ public class Engine {
 	public static void main(String[] args) {
 		LoginView login= new LoginView();
 		LoginController cv= new LoginController(login);
-		
-
-
-		
-		
-		
-		
 	}
-
 }
