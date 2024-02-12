@@ -31,6 +31,7 @@ public class RegisterController {
 	}
 
 	private void initcomponents() {
+		
 		rv.getBottoneConfermaReg().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Creazione di un nuovo UserModel con i dati raccolti dalla view
@@ -55,6 +56,7 @@ public class RegisterController {
 					wv.mostraErrorPassword();
 					wv.getBottoneRiprova().addActionListener(new ActionListener() {
 						 public void actionPerformed(ActionEvent e) { 
+							 WarningView wv= new WarningView();
 							 rv.riprovaPassword();
 							 wv.closeWindow();
 						 } });

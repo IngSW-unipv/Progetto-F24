@@ -23,6 +23,7 @@ public class WarningView {
 	private JLabel labelErrore;
 	private JLabel labelPagamento;
 	private JLabel labelPrenEff;
+	private JPanel panel;
 
 	
 	public static void main(String[] args) {
@@ -54,7 +55,7 @@ public class WarningView {
 		frame.getContentPane().setLayout(null);
 		frame.setLocationRelativeTo(null);
 		
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		panel.setBounds(0, 0, 243, 102);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
@@ -113,6 +114,7 @@ public class WarningView {
 		labelRegistrazione.setVisible(false);
 		labelPagamento.setVisible(false);
 		labelErrore.setVisible(false);
+		labelPrenEff.setVisible(false);
 		riprovaButton.setText("Riprova");
 	}
 	
@@ -183,6 +185,7 @@ public class WarningView {
 	}
 	
 	public void closeWindow() {
-        frame.dispose();
+        frame.setVisible(false);
+        panel.setVisible(false);
     }
 }
