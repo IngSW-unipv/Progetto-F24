@@ -4,8 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import it.unipv.java.model.UserModel;
-import it.unipv.java.view.ClienteView;
-import it.unipv.java.view.DipendenteView;
 import it.unipv.java.view.RegisterView;
 import it.unipv.java.view.ResponsabileView;
 import it.unipv.java.view.VisualizzaProfiloView;
@@ -13,18 +11,16 @@ import it.unipv.java.view.VisualizzaProfiloView;
 public class ResponsabileController {
 	private UserModel um;
 	private ResponsabileView rv;
-	private ClienteView cv;
-	private DipendenteView dv;
 	private VisualizzaProfiloView pv;
 	
-	public DashboardController(UserModel um, ResponsabileView rv, VisualizzaProfiloView pv) {
+	public ResponsabileController(UserModel um, ResponsabileView rv, VisualizzaProfiloView pv) {
 		this.um = um;
 		this.rv = rv;
 		this.pv = pv;
-		setlisteners(um, rv);
+		setlisteners();
 	}
 	
-	private void setlisteners(UserModel um, ResponsabileView rv) {
+	private void setlisteners() {
 		rv.getButtonVisProfilo().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pv.setVisible(true);

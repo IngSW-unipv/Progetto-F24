@@ -16,14 +16,14 @@ public class DipendenteController {
 	private DipendenteView dv;
 	private VisualizzaProfiloView pv;
 	
-	public DashboardController(UserModel um, DipendenteView dv, VisualizzaProfiloView pv) {
+	public DipendenteController(UserModel um, DipendenteView dv, VisualizzaProfiloView pv) {
 		this.um = um;
 		this.dv = dv;
 		this.pv = pv;
-		setlisteners(um, dv);
+		setlisteners();
 	}
 
-	private void setlisteners(UserModel um, DipendenteView dv) {
+	private void setlisteners() {
 		dv.getButtonVisProfilo().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pv.setVisible(true);

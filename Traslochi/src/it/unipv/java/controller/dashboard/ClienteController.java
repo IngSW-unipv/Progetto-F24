@@ -16,14 +16,14 @@ public class ClienteController {
 	private DipendenteView dv;
 	private VisualizzaProfiloView pv;
 	
-	public DashboardController(UserModel um, ClienteView cv, VisualizzaProfiloView pv) {
+	public ClienteController(UserModel um, ClienteView cv, VisualizzaProfiloView pv) {
 		this.um = um;
 		this.cv = cv;
 		this.pv = pv;
-		setlisteners(um, cv);
+		setlisteners();
 	}
 	
-	private void setlisteners(UserModel um, ClienteView cv) {
+	private void setlisteners() {
 		cv.getBottoneVisProfilo().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pv.setVisible(true);
