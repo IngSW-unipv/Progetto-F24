@@ -15,7 +15,7 @@ import it.unipv.java.model.user.DipendenteModel;
 import it.unipv.java.model.TurnoModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 
-public class TurnoDao implements ITurnoDao{
+public class TurnoDao implements ITurnoDao {
 	
 	private String schema;
 	private Connection conn;
@@ -153,7 +153,6 @@ public class TurnoDao implements ITurnoDao{
 	}
 
 
-	@Override
 	public boolean deleteTurno(TurnoModel turno) {
 	    Connection conn = null;
 	    PreparedStatement st1 = null;
