@@ -2,8 +2,11 @@ package it.unipv.java.controller.dashboard;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import it.unipv.java.model.DataAccessFacade;
+import it.unipv.java.model.PrenotazioneModel;
 import it.unipv.java.model.user.UserModel;
 import it.unipv.java.view.ClienteView;
 import it.unipv.java.view.PrenotazioneView;
@@ -35,10 +38,21 @@ public class ClienteController {
 				prenotazioneView.setVisible(true);
 			}
 		});
-		
-			}
+	}
 	
 	private void riempiPrenotazioniClienteTXT() {
-		DataAccessFacade.getInstance().stampaPrenotazioni(um);
+		PrenotazioneModel pren = new PrenotazioneModel();
+		List<PrenotazioneModel> lista = new ArrayList<PrenotazioneModel>();
+		lista = pren.getPrenotazioniUtente(um);
+		if(lista == null)
+			cv.getTextPrenotazioni().setText("Nessuna Prenotazione Effettuata!");
+		else
+			for(PrenotazioneModel prenotazione : lista) {
+				cv.getTextPrenotazioni().setText(
+						prenotazione.getIndirizzodiRitiro() +
+						prenotazione.getIndirizzoDiConsegna() +
+						prenotazione.getDataRitiro() +
+						prenotazione.getDataConsegna() +"/n");
+		}
 	}
 }

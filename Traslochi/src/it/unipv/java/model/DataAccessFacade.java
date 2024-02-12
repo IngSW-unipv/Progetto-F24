@@ -9,6 +9,7 @@ import it.unipv.java.persistance.dao.prenotazione.PrenotazioneDao;
 import it.unipv.java.persistance.dao.responsabile.ResponsabileDao;
 import it.unipv.java.persistance.dao.turno.TurnoDao;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -142,12 +143,6 @@ public class DataAccessFacade {
 		}
 	}
 
-	public void stampaPrenotazioni(UserModel um) {
-		// PrenotazioneDao prenotazione = new PrenotazioneDAO();
-		// prenotazione.getPrenotazione(um);
-
-	}
-
 	public boolean eliminazioneuser(UserModel us) {
 
 		return new DipendenteDao().deleteDipendente(us);
@@ -166,11 +161,16 @@ public class DataAccessFacade {
 
 		return new PrenotazioneDao().getAllPrenotazioni();
 	}
+	
+	public List<PrenotazioneModel> getPrenotazioniUtente(UserModel um) {
+		return new PrenotazioneDao().getPrenotazione(um);;
+	}
 
 	public List<TurnoModel> mostraTurni() {
 		return new TurnoDao().getAllTurni();
 
 	}
+
 
 }
 // fine facade

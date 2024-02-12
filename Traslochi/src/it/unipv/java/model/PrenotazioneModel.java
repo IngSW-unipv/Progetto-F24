@@ -181,6 +181,11 @@ public class PrenotazioneModel {
 		return DataAccessFacade.getInstance().mostraPrenotazioni();
 	}
 	
+	  public List<PrenotazioneModel> getPrenotazioniUtente(UserModel um) {
+			
+			return DataAccessFacade.getInstance().getPrenotazioniUtente(um);
+		}
+		
 	public void setScadGiorno(String textField_7) {
 		// TODO Auto-generated method stub
 
