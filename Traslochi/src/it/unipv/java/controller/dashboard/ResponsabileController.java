@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import it.unipv.java.model.DataAccessFacade;
+import it.unipv.java.model.PrenotazioneModel;
 import it.unipv.java.model.TurnoModel;
 import it.unipv.java.model.user.UserModel;
 import it.unipv.java.view.AssegnaTurnoView;
@@ -17,7 +18,7 @@ public class ResponsabileController {
 	private ResponsabileView rv;
  	private AssegnaTurnoView at;
 	private TurnoModel tm;
-	
+	private PrenotazioneModel pm;
 	public ResponsabileController(UserModel um, ResponsabileView rv,  AssegnaTurnoView at,TurnoModel tm) {
 		this.um = um;
 		this.rv = rv;
@@ -36,13 +37,7 @@ public class ResponsabileController {
 			}
 		});
  
-		rv.getButtonVisProfilo().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				ClienteView clienteView = new ClienteView();
-				clienteView.setVisible(true);
-			}
-		});
- 
+	 
 		
 	at.getButtonConfTurno().addActionListener(new ActionListener() {
 		
@@ -50,16 +45,17 @@ public class ResponsabileController {
 				tm.setIdDipendente(at.getIdDip());
 				tm.setIndLavoro(at.getIndLavoro());
 				tm.setOrarioini(at.getOrarioIniTur()); 
-				boolean success=tm.AggiungiTurno();
+				boolean success=tm.aggiungiTurno(); //TI RITORNA DAL DB RESTUIRE QUALCOSA VIEW
  			}
 		});
+	   
 	
 	//ORA DEVO MOSTRARE TUTTI I DIPENDENTI DAL DB
-	
+	 um.tuttiDipendenti();//ARRAYLIST CON TUTTI I DIPENDENTI QUA SI FA BINDING COMPONENTE VIEW E DIPENDENTI, SECONDO ME NON ANDRANNO TUTTI A CAPO SARANNO TUTTI IN UN UNICA FILA
 	//ORA DEVO MOSTRARE TUTTE LE PRENOTAZIONI DAL DB
-	
+	pm.mostratuttePrenotazioni();
 	//ORA DEVO MOSTRARE TUTTE I TURNI
-	
+	tm.mostraTurni();
 }//fine set Listener
 	
 	
