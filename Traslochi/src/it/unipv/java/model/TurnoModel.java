@@ -5,35 +5,35 @@ import javax.swing.JTextField;
  
 public class TurnoModel {
  
-    private JTextField orarioini;  
-    private JTextField idDipendente; 
-    private JTextField indLavoro;    
+    private String orarioini;  
+    private String idDipendente; 
+    private String indLavoro;    
     
     public TurnoModel() {
     }
 
-	public JTextField getOrarioini() {
+	public String getOrarioini() {
 		return orarioini;
 	}
 
-	public void setOrarioini(JTextField jTextField) {
-		this.orarioini = jTextField;
+	public void setOrarioini(String orario) {
+		this.orarioini = orario;
 	}
 
-	public JTextField getIdDipendente() {
+	public String getIdDipendente() {
 		return idDipendente;
 	}
 
-	public void setIdDipendente(JTextField jTextField) {
-		this.idDipendente = jTextField;
+	public void setIdDipendente(String id) {
+		this.idDipendente = id;
 	}
 
-	public JTextField getIndLavoro() {
+	public String getIndLavoro() {
 		return indLavoro;
 	}
 
-	public void setIndLavoro(JTextField jTextField) {
-		this.indLavoro = jTextField;
+	public void setIndLavoro(String indLavoro) {
+		this.indLavoro = indLavoro;
 	}
 	public boolean AggiungiTurno() {
 		return DataAccessFacade.getInstance().aggiungiTurno(this);

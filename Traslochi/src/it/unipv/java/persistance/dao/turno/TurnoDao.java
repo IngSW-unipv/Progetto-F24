@@ -99,20 +99,15 @@ public class TurnoDao implements ITurnoDao {
 	    boolean esito = true;
 
 	    try {
- 	        String query = "INSERT INTO Turno (Orario, IDResponsabile, idDipendente, IDMezzo) VALUES (?, ?, ?, ?)";
+ 	        String query = "INSERT INTO Turno (Orario,idDipendente, IDMezzo) VALUES (?, ?, ?, ?)";
 
 	        st1 = conn.prepareStatement(query);
-	        st1.setTime(1, t.getOrarioini());
- 	        st1.setInt(3, t.getIdDipendente());
-	        st1.setInt(4, t.getIdMezzo());
+	        st1.setString(1, t.getOrarioini());
+ 	        st1.setString(3, t.getIdDipendente());
+	        st1.setString(4, t.getIndLavoro());
 
 	        
-	        if (t.getIdDipendente() == t.getIdResponsabile()) {
-	            st1.executeUpdate();
-	        } else {
-	            
-	            esito = false;
-	        }
+	  
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	        esito = false;
