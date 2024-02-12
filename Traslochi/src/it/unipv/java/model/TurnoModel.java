@@ -45,4 +45,7 @@ public class TurnoModel {
 		return DataAccessFacade.getInstance().mostraTurni();
 	}
      
+	public String toString() {
+        return "Orario di Inizio Turno: " + orarioini + ", ID Dipendente: " + idDipendente + ", Indirizzo di Lavoro: " + indLavoro;
+    }
 }//Fine turnModel
