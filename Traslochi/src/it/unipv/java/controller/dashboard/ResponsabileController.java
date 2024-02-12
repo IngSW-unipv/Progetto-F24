@@ -65,8 +65,31 @@ public class ResponsabileController {
 	//ORA DEVO MOSTRARE TUTTE LE PRENOTAZIONI DAL DB
 	List<PrenotazioneModel> prenotazioni= pm.mostratuttePrenotazioni();
 	StringBuilder sb1 = new StringBuilder();
+	
+	for(PrenotazioneModel prenotazione : prenotazioni) {
+		sb1.append(prenotazione.toString()).append("\n");
+	}
+	
+	rv.getTuttePrenotazioni().setText(sb1.toString());
+		
+		
+		
+		
 	//ORA DEVO MOSTRARE TUTTE I TURNI
-	tm.mostraTurni();
+	List<TurnoModel> turni= tm.mostraTurni();
+	StringBuilder sb2 = new StringBuilder();
+	
+	for(TurnoModel turno : turni) {
+		sb2.append(turno.toString()).append("\n");
+	}
+	
+	rv.getTuttiTurni().setText(sb2.toString());
+	
+	
+	
+	
+	
+	
 }//fine set Listener
 	
 	
