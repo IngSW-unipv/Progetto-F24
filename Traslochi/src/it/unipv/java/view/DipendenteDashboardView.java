@@ -17,7 +17,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JTextPane;
 import javax.swing.ImageIcon;
 
-public class DipendenteView extends JFrame {
+public class DipendenteDashboardView extends JFrame {
 
 	/**
 	 * 
@@ -36,7 +36,7 @@ public class DipendenteView extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					DipendenteView frame = new DipendenteView();
+					DipendenteDashboardView frame = new DipendenteDashboardView();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -46,7 +46,7 @@ public class DipendenteView extends JFrame {
 	}
 
 	
-	public DipendenteView() {
+	public DipendenteDashboardView() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("resources/IconaLogin.png"));
 		setTitle("Bidons");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

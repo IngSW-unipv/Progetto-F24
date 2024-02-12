@@ -5,16 +5,16 @@ import java.awt.event.ActionListener;
 
 import it.unipv.java.model.DataAccessFacade;
 import it.unipv.java.model.user.UserModel;
-import it.unipv.java.view.ClienteView;
+import it.unipv.java.view.ClienteDashboardView;
 import it.unipv.java.view.PrenotazioneView;
 import it.unipv.java.view.VisualizzaProfiloView;
 
-public class ClienteController {
+public class ClienteDashboardController {
 	private UserModel um;
-	private ClienteView cv;
+	private ClienteDashboardView cv;
 	private VisualizzaProfiloView pv;
 	
-	public ClienteController(UserModel um, ClienteView cv, VisualizzaProfiloView pv) {
+	public ClienteDashboardController(UserModel um, ClienteDashboardView cv, VisualizzaProfiloView pv) {
 		this.um = um;
 		this.cv = cv;
 		this.pv = pv;

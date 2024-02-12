@@ -29,7 +29,7 @@ import javax.swing.JSeparator;
 import javax.swing.JToggleButton;
 import javax.swing.SwingConstants;
 
-public class ResponsabileView extends JFrame {
+public class ResponsabileDashboardView extends JFrame {
 
 	private JPanel contentPane;
 	private JButton buttonAggiungiDip;
@@ -44,7 +44,7 @@ public class ResponsabileView extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ResponsabileView frame = new ResponsabileView();
+					ResponsabileDashboardView frame = new ResponsabileDashboardView();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -54,7 +54,7 @@ public class ResponsabileView extends JFrame {
 	}
 
 
-	public ResponsabileView() {
+	public ResponsabileDashboardView() {
 		setTitle("Bidons");
 		  // Ottieni le dimensioni dello schermo
 	    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();

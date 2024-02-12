@@ -3,8 +3,10 @@ package it.unipv.java.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JDialog;
+
 import it.unipv.java.model.DeleteModel;
- import it.unipv.java.model.user.UserModel;
+import it.unipv.java.model.user.UserModel;
 import it.unipv.java.view.RimuoviDipView;
 import it.unipv.java.view.WarningView;
 
@@ -30,9 +32,32 @@ public class RimuoviDipController {
 				UserModel dm = new UserModel();
 				dm.setCf(rdv.getCodiceFiscale());
 				dm.setId(rdv.getIdDipendente()); 
-				delm.confermaEliminazione(dm);
+				//Warning:Fallimento o Successo.
+				WarningView wv= new WarningView();
+				if(delm.confermaEliminazione(dm)) {
+					wv.elimEffettuata();
+					wv.getBottoneRiprova().addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) { 
+							wv.closeWindow();
+						} 
+					});
+				}else{
+					wv.elimNonEffettuata();
+					wv.getBottoneRiprova().addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) { 
+							wv.closeWindow();
+						} 
+					});
+				}
 			}
 		});
 	}
-	
+	/*
+	public static void main(String[] args) {
+		RimuoviDipView rdv = new RimuoviDipView();
+		rdv.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+		rdv.setVisible(true);
+		RimuoviDipController r = new RimuoviDipController(rdv, null);
+	}
+	*/
 }
