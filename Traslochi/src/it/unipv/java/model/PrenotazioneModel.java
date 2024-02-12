@@ -2,8 +2,12 @@ package it.unipv.java.model;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
+
+import it.unipv.java.model.user.UserModel;
+import it.unipv.java.persistance.dao.prenotazione.PrenotazioneDao;
 
 public class PrenotazioneModel {
 	private String idPrenotazione;
@@ -115,7 +119,7 @@ public class PrenotazioneModel {
 		this.scadAnno = scadAnno;
 	}
 
-	public void setImportoPagato() {
+	public void setImportoPagato(float f) {
 		this.importoPagato = calcolaImporto();
 	}
 
@@ -172,7 +176,11 @@ public class PrenotazioneModel {
 		return UUID.randomUUID().toString();
 
 	}
-
+	  public List<UserModel> mostratuttePrenotazioni() {
+		
+		return DataAccessFacade.getInstance().mostraPrenotazioni();
+	}
+	
 	public void setScadGiorno(String textField_7) {
 		// TODO Auto-generated method stub
 

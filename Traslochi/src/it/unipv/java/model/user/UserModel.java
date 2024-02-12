@@ -85,7 +85,7 @@ public class UserModel {
 		return userType == UserType.RESPONSABILE;
 	}
 
-	public void visualizzaProfilo() {
+	public void tuttiDipendenti() {
 		DataAccessFacade.getInstance().mostraDipendenti();
 	}
 
