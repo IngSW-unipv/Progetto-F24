@@ -12,17 +12,13 @@ import javax.swing.JButton;
 import java.awt.SystemColor;
 import java.awt.Toolkit;
 import java.awt.Point;
+import javax.swing.SwingConstants;
 
 public class WarningView {
 
 	private JFrame frame;
 	private JButton riprovaButton;
-	private JLabel labelPassword;
-	private JLabel labelEmail;
-	private JLabel labelRegistrazione;
-	private JLabel labelErrore;
-	private JLabel labelPagamento;
-	private JLabel labelPrenEff;
+	private JLabel label;
 	private JPanel panel;
 
 	
@@ -42,6 +38,7 @@ public class WarningView {
 	
 	public WarningView() {
 		initialize();
+		
 	}
 
 	
@@ -60,11 +57,13 @@ public class WarningView {
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
-		labelPassword = new JLabel("  Attenzione, le password non combaciano!");
-		labelPassword.setForeground(SystemColor.textHighlight);
-		labelPassword.setFont(new Font("Tahoma", Font.BOLD, 10));
-		labelPassword.setBounds(10, 10, 233, 28);
-		panel.add(labelPassword);
+		label = new JLabel("  Attenzione, le password non combaciano!");
+		label.setHorizontalTextPosition(SwingConstants.CENTER);
+		label.setHorizontalAlignment(SwingConstants.CENTER);
+		label.setForeground(SystemColor.textHighlight);
+		label.setFont(new Font("Tahoma", Font.BOLD, 10));
+		label.setBounds(0, 10, 233, 28);
+		panel.add(label);
 		
 		riprovaButton = new JButton("Riprova");
 		riprovaButton.setBackground(SystemColor.textHighlight);
@@ -74,71 +73,26 @@ public class WarningView {
 		riprovaButton.setBounds(68, 42, 89, 23);
 		panel.add(riprovaButton);
 		riprovaButton.setFocusable(false);
-		
-		labelEmail = new JLabel("Questa email esiste già!");
-		labelEmail.setForeground(SystemColor.textHighlight);
-		labelEmail.setFont(new Font("Tahoma", Font.BOLD, 10));
-		labelEmail.setBounds(49, 0, 132, 54);
-		panel.add(labelEmail);
-		
-		labelRegistrazione = new JLabel("Registrazione Effettuata");
-		labelRegistrazione.setForeground(SystemColor.textHighlight);
-		labelRegistrazione.setFont(new Font("Tahoma", Font.BOLD, 10));
-		labelRegistrazione.setBounds(49, -5, 132, 65);
-		panel.add(labelRegistrazione);
-		
-		labelErrore = new JLabel("Errore, verificare i dati inseriti!");
-		labelErrore.setFont(new Font("Tahoma", Font.BOLD, 11));
-		labelErrore.setForeground(SystemColor.textHighlight);
-		labelErrore.setBounds(37, 7, 178, 35);
-		panel.add(labelErrore);
-		
-		labelPagamento = new JLabel("Inserire Metodo di Pagamento!");
-		labelPagamento.setForeground(SystemColor.textHighlight);
-		labelPagamento.setFont(new Font("Tahoma", Font.BOLD, 11));
-		labelPagamento.setBounds(26, 3, 189, 49);
-		panel.add(labelPagamento);
-		
-		labelPrenEff = new JLabel("Prenotazione Effettuata!");
-		labelPrenEff.setForeground(SystemColor.textHighlight);
-		labelPrenEff.setFont(new Font("Tahoma", Font.BOLD, 11));
-		labelPrenEff.setBounds(49, -22, 159, 99);
-		panel.add(labelPrenEff);
 	}
 	
 	public void mostraErrorPassword() {
 		initialize();
 		frame.setVisible(true);
-		labelPassword.setVisible(true);
-		labelEmail.setVisible(false);
-		labelRegistrazione.setVisible(false);
-		labelPagamento.setVisible(false);
-		labelErrore.setVisible(false);
-		labelPrenEff.setVisible(false);
+		label.setText("Password non coincidono!");
 		riprovaButton.setText("Riprova");
 	}
 	
 	public void mostraErrorEmail() {
 		initialize();
 		frame.setVisible(true);
-		labelPassword.setVisible(false);
-		labelEmail.setVisible(true);
-		labelRegistrazione.setVisible(false);
-		labelPagamento.setVisible(false);
-		labelErrore.setVisible(false);
-		labelPrenEff.setVisible(false);
+		label.setText("Email errate, riprovare");
 		riprovaButton.setText("Riprova");
 	}
 	
 	public void registrEffettuata() {
 		initialize();
 		frame.setVisible(true);
-		labelPassword.setVisible(false);
-		labelEmail.setVisible(false);
-		labelRegistrazione.setVisible(true);
-		labelPagamento.setVisible(false);
-		labelErrore.setVisible(false);
-		labelPrenEff.setVisible(false);
+		label.setText("Registrazione effettuata!");
 		riprovaButton.setText("ok");
 		
 		
@@ -147,36 +101,21 @@ public class WarningView {
 	public void mostraErrorGenerale() {
 		initialize();
 		frame.setVisible(true);
-		labelPassword.setVisible(false);
-		labelEmail.setVisible(false);
-		labelRegistrazione.setVisible(false);
-		labelErrore.setVisible(true);
-		labelPagamento.setVisible(false);
-		labelPrenEff.setVisible(false);
+		label.setText("Errore, riprovare!");
 		riprovaButton.setText("Riprova");
 	}
 	
 	public void mostraErrorMetodoPag() {
 		initialize();
 		frame.setVisible(true);
-		labelPassword.setVisible(false);
-		labelEmail.setVisible(false);
-		labelRegistrazione.setVisible(false);
-		labelErrore.setVisible(false);
-		labelPagamento.setVisible(true);
-		labelPrenEff.setVisible(false);
+		label.setText("Inserire Metodo di Pagamento!");
 		riprovaButton.setText("ok");
 	}
 	
 	public void mostraPrenEff() {
 		initialize();
 		frame.setVisible(true);
-		labelPassword.setVisible(false);
-		labelEmail.setVisible(false);
-		labelRegistrazione.setVisible(false);
-		labelErrore.setVisible(false);
-		labelPagamento.setVisible(false);
-		labelPrenEff.setVisible(true);
+		label.setText("Prenotazione Effettuata!");
 		riprovaButton.setText("ok");
 	}
 	
