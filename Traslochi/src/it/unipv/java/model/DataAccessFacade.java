@@ -153,6 +153,10 @@ public class DataAccessFacade {
 		return new DipendenteDao().deleteDipendente(us);
 	}
 
+	public boolean getTurno(TurnoModel tm) {
+		return new TurnoDao().createTurno(tm);
+	}
+
 	public boolean aggiungiTurno(TurnoModel tm) {
 		return new TurnoDao().createTurno(tm);
 	}

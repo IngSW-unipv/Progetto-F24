@@ -17,7 +17,7 @@ import javax.swing.JTextPane;
 import javax.swing.ImageIcon;
 
 public class DipendenteView extends JFrame {
-
+	
 	/**
 	 * 
 	 */
@@ -43,8 +43,7 @@ public class DipendenteView extends JFrame {
 			}
 		});
 	}
-
-	
+ 
 	public DipendenteView() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("resources/IconaLogin.png"));
 		setTitle("Bidons");
@@ -267,8 +266,8 @@ public class DipendenteView extends JFrame {
 	}
 
 
-	public void setOrarioFineTurno(JTextPane orarioFineTurno) {
-		this.orarioFineTurno = orarioFineTurno;
+	public void setOrarioFineTurno(String  orarioFine) {
+		 orarioFineTurno.setText(orarioFine);  
 	}
 
 
@@ -277,8 +276,9 @@ public class DipendenteView extends JFrame {
 	}
 
 
-	public void setIndirizzoLavoro(JTextPane indirizzoLavoro) {
-		this.indirizzoLavoro = indirizzoLavoro;
+	public void setIndirizzoLavoro(String indirizzo ) {
+		indirizzoLavoro.setText(indirizzo);
+
 	}
 
 
