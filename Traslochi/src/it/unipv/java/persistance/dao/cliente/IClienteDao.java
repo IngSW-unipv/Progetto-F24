@@ -8,9 +8,9 @@ import it.unipv.java.model.user.UserModel;
 
 public interface IClienteDao {
     public boolean createCliente(RegisterModel c);
-    public boolean updateCliente(LoginModel u);
+    public boolean updateCliente(UserModel u);
     public List<UserModel> getAllClienti();
-    public UserModel getCliente(UserModel lm);
+    public UserModel getCliente(LoginModel  lm);
     public boolean deleteCliente(UserModel d); 
 	
 }

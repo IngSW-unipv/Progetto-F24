@@ -99,7 +99,7 @@ public class ClienteDao implements IClienteDao {
 	@Override
 	public List<UserModel> getAllClienti() {
 		List<UserModel> clienti = new ArrayList<>();
-/*
+ 
 		Statement stmt = null;
 		ResultSet rs = null;
 
@@ -113,8 +113,8 @@ public class ClienteDao implements IClienteDao {
 
 			// Process the result set
 			while (rs.next()) {
-				DataAccessFacade c = new DataAccessFacade();
-				c.setIdCliente(rs.getInt("IDDIPENDENTI")); // Adjust the method names and types accordingly
+				UserModel c =   new UserModel();
+				c.setId(rs.getString("IDDIPENDENTI")); // Adjust the method names and types accordingly
 				c.setNome(rs.getString("NOME"));
 				c.setCognome(rs.getString("COGNOME"));
 				c.setEmail(rs.getString("EMAIL"));
@@ -135,7 +135,7 @@ public class ClienteDao implements IClienteDao {
 				e.printStackTrace();
 			}
 		}
-*/
+ 
 		return clienti;
 	}
    
@@ -173,6 +173,5 @@ public class ClienteDao implements IClienteDao {
 
 	    return um;  
 	}
-
-
+ 
 }//fine getCliente
