@@ -412,6 +412,10 @@ public class VisualizzaProfiloView extends JFrame {
 		return buttonConfScelte;
 	}
 	
+	public JButton getBottoneTornaIndietro() {
+		return buttonTornaIndietro;
+	}
+	
 	public JTextArea getNomeArea() {
 		return nome;
 	}

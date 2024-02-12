@@ -104,4 +104,8 @@ public class UserModel {
 	public void setId(String id) {
 		this.id = id;
 	}
+	
+	public void updateUser(UserModel userModel) {
+		
+	}
 }

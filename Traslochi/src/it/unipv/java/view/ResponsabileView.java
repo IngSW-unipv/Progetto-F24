@@ -76,11 +76,8 @@ public class ResponsabileView extends JFrame {
 	    contentPane.setBorder(null);
 	    setContentPane(contentPane);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-<<<<<<< HEAD
 		setSize((int) windowWidth, (int) windowHeight);
-=======
 		setBounds(100, 100, 1261, 619);
->>>>>>> 4f40a503c7878f049f3c6cb59fe112fba693492d
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.window);
 		contentPane.setBorder(null);
