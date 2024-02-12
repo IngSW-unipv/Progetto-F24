@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS Turno (
      idDipendente VARCHAR(255),  
      IndirizzoLavoro VARCHAR(255),  
     PRIMARY KEY (OrarioInizio, idDipendente),
-    FOREIGN KEY (idDipendente) REFERENCES Dipendente(idDipendente),
+    FOREIGN KEY (idDipendente) REFERENCES Dipendente(idDipendente)
  );
 
 

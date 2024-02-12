@@ -9,7 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.unipv.java.model.LoginModel;
-import it.unipv.java.model.TurnoModel; 
+import it.unipv.java.model.TurnoModel;
+import it.unipv.java.model.user.UserModel;
 import it.unipv.java.model.TurnoModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 
@@ -53,13 +54,13 @@ public class TurnoDao implements ITurnoDao {
 	}
 
  
-	public TurnoModel getTurno(DipendenteModel d) {
+	public TurnoModel getTurno(UserModel d) {
 		TurnoModel t = null;
-	    /*Connection conn = null; // Ensure conn is declared and initialized
+	    Connection conn = null; // Ensure conn is declared and initialized
 
  	    String sql = "SELECT * FROM Turno "
 	               + "JOIN Dipendente ON Turno.idDipendente = Dipendente.idDipendente "
-	               + "WHERE Dipendente.EMAIL = ? AND Dipendente.PASSWORD = ?";
+	               + "WHERE Dipendente.EMAIL = ?";
 	    
 	    ResultSet rs = null;
 
@@ -68,13 +69,15 @@ public class TurnoDao implements ITurnoDao {
 	        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
 	            
  	            pstmt.setString(1, d.getEmail());
-	            pstmt.setString(2, d.getPassword());
-	            
+ 	            
  	            rs = pstmt.executeQuery();
 	            
  	            if (rs.next()) {
 	                t = new TurnoModel();
- 	                t.setOrario(rs.getTime("ORARIO")); 
+ 	                t.setOrarioini(rs.getString("OrarioInizio")); 
+ 	                t.setOrarioini(rs.getString("idDipendente")); 
+ 	                t.setOrarioini(rs.getString("IndirizzoLavoro")); 
+
  	            }
 	        }
 	    } catch (SQLException e) {
@@ -87,7 +90,7 @@ public class TurnoDao implements ITurnoDao {
 	        }
 	        DatabaseConnection.closeConnection(conn);
 	    }
-*/
+ 
 	    return t;
 	}
 
