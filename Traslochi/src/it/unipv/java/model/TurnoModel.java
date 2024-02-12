@@ -1,47 +1,44 @@
 package it.unipv.java.model;
 import java.sql.Time;
+
+import javax.swing.JTextField;
  
 public class TurnoModel {
  
-    private Time orario; 
-    private int idResponsabile; 
-    private int idDipendente; 
-    private int idMezzo;    
+    private JTextField orarioini;  
+    private JTextField idDipendente; 
+    private JTextField indLavoro;    
     
     public TurnoModel() {
-    } 
+    }
+
+	public JTextField getOrarioini() {
+		return orarioini;
+	}
+
+	public void setOrarioini(JTextField jTextField) {
+		this.orarioini = jTextField;
+	}
+
+	public JTextField getIdDipendente() {
+		return idDipendente;
+	}
+
+	public void setIdDipendente(JTextField jTextField) {
+		this.idDipendente = jTextField;
+	}
+
+	public JTextField getIndLavoro() {
+		return indLavoro;
+	}
+
+	public void setIndLavoro(JTextField jTextField) {
+		this.indLavoro = jTextField;
+	}
+	public boolean AggiungiTurno() {
+		return DataAccessFacade.getInstance().aggiungiTurno(this);
+	}
     
-    public Time getOrario() {
-        return orario;
-    }
-
-    public void setOrario(Time orario) {
-        this.orario = orario;
-    }
-
-    public int getIdResponsabile() {
-        return idResponsabile;
-    }
-
-    public void setIdResponsabile(int idResponsabile) {
-        this.idResponsabile = idResponsabile;
-    }
-
-    public int getIdDipendente() {
-        return idDipendente;
-    }
-
-    public void setIdDipendente(int idDipendente) {
-        this.idDipendente = idDipendente;
-    }
-
-    public int getIdMezzo() {
-        return idMezzo;
-    }
-
-    public void setIdMezzo(int idMezzo) {
-        this.idMezzo = idMezzo;
-    }
 
      
-}
+}//Fine turnModel

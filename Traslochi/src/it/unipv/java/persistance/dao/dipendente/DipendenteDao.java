@@ -72,20 +72,24 @@ public class DipendenteDao implements IDipendenteDao {
 
 	// DA IMPLEMENTARE devo vedere responsabile
 	@Override
-	public boolean deleteDipendente(DataAccessFacade u) {
+	public boolean deleteDipendente(UserModel u) {
 
-		/*
-		 * conn = DatabaseConnection.startConnection(conn, schema);
-		 * 
-		 * String query = "DELETE FROM Dipendenti WHERE idDipendente = ? ";
-		 * 
-		 * try (PreparedStatement st1 = conn.prepareStatement(query)) {
-		 * 
-		 * st1.setInt(1, d.getIdDipendente()); st1.executeUpdate(query);
-		 * 
-		 * } catch (Exception e) { e.printStackTrace(); return false; } finally {
-		 * DatabaseConnection.closeConnection(conn); }
-		 */
+		conn = DatabaseConnection.startConnection(conn, schema);
+
+		String query = "DELETE FROM Dipendenti WHERE idDipendente = ? ";
+
+		try (PreparedStatement st1 = conn.prepareStatement(query)) {
+
+			st1.setString(1, u.getId());
+			st1.executeUpdate(query);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		} finally {
+			DatabaseConnection.closeConnection(conn);
+		}
+
 		return true;
 	}
 
@@ -117,7 +121,7 @@ public class DipendenteDao implements IDipendenteDao {
 		return dipendenti;
 
 	}
- 
+
 	public boolean getDipendente(LoginModel ag) {
 
 		boolean loginSuccess = false;

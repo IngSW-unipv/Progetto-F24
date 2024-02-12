@@ -4,8 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import it.unipv.java.model.DeleteModel;
-import it.unipv.java.model.user.DipendenteModel;
-import it.unipv.java.model.user.UserModel;
+ import it.unipv.java.model.user.UserModel;
 import it.unipv.java.view.RimuoviDipView;
 import it.unipv.java.view.WarningView;
 
@@ -16,7 +15,7 @@ public class RimuoviDipController {
 	
 	public RimuoviDipController(RimuoviDipView rdv, DeleteModel dm) {
 		this.rdv = rdv;
-		this.dm = dm;
+		this.delm = dm;
 		setListeners();
 	}
 	private void setListeners() {
@@ -28,10 +27,10 @@ public class RimuoviDipController {
 		
 		rdv.getButtonConfermaRim().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				DipendenteModel dm = new DipendenteModel();
+				UserModel dm = new UserModel();
 				dm.setCf(rdv.getCodiceFiscale());
-				dm.setIdDipendente(rdv.getIdDipendente());
-				
+				dm.setId(rdv.getIdDipendente()); 
+				delm.confermaEliminazione(dm);
 			}
 		});
 	}
