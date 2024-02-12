@@ -48,7 +48,7 @@ public class RegisterController {
 				rm.setUserModel(um);
 				
  				if (rm.confermaRegistrazione()) {
- 					wv= new WarningView();
+ 					wv = new WarningView();
  					rv.setVisible(false);
 					lv.setVisible(true);
 					wv.registrEffettuata();
