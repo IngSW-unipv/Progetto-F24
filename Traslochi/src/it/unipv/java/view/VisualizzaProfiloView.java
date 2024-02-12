@@ -26,7 +26,6 @@ public class VisualizzaProfiloView extends JFrame {
 	private JPanel contentPane;
 	private JPasswordField passwordField;
 	private JButton buttonTornaIndietro;
-	private JButton buttonCancProf;
 	private JButton buttonModPass;
 	private JButton buttonModEmail;
 	private JButton buttonModCF;
@@ -77,12 +76,6 @@ public class VisualizzaProfiloView extends JFrame {
 		buttonTornaIndietro.setFont(new Font("Tahoma", Font.BOLD, 13));
 		buttonTornaIndietro.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, SystemColor.controlText, SystemColor.controlText, new Color(153, 180, 209), new Color(153, 180, 209)));
 		buttonTornaIndietro.setBackground(SystemColor.textHighlight);
-		
-		buttonCancProf = new JButton("Cancella Profilo");
-		buttonCancProf.setForeground(SystemColor.text);
-		buttonCancProf.setFont(new Font("Tahoma", Font.BOLD, 11));
-		buttonCancProf.setBorder(null);
-		buttonCancProf.setBackground(SystemColor.textHighlight);
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
@@ -90,18 +83,12 @@ public class VisualizzaProfiloView extends JFrame {
 					.addGap(20)
 					.addComponent(buttonTornaIndietro, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
 					.addGap(133)
-					.addComponent(lblProfilo, GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
-					.addGap(71)
-					.addComponent(buttonCancProf, GroupLayout.PREFERRED_SIZE, 136, GroupLayout.PREFERRED_SIZE)
-					.addGap(1989))
+					.addComponent(lblProfilo, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addGap(230))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addComponent(lblProfilo, GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
-				.addGroup(gl_panel.createSequentialGroup()
-					.addGap(21)
-					.addComponent(buttonCancProf, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(21, Short.MAX_VALUE))
 				.addGroup(gl_panel.createSequentialGroup()
 					.addGap(20)
 					.addComponent(buttonTornaIndietro)
@@ -338,7 +325,6 @@ public class VisualizzaProfiloView extends JFrame {
 		contentPane.setLayout(gl_contentPane);
 		
 		buttonTornaIndietro.setFocusable(false);
-		buttonCancProf.setFocusable(false);
 		buttonModPass.setFocusable(false);
 		buttonModEmail.setFocusable(false);
 		buttonModCF.setFocusable(false);

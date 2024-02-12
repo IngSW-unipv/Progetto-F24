@@ -32,7 +32,6 @@ import javax.swing.SwingConstants;
 public class ResponsabileView extends JFrame {
 
 	private JPanel contentPane;
-	private JButton buttonVisProfilo;
 	private JButton buttonAggiungiDip;
 	private JButton buttonAssegnaTurno;
 	private JButton buttonRimuoviDip;
@@ -92,12 +91,7 @@ public class ResponsabileView extends JFrame {
 		lblPannelloDiControllo.setForeground(new Color(248, 248, 255));
 		lblPannelloDiControllo.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		
-		buttonVisProfilo = new JButton("Visualizza Profilo");
-		buttonVisProfilo.setForeground(SystemColor.window);
-		buttonVisProfilo.setFont(new Font("Tahoma", Font.BOLD, 11));
-		buttonVisProfilo.setFocusable(false);
-		buttonVisProfilo.setBorder(null);
-		buttonVisProfilo.setBackground(SystemColor.textHighlight);
+
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
@@ -105,7 +99,7 @@ public class ResponsabileView extends JFrame {
 					.addGap(55)
 					.addComponent(lblPannelloDiControllo, GroupLayout.PREFERRED_SIZE, 329, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED, 702, Short.MAX_VALUE)
-					.addComponent(buttonVisProfilo, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE)
+					
 					.addGap(165))
 		);
 		gl_panel.setVerticalGroup(
@@ -117,7 +111,7 @@ public class ResponsabileView extends JFrame {
 							.addComponent(lblPannelloDiControllo, GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE))
 						.addGroup(gl_panel.createSequentialGroup()
 							.addGap(19)
-							.addComponent(buttonVisProfilo, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)))
+							))
 					.addContainerGap())
 		);
 		panel.setLayout(gl_panel);
@@ -205,7 +199,7 @@ public class ResponsabileView extends JFrame {
 		tuttiDipendenti.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, SystemColor.window, SystemColor.window, SystemColor.textHighlight, SystemColor.textHighlight));
 		scrollPane.setViewportView(tuttiDipendenti);
 		
-		buttonVisProfilo.setFocusable(false);
+		
 		buttonAggiungiDip.setFocusable(false);
 		buttonAssegnaTurno.setFocusable(false);
 		buttonRimuoviDip.setFocusable(false);
@@ -299,15 +293,6 @@ public class ResponsabileView extends JFrame {
 		contentPane.setLayout(gl_contentPane);
 	}
 
-
-	public JButton getButtonVisProfilo() {
-		return buttonVisProfilo;
-	}
-
-
-	public void setButtonVisProfilo(JButton buttonVisProfilo) {
-		this.buttonVisProfilo = buttonVisProfilo;
-	}
 
 
 	public JButton getButtonAggiungiDip() {
