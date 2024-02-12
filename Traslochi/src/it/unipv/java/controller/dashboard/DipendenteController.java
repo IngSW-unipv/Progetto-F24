@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import it.unipv.java.model.TurnoModel;
-import it.unipv.java.model.UserModel;
+import it.unipv.java.model.user.UserModel;
 import it.unipv.java.view.DipendenteView;
 import it.unipv.java.view.VisualizzaProfiloView;
 

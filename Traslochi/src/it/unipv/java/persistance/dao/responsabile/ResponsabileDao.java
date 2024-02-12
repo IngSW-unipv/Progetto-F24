@@ -7,10 +7,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import it.unipv.java.model.UserModel;
 import it.unipv.java.model.DataAccessFacade;
 import it.unipv.java.model.LoginModel;
 import it.unipv.java.model.RegisterModel;
+import it.unipv.java.model.user.UserModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 import it.unipv.java.persistance.dao.PasswordUtil;
 

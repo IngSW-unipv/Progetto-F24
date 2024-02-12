@@ -4,8 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import it.unipv.java.model.LoginModel;
-import it.unipv.java.model.UserModel;
-import it.unipv.java.model.UserType;
+import it.unipv.java.model.user.UserModel;
+import it.unipv.java.model.user.UserType;
 import it.unipv.java.view.ClienteView;
 import it.unipv.java.view.DipendenteView;
 import it.unipv.java.view.LoginView;

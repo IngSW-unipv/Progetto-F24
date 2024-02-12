@@ -4,11 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import it.unipv.java.model.DataAccessFacade;
-import it.unipv.java.model.DipendenteModel;
 import it.unipv.java.model.RegisterModel;
-import it.unipv.java.model.UserModel;
-import it.unipv.java.model.UserType;
-import it.unipv.java.model.UserTypeUtil;
+import it.unipv.java.model.user.DipendenteModel;
+import it.unipv.java.model.user.UserModel;
+import it.unipv.java.model.user.UserType;
+import it.unipv.java.model.user.UserTypeUtil;
 import it.unipv.java.view.LoginView;
 import it.unipv.java.view.RegisterView;
 import it.unipv.java.view.WarningView;

@@ -3,7 +3,7 @@ package it.unipv.java.controller.dashboard;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import it.unipv.java.model.UserModel;
+import it.unipv.java.model.user.UserModel;
 import it.unipv.java.view.RegisterView;
 import it.unipv.java.view.ResponsabileView;
 import it.unipv.java.view.VisualizzaProfiloView;

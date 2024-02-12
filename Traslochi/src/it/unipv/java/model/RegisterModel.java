@@ -1,5 +1,7 @@
 package it.unipv.java.model;
 
+import it.unipv.java.model.user.UserModel;
+
 public class RegisterModel {
     private UserModel um;  
  
