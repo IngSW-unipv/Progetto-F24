@@ -36,7 +36,6 @@ public class RegisterController {
 			public void actionPerformed(ActionEvent e) {
 				// Creazione di un nuovo UserModel con i dati raccolti dalla view
 				boolean control= passControl(rv.getPass());
-				WarningView wv= new WarningView();
 				if(control) {
 				UserModel um = new UserModel();
 				um.setNome(rv.getNome());
@@ -48,11 +47,12 @@ public class RegisterController {
 				rm.setUserModel(um);
 				
  				if (rm.confermaRegistrazione()) {
+ 					WarningView wv= new WarningView();
  					wv = new WarningView();
  					rv.setVisible(false);
 					lv.setVisible(true);
 					wv.registrEffettuata();
-				} }  else {
+				} }  else if (rv.getPass() != rv.getPassRipetuta()) {
 					WarningView wv1= new WarningView();
 					wv1.mostraErrorPassword();
 					wv1.getBottoneRiprova().addActionListener(new ActionListener() {
@@ -61,6 +61,14 @@ public class RegisterController {
 							 wv1.closeWindow();
 						 } });
 					
+				} else {
+					WarningView wv2= new WarningView();
+					wv2.mostraErrorGenerale();;
+					wv2.getBottoneRiprova().addActionListener(new ActionListener() {
+						 public void actionPerformed(ActionEvent e) { 
+							 rv.riprovaPassword();
+							 wv2.closeWindow();
+						 } });
 				}
 			}
 		});
