@@ -143,26 +143,34 @@ public class DataAccessFacade {
 	}
 
 	public void stampaPrenotazioni(UserModel um) {
-		//PrenotazioneDao prenotazione = new PrenotazioneDAO();
-		//prenotazione.getPrenotazione(um);
-		
+		// PrenotazioneDao prenotazione = new PrenotazioneDAO();
+		// prenotazione.getPrenotazione(um);
+
 	}
 
 	public boolean eliminazioneuser(UserModel us) {
- 		
-		return  new DipendenteDao().deleteDipendente(us);
- 	}
+
+		return new DipendenteDao().deleteDipendente(us);
+	}
 
 	public boolean aggiungiTurno(TurnoModel tm) {
-		return	new TurnoDao().createTurno(tm);
- 	}
+		return new TurnoDao().createTurno(tm);
+	}
 
 	public List<UserModel> mostraDipendenti() {
+
 		return new DipendenteDao().getAllDipendenti();
- 		
 	}
-	
- 
+
+	public List<PrenotazioneModel> mostraPrenotazioni() {
+
+		return new PrenotazioneDao().getAllPrenotazioni();
+	}
+
+	public List<TurnoModel> mostraTurni() {
+		return new TurnoDao().getAllTurni();
+
+	}
 
 }
 // fine facade
