@@ -182,8 +182,32 @@ public class RimuoviDipView extends JDialog {
 
 
 	
-	public JButton getBottoneReturn() {
+	public JButton getButtonReturn() {
 		return buttonReturn;
+	}
+
+
+
+	public String getIdDipendente() {
+		return idDipendente.getText();
+	}
+
+
+
+	public void setIdDipendente(JTextField idDipendente) {
+		this.idDipendente = idDipendente;
+	}
+
+
+
+	public String getCodiceFiscale() {
+		return codiceFiscale.getText();
+	}
+
+
+
+	public void setCodiceFiscale(JTextField codiceFiscale) {
+		this.codiceFiscale = codiceFiscale;
 	}
 
 }

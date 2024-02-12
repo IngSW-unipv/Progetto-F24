@@ -7,11 +7,11 @@ public class DipendenteModel extends UserModel {
     private String idDipendente;
     private String mezzo;
 
-    // Costruttore di default che chiama il costruttore della superclasse
-    /*public DipendenteModel() {
-     }*/
-    
-    // Costruttore parametrizzato per inizializzare un Dipendente con tutti gli attributi
+    public DipendenteModel() {
+		super();
+	}
+
+	// Costruttore parametrizzato per inizializzare un Dipendente con tutti gli attributi
     public DipendenteModel(String nome, String cognome,String cf, String email, String password, UserType userType, String idDipendente) {
         super(nome, cognome,cf, email, password, userType);
         this.idDipendente = idDipendente;

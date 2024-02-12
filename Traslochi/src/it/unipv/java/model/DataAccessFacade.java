@@ -140,7 +140,6 @@ public class DataAccessFacade  {
 		PrenotazioneDao prenotazione = new PrenotazioneDAO();
 		prenotazione.getPrenotazione(um);
 		
-		
 	}
 	
 	
