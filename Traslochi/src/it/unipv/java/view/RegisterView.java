@@ -256,6 +256,10 @@ public class RegisterView extends JFrame {
 	public String getPass() {
 		return new String(password.getPassword());
 	}
+	
+	public void setPass(String pass) {
+		password.setText(pass);
+	}
 
 	public String getPassRipetuta() {
 		return new String(ripetiPassword.getPassword());
@@ -279,5 +283,6 @@ public class RegisterView extends JFrame {
 
 	public void riprovaPassword() {
 		setPassRipetuta("");
+		setPass("");
 	}
 }
