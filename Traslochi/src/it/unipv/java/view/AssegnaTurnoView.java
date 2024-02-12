@@ -176,8 +176,8 @@ public class AssegnaTurnoView extends JDialog {
 
 
 
-	public void setIdDip(JTextField idDip) {
-		this.idDip = idDip;
+	public void setIdDip(String stringa) {
+		idDip.setText(stringa);
 	}
 
 
@@ -188,8 +188,8 @@ public class AssegnaTurnoView extends JDialog {
 
 
 
-	public void setOrarioIniTur(JTextField orarioIniTur) {
-		this.orarioIniTur = orarioIniTur;
+	public void setOrarioIniTur(String stringa) {
+		orarioIniTur.setText(stringa);
 	}
 
 
@@ -200,8 +200,8 @@ public class AssegnaTurnoView extends JDialog {
 
 
 
-	public void setIndLavoro(JTextField indLavoro) {
-		this.indLavoro = indLavoro;
+	public void setIndLavoro(String stringa) {
+		indLavoro.setText(stringa);
 	}
 
 
