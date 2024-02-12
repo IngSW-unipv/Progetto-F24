@@ -150,7 +150,7 @@ public class PrenotazioneModel {
 	public boolean savePrenotazione() {
 		if (validaDati()) {
 			this.setIdPrenotazione(UUID.randomUUID().toString());
-			this.setImportoPagato(); // Calcola automaticamente l'importo
+			this.setImportoPagato(importoPagato); // Calcola automaticamente l'importo
 			boolean createSuccess = DataAccessFacade.getInstance().createPrenotazione(this);
 			return createSuccess;
 		} else {
@@ -176,7 +176,7 @@ public class PrenotazioneModel {
 		return UUID.randomUUID().toString();
 
 	}
-	  public List<UserModel> mostratuttePrenotazioni() {
+	  public List<PrenotazioneModel> mostratuttePrenotazioni() {
 		
 		return DataAccessFacade.getInstance().mostraPrenotazioni();
 	}
