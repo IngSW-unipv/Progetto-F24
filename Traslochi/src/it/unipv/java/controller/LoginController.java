@@ -6,19 +6,19 @@ import java.awt.event.ActionListener;
 import it.unipv.java.model.LoginModel;
 import it.unipv.java.model.user.UserModel;
 import it.unipv.java.model.user.UserType;
-import it.unipv.java.view.ClienteDashboardView;
-import it.unipv.java.view.DipendenteDashboardView;
+import it.unipv.java.view.ClienteView;
+import it.unipv.java.view.DipendenteView;
 import it.unipv.java.view.LoginView;
 import it.unipv.java.view.RegisterView;
-import it.unipv.java.view.ResponsabileDashboardView;
+import it.unipv.java.view.ResponsabileView;
 import it.unipv.java.view.WarningView;
 
 public class LoginController {
 	public LoginModel lm;
 	public LoginView lv;
-	private ClienteDashboardView cv;
-	private DipendenteDashboardView dv;
-	private ResponsabileDashboardView rv;
+	private ClienteView cv;
+	private DipendenteView dv;
+	private ResponsabileView rv;
 
 	public LoginController(LoginView lv) {
 		this.lv = lv;
