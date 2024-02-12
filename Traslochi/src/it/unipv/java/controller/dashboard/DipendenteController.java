@@ -3,20 +3,28 @@ package it.unipv.java.controller.dashboard;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import it.unipv.java.model.TurnoModel;
 import it.unipv.java.model.UserModel;
 import it.unipv.java.view.DipendenteView;
 import it.unipv.java.view.VisualizzaProfiloView;
 
 public class DipendenteController {
-	private UserModel um;
+	private TurnoModel tm;
 	private DipendenteView dv;
 	private VisualizzaProfiloView pv;
 	
-	public DipendenteController(UserModel um, DipendenteView dv, VisualizzaProfiloView pv) {
-		this.um = um;
+	public DipendenteController(TurnoModel tm, DipendenteView dv, VisualizzaProfiloView pv) {
+		this.tm = tm;
 		this.dv = dv;
 		this.pv = pv;
+		fillTurno();
 		setListeners();
+	}
+
+	private void fillTurno() {
+		dv.setOrarioInizioTurno(null /*model inizio turno*/);
+		dv.setIndirizzoLavoro(null /*model indirizzo lavoro*/);
+		
 	}
 
 	private void setListeners() {
