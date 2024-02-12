@@ -168,38 +168,40 @@ public class AssegnaTurnoView extends JDialog {
 		);
 		contentPanel.setLayout(gl_contentPanel);
 	}
-	public JTextField getIdDip() {
-		return idDip;
+	
+	
+	public String getIdDip() {
+		return idDip.getText();
 	}
 
 
 
-	public void setIdDip(JTextField idDip) {
-		this.idDip = idDip;
+	public void setIdDip(String stringa) {
+		idDip.setText(stringa);
 	}
 
 
 
-	public JTextField getOrarioIniTur() {
-		return orarioIniTur;
+	public String getOrarioIniTur() {
+		return orarioIniTur.getText();
 	}
 
 
 
-	public void setOrarioIniTur(JTextField orarioIniTur) {
-		this.orarioIniTur = orarioIniTur;
+	public void setOrarioIniTur(String stringa) {
+		orarioIniTur.setText(stringa);
 	}
 
 
 
-	public JTextField getIndLavoro() {
-		return indLavoro;
+	public String getIndLavoro() {
+		return indLavoro.getText();
 	}
 
 
 
-	public void setIndLavoro(JTextField indLavoro) {
-		this.indLavoro = indLavoro;
+	public void setIndLavoro(String stringa) {
+		indLavoro.setText(stringa);
 	}
 
 

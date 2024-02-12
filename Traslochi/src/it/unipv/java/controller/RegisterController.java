@@ -23,9 +23,9 @@ public class RegisterController {
 	private UserTypeUtil utu;
 
 
-	
+	//NON è INIZIALIZZATO REGISTERMODEL, Non FUNZIONA VIEW PER QUELLO
 	public RegisterController(RegisterView registerView) {
-		this.rv = registerView;
+		this.rv = registerView; 
 		initcomponents();
 
 	}
@@ -36,7 +36,9 @@ public class RegisterController {
 			public void actionPerformed(ActionEvent e) {
 				// Creazione di un nuovo UserModel con i dati raccolti dalla view
 				boolean control= passControl(rv.getPass());
-				if(control) {
+				boolean controlNull= rm.validaDati();
+				
+				if(control && controlNull) {
 				UserModel um = new UserModel();
 				um.setNome(rv.getNome());
 				um.setCognome(rv.getCognome());
@@ -52,7 +54,7 @@ public class RegisterController {
  					rv.setVisible(false);
 					lv.setVisible(true);
 					wv.registrEffettuata();
-				} }  else if (rv.getPass() != rv.getPassRipetuta()) {
+				} }  else if (!control) {
 					WarningView wv1= new WarningView();
 					wv1.mostraErrorPassword();
 					wv1.getBottoneRiprova().addActionListener(new ActionListener() {
@@ -81,12 +83,33 @@ public class RegisterController {
 	}
 
 	public Boolean passControl(String pass) {
-		if(pass == rv.getPassRipetuta()) {
+		if(pass.equals(rv.getPassRipetuta())) {
 			return true;
 		} else {
 			return false;
 		}
 	}
+	
+	public Boolean vuotoControl() {
+		if(!rv.getNome().isBlank() && !rv.getCognome().isBlank() && !rv.getEmail().isBlank()
+				&& !rv.getCF().isBlank() && !rv.getPass().isBlank() && !rv.getPassRipetuta().isBlank()) {
+			
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/*
 	 * warningView.getBottoneRiprova().addActionListener(new ActionListener() {
 	 * public void actionPerformed(ActionEvent e) { registerView.riprovaPassword();
