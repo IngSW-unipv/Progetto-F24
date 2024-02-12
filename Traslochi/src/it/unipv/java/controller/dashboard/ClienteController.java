@@ -18,9 +18,8 @@ public class ClienteController {
 	private VisualizzaProfiloView pv;
 	
 
+ 
 	public ClienteController(UserModel um, ClienteView cv, VisualizzaProfiloView pv) {
-
-	public ClienteDashboardController(UserModel um, ClienteView cv, VisualizzaProfiloView pv) {
 		this.um = um;
 		this.cv = cv;
 		this.pv = pv;
@@ -45,7 +44,7 @@ public class ClienteController {
 	
 	
 	private void riempiPrenotazioniClienteTXT() {
-<<<<<<< Updated upstream
+
 		PrenotazioneModel pren = new PrenotazioneModel();
 		List<PrenotazioneModel> lista = new ArrayList<PrenotazioneModel>();
 		lista = pren.getPrenotazioniUtente(um);
@@ -59,9 +58,7 @@ public class ClienteController {
 						prenotazione.getDataRitiro() +
 						prenotazione.getDataConsegna() +"/n");
 		}
-=======
-		 DataAccessFacade.getInstance().stampaPrenotazioni(um);
->>>>>>> Stashed changes
+
 	}
 
 }
