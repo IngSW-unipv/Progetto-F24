@@ -167,7 +167,7 @@ public class DataAccessFacade {
 	}
 	
 	public List<PrenotazioneModel> getPrenotazioniUtente(UserModel um) {
-		return new PrenotazioneDao().getPrenotazione(um);;
+		return new PrenotazioneDao().getPrenotazione(um);
 	}
 
 	public List<TurnoModel> mostraTurni() {
