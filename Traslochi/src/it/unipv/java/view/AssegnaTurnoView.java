@@ -50,6 +50,7 @@ public class AssegnaTurnoView extends JDialog {
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		
 		JTextPane txtpnPerAssegnareUn = new JTextPane();
+		txtpnPerAssegnareUn.setEditable(false);
 		txtpnPerAssegnareUn.setBackground(SystemColor.inactiveCaptionBorder);
 		txtpnPerAssegnareUn.setForeground(SystemColor.textHighlight);
 		txtpnPerAssegnareUn.setFont(new Font("Tahoma", Font.BOLD, 15));
