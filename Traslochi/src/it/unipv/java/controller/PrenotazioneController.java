@@ -5,11 +5,14 @@ import java.awt.event.ActionListener;
 
 import it.unipv.java.view.ClienteView;
 import it.unipv.java.view.PrenotazioneView;
+import it.unipv.java.view.WarningView;
 import it.unipv.java.model.PrenotazioneModel;
 
 public class PrenotazioneController {
 	private PrenotazioneModel pm;
 	private PrenotazioneView pv;
+	private WarningView wv;
+	private ClienteView cv;
 
 	public PrenotazioneController(PrenotazioneModel pm, PrenotazioneView pv) {
 		this.pm = pm;
@@ -31,18 +34,42 @@ public class PrenotazioneController {
 
 				if (!pv.getRadioCarta().isSelected() && !pv.getRadioContanti().isSelected()) {
 					// eccezione: pm.showErrorMessage("Seleziona un metodo di pagamento");
+					wv.mostraErrorMetodoPag();
+					wv.getBottoneRiprova().addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) {
+							wv.closeWindow();
+						}
+					});
+
 				}
 
 				if (pm.validaDati()) {
 					if (pm.savePrenotazione()) {
 						// RITORNO ALLA VIEW PREN CREATA
+						pv.setVisible(false);
+						cv.setVisible(true);
+						wv.mostraPrenEff();
+						wv.getBottoneRiprova().addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent e) {
+								wv.closeWindow();
+							}
+						});
+
+						
 					} else {
 						// RITORNO ALLA VIEW PREN NON CREATA
-
+						pv.setVisible(false);
+						wv.mostraErrorGenerale();
 					}
 
 				} else {
 					// pm.showErrorMessage("Errore nella prenotazione. Verifica i dati inseriti.");
+					wv.mostraErrorGenerale();
+					wv.getBottoneRiprova().addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) {
+							wv.closeWindow();	
+						}
+					});
 
 				}
 				;

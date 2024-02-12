@@ -21,6 +21,8 @@ public class WarningView {
 	private JLabel labelEmail;
 	private JLabel labelRegistrazione;
 	private JLabel labelErrore;
+	private JLabel labelPagamento;
+	private JLabel labelPrenEff;
 
 	
 	public static void main(String[] args) {
@@ -60,7 +62,7 @@ public class WarningView {
 		labelPassword = new JLabel("  Attenzione, le password non combaciano!");
 		labelPassword.setForeground(SystemColor.textHighlight);
 		labelPassword.setFont(new Font("Tahoma", Font.BOLD, 10));
-		labelPassword.setBounds(10, 0, 233, 54);
+		labelPassword.setBounds(10, 10, 233, 28);
 		panel.add(labelPassword);
 		
 		riprovaButton = new JButton("Riprova");
@@ -84,11 +86,23 @@ public class WarningView {
 		labelRegistrazione.setBounds(49, -5, 132, 65);
 		panel.add(labelRegistrazione);
 		
-		labelErrore = new JLabel("Errore, controllare i dati!");
+		labelErrore = new JLabel("Errore, verificare i dati inseriti!");
 		labelErrore.setFont(new Font("Tahoma", Font.BOLD, 11));
 		labelErrore.setForeground(SystemColor.textHighlight);
-		labelErrore.setBounds(37, 10, 144, 35);
+		labelErrore.setBounds(37, 7, 178, 35);
 		panel.add(labelErrore);
+		
+		labelPagamento = new JLabel("Inserire Metodo di Pagamento!");
+		labelPagamento.setForeground(SystemColor.textHighlight);
+		labelPagamento.setFont(new Font("Tahoma", Font.BOLD, 11));
+		labelPagamento.setBounds(26, 3, 189, 49);
+		panel.add(labelPagamento);
+		
+		labelPrenEff = new JLabel("Prenotazione Effettuata!");
+		labelPrenEff.setForeground(SystemColor.textHighlight);
+		labelPrenEff.setFont(new Font("Tahoma", Font.BOLD, 11));
+		labelPrenEff.setBounds(49, -22, 159, 99);
+		panel.add(labelPrenEff);
 	}
 	
 	public void mostraErrorPassword() {
@@ -96,6 +110,8 @@ public class WarningView {
 		labelPassword.setVisible(true);
 		labelEmail.setVisible(false);
 		labelRegistrazione.setVisible(false);
+		labelPagamento.setVisible(false);
+		labelErrore.setVisible(false);
 		riprovaButton.setText("Riprova");
 	}
 	
@@ -104,6 +120,9 @@ public class WarningView {
 		labelPassword.setVisible(false);
 		labelEmail.setVisible(true);
 		labelRegistrazione.setVisible(false);
+		labelPagamento.setVisible(false);
+		labelErrore.setVisible(false);
+		labelPrenEff.setVisible(false);
 		riprovaButton.setText("Riprova");
 	}
 	
@@ -112,6 +131,9 @@ public class WarningView {
 		labelPassword.setVisible(false);
 		labelEmail.setVisible(false);
 		labelRegistrazione.setVisible(true);
+		labelPagamento.setVisible(false);
+		labelErrore.setVisible(false);
+		labelPrenEff.setVisible(false);
 		riprovaButton.setText("ok");
 		
 		
@@ -123,7 +145,31 @@ public class WarningView {
 		labelEmail.setVisible(false);
 		labelRegistrazione.setVisible(false);
 		labelErrore.setVisible(true);
+		labelPagamento.setVisible(false);
+		labelPrenEff.setVisible(false);
 		riprovaButton.setText("Riprova");
+	}
+	
+	public void mostraErrorMetodoPag() {
+		initialize();
+		labelPassword.setVisible(false);
+		labelEmail.setVisible(false);
+		labelRegistrazione.setVisible(false);
+		labelErrore.setVisible(false);
+		labelPagamento.setVisible(true);
+		labelPrenEff.setVisible(false);
+		riprovaButton.setText("ok");
+	}
+	
+	public void mostraPrenEff() {
+		initialize();
+		labelPassword.setVisible(false);
+		labelEmail.setVisible(false);
+		labelRegistrazione.setVisible(false);
+		labelErrore.setVisible(false);
+		labelPagamento.setVisible(false);
+		labelPrenEff.setVisible(true);
+		riprovaButton.setText("ok");
 	}
 	
 	public JButton getBottoneRiprova() {

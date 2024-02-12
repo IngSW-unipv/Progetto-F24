@@ -72,6 +72,10 @@ public class VisualizzaProfiloController {
 				um.setEmail(vpv.getEmail());
 				um.setCf(vpv.getCodFis());
 				um.setPassword(vpv.getPassword());
+				
+				//DA FARE UPDATE IN DB HO FATTO UN METODO CHE SI CHIAMA UPDATEUSER(UserModel userModel) in USERMODEL 
+				//GUARDARE LI E IMPLEMENTARE QUA
+				
 			}
 		});
 		
