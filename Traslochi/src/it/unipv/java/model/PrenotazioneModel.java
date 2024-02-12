@@ -185,4 +185,9 @@ public class PrenotazioneModel {
 		// TODO Auto-generated method stub
 
 	}
+	
+	public String toString() {
+        return "Indirizzo di Ritiro: " + indirizzodiRitiro + ", Indirizzo di Consegna: " + indirizzoDiConsegna + ", Data di Ritiro: " + dataRitiro + ", Data di Consegna: " + dataConsegna
+        		+ ", Importo da Pagare: " + importoPagato;
+    }
 }

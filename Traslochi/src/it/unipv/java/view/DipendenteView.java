@@ -4,8 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.GroupLayout;
+ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import java.awt.Color;
 import javax.swing.JLabel;
@@ -253,14 +252,14 @@ public class DipendenteView extends JFrame {
 	}
 
 
-	public JTextPane getOrarioInizioTurno() {
-		return orarioInizioTurno;
+	public String getOrarioInizioTurno() {
+		return orarioInizioTurno.getContentType();
 	}
 
 
-	public void setOrarioInizioTurno(JTextPane orarioInizioTurno) {
-		this.orarioInizioTurno = orarioInizioTurno;
-	}
+	public void setOrarioInizioTurno(String orarioInizio) {
+		orarioInizioTurno.setText(orarioInizio);
+ 	}
 
 
 	public JTextPane getOrarioFineTurno() {

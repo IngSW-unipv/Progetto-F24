@@ -13,12 +13,8 @@ public class DipendenteController {
 	private DipendenteView dv;
 	private VisualizzaProfiloView pv;
 	
-<<<<<<< HEAD:Traslochi/src/it/unipv/java/controller/dashboard/DipendenteController.java
-	public DipendenteController(TurnoModel tm, DipendenteView dv, VisualizzaProfiloView pv) {
-=======
-	public DipendenteDashboardController(TurnoModel tm, DipendenteView dv, VisualizzaProfiloView pv) {
->>>>>>> parent of e116bc1 (Updatate):Traslochi/src/it/unipv/java/controller/dashboard/DipendenteDashboardController.java
-		this.tm = tm;
+ 	public DipendenteController(TurnoModel tm, DipendenteView dv, VisualizzaProfiloView pv) { 
+ 		this.tm = tm;
 		this.dv = dv;
 		this.pv = pv;
 		fillTurno();
@@ -26,8 +22,9 @@ public class DipendenteController {
 	}
 
 	private void fillTurno() {
-		dv.setOrarioInizioTurno(null /*model inizio turno*/);
-		dv.setIndirizzoLavoro(null /*model indirizzo lavoro*/);
+		dv.setOrarioInizioTurno();//LO SETTO QUANDO PREMO IL BOTTONE DI INIZIO TIMER
+		dv.setIndirizzoLavoro(tm.get);
+		dv.setOrarioFineTurno();//LO SETTO QUANDO PREMO IL BOTTONE DI FINE TIMER
 		
 	}
 
@@ -37,13 +34,21 @@ public class DipendenteController {
 				pv.setVisible(true);
 			}
 		});
-/*
-		dv.getButtonAggiungiDip().addActionListener(new ActionListener() {
+ 
+		dv.getButtonInizioTurno().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RegisterView registerView = new RegisterView();
-				registerView.setVisible(true);
+				String orarioInizio = LocalTime.now().toString();
+                dv.setOrarioInizioTurno(orarioInizio);
+                tm.setOrarioInizio(orarioInizio); // Aggiorna il modello con l'orario di inizio
+ 				
 			}
 		});
-*/
+		dv.getButtonFineTurno().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 //SI stoppa TIMER  
+			}
+		});
+ 
+ 
 	}
 }
