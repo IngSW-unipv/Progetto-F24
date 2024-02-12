@@ -13,7 +13,11 @@ public class DipendenteController {
 	private DipendenteView dv;
 	private VisualizzaProfiloView pv;
 	
+<<<<<<< HEAD:Traslochi/src/it/unipv/java/controller/dashboard/DipendenteController.java
 	public DipendenteController(TurnoModel tm, DipendenteView dv, VisualizzaProfiloView pv) {
+=======
+	public DipendenteDashboardController(TurnoModel tm, DipendenteView dv, VisualizzaProfiloView pv) {
+>>>>>>> parent of e116bc1 (Updatate):Traslochi/src/it/unipv/java/controller/dashboard/DipendenteDashboardController.java
 		this.tm = tm;
 		this.dv = dv;
 		this.pv = pv;
