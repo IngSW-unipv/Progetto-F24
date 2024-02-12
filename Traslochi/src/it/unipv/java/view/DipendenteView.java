@@ -252,14 +252,14 @@ public class DipendenteView extends JFrame {
 	}
 
 
-	public JTextPane getOrarioInizioTurno() {
-		return orarioInizioTurno;
+	public String getOrarioInizioTurno() {
+		return orarioInizioTurno.getContentType();
 	}
 
 
-	public void setOrarioInizioTurno(JTextPane orarioInizioTurno) {
-		this.orarioInizioTurno = orarioInizioTurno;
-	}
+	public void setOrarioInizioTurno(String orarioInizio) {
+		orarioInizioTurno.setText(orarioInizio);
+ 	}
 
 
 	public JTextPane getOrarioFineTurno() {
