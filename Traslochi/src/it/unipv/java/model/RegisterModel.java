@@ -10,7 +10,11 @@ public class RegisterModel {
         this.um = um;
     }
 
-     public boolean validaDati() {
+     public boolean validaDati(UserModel um) {
+    	 /*if(um == null) {
+    		 System.out.println("um null");
+    		 return false;
+    	 }*/
         if (um.getNome() == null || um.getNome().trim().isEmpty()) {
             return false;
         }
@@ -44,7 +48,7 @@ public class RegisterModel {
     // Metodo per confermare la registrazione
     public boolean confermaRegistrazione() {
     	
-        if (!validaDati()) {
+        if (!validaDati(um)) {
             return false; // I dati non sono validi, la registrazione non può procedere
         } else {
             try {

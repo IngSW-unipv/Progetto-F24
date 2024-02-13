@@ -24,6 +24,7 @@ public class RegisterController {
 	//NON è INIZIALIZZATO REGISTERMODEL, Non FUNZIONA VIEW PER QUELLO
 	public RegisterController(RegisterView registerView) {
 		this.rv = registerView; 
+		this.rm= new RegisterModel(new UserModel());
 		initcomponents();
 
 	}
@@ -34,17 +35,28 @@ public class RegisterController {
 			public void actionPerformed(ActionEvent e) {
 				// Creazione di un nuovo UserModel con i dati raccolti dalla view
 				boolean control= passControl(rv.getPass());
-				boolean controlNull= rm.validaDati();
+				//boolean controlNull= rm.validaDati();
 				
-				if(control && controlNull) {
+				if(control) {
 				UserModel um = new UserModel();
 				um.setNome(rv.getNome());
 				um.setCognome(rv.getCognome());
 				um.setCf(rv.getCF());
 				um.setEmail(rv.getEmail());
 				um.setPassword(rv.getPass());
+				boolean controlNull= rm.validaDati(um);
 				
+				if(controlNull) {
 				rm.setUserModel(um);
+				} else if(!controlNull) {
+					WarningView wv2= new WarningView();
+					wv2.mostraErrorGenerale();
+					wv2.getBottoneRiprova().addActionListener(new ActionListener() {
+						 public void actionPerformed(ActionEvent e) { 
+							 //rv.riprovaPassword();
+							 wv2.closeWindow();
+						 } });
+				}
 				
  				if (rm.confermaRegistrazione()) {
  					WarningView wv= new WarningView();
@@ -61,15 +73,8 @@ public class RegisterController {
 							 wv1.closeWindow();
 						 } });
 					
-				} else if (!controlNull) {
-					WarningView wv2= new WarningView();
-					wv2.mostraErrorGenerale();
-					wv2.getBottoneRiprova().addActionListener(new ActionListener() {
-						 public void actionPerformed(ActionEvent e) { 
-							 rv.riprovaPassword();
-							 wv2.closeWindow();
-						 } });
-				} else if(!emailControl(rv.getEmail())) {
+				} 
+				else if(!emailControl(rv.getEmail())) {
 					WarningView wv3= new WarningView();
 					wv3.mostraErrorEmail();
 					wv3.getBottoneRiprova().addActionListener(new ActionListener() {
