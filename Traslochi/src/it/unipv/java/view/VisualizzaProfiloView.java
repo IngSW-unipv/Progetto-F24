@@ -59,6 +59,8 @@ public class VisualizzaProfiloView extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.inactiveCaptionBorder);
 		contentPane.setBorder(null);
+		setLocationRelativeTo(null);
+		setResizable(false);
 
 		setContentPane(contentPane);
 		
