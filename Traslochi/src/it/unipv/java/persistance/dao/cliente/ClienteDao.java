@@ -7,13 +7,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import at.favre.lib.crypto.bcrypt.BCrypt;
 import it.unipv.java.model.LoginModel;
 import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.user.UserModel;
 import it.unipv.java.persistance.DataAccessFacade;
 import it.unipv.java.persistance.dao.DatabaseConnection;
-import it.unipv.java.persistance.dao.PasswordUtil;
+
 
 public class ClienteDao implements IClienteDao {
 	private String schema;
@@ -35,8 +34,7 @@ public class ClienteDao implements IClienteDao {
 			st1.setString(1, c.getUm().getNome());
 			st1.setString(2, c.getUm().getCognome());
 			st1.setString(3, c.getUm().getEmail());
-			String hashedPassword = PasswordUtil.hashPassword(c.getUm().getPassword());
-			st1.setString(4, hashedPassword);		
+			st1.setString(4, c.getUm().getPassword());		
 			st1.setString(5, c.getUm().getId());
 			st1.executeUpdate();
 
@@ -152,16 +150,15 @@ public class ClienteDao implements IClienteDao {
 	        rs = pstmt.executeQuery();
 
 	        if (rs.next()) {
-	            String storedHashedPassword = rs.getString("PASSWORD");
-
- 	            if (PasswordUtil.verifyPassword(ag.getPassword(), storedHashedPassword)) {
+	            // = rs.getString("PASSWORD");
 	                um = new UserModel();
  	                um.setId(rs.getString("IDCliente"));
 	                um.setNome(rs.getString("Nome"));
 	                um.setCognome(rs.getString("Cognome"));
 	                um.setCf(rs.getString("CF"));
 	                um.setEmail(rs.getString("Email"));
- 	            }
+	                um.setPassword(rs.getString("Password"));
+ 	            
 	        }
 	    } catch (Exception e) {
 	        e.printStackTrace();

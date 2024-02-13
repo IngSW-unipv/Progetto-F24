@@ -6,13 +6,12 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
 import it.unipv.java.model.LoginModel;
 import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.user.UserModel;
 import it.unipv.java.persistance.DataAccessFacade;
 import it.unipv.java.persistance.dao.DatabaseConnection;
-import it.unipv.java.persistance.dao.PasswordUtil;
+
 
 public class DipendenteDao implements IDipendenteDao {
 	private String schema;
@@ -35,8 +34,7 @@ public class DipendenteDao implements IDipendenteDao {
 			st1.setString(1, c.getUm().getNome());
 			st1.setString(2, c.getUm().getCognome());
 			st1.setString(3, c.getUm().getEmail());
-			String hashedPassword = PasswordUtil.hashPassword(c.getUm().getPassword());
-			st1.setString(4, hashedPassword);
+			st1.setString(4, c.getUm().getPassword());
 			st1.setString(5, c.getUm().getId());
 			st1.executeUpdate();
 
