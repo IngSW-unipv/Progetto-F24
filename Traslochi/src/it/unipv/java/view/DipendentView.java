@@ -20,12 +20,12 @@ import javax.swing.JTextField;
 public class DipendentView extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField indLavoro;
-	private JTextField oraInizio;
-	private JTextField oraFine;
-	private JButton buttonInizTur;
-	private JButton buttonFineTur;
-	private JButton buttonVisualProf;
+	private JTextField indirizzoLavoro;
+	private JTextField orarioInizioTurno;
+	private JTextField orarioFineTurno;
+	private JButton buttonInizioTurno;
+	private JButton buttonFineTurno;
+	private JButton buttonVisProfilo;
 
 	
 	public static void main(String[] args) {
@@ -69,34 +69,34 @@ public class DipendentView extends JFrame {
 		lblNewLabel_1_2.setForeground(SystemColor.activeCaption);
 		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.BOLD, 15));
 		
-		buttonInizTur = new JButton("Inizia Turno");
-		buttonInizTur.setForeground(SystemColor.textHighlightText);
-		buttonInizTur.setFont(new Font("Tahoma", Font.BOLD, 11));
-		buttonInizTur.setBackground(SystemColor.textHighlight);
-		buttonInizTur.setBorder(null);
-		buttonInizTur.setFocusable(false);
+		buttonInizioTurno = new JButton("Inizia Turno");
+		buttonInizioTurno.setForeground(SystemColor.textHighlightText);
+		buttonInizioTurno.setFont(new Font("Tahoma", Font.BOLD, 11));
+		buttonInizioTurno.setBackground(SystemColor.textHighlight);
+		buttonInizioTurno.setBorder(null);
+		buttonInizioTurno.setFocusable(false);
 		
-		buttonFineTur = new JButton("Fine Turno");
-		buttonFineTur.setBackground(SystemColor.textHighlight);
-		buttonFineTur.setForeground(SystemColor.textHighlightText);
-		buttonFineTur.setFont(new Font("Tahoma", Font.BOLD, 11));
-		buttonFineTur.setBorder(null);
-		buttonFineTur.setFocusable(false);
+		buttonFineTurno = new JButton("Fine Turno");
+		buttonFineTurno.setBackground(SystemColor.textHighlight);
+		buttonFineTurno.setForeground(SystemColor.textHighlightText);
+		buttonFineTurno.setFont(new Font("Tahoma", Font.BOLD, 11));
+		buttonFineTurno.setBorder(null);
+		buttonFineTurno.setFocusable(false);
 		
-		indLavoro = new JTextField();
-		indLavoro.setEditable(false);
-		indLavoro.setBackground(SystemColor.inactiveCaptionBorder);
-		indLavoro.setColumns(10);
+		indirizzoLavoro = new JTextField();
+		indirizzoLavoro.setEditable(false);
+		indirizzoLavoro.setBackground(SystemColor.inactiveCaptionBorder);
+		indirizzoLavoro.setColumns(10);
 		
-		oraInizio = new JTextField();
-		oraInizio.setEditable(false);
-		oraInizio.setBackground(SystemColor.inactiveCaptionBorder);
-		oraInizio.setColumns(10);
+		orarioInizioTurno = new JTextField();
+		orarioInizioTurno.setEditable(false);
+		orarioInizioTurno.setBackground(SystemColor.inactiveCaptionBorder);
+		orarioInizioTurno.setColumns(10);
 		
-		oraFine = new JTextField();
-		oraFine.setEditable(false);
-		oraFine.setBackground(SystemColor.inactiveCaptionBorder);
-		oraFine.setColumns(10);
+		orarioFineTurno = new JTextField();
+		orarioFineTurno.setEditable(false);
+		orarioFineTurno.setBackground(SystemColor.inactiveCaptionBorder);
+		orarioFineTurno.setColumns(10);
 		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
@@ -110,19 +110,19 @@ public class DipendentView extends JFrame {
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(255)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
-								.addComponent(indLavoro, Alignment.TRAILING)
+								.addComponent(indirizzoLavoro, Alignment.TRAILING)
 								.addGroup(gl_contentPane.createSequentialGroup()
-									.addComponent(buttonInizTur, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
+									.addComponent(buttonInizioTurno, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
 									.addGap(209)
-									.addComponent(buttonFineTur, GroupLayout.PREFERRED_SIZE, 82, GroupLayout.PREFERRED_SIZE))))
+									.addComponent(buttonFineTurno, GroupLayout.PREFERRED_SIZE, 82, GroupLayout.PREFERRED_SIZE))))
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(123)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 								.addComponent(lblNewLabel_1)
-								.addComponent(oraInizio, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+								.addComponent(orarioInizioTurno, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 							.addGap(431)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(oraFine, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(orarioFineTurno, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(lblNewLabel_1_1, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE))))
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
@@ -137,18 +137,18 @@ public class DipendentView extends JFrame {
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(oraInizio, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addComponent(orarioInizioTurno, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 							.addGap(45)
 							.addComponent(lblNewLabel_1_2, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
 							.addGap(7)
-							.addComponent(indLavoro, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addComponent(indirizzoLavoro, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 							.addGap(94)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-								.addComponent(buttonFineTur, GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-								.addComponent(buttonInizTur, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
+								.addComponent(buttonFineTurno, GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+								.addComponent(buttonInizioTurno, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
 							.addGap(79))
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(oraFine, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addComponent(orarioFineTurno, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 							.addContainerGap())))
 		);
 		
@@ -156,12 +156,12 @@ public class DipendentView extends JFrame {
 		lblNewLabel.setForeground(new Color(248, 248, 255));
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
 		
-		buttonVisualProf = new JButton("Visualizza Profilo");
-		buttonVisualProf.setForeground(SystemColor.window);
-		buttonVisualProf.setFont(new Font("Tahoma", Font.BOLD, 11));
-		buttonVisualProf.setBackground(SystemColor.textHighlight);
-		buttonVisualProf.setBorder(null);
-		buttonVisualProf.setFocusable(false);
+		buttonVisProfilo = new JButton("Visualizza Profilo");
+		buttonVisProfilo.setForeground(SystemColor.window);
+		buttonVisProfilo.setFont(new Font("Tahoma", Font.BOLD, 11));
+		buttonVisProfilo.setBackground(SystemColor.textHighlight);
+		buttonVisProfilo.setBorder(null);
+		buttonVisProfilo.setFocusable(false);
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
@@ -169,53 +169,53 @@ public class DipendentView extends JFrame {
 					.addGap(41)
 					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
 					.addGap(529)
-					.addComponent(buttonVisualProf, GroupLayout.PREFERRED_SIZE, 142, GroupLayout.PREFERRED_SIZE)
+					.addComponent(buttonVisProfilo, GroupLayout.PREFERRED_SIZE, 142, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(580, Short.MAX_VALUE))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(Alignment.TRAILING, gl_panel.createParallelGroup(Alignment.BASELINE)
 					.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
-					.addComponent(buttonVisualProf))
+					.addComponent(buttonVisProfilo))
 		);
 		panel.setLayout(gl_panel);
 		contentPane.setLayout(gl_contentPane);
 	}
 	
 	public JButton getVisProfButton() {
-		return buttonVisualProf;
+		return buttonVisProfilo;
 	}
 	
 	public JButton getInizioTurnoButton() {
-		return buttonInizTur;
+		return buttonInizioTurno;
 	}
 	
 	public JButton getFineTurnoButton() {
-		return buttonFineTur;
+		return buttonFineTurno;
 	}
 	
 	public String getOraInizio() {
-		return oraInizio.getText();
+		return orarioInizioTurno.getText();
 	}
 	
 	public void setOraInizio(String stringa) {
-		oraInizio.setText(stringa);
+		orarioInizioTurno.setText(stringa);
 	}
 	
 	public String getOraFine() {
-		return oraFine.getText();
+		return orarioFineTurno.getText();
 	}
 	
 	public void setOraFine(String stringa) {
-		oraFine.setText(stringa);
+		orarioFineTurno.setText(stringa);
 	}
 	
 	public String getIndLavoro() {
-		return indLavoro.getText();
+		return indirizzoLavoro.getText();
 	}
 	
 	public void setIndLavoro(String stringa) {
-		indLavoro.setText(stringa);
+		indirizzoLavoro.setText(stringa);
 	}
 	
 	
