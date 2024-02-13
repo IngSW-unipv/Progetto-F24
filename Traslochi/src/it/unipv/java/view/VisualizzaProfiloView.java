@@ -183,9 +183,6 @@ public class VisualizzaProfiloView extends JFrame {
 		
 		JLabel lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setIcon(new ImageIcon("resources/iconaUser.png"));
-		
-		JLabel lblNewLabel_4 = new JLabel("");
-		lblNewLabel_4.setIcon(new ImageIcon("resources/iconaPassword.png"));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)
@@ -195,8 +192,7 @@ public class VisualizzaProfiloView extends JFrame {
 						.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblNewLabel_3, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblNewLabel_4, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE))
+						.addComponent(lblNewLabel_3, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addComponent(labelEmail, GroupLayout.PREFERRED_SIZE, 85, GroupLayout.PREFERRED_SIZE)
@@ -277,9 +273,7 @@ public class VisualizzaProfiloView extends JFrame {
 							.addComponent(separator_2_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(ComponentPlacement.RELATED))
 						.addComponent(buttonModEmail, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE))
-					.addGap(26)
-					.addComponent(lblNewLabel_4, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
-					.addGap(31)
+					.addGap(73)
 					.addComponent(buttonConfScelte, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
 					.addGap(113))
 		);
@@ -326,13 +320,6 @@ public class VisualizzaProfiloView extends JFrame {
     	codiceFiscale.setText(altro);
 	}
     
-    public String getPassword() {
-    	return new String(passwordField.getPassword());
-	}
-    
-    public void setPassword(String altro) {
-    	passwordField.setText(altro);
-	}
 	
 	public JButton getBottoneNome() {
 		return buttonModNome;
@@ -348,10 +335,6 @@ public class VisualizzaProfiloView extends JFrame {
 	
 	public JButton getBottoneCF() {
 		return buttonModCF;
-	}
-	
-	public JButton getBottonePassw() {
-		return buttonModPass;
 	}
 	
 	public JButton getBottoneConferma() {
@@ -377,11 +360,7 @@ public class VisualizzaProfiloView extends JFrame {
 	public JTextArea getCfArea() {
 		return codiceFiscale;
 	}
-	
-	public JPasswordField getPassArea() {
-		return passwordField;
-	}
-	
+
 	
 	
 	
