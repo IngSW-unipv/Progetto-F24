@@ -182,15 +182,15 @@ public class DipendentView extends JFrame {
 		contentPane.setLayout(gl_contentPane);
 	}
 	
-	public JButton getVisProfButton() {
+	public JButton getButtonVisProfilo() {
 		return buttonVisProfilo;
 	}
 	
-	public JButton getInizioTurnoButton() {
+	public JButton getButtonInizioTurno() {
 		return buttonInizioTurno;
 	}
 	
-	public JButton getFineTurnoButton() {
+	public JButton getButtonFineTurno() {
 		return buttonFineTurno;
 	}
 	
@@ -198,7 +198,7 @@ public class DipendentView extends JFrame {
 		return orarioInizioTurno.getText();
 	}
 	
-	public void setOraInizio(String stringa) {
+	public void setOrarioInizioTurno(String stringa) {
 		orarioInizioTurno.setText(stringa);
 	}
 	
@@ -206,7 +206,7 @@ public class DipendentView extends JFrame {
 		return orarioFineTurno.getText();
 	}
 	
-	public void setOraFine(String stringa) {
+	public void setOrarioFineTurno(String stringa) {
 		orarioFineTurno.setText(stringa);
 	}
 	
@@ -214,7 +214,7 @@ public class DipendentView extends JFrame {
 		return indirizzoLavoro.getText();
 	}
 	
-	public void setIndLavoro(String stringa) {
+	public void setIndirizzoLavoro(String stringa) {
 		indirizzoLavoro.setText(stringa);
 	}
 	

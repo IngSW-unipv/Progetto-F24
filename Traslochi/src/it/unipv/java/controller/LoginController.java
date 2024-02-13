@@ -7,7 +7,7 @@ import it.unipv.java.model.LoginModel;
 import it.unipv.java.model.user.UserModel;
 import it.unipv.java.model.user.UserType;
 import it.unipv.java.view.ClienteView;
-import it.unipv.java.view.DipendenteView;
+import it.unipv.java.view.DipendentView;
 import it.unipv.java.view.LoginView;
 import it.unipv.java.view.RegisterView;
 import it.unipv.java.view.ResponsabileView;
@@ -17,7 +17,7 @@ public class LoginController {
 	public LoginModel lm;
 	public LoginView lv;
 	private ClienteView cv;
-	private DipendenteView dv;
+	private DipendentView dv;
 	private ResponsabileView rv;
 
 	public LoginController(LoginView lv) {

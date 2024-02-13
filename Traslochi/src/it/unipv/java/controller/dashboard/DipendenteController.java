@@ -6,15 +6,15 @@ import java.time.LocalTime;
 
 import it.unipv.java.model.DataAccessFacade;
 import it.unipv.java.model.TurnoModel;
-import it.unipv.java.view.DipendenteView;
+import it.unipv.java.view.DipendentView;
 import it.unipv.java.view.VisualizzaProfiloView;
 
 public class DipendenteController {
     private TurnoModel tm;
-    private DipendenteView dv;
+    private DipendentView dv;
     private VisualizzaProfiloView pv;
     
-    public DipendenteController(TurnoModel tm, DipendenteView dv, VisualizzaProfiloView pv) { 
+    public DipendenteController(TurnoModel tm, DipendentView dv, VisualizzaProfiloView pv) { 
         this.tm = tm;
         this.dv = dv;
         this.pv = pv;
