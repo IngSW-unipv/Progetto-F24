@@ -34,19 +34,19 @@ public class DatabaseConnection {
 		public static Connection startConnection(Connection conn, String schema) // se la connessione era andata in time out passandogliela di nuovo verifico se è gia aperta
 		{
 			init();
+
 			System.out.println(dbURL);
 		 
 			
-			if ( isOpen(conn) )
-				closeConnection(conn);
+			if (isOpen(conn))closeConnection(conn);
 		
 			try 
 			{
 				
-				dbURL=String.format(dbURL,schema); 
+			 dbURL=String.format(dbURL,schema); 
+				
 			//	System.out.println(dbURL);
 				Class.forName(dbDriver);
-				
 				conn = DriverManager.getConnection(dbURL, username, password);// Apertura connessione 
 
 			}

@@ -3,8 +3,8 @@ package it.unipv.java.persistance.dao.responsabile;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
- 
- 
+import java.sql.SQLException;
+
 import it.unipv.java.model.LoginModel;
 import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.user.UserModel;
@@ -21,36 +21,44 @@ public class ResponsabileDao implements IResponsabileDao{
 	}
 	
 	
-
 	@Override
 	public boolean createResponsabile(RegisterModel c) {
-		conn=DatabaseConnection.startConnection(conn,schema);
-		PreparedStatement st1;
-		
-		boolean esito=true;
+	    conn = DatabaseConnection.startConnection(conn, schema);
+	    PreparedStatement st1 = null;
 
-		try
-		{
-			String query="INSERT INTO RESPONSABILE(NOME,COGNOME,EMAIL,PASSWORD,IDRESPONSABILE) "
-					+ "VALUES(?,?,?,?,?)";
-			
-			st1 = conn.prepareStatement(query);
-			st1.setString(1,c.getUm().getNome());
-			st1.setString(2,c.getUm().getCognome());
-			st1.setString(3,c.getUm().getEmail());
-			String hashedPassword = PasswordUtil.hashPassword(c.getUm().getPassword());
-			st1.setString(4, hashedPassword);
-			st1.setString(5,c.getUm().getId());
-			st1.executeUpdate(query);
+	    boolean esito = true;
 
-		}catch (Exception e){
-			e.printStackTrace();
-			esito=false;
-		}
+	    try {
+ 	        String query = "INSERT INTO Responsabile (IDResponsabile, Nome, Cognome, CF, Email, Password) VALUES (?, ?, ?, ?, ?, ?)";
 
-		DatabaseConnection.closeConnection(conn);
-		return esito;
-	} 
+	        st1 = conn.prepareStatement(query);
+ 	        st1.setString(1, c.getUm().getId());
+	        st1.setString(2, c.getUm().getNome());
+	        st1.setString(3, c.getUm().getCognome());
+	        st1.setString(4, c.getUm().getCf()); 
+	        st1.setString(5, c.getUm().getEmail());
+	        String hashedPassword = PasswordUtil.hashPassword(c.getUm().getPassword());
+	        st1.setString(6, hashedPassword);
+
+ 	        st1.executeUpdate();
+
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        esito = false;
+	    } finally {
+ 	        if (st1 != null) {
+	            try {
+	                st1.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	        DatabaseConnection.closeConnection(conn);
+	    }
+
+	    return esito;
+	}
+
 	
 	@Override
 	public UserModel getResponsabile(UserModel lm) {

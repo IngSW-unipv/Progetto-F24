@@ -26,6 +26,7 @@ public class DataAccessFacade {
 	}
 
 	public static DataAccessFacade getInstance() {
+		
 		if (instance == null) {
 			synchronized (DataAccessFacade.class) {
 				if (instance == null) {
@@ -209,11 +210,7 @@ public class DataAccessFacade {
 			
 		case DIPENDENTE:
 
-			return new DipendenteDao().getDipendente(um);
- 		 
-
-			return new DipendenteDao().getDipendente(um);
-
+			return new DipendenteDao().getDipendente(um);  
 		}
 
 		return um ; 

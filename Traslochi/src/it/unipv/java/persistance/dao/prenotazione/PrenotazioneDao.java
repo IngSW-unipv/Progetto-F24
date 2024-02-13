@@ -64,7 +64,7 @@ public class PrenotazioneDao implements IPrenotazioneDao{
 	        conn = DatabaseConnection.startConnection(conn, schema);
 	        String sql = "SELECT * FROM Prenotazioni WHERE IDCliente = ?";
 	        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-	            stmt.setString(1, c.getIdCliente());
+	            stmt.setString(1, c.getId());
 	            rs = stmt.executeQuery();
 	            if (rs.next()) {
 	        		PrenotazioneModel prenotazione  = new PrenotazioneModel();
