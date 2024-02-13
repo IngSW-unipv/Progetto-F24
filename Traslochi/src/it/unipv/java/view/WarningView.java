@@ -144,4 +144,12 @@ public class WarningView {
 		riprovaButton.setText("Riprova");
 		
 	}
+	
+	public boolean isVisible() {
+		if (frame.isVisible()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

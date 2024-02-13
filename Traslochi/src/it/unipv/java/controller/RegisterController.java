@@ -60,7 +60,6 @@ public class RegisterController {
 				
  				if (rm.confermaRegistrazione()) {
  					WarningView wv= new WarningView();
- 					wv = new WarningView();
  					rv.setVisible(false);
 					lv.setVisible(true);
 					wv.registrEffettuata();
