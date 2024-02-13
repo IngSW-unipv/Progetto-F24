@@ -2,7 +2,7 @@ package it.unipv.java.model.user;
 
 import java.util.List;
 
-import it.unipv.java.model.DataAccessFacade;
+import it.unipv.java.persistance.DataAccessFacade;
 
 public class UserModel {
 

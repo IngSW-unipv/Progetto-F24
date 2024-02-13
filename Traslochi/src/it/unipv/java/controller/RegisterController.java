@@ -3,11 +3,12 @@ package it.unipv.java.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
-import it.unipv.java.model.DataAccessFacade;
+
 import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.user.UserModel;
 import it.unipv.java.model.user.UserType;
 import it.unipv.java.model.user.UserTypeUtil;
+import it.unipv.java.persistance.DataAccessFacade;
 import it.unipv.java.view.LoginView;
 import it.unipv.java.view.RegisterView;
 import it.unipv.java.view.WarningView;

@@ -1,5 +1,9 @@
-package it.unipv.java.model;
+package it.unipv.java.persistance;
 
+import it.unipv.java.model.LoginModel;
+import it.unipv.java.model.PrenotazioneModel;
+import it.unipv.java.model.RegisterModel;
+import it.unipv.java.model.TurnoModel;
 import it.unipv.java.model.user.UserModel;
 import it.unipv.java.model.user.UserType;
 import it.unipv.java.model.user.UserTypeUtil;
@@ -208,7 +212,7 @@ public class DataAccessFacade {
 			return new DipendenteDao().getDipendente(um);
  		 
 
-			return  new DipendenteDao().getDipendente(um);
+			return new DipendenteDao().getDipendente(um);
 
 		}
 

@@ -7,6 +7,7 @@ import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 import it.unipv.java.model.user.UserModel;
+import it.unipv.java.persistance.DataAccessFacade;
 import it.unipv.java.persistance.dao.prenotazione.PrenotazioneDao;
 
 public class PrenotazioneModel {

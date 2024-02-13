@@ -3,6 +3,8 @@ import java.sql.Time;
 import java.util.List;
 
 import javax.swing.JTextField;
+
+import it.unipv.java.persistance.DataAccessFacade;
  
 public class TurnoModel {
  

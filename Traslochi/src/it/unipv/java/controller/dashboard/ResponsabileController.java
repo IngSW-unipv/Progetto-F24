@@ -4,10 +4,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-import it.unipv.java.model.DataAccessFacade;
 import it.unipv.java.model.PrenotazioneModel;
 import it.unipv.java.model.TurnoModel;
 import it.unipv.java.model.user.UserModel;
+import it.unipv.java.persistance.DataAccessFacade;
 import it.unipv.java.view.AssegnaTurnoView;
 import it.unipv.java.view.ClienteView;
 import it.unipv.java.view.RegisterView;
