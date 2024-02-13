@@ -52,6 +52,7 @@ public class DipendentView extends JFrame {
 		contentPane.setBorder(null);
 
 		setContentPane(contentPane);
+		setLocationRelativeTo(null);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(30, 144, 255));
