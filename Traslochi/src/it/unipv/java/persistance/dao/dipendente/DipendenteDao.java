@@ -146,7 +146,7 @@ public class DipendenteDao implements IDipendenteDao {
 
 	}
 
-	public boolean getDipendente(UserModel ag) {
+	public UserModel getDipendente(UserModel ag) {
 
 		boolean loginSuccess = false;
 		conn = DatabaseConnection.startConnection(conn, schema);
@@ -176,7 +176,7 @@ public class DipendenteDao implements IDipendenteDao {
 			}
 		}
 
-		return loginSuccess;
+		return ag;
 	}
 
  

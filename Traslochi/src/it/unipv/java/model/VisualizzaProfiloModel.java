@@ -8,8 +8,8 @@ public class VisualizzaProfiloModel {
  		return DataAccessFacade.getInstance().modificaProfilo(um);
 	}
 
-	public boolean visualizzaProfilo(UserModel um) {
- 		return DataAccessFacade.getInstance().visualizzaProfilo(um);
+	public UserModel visualizzaProfilo(UserModel um) {
+ 		return  DataAccessFacade.getInstance().visualizzaProfilo(um);
 	}
 	
 	

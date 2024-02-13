@@ -100,18 +100,26 @@ public class DataAccessFacade {
 			if (user != null) {
 				DataAccessFacade.getInstance().setLoggedInUser(user);
 			} else {
-				// Gestione del caso in cui il login non ha successo
-			}
+ 			}
 			break;
 		case DIPENDENTE:
-			loginSuccess = new DipendenteDao().getDipendente(um);
+ 			if ( new DipendenteDao().getDipendente(um) != null) {
+ 				loginSuccess=true;
+ 			} else {
+ 				loginSuccess=false;
+ 			}
 			break;
 		case RESPONSABILE:
-			loginSuccess = new ResponsabileDao().getResponsabile(um);
+			if ( new ResponsabileDao().getResponsabile(um) != null) {
+ 				loginSuccess=true;
+ 			} else {
+ 				loginSuccess=false;
+ 			}
 			break;
+ 			 
 		}
 
-		return loginSuccess;
+		return false;
 	}
 
 	public boolean createPrenotazione(PrenotazioneModel p) {
@@ -170,8 +178,7 @@ public class DataAccessFacade {
 	}
 
 	public List<TurnoModel> mostraTurni() {
-		return new TurnoDao().getAllTurni();
-
+		return new TurnoDao().getAllTurni(); 
 	}
 
 	public boolean modificaProfilo(UserModel um) {
@@ -186,12 +193,10 @@ public class DataAccessFacade {
  		 
 		}
 
-		return false ;
-		  
-
+		return false ; 
 	}
 
-	public boolean visualizzaProfilo(UserModel um) {
+	public UserModel visualizzaProfilo(UserModel um) {
 		UserType userType = UserTypeUtil.determineUserType(um);
 		
 		switch (userType) {
@@ -199,10 +204,9 @@ public class DataAccessFacade {
 			return new ClienteDao().getCliente(um); 
 			
 		case DIPENDENTE:
-			return   new DipendenteDao().getDipendente(um);
- 		 
+			return  new DipendenteDao().getDipendente(um);
 		}
 
 		return um ; 
 	}
-}
+}//fine dataAcessFacade
