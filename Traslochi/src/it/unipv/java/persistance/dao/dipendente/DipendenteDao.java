@@ -30,7 +30,7 @@ public class DipendenteDao implements IDipendenteDao {
 		PreparedStatement st1;
 		boolean esito = true;
 		try {
-			String query = "INSERT INTO CLIENTI (NOME,COGNOME,EMAIL,PASSWORD,IDCLIENTE) VALUES(?,?,?,?,?)";
+			String query = "INSERT INTO DIPENDENTE (NOME,COGNOME,EMAIL,PASSWORD,IDCLIENTE) VALUES(?,?,?,?,?)";
 			st1 = conn.prepareStatement(query);
 			st1.setString(1, c.getUm().getNome());
 			st1.setString(2, c.getUm().getCognome());
@@ -56,7 +56,7 @@ public class DipendenteDao implements IDipendenteDao {
 	    try {
  	        conn = DatabaseConnection.startConnection(conn, schema);
 	        
- 	        String query = "UPDATE DIPENDENTI SET NOME=?, COGNOME=?, EMAIL=?, PASSWORD=? WHERE ID=?";
+ 	        String query = "UPDATE DIPENDENTE SET NOME=?, COGNOME=?, EMAIL=?, PASSWORD=? WHERE ID=?";
 	        
  	        try (PreparedStatement st1 = conn.prepareStatement(query)) {
 	            
@@ -87,12 +87,12 @@ public class DipendenteDao implements IDipendenteDao {
 
 		conn = DatabaseConnection.startConnection(conn, schema);
 
-		String query = "DELETE FROM Dipendenti WHERE idDipendente = ? ";
+		String query = "DELETE FROM Dipendente WHERE idDipendente = ? ";
 
 		try (PreparedStatement st1 = conn.prepareStatement(query)) {
 
 			st1.setString(1, u.getId());
-			st1.executeUpdate(query);
+			st1.executeUpdate();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -115,7 +115,7 @@ public class DipendenteDao implements IDipendenteDao {
 
 			stmt = conn.createStatement();
 
-			String sql = "SELECT * FROM DIPENDENTI";
+			String sql = "SELECT * FROM DIPENDENTE";
 			rs = stmt.executeQuery(sql);
 
 			while (rs.next()) {
@@ -151,7 +151,7 @@ public class DipendenteDao implements IDipendenteDao {
 		boolean loginSuccess = false;
 		conn = DatabaseConnection.startConnection(conn, schema);
 
-		String sql = "SELECT PASSWORD FROM DIPENDENTI WHERE EMAIL = ?";
+		String sql = "SELECT PASSWORD FROM DIPENDENTE WHERE EMAIL = ?";
 		ResultSet rs = null;
 
 		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {

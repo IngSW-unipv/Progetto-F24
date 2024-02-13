@@ -22,6 +22,7 @@ public class LoginController {
 
 	public LoginController(LoginView lv) {
 		this.lv = lv;
+		this.lm= new LoginModel();
 		setListeners();
 	}
 

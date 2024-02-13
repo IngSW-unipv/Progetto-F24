@@ -1,5 +1,5 @@
 DBDRIVER= com.mysql.cj.jdbc.Driver
-DBURL =jdbc:mysql://localhost:3306/%s?serverTimezone=UTC
+DBURL =jdbc:mysql://localhost:3306/traslochi?serverTimezone=UTC
 db_usn= root
-db_psw = Password23.
- 
+db_psw = Elsword2114-
+

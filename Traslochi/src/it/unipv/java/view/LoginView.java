@@ -218,7 +218,7 @@ public class LoginView extends JFrame {
 	}
 	
 	public String getPassword() {
-		return password.getSelectedText();
+		return new String(password.getPassword());
 	}
 	
 	public void setPassword(String pass) {

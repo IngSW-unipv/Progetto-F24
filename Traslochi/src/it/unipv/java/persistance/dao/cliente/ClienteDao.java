@@ -30,7 +30,7 @@ public class ClienteDao implements IClienteDao {
 		PreparedStatement st1;
 		boolean esito = true;
 		try {
-			String query = "INSERT INTO CLIENTI (NOME,COGNOME,EMAIL,PASSWORD,IDCLIENTE) VALUES(?,?,?,?,?)";
+			String query = "INSERT INTO CLIENTE (NOME,COGNOME,EMAIL,PASSWORD,IDCLIENTE) VALUES(?,?,?,?,?)";
 			st1 = conn.prepareStatement(query);
 			st1.setString(1, c.getUm().getNome());
 			st1.setString(2, c.getUm().getCognome());
@@ -38,7 +38,7 @@ public class ClienteDao implements IClienteDao {
 			String hashedPassword = PasswordUtil.hashPassword(c.getUm().getPassword());
 			st1.setString(4, hashedPassword);		
 			st1.setString(5, c.getUm().getId());
-			st1.executeUpdate(query);
+			st1.executeUpdate();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -55,7 +55,7 @@ public class ClienteDao implements IClienteDao {
 	public boolean updateCliente(UserModel ag) {
 
 		conn = DatabaseConnection.startConnection(conn, schema);
-		String query = "UPDATE CLIENTI SET NOME=?,COGNOME=?,EMAIL=?,PASSWORD=? WHERE id=?";
+		String query = "UPDATE CLIENTE SET NOME=?,COGNOME=?,EMAIL=?,PASSWORD=? WHERE id=?";
 
 		try (PreparedStatement st1 = conn.prepareStatement(query)) {
 
@@ -65,7 +65,7 @@ public class ClienteDao implements IClienteDao {
 			st1.setString(4, ag.getPassword());
 			st1.setString(5, ag.getId());
 
-			st1.executeUpdate(query);
+			st1.executeUpdate();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -80,7 +80,7 @@ public class ClienteDao implements IClienteDao {
 	@Override
 	public boolean deleteCliente(UserModel  ag) {
 
-		String query = "DELETE FROM Clienti WHERE idCliente = ?";
+		String query = "DELETE FROM ClientE WHERE idCliente = ?";
 		try (PreparedStatement st1 = conn.prepareStatement(query)) {
 
 			st1.setString(1, ag.getId());
@@ -108,7 +108,7 @@ public class ClienteDao implements IClienteDao {
 
 			stmt = conn.createStatement();
 
-			String sql = "SELECT * FROM CLIENTI";
+			String sql = "SELECT * FROM CLIENTE";
 			rs = stmt.executeQuery(sql);
 
 			// Process the result set
