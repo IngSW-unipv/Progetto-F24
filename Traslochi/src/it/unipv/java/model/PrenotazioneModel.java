@@ -124,6 +124,10 @@ public class PrenotazioneModel {
 		this.importoPagato = calcolaImporto();
 	}
 
+	public String getScadGiorno() {
+		return scadGiorno;
+	}
+
 	public float calcolaImporto() {
 		long giorni = calcolagiorni(this.dataRitiro, this.dataConsegna);
 		float tariffaMinima = 300;
