@@ -24,7 +24,9 @@ public class LoginModel {
  		return false;
 	}
  
-	
+	public UserType checkuser(UserModel um) { 
+ 		return  UserTypeUtil.determineUserType(um);
+	}
 	
 
 

@@ -191,7 +191,7 @@ public class DataAccessFacade {
 
 	}
 
-	public UserModel visualizzaProfilo(UserModel um) {
+	public boolean visualizzaProfilo(UserModel um) {
 		UserType userType = UserTypeUtil.determineUserType(um);
 		
 		switch (userType) {
