@@ -24,9 +24,7 @@ import javax.swing.ImageIcon;
 public class VisualizzaProfiloView extends JFrame {
 
 	private JPanel contentPane;
-	private JPasswordField passwordField;
 	private JButton buttonTornaIndietro;
-	private JButton buttonModPass;
 	private JButton buttonModEmail;
 	private JButton buttonModCF;
 	private JButton buttonModCogn;
@@ -57,7 +55,7 @@ public class VisualizzaProfiloView extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("resources/IconaLogin.png"));
 		setTitle("Bidons");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 619, 648);
+		setBounds(100, 100, 619, 553);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.inactiveCaptionBorder);
 		contentPane.setBorder(null);
@@ -144,24 +142,6 @@ public class VisualizzaProfiloView extends JFrame {
 		email.setBackground(SystemColor.inactiveCaptionBorder);
 		email.setBorder(null);
 		
-		JLabel labelPassword = new JLabel("Password");
-		labelPassword.setForeground(new Color(100, 149, 237));
-		labelPassword.setFont(new Font("Tahoma", Font.BOLD, 13));
-		
-		JSeparator separator_2_1_1 = new JSeparator();
-		separator_2_1_1.setForeground(SystemColor.textHighlight);
-		
-		passwordField = new JPasswordField();
-		passwordField.setEditable(false);
-		passwordField.setBackground(SystemColor.inactiveCaptionBorder);
-		passwordField.setBorder(null);
-		
-		buttonModPass = new JButton("Modifica");
-		buttonModPass.setForeground(SystemColor.text);
-		buttonModPass.setBackground(SystemColor.textHighlight);
-		buttonModPass.setBorder(null);
-		buttonModPass.setFont(new Font("Tahoma", Font.BOLD, 11));
-		
 		buttonModEmail = new JButton("Modifica");
 		buttonModEmail.setForeground(SystemColor.text);
 		buttonModEmail.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -208,17 +188,9 @@ public class VisualizzaProfiloView extends JFrame {
 		lblNewLabel_4.setIcon(new ImageIcon("resources/iconaPassword.png"));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
+			gl_contentPane.createParallelGroup(Alignment.TRAILING)
 				.addComponent(panel, GroupLayout.PREFERRED_SIZE, 603, GroupLayout.PREFERRED_SIZE)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(237)
-					.addComponent(buttonConfScelte, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE))
-				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
-					.addContainerGap(376, Short.MAX_VALUE)
-					.addComponent(buttonModPass)
-					.addGap(180))
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(32)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
 						.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE)
@@ -227,12 +199,10 @@ public class VisualizzaProfiloView extends JFrame {
 						.addComponent(lblNewLabel_4, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(separator_2_1_1, GroupLayout.PREFERRED_SIZE, 238, GroupLayout.PREFERRED_SIZE)
 						.addComponent(labelEmail, GroupLayout.PREFERRED_SIZE, 85, GroupLayout.PREFERRED_SIZE)
 						.addComponent(labelNome)
 						.addComponent(labelCognome, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
 						.addComponent(labelCF, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
-						.addComponent(labelPassword, GroupLayout.PREFERRED_SIZE, 85, GroupLayout.PREFERRED_SIZE)
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
 								.addComponent(separator, GroupLayout.PREFERRED_SIZE, 175, GroupLayout.PREFERRED_SIZE)
@@ -250,12 +220,12 @@ public class VisualizzaProfiloView extends JFrame {
 								.addComponent(codiceFiscale, GroupLayout.PREFERRED_SIZE, 238, GroupLayout.PREFERRED_SIZE)
 								.addComponent(separator_2, GroupLayout.PREFERRED_SIZE, 238, GroupLayout.PREFERRED_SIZE)
 								.addComponent(separator_2_1, GroupLayout.PREFERRED_SIZE, 238, GroupLayout.PREFERRED_SIZE)
-								.addComponent(email, GroupLayout.PREFERRED_SIZE, 238, GroupLayout.PREFERRED_SIZE)
-								.addComponent(passwordField, GroupLayout.PREFERRED_SIZE, 238, GroupLayout.PREFERRED_SIZE))
+								.addComponent(email, GroupLayout.PREFERRED_SIZE, 238, GroupLayout.PREFERRED_SIZE))
 							.addGap(26)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 								.addComponent(buttonModCF, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE)
-								.addComponent(buttonModEmail, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE))))
+								.addComponent(buttonModEmail, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE)))
+						.addComponent(buttonConfScelte, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 124, GroupLayout.PREFERRED_SIZE))
 					.addGap(231))
 		);
 		gl_contentPane.setVerticalGroup(
@@ -308,24 +278,14 @@ public class VisualizzaProfiloView extends JFrame {
 							.addPreferredGap(ComponentPlacement.RELATED))
 						.addComponent(buttonModEmail, GroupLayout.PREFERRED_SIZE, 15, GroupLayout.PREFERRED_SIZE))
 					.addGap(26)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(labelPassword)
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(passwordField, GroupLayout.PREFERRED_SIZE, 18, GroupLayout.PREFERRED_SIZE))
-						.addComponent(lblNewLabel_4, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(separator_2_1_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(9)
-					.addComponent(buttonModPass)
-					.addGap(56)
+					.addComponent(lblNewLabel_4, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
+					.addGap(31)
 					.addComponent(buttonConfScelte, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
-					.addGap(93))
+					.addGap(113))
 		);
 		contentPane.setLayout(gl_contentPane);
 		
 		buttonTornaIndietro.setFocusable(false);
-		buttonModPass.setFocusable(false);
 		buttonModEmail.setFocusable(false);
 		buttonModCF.setFocusable(false);
 		buttonModCogn.setFocusable(false);
