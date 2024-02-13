@@ -98,8 +98,12 @@ public class RegisterController {
  				if (rm.confermaRegistrazione()) {
  					WarningView wv= new WarningView();
  					rv.setVisible(false);
-					lv.setVisible(true);
 					wv.registrEffettuata();
+					wv.getBottoneRiprova().addActionListener(new ActionListener() {
+						 public void actionPerformed(ActionEvent e) { 
+							 wv.closeWindow();
+						 } });
+					
 				} }  else if (!control) {
 					WarningView wv1= new WarningView();
 >>>>>>> 7ebc464b9a23e30d41bbbcafee490802264c4ace
