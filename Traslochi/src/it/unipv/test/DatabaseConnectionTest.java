@@ -6,8 +6,7 @@ import org.junit.Test;
 
 public class DatabaseConnectionTest {
 	
-	@Test
-    public static void apriConnessione(String[] args) {
+    public static void main(String[] args) {
         // Nome del database
         String databaseName = "Traslochi"; // Modifica con il nome del tuo database
         
@@ -23,6 +22,7 @@ public class DatabaseConnectionTest {
             // Stabilire una connessione
             try (Connection conn = DriverManager.getConnection(url, username, password)) {
                 System.out.println("Connessione al database riuscita!");
+                conn.close();
             }
         } catch (ClassNotFoundException e) {
             System.out.println("Il driver JDBC non è stato trovato.");
