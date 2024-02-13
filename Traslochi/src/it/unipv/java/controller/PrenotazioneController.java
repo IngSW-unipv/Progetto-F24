@@ -14,8 +14,8 @@ public class PrenotazioneController {
 	private WarningView wv;
 	private ClienteView cv;
 
-	public PrenotazioneController(PrenotazioneModel pm, PrenotazioneView pv) {
-		this.pm = pm;
+	public PrenotazioneController(PrenotazioneView pv) {
+		this.pm = new PrenotazioneModel();
 		this.pv = pv;
 		setlisteners();
 	}
@@ -23,6 +23,7 @@ public class PrenotazioneController {
 	private void setlisteners() {
 		pv.getButtonConfermaPren().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//PrenotazioneModel pm= new PrenotazioneModel();
 				pm.setIndirizzodiRitiro(pv.getIndirizzoRitiro());
 				pm.setIndirizzoDiConsegna(pv.getIndirizzoConsegna());
 				pm.setDataRitiro(pv.getDataRitiro());
@@ -31,6 +32,7 @@ public class PrenotazioneController {
 				  pm.setScadGiorno(pv.getTextField_7());
 				pm.setScadMese(pv.getTextField_8());
 				pm.setScadAnno(pv.getTextField_9());
+				
 
 				if (!pv.getRadioCarta().isSelected() && !pv.getRadioContanti().isSelected()) {
 					// eccezione: pm.showErrorMessage("Seleziona un metodo di pagamento");

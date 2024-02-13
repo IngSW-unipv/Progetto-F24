@@ -104,7 +104,9 @@ public class DataAccessFacade {
 			UserModel user = new ClienteDao().getCliente(um);
 			if (user != null) {
 				DataAccessFacade.getInstance().setLoggedInUser(user);
+				loginSuccess = true;
 			} else {
+				loginSuccess = false;
  			}
 			break;
 		case DIPENDENTE:
@@ -124,7 +126,7 @@ public class DataAccessFacade {
  			 
 		}
 
-		return false;
+		return loginSuccess;
 	}
 
 	public boolean createPrenotazione(PrenotazioneModel p) {

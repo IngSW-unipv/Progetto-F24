@@ -21,8 +21,8 @@ public class LoginModel {
 	
 	public boolean confermaLogin() {
         boolean registrazioneRiuscita = DataAccessFacade.getInstance().loginUser(um);
-        if(registrazioneRiuscita) return true;
- 		return false;
+        if(registrazioneRiuscita) { return true; } else {
+ 		return false;}
 	}
  
 	public UserType checkuser(UserModel um) { 

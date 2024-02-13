@@ -40,7 +40,7 @@ public class PrenotazioneDao implements IPrenotazioneDao{
 	                p.setDataRitiro(rs.getString("DataRitiro"));
 	                p.setDataConsegna(rs.getString("DataConsegna"));
 	                p.setMetodoDiPagamento(rs.getString("MetodoDiPagamento"));
-	                p.setImportoPagato(rs.getFloat("ImportoPagato"));
+	                p.setImportoPagato(rs.getFloat("ImportoDaPagare"));
 	                p.setStatoPrenotazione(rs.getString("StatoPrenotazione"));
 	                prenotazioni.add(p);
 	            }
@@ -91,7 +91,7 @@ public class PrenotazioneDao implements IPrenotazioneDao{
 	    boolean esito = true;
  
 	        conn = DatabaseConnection.startConnection(conn, schema);
-	        String query = "INSERT INTO Prenotazioni(IDPrenotazione, IDCliente, IndirizzoDiConsegna, DataRitiro, DataConsegna, MetodoDiPagamento, ImportoPagato, StatoPrenotazione) VALUES(?,?,?,?,?,?,?,?)";
+	        String query = "INSERT INTO Prenotazioni(IDPrenotazione, IDCliente, IndirizzoDiConsegna, DataRitiro, DataConsegna, MetodoDiPagamento, ImportoDaPagare, StatoPrenotazione) VALUES(?,?,?,?,?,?,?,?)";
 	        try (PreparedStatement st1 = conn.prepareStatement(query)) {
 	            st1.setString(1, p.getIdPrenotazione());
 	            st1.setString(2, p.getIdCliente());
@@ -117,7 +117,7 @@ public class PrenotazioneDao implements IPrenotazioneDao{
 
 	    try {
 	        conn = DatabaseConnection.startConnection(conn, schema);
-	        String query = "UPDATE Prenotazioni SET IDCliente=?, IndirizzoDiConsegna=?, DataRitiro=?, DataConsegna=?, MetodoDiPagamento=?, ImportoPagato=?, StatoPrenotazione=? WHERE IDPrenotazione=?";
+	        String query = "UPDATE Prenotazioni SET IDCliente=?, IndirizzoDiConsegna=?, DataRitiro=?, DataConsegna=?, MetodoDiPagamento=?, ImportoDaPagare=?, StatoPrenotazione=? WHERE IDPrenotazione=?";
 	        try (PreparedStatement st1 = conn.prepareStatement(query)) {
 	            st1.setString(1, p.getIdCliente());
 	            st1.setString(2, p.getIndirizzoDiConsegna());

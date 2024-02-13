@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import it.unipv.java.controller.PrenotazioneController;
 import it.unipv.java.model.PrenotazioneModel;
 import it.unipv.java.model.user.UserModel;
 import it.unipv.java.persistance.DataAccessFacade;
@@ -19,10 +20,10 @@ public class ClienteController {
 	
 
  
-	public ClienteController(UserModel um, ClienteView cv, VisualizzaProfiloView pv) {
+	public ClienteController(UserModel um, ClienteView cv) {
 		this.um = um;
 		this.cv = cv;
-		this.pv = pv;
+		
 		riempiPrenotazioniClienteTXT();
 		setListeners();
 	}
@@ -36,7 +37,9 @@ public class ClienteController {
 
 		cv.getBottonePrenotazione().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				cv.setVisible(false);
 				PrenotazioneView prenotazioneView = new PrenotazioneView();
+				PrenotazioneController pc= new PrenotazioneController(prenotazioneView);
 				prenotazioneView.setVisible(true);
 			}
 		});

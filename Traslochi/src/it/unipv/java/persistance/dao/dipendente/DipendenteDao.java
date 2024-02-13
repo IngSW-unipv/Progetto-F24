@@ -60,11 +60,8 @@ public class DipendenteDao implements IDipendenteDao {
 	            
  	            st1.setString(1, u.getNome());
 	            st1.setString(2, u.getCognome());
-	            st1.setString(3, u.getEmail());
-	            
- 	            String hashedPassword = PasswordUtil.hashPassword(u.getPassword());
-	            st1.setString(4, hashedPassword);
-	            
+	            st1.setString(3, u.getEmail());	            
+	            st1.setString(4, u.getPassword());
  	            st1.setString(5, u.getId());
 	            
  	            int affectedRows = st1.executeUpdate();
@@ -148,19 +145,24 @@ public class DipendenteDao implements IDipendenteDao {
 
 		boolean loginSuccess = false;
 		conn = DatabaseConnection.startConnection(conn, schema);
+		UserModel um= null;
 
 		String sql = "SELECT PASSWORD FROM DIPENDENTE WHERE EMAIL = ?";
 		ResultSet rs = null;
 
 		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
 			pstmt.setString(1, ag.getEmail());
 			rs = pstmt.executeQuery();
+			
+			
 			if (rs.next()) {
-				String storedHash = rs.getString("PASSWORD");
-				if (PasswordUtil.verifyPassword(ag.getPassword(), storedHash)) {
-					loginSuccess = true;
-				}
+				um = new UserModel();
+				um.setId(rs.getString("IDCliente"));
+                um.setNome(rs.getString("Nome"));
+                um.setCognome(rs.getString("Cognome"));
+                um.setCf(rs.getString("CF"));
+                um.setEmail(rs.getString("Email"));
+                um.setPassword(rs.getString("Password"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -174,7 +176,7 @@ public class DipendenteDao implements IDipendenteDao {
 			}
 		}
 
-		return ag;
+		return um;
 	}
 
  

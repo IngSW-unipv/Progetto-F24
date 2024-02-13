@@ -3,6 +3,7 @@ package it.unipv.java.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import it.unipv.java.controller.dashboard.ClienteController;
 import it.unipv.java.model.LoginModel;
 import it.unipv.java.model.user.UserModel;
 import it.unipv.java.model.user.UserType;
@@ -16,7 +17,7 @@ import it.unipv.java.view.WarningView;
 public class LoginController {
 	public LoginModel lm;
 	public LoginView lv;
-	private ClienteView cv;
+	//private ClienteView cv;
 	private DipendentView dv;
 	private ResponsabileView rv;
 
@@ -34,24 +35,25 @@ public class LoginController {
 				loginuser.setPassword(lv.getPassword());
 				lm.setUm(loginuser);
 				if (lm.confermaLogin()) {
+					lv.setVisible(false);
 					//istanzio la home page quale? dipende dal valore di ritorno di conferma login se dip,cliente,respons
 					UserType ut= lm.checkuser(loginuser);//QUA RITORNA UN USERTYPE
 					switch(ut) {
 					case CLIENTE: 
-						lv.setVisible(false);
-						cv.setVisible(true);
-						dv.setVisible(false);
-						rv.setVisible(false);
+						ClienteView cl = new ClienteView();
+						ClienteController cc= new ClienteController(loginuser,cl);
+						//PrenotazioneController pc= new PrenotazioneController();
+						cl.setVisible(true);
 						break;
 					case DIPENDENTE:
 						lv.setVisible(false);
-						cv.setVisible(false);
+						//cv.setVisible(false);
 						dv.setVisible(true);
 						rv.setVisible(false);
 					    break;
 					case RESPONSABILE:
 						lv.setVisible(false);
-						cv.setVisible(false);
+						//cv.setVisible(false);
 						dv.setVisible(false);
 						rv.setVisible(true);
 						break;
@@ -65,7 +67,6 @@ public class LoginController {
 						 public void actionPerformed(ActionEvent e) { 
 							 wv.closeWindow();
 							 lv.setPassword("");
-							 lv.setEmail("");
 						 } });
 				}
 			}

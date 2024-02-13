@@ -4,12 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import it.unipv.java.model.LoginModel;
 import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.user.UserModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
-import it.unipv.java.persistance.dao.PasswordUtil;
+
 
 public class ResponsabileDao implements IResponsabileDao{
 	private String schema;
@@ -37,8 +36,7 @@ public class ResponsabileDao implements IResponsabileDao{
 	        st1.setString(3, c.getUm().getCognome());
 	        st1.setString(4, c.getUm().getCf()); 
 	        st1.setString(5, c.getUm().getEmail());
-	        String hashedPassword = PasswordUtil.hashPassword(c.getUm().getPassword());
-	        st1.setString(6, hashedPassword);
+	        st1.setString(6, c.getUm().getPassword());
 
  	        st1.executeUpdate();
 
@@ -74,14 +72,13 @@ public class ResponsabileDao implements IResponsabileDao{
 	        rs = pstmt.executeQuery();
 	        
 	        if (rs.next()) {
-	            String storedHash = rs.getString("PASSWORD");
-	            if (PasswordUtil.verifyPassword(lm.getPassword(), storedHash)) {
  	                responsabile = new UserModel();
 	                responsabile.setId(rs.getString("ID"));
 	                responsabile.setNome(rs.getString("NOME"));
 	                responsabile.setCognome(rs.getString("COGNOME"));
 	                responsabile.setEmail(rs.getString("EMAIL"));
- 	            }
+	                responsabile.setPassword(rs.getString("PASSWORD"));
+ 	            
 	        }
 	    } catch (Exception e) {
 	        e.printStackTrace();
