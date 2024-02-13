@@ -20,7 +20,7 @@ public class DipendenteDao implements IDipendenteDao {
 
 	public DipendenteDao() {
 		super();
-		this.schema = "Traslochi"; // Inserisci Qui nome schema Dipendente
+		this.schema = "Traslochi"; 
 	}
 
 	@Override
@@ -49,8 +49,7 @@ public class DipendenteDao implements IDipendenteDao {
 		return true;
 	}
 
-	// DA IMPLEMENTARE devo vedere dipendente view
-	@Override
+ 	@Override
 	public boolean updateDipendente(UserModel u) {
  	    Connection conn = null;
 
@@ -83,8 +82,7 @@ public class DipendenteDao implements IDipendenteDao {
 	}
 
 
-	// DA IMPLEMENTARE devo vedere responsabile
-	@Override
+ 	@Override
 	public boolean deleteDipendente(UserModel u) {
 
 		conn = DatabaseConnection.startConnection(conn, schema);
@@ -106,8 +104,7 @@ public class DipendenteDao implements IDipendenteDao {
 		return true;
 	}
 
-	@Override // il responsabile fa alldipendenti
-	public List<UserModel> getAllDipendenti() {
+ 	public List<UserModel> getAllDipendenti() {
 		List<UserModel> dipendenti = new ArrayList<>();
 
 		Statement stmt = null;
