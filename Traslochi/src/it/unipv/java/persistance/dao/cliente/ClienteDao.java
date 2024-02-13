@@ -140,7 +140,7 @@ public class ClienteDao implements IClienteDao {
 	}
    
 	
-	public UserModel getCliente(LoginModel ag) {
+	public UserModel getCliente(UserModel ag) {
 	    UserModel um = null;  
 	    conn = DatabaseConnection.startConnection(conn, schema);
 
@@ -149,13 +149,13 @@ public class ClienteDao implements IClienteDao {
 	    ResultSet rs = null;
 
 	    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-	        pstmt.setString(1, ag.getUm().getEmail());
+	        pstmt.setString(1, ag.getEmail());
 	        rs = pstmt.executeQuery();
 
 	        if (rs.next()) {
 	            String storedHashedPassword = rs.getString("PASSWORD");  
  
-	            if (PasswordUtil.verifyPassword(ag.getUm().getPassword(), storedHashedPassword)) {
+	            if (PasswordUtil.verifyPassword(ag.getPassword(), storedHashedPassword)) {
 	                um = new UserModel();
  	                um.setId(rs.getString("idCliente"));
  	            }

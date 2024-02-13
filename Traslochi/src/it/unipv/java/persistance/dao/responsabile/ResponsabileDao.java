@@ -7,6 +7,7 @@ import java.sql.ResultSet;
  
 import it.unipv.java.model.LoginModel;
 import it.unipv.java.model.RegisterModel;
+import it.unipv.java.model.user.UserModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 import it.unipv.java.persistance.dao.PasswordUtil;
 
@@ -52,7 +53,7 @@ public class ResponsabileDao implements IResponsabileDao{
 	} 
 	
 	@Override
-	public boolean getResponsabile(LoginModel ag) {
+	public boolean getResponsabile(UserModel um) {
 	    boolean loginSuccess = false;
 	    conn = DatabaseConnection.startConnection(conn, schema);
 	     

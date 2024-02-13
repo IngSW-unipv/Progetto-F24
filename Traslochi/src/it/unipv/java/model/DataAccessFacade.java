@@ -9,8 +9,7 @@ import it.unipv.java.persistance.dao.prenotazione.PrenotazioneDao;
 import it.unipv.java.persistance.dao.responsabile.ResponsabileDao;
 import it.unipv.java.persistance.dao.turno.TurnoDao;
 
-import java.util.ArrayList;
-import java.util.List;
+ import java.util.List;
 import java.util.Random;
 
 public class DataAccessFacade {
@@ -91,13 +90,13 @@ public class DataAccessFacade {
 		return this.loggedInUser;
 	}
 
-	public boolean loginUser(LoginModel lm) {
-		UserType userType = UserTypeUtil.determineUserType(lm.getUm());
+	public boolean loginUser(UserModel um) {
+		UserType userType = UserTypeUtil.determineUserType(um);
 		boolean loginSuccess = false;
 
 		switch (userType) {
 		case CLIENTE:
-			UserModel user = new ClienteDao().getCliente(lm);
+			UserModel user = new ClienteDao().getCliente(um);
 			if (user != null) {
 				DataAccessFacade.getInstance().setLoggedInUser(user);
 			} else {
@@ -105,10 +104,10 @@ public class DataAccessFacade {
 			}
 			break;
 		case DIPENDENTE:
-			loginSuccess = new DipendenteDao().getDipendente(lm);
+			loginSuccess = new DipendenteDao().getDipendente(um);
 			break;
 		case RESPONSABILE:
-			loginSuccess = new ResponsabileDao().getResponsabile(lm);
+			loginSuccess = new ResponsabileDao().getResponsabile(um);
 			break;
 		}
 
@@ -175,5 +174,35 @@ public class DataAccessFacade {
 
 	}
 
+	public boolean modificaProfilo(UserModel um) {
+		UserType userType = UserTypeUtil.determineUserType(um);
+		
+		switch (userType) {
+		case CLIENTE:
+			return new ClienteDao().updateCliente(um); 
+			
+		case DIPENDENTE:
+			return   new DipendenteDao().updateDipendente(um);
+ 		 
+		}
 
+		return false ;
+		  
+
+	}
+
+	public UserModel visualizzaProfilo(UserModel um) {
+		UserType userType = UserTypeUtil.determineUserType(um);
+		
+		switch (userType) {
+		case CLIENTE:
+			return new ClienteDao().getCliente(um); 
+			
+		case DIPENDENTE:
+			return   new DipendenteDao().getDipendente(um);
+ 		 
+		}
+
+		return um ; 
+	}
 }

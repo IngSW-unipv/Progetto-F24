@@ -146,7 +146,7 @@ public class DipendenteDao implements IDipendenteDao {
 
 	}
 
-	public boolean getDipendente(LoginModel ag) {
+	public boolean getDipendente(UserModel ag) {
 
 		boolean loginSuccess = false;
 		conn = DatabaseConnection.startConnection(conn, schema);
@@ -156,11 +156,11 @@ public class DipendenteDao implements IDipendenteDao {
 
 		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-			pstmt.setString(1, ag.getUm().getEmail());
+			pstmt.setString(1, ag.getEmail());
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				String storedHash = rs.getString("PASSWORD");
-				if (PasswordUtil.verifyPassword(ag.getUm().getPassword(), storedHash)) {
+				if (PasswordUtil.verifyPassword(ag.getPassword(), storedHash)) {
 					loginSuccess = true;
 				}
 			}
@@ -178,5 +178,7 @@ public class DipendenteDao implements IDipendenteDao {
 
 		return loginSuccess;
 	}
+
+ 
 
 }
