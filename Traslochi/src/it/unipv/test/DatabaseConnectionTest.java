@@ -2,10 +2,12 @@ package it.unipv.test;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import org.junit.Test;
 
-public class TestDatabaseConnection {
-
-    public static void main(String[] args) {
+public class DatabaseConnectionTest {
+	
+	@Test
+    public static void apriConnessione(String[] args) {
         // Nome del database
         String databaseName = "Traslochi"; // Modifica con il nome del tuo database
         
@@ -30,4 +32,4 @@ public class TestDatabaseConnection {
             e.printStackTrace();
         }
     }
-}
+}//fineConnection

@@ -289,4 +289,8 @@ public class RegisterView extends JFrame {
 		setPassRipetuta("");
 		setPass("");
 	}
+
+	public void registrazioneEffettuata() {
+		this.setVisible(false);		
+	}
 }

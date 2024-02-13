@@ -39,7 +39,7 @@ public class LoginView extends JFrame {
 	private JLabel lblNewLabel_1;
 	
 
-	public static void main(String[] args) {
+	public   void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -227,6 +227,10 @@ public class LoginView extends JFrame {
 	
 	public void setEmail(String em) {
 		email.setText(em);
+	}
+
+	public void apriLogin() {
+		this.setVisible(true);
 	}
 	
 	

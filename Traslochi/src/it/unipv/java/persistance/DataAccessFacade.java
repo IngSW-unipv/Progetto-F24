@@ -17,8 +17,8 @@ import it.unipv.java.persistance.dao.turno.TurnoDao;
 import java.util.Random;
 
 public class DataAccessFacade {
-	RegisterModel rm;
-	LoginModel lm;
+	private RegisterModel rm;
+	private LoginModel lm;
 	private UserModel loggedInUser;
 	private static DataAccessFacade instance;
 
