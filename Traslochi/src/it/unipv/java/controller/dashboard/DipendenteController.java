@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.time.LocalTime;
 
 import it.unipv.java.model.TurnoModel;
+import it.unipv.java.model.user.UserModel;
 import it.unipv.java.persistance.DataAccessFacade;
 import it.unipv.java.view.DipendentView;
 import it.unipv.java.view.VisualizzaProfiloView;
@@ -13,9 +14,11 @@ public class DipendenteController {
     private TurnoModel tm;
     private DipendentView dv;
     private VisualizzaProfiloView pv;
+    private UserModel um;
     
-    public DipendenteController(TurnoModel tm, DipendentView dv, VisualizzaProfiloView pv) { 
-        this.tm = tm;
+    public DipendenteController(UserModel um, DipendentView dv) { 
+        this.tm = new TurnoModel();
+        this.um=um;
         this.dv = dv;
         this.pv = pv;
         setListeners();

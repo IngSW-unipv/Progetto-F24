@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import it.unipv.java.controller.dashboard.ClienteController;
+import it.unipv.java.controller.dashboard.DipendenteController;
+import it.unipv.java.controller.dashboard.ResponsabileController;
 import it.unipv.java.model.LoginModel;
 import it.unipv.java.model.user.UserModel;
 import it.unipv.java.model.user.UserType;
@@ -46,15 +48,14 @@ public class LoginController {
 						cl.setVisible(true);
 						break;
 					case DIPENDENTE:
-						lv.setVisible(false);
-						//cv.setVisible(false);
+						DipendentView dv= new DipendentView();
+						DipendenteController dc= new DipendenteController(loginuser,dv);
 						dv.setVisible(true);
-						rv.setVisible(false);
+						
 					    break;
 					case RESPONSABILE:
-						lv.setVisible(false);
-						//cv.setVisible(false);
-						dv.setVisible(false);
+						ResponsabileView rv= new ResponsabileView();
+						ResponsabileController rc= new ResponsabileController(loginuser, rv);
 						rv.setVisible(true);
 						break;
 					}

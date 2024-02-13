@@ -29,13 +29,14 @@ public class ClienteDao implements IClienteDao {
 		PreparedStatement st1;
 		boolean esito = true;
 		try {
-			String query = "INSERT INTO CLIENTE (NOME,COGNOME,EMAIL,PASSWORD,IDCLIENTE) VALUES(?,?,?,?,?)";
+			String query = "INSERT INTO CLIENTE (NOME,COGNOME,CF,EMAIL,PASSWORD,IDCLIENTE) VALUES(?,?,?,?,?,?)";
 			st1 = conn.prepareStatement(query);
 			st1.setString(1, c.getUm().getNome());
 			st1.setString(2, c.getUm().getCognome());
-			st1.setString(3, c.getUm().getEmail());
-			st1.setString(4, c.getUm().getPassword());		
-			st1.setString(5, c.getUm().getId());
+			st1.setString(3, c.getUm().getCf());
+			st1.setString(4, c.getUm().getEmail());
+			st1.setString(5, c.getUm().getPassword());		
+			st1.setString(6, c.getUm().getId());
 			st1.executeUpdate();
 
 		} catch (Exception e) {
@@ -53,15 +54,16 @@ public class ClienteDao implements IClienteDao {
 	public boolean updateCliente(UserModel ag) {
 
 		conn = DatabaseConnection.startConnection(conn, schema);
-		String query = "UPDATE CLIENTE SET NOME=?,COGNOME=?,EMAIL=?,PASSWORD=? WHERE id=?";
+		String query = "UPDATE CLIENTE SET NOME=?,COGNOME=?,CF=?,EMAIL=?,PASSWORD=? WHERE id=?";
 
 		try (PreparedStatement st1 = conn.prepareStatement(query)) {
 
 			st1.setString(1, ag.getNome());
 			st1.setString(2, ag.getCognome());
-			st1.setString(3, ag.getEmail());
-			st1.setString(4, ag.getPassword());
-			st1.setString(5, ag.getId());
+			st1.setString(3, ag.getCf());
+			st1.setString(4, ag.getEmail());
+			st1.setString(5, ag.getPassword());
+			st1.setString(6, ag.getId());
 
 			st1.executeUpdate();
 

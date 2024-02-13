@@ -20,7 +20,9 @@ public class ResponsabileController {
  	private AssegnaTurnoView at;
 	private TurnoModel tm;
 	private PrenotazioneModel pm;
-	public ResponsabileController(UserModel um, ResponsabileView rv,  AssegnaTurnoView at,TurnoModel tm) {
+	
+	//HO TOLTO ASSEGNATURNO E TURNOMODEL DAL COSTRUTTORE --> NIKUZ
+	public ResponsabileController(UserModel um, ResponsabileView rv) {
 		this.um = um;
 		this.rv = rv;
  		this.at=at;
