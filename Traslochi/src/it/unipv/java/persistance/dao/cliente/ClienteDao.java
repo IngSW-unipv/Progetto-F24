@@ -141,11 +141,10 @@ public class ClienteDao implements IClienteDao {
    
 	
 	public UserModel getCliente(UserModel ag) {
-	    UserModel um = null;  
+	    UserModel um = null;
 	    conn = DatabaseConnection.startConnection(conn, schema);
 
-	     
-	    String sql = "SELECT idCliente, PASSWORD FROM CLIENTE WHERE EMAIL = ?";
+ 	    String sql = "SELECT IDCliente, Nome, Cognome, CF, Email, PASSWORD FROM CLIENTE WHERE EMAIL = ?";
 	    ResultSet rs = null;
 
 	    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -153,11 +152,15 @@ public class ClienteDao implements IClienteDao {
 	        rs = pstmt.executeQuery();
 
 	        if (rs.next()) {
-	            String storedHashedPassword = rs.getString("PASSWORD");  
- 
-	            if (PasswordUtil.verifyPassword(ag.getPassword(), storedHashedPassword)) {
+	            String storedHashedPassword = rs.getString("PASSWORD");
+
+ 	            if (PasswordUtil.verifyPassword(ag.getPassword(), storedHashedPassword)) {
 	                um = new UserModel();
- 	                um.setId(rs.getString("idCliente"));
+ 	                um.setId(rs.getString("IDCliente"));
+	                um.setNome(rs.getString("Nome"));
+	                um.setCognome(rs.getString("Cognome"));
+	                um.setCf(rs.getString("CF"));
+	                um.setEmail(rs.getString("Email"));
  	            }
 	        }
 	    } catch (Exception e) {
@@ -171,7 +174,7 @@ public class ClienteDao implements IClienteDao {
 	        }
 	    }
 
-	    return um;  
+	    return um;
 	}
- 
+
 }//fine getCliente

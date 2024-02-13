@@ -53,24 +53,27 @@ public class ResponsabileDao implements IResponsabileDao{
 	} 
 	
 	@Override
-	public boolean getResponsabile(UserModel um) {
-	    boolean loginSuccess = false;
+	public UserModel getResponsabile(UserModel lm) {
+	    UserModel responsabile = null; // Inizializza l'utente responsabile come null
 	    conn = DatabaseConnection.startConnection(conn, schema);
 	     
-	    String sql = "SELECT PASSWORD FROM RESPONSABILE WHERE EMAIL = ?";
+	    String sql = "SELECT * FROM RESPONSABILE WHERE EMAIL = ?";
 	    ResultSet rs = null;
 	    
 	    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-	         
-	    	//pstmt.setString(1, ag.getLm().getUm().getEmail());
 	        
- 	        rs = pstmt.executeQuery();
+	        pstmt.setString(1, lm.getEmail()); // Usa il parametro corretto
+	        rs = pstmt.executeQuery();
 	        
- 	        if (rs.next()) {
-	        	 String storedHash = rs.getString("PASSWORD");
-	 	          //  if (PasswordUtil.verifyPassword(ag.getLm().getUm().getPassword(), storedHash)) {
-		            //    loginSuccess = true; 
-		            //}
+	        if (rs.next()) {
+	            String storedHash = rs.getString("PASSWORD");
+	            if (PasswordUtil.verifyPassword(lm.getPassword(), storedHash)) {
+ 	                responsabile = new UserModel();
+	                responsabile.setId(rs.getString("ID"));
+	                responsabile.setNome(rs.getString("NOME"));
+	                responsabile.setCognome(rs.getString("COGNOME"));
+	                responsabile.setEmail(rs.getString("EMAIL"));
+ 	            }
 	        }
 	    } catch (Exception e) {
 	        e.printStackTrace();
@@ -83,8 +86,9 @@ public class ResponsabileDao implements IResponsabileDao{
 	        }
 	    }
 	    
-	    return loginSuccess;
+	    return responsabile; // Restituisce l'utente responsabile se il login ha successo, altrimenti null
 	}
+
 
 	
 }//fine responsabile
