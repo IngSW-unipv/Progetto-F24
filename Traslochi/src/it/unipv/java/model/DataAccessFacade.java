@@ -142,7 +142,7 @@ public class DataAccessFacade {
 		}
 	}
 
-	public boolean eliminazioneuser(UserModel us) {
+	public boolean eliminazioneUser(UserModel us) {
 
 		return new DipendenteDao().deleteDipendente(us);
 	}
@@ -199,7 +199,7 @@ public class DataAccessFacade {
 			return new ClienteDao().getCliente(um); 
 			
 		case DIPENDENTE:
-			return   new DipendenteDao().getDipendente(um);
+			return new DipendenteDao().getDipendente(um);
  		 
 		}
 
