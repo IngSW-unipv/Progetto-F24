@@ -17,6 +17,9 @@ import java.awt.SystemColor;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.border.SoftBevelBorder;
+
+import it.unipv.java.model.PrenotazioneModel;
+
 import javax.swing.border.BevelBorder;
 import javax.swing.JSeparator;
 import javax.swing.JList;
@@ -576,6 +579,17 @@ public class PrenotazioneView extends JFrame {
 
 	public void setTextField_9(JTextField textField_9) {
 		this.textField_9 = textField_9;
+	}
+
+	public void setViewTest(PrenotazioneModel pm) {
+		indirizzoRitiro.setText(pm.getIndirizzodiRitiro());
+		indirizzoConsegna.setText(pm.getIndirizzoDiConsegna());
+		dataRitiro.setText(pm.getDataRitiro());
+		dataConsegna.setText(pm.getDataConsegna());
+		textField_6.setText(pm.getCVC());
+		textField_7.setText(pm.getScadGiorno());
+		textField_8.setText(pm.getScadMese());
+		textField_9.setText(pm.getScadAnno());
 	}
 	
 }
