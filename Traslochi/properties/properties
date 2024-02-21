@@ -3,3 +3,4 @@ DBURL =jdbc:mysql://localhost:3306/traslochi?serverTimezone=UTC
 db_usn= root
 db_psw = Password23.
 
+Persistance_Type = MySql
