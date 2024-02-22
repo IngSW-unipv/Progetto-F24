@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.unipv.java.model.PrenotazioneModel;
+import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.user.UserModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 
@@ -54,7 +55,7 @@ public class PrenotazioneDao implements IPrenotazioneDao{
 	}
 
 	@Override
-	public  List <PrenotazioneModel> getPrenotazione(UserModel c) {
+	public  List <PrenotazioneModel> getPrenotazione() {
 	    List<PrenotazioneModel> prenotazioni = new ArrayList<>();
 
 	    Connection conn = null;
@@ -64,7 +65,7 @@ public class PrenotazioneDao implements IPrenotazioneDao{
 	        conn = DatabaseConnection.startConnection(conn, schema);
 	        String sql = "SELECT * FROM Prenotazioni WHERE IDCliente = ?";
 	        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-	            stmt.setString(1, c.getId());
+	            stmt.setString(1, SingleSessioneAttiva.getInstance().getUtenteAttivo().getId());
 	            rs = stmt.executeQuery();
 	            if (rs.next()) {
 	        		PrenotazioneModel prenotazione  = new PrenotazioneModel();

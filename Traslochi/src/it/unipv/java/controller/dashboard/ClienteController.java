@@ -8,7 +8,6 @@ import java.util.List;
 import it.unipv.java.controller.PrenotazioneController;
 import it.unipv.java.model.PrenotazioneModel;
 import it.unipv.java.model.user.UserModel;
-import it.unipv.java.persistance.DataAccessFacade;
 import it.unipv.java.view.ClienteView;
 import it.unipv.java.view.PrenotazioneView;
 import it.unipv.java.view.VisualizzaProfiloView;
@@ -18,8 +17,6 @@ public class ClienteController {
 	private ClienteView cv;
 	private VisualizzaProfiloView pv;
 	
-
- 
 	public ClienteController(UserModel um, ClienteView cv) {
 		this.um = um;
 		this.cv = cv;
@@ -45,9 +42,7 @@ public class ClienteController {
 		});
 	}
 	
-	
 	private void riempiPrenotazioniClienteTXT() {
-
 		PrenotazioneModel pren = new PrenotazioneModel();
 		List<PrenotazioneModel> lista = new ArrayList<PrenotazioneModel>();
 		lista = pren.getPrenotazioniUtente(um);
@@ -61,7 +56,5 @@ public class ClienteController {
 						prenotazione.getDataRitiro() +
 						prenotazione.getDataConsegna() +"/n");
 		}
- 
 	}
-
 }

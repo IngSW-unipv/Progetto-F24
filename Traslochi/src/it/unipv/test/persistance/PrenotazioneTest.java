@@ -1,4 +1,4 @@
-package it.unipv.test;
+package it.unipv.test.persistance;
 
 import it.unipv.java.controller.PrenotazioneController;
 import it.unipv.java.model.PrenotazioneModel;

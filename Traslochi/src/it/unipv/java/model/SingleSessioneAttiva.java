@@ -7,21 +7,21 @@ public class SingleSessioneAttiva {
 	private static SingleSessioneAttiva instance;
 	
 	//Singleton Private Constructor
-	private SingleSessioneAttiva(UserModel utenteDaAttivare) {
-		this.utenteAttivo = utenteDaAttivare;
+	private SingleSessioneAttiva() {
+		this.utenteAttivo = null;
 	}
 	
 	//Singleton getInstance
-	public static SingleSessioneAttiva getInstance(UserModel utenteDaAttivare) {
-		if(instance == null)
-			instance = new SingleSessioneAttiva(utenteDaAttivare);
+	public static SingleSessioneAttiva getInstance() {
+		if(instance == null) {
+			instance = new SingleSessioneAttiva();
+		}
 		return instance;
 	}
 	
 	//Logout User kills active Instance
-	public void killInstance() {
-		instance = null;
-		System.gc();
+	public void logout() {
+	    SingleSessioneAttiva.instance = null;
 	}
 	
 	//Getters Setters
@@ -31,5 +31,4 @@ public class SingleSessioneAttiva {
 	public void setUtenteAttivo(UserModel utenteAttivo) {
 		this.utenteAttivo = utenteAttivo;
 	}
-	
 }

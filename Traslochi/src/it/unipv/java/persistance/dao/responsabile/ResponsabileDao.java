@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import it.unipv.java.model.LoginModel;
 import it.unipv.java.model.RegisterModel;
+import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.user.UserModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 
@@ -59,8 +60,7 @@ public class ResponsabileDao implements IResponsabileDao{
 
 	
 	@Override
-	public UserModel getResponsabile(UserModel lm) {
-	    UserModel responsabile = null; // Inizializza l'utente responsabile come null
+	public boolean getResponsabile(LoginModel lm) {
 	    conn = DatabaseConnection.startConnection(conn, schema);
 	     
 	    String sql = "SELECT * FROM RESPONSABILE WHERE EMAIL = ?";
@@ -68,17 +68,17 @@ public class ResponsabileDao implements IResponsabileDao{
 	    
 	    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
 	        
-	        pstmt.setString(1, lm.getEmail()); // Usa il parametro corretto
+	        pstmt.setString(1, lm.getUm().getEmail()); // Usa il parametro corretto
 	        rs = pstmt.executeQuery();
 	        
 	        if (rs.next()) {
- 	                responsabile = new UserModel();
-	                responsabile.setId(rs.getString("ID"));
-	                responsabile.setNome(rs.getString("NOME"));
-	                responsabile.setCognome(rs.getString("COGNOME"));
-	                responsabile.setEmail(rs.getString("EMAIL"));
-	                responsabile.setPassword(rs.getString("PASSWORD"));
- 	            
+	        	UserModel responsabile = new UserModel();
+	            responsabile.setId(rs.getString("ID"));
+	            responsabile.setNome(rs.getString("NOME"));
+	            responsabile.setCognome(rs.getString("COGNOME"));
+	            responsabile.setEmail(rs.getString("EMAIL"));
+	            responsabile.setPassword(rs.getString("PASSWORD"));
+ 	            SingleSessioneAttiva.getInstance().setUtenteAttivo(responsabile);;
 	        }
 	    } catch (Exception e) {
 	        e.printStackTrace();
@@ -86,12 +86,20 @@ public class ResponsabileDao implements IResponsabileDao{
 	        try {
 	            if (rs != null) rs.close();
 	            DatabaseConnection.closeConnection(conn);
+	            return true;
 	        } catch (Exception e) {
 	            e.printStackTrace();
 	        }
 	    }
 	    
-	    return responsabile; // Restituisce l'utente responsabile se il login ha successo, altrimenti null
+	    return false; // Restituisce l'utente responsabile se il login ha successo, altrimenti null
+	}
+
+
+	@Override
+	public boolean updateResponsabile(UserModel ag) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 

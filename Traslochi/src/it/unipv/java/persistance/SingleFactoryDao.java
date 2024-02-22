@@ -30,6 +30,7 @@ public class SingleFactoryDao {
 		init();
 	}
 	
+	//Metodo che informa su quale sia il tipo di persistenza si voglia usare.
 	private void init() {
 		try {
 		Properties p = new Properties(System.getProperties());
@@ -79,6 +80,7 @@ public class SingleFactoryDao {
 			default: return null;
 		}
 	}
+	
 	public IResponsabileDao getResponsabilePersistance() {
 		
 		switch(persistenzaAttiva) {
@@ -88,6 +90,7 @@ public class SingleFactoryDao {
 			default: return null;
 		}
 	}
+	
 	public ITurnoDao getTurnoPersistance() {
 		
 		switch(persistenzaAttiva) {

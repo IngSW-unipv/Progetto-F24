@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 import it.unipv.java.model.user.UserModel;
 import it.unipv.java.persistance.DataAccessFacade;
-import it.unipv.java.persistance.dao.prenotazione.PrenotazioneDao;
+import it.unipv.java.persistance.PersistanceFacade;
 
 public class PrenotazioneModel {
 	private String idPrenotazione;
@@ -24,7 +24,6 @@ public class PrenotazioneModel {
 	private String scadGiorno;
 	private String scadMese;
 	private String scadAnno;
-	private DataAccessFacade dbAccess;
 
 	// Getters
 	public String getIdPrenotazione() {
@@ -181,14 +180,12 @@ public class PrenotazioneModel {
 		return UUID.randomUUID().toString();
 
 	}
-	  public List<PrenotazioneModel> mostratuttePrenotazioni() {
-		
-		return DataAccessFacade.getInstance().mostraPrenotazioni();
+	public List<PrenotazioneModel> mostratuttePrenotazioni() {
+		return PersistanceFacade.getInstance().mostraPrenotazioni();
 	}
 	
-	  public List<PrenotazioneModel> getPrenotazioniUtente(UserModel um) {
-			
-			return DataAccessFacade.getInstance().getPrenotazioniUtente(um);
+	public List<PrenotazioneModel> getPrenotazioniUtente(UserModel um) {
+		return DataAccessFacade.getInstance().getPrenotazioniUtente(um);
 		}
 		
 	public void setScadGiorno(String textField_7) {

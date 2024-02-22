@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import it.unipv.java.model.LoginModel;
 import it.unipv.java.model.RegisterModel;
+import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.user.UserModel;
 import it.unipv.java.persistance.DataAccessFacade;
 import it.unipv.java.persistance.dao.DatabaseConnection;
@@ -140,27 +141,26 @@ public class ClienteDao implements IClienteDao {
 	}
    
 	
-	public UserModel getCliente(UserModel ag) {
-	    UserModel um = null;
+	public boolean getCliente(LoginModel ag) {
 	    conn = DatabaseConnection.startConnection(conn, schema);
 
  	    String sql = "SELECT IDCliente, Nome, Cognome, CF, Email, PASSWORD FROM CLIENTE WHERE EMAIL = ?";
 	    ResultSet rs = null;
 
 	    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-	        pstmt.setString(1, ag.getEmail());
+	        pstmt.setString(1, ag.getUm().getEmail());
 	        rs = pstmt.executeQuery();
 
 	        if (rs.next()) {
 	            // = rs.getString("PASSWORD");
-	                um = new UserModel();
+	               UserModel um = new UserModel();
  	                um.setId(rs.getString("IDCliente"));
 	                um.setNome(rs.getString("Nome"));
 	                um.setCognome(rs.getString("Cognome"));
 	                um.setCf(rs.getString("CF"));
 	                um.setEmail(rs.getString("Email"));
 	                um.setPassword(rs.getString("Password"));
- 	            
+	               SingleSessioneAttiva.getInstance().setUtenteAttivo(um);;
 	        }
 	    } catch (Exception e) {
 	        e.printStackTrace();
@@ -168,12 +168,13 @@ public class ClienteDao implements IClienteDao {
 	        try {
 	            if (rs != null) rs.close();
 	            DatabaseConnection.closeConnection(conn);
+	            return true;
 	        } catch (Exception e) {
 	            e.printStackTrace();
 	        }
 	    }
 
-	    return um;
+	    return false;
 	}
 
 }//fine getCliente

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import it.unipv.java.model.LoginModel;
 import it.unipv.java.model.RegisterModel;
+import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.user.UserModel;
 import it.unipv.java.persistance.DataAccessFacade;
 import it.unipv.java.persistance.dao.DatabaseConnection;
@@ -141,28 +142,26 @@ public class DipendenteDao implements IDipendenteDao {
 
 	}
 
-	public UserModel getDipendente(UserModel ag) {
-
-		boolean loginSuccess = false;
+	public boolean getDipendente(LoginModel ag) {
 		conn = DatabaseConnection.startConnection(conn, schema);
-		UserModel um= null;
 
 		String sql = "SELECT PASSWORD FROM DIPENDENTE WHERE EMAIL = ?";
 		ResultSet rs = null;
 
 		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-			pstmt.setString(1, ag.getEmail());
+			pstmt.setString(1, ag.getUm().getEmail());
 			rs = pstmt.executeQuery();
 			
 			
 			if (rs.next()) {
-				um = new UserModel();
+				UserModel um = new UserModel();
 				um.setId(rs.getString("IDCliente"));
                 um.setNome(rs.getString("Nome"));
                 um.setCognome(rs.getString("Cognome"));
                 um.setCf(rs.getString("CF"));
                 um.setEmail(rs.getString("Email"));
                 um.setPassword(rs.getString("Password"));
+                SingleSessioneAttiva.getInstance().setUtenteAttivo(um);;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -171,12 +170,13 @@ public class DipendenteDao implements IDipendenteDao {
 				if (rs != null)
 					rs.close();
 				DatabaseConnection.closeConnection(conn);
+				return true;
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
 
-		return um;
+		return false;
 	}
 
  
