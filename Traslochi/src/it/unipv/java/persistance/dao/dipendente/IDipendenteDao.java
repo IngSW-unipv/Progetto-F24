@@ -10,7 +10,7 @@ import it.unipv.java.model.user.UserModel;
  
 public interface IDipendenteDao {
     public List<UserModel> getAllDipendenti();
-    public boolean getDipendente(LoginModel ag);
+    public boolean getDipendente(UserModel datiLogin);
     public boolean createDipendente(RegisterModel ag);
     public boolean updateDipendente(UserModel ag);
     public boolean deleteDipendente(UserModel ag);

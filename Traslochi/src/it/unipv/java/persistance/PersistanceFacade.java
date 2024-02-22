@@ -2,7 +2,6 @@ package it.unipv.java.persistance;
 
 import java.util.List;
 
-import it.unipv.java.model.LoginModel;
 import it.unipv.java.model.PrenotazioneModel;
 import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.SingleSessioneAttiva;
@@ -22,8 +21,8 @@ public class PersistanceFacade {
 		return instance;
 	}
 	
-	public boolean loginUser(LoginModel datiLogin) {
-		switch(datiLogin.getUm().getUserType()) {
+	public boolean loginUser(UserModel datiLogin) {
+		switch(datiLogin.getUserType()) {
 		case DIPENDENTE:
 			return SingleFactoryDao.getInstance().getDipendentePersistance().getDipendente(datiLogin);
 		case RESPONSABILE:
@@ -92,5 +91,10 @@ public class PersistanceFacade {
 	
 	public List<UserModel> mostraDipendenti() {
 		return SingleFactoryDao.getInstance().getDipendentePersistance().getAllDipendenti();
+	}
+
+	public UserModel visualizzaProfilo(UserModel um) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

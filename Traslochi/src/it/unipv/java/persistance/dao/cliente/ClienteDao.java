@@ -3,15 +3,12 @@ package it.unipv.java.persistance.dao.cliente;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import it.unipv.java.model.LoginModel;
 import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.user.UserModel;
-import it.unipv.java.persistance.DataAccessFacade;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 
 
@@ -141,14 +138,14 @@ public class ClienteDao implements IClienteDao {
 	}
    
 	
-	public boolean getCliente(LoginModel ag) {
+	public boolean getCliente(UserModel ag) {
 	    conn = DatabaseConnection.startConnection(conn, schema);
 
  	    String sql = "SELECT IDCliente, Nome, Cognome, CF, Email, PASSWORD FROM CLIENTE WHERE EMAIL = ?";
 	    ResultSet rs = null;
 
 	    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-	        pstmt.setString(1, ag.getUm().getEmail());
+	        pstmt.setString(1, ag.getEmail());
 	        rs = pstmt.executeQuery();
 
 	        if (rs.next()) {

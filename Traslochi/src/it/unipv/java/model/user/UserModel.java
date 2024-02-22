@@ -2,7 +2,7 @@ package it.unipv.java.model.user;
 
 import java.util.List;
 
-import it.unipv.java.persistance.DataAccessFacade;
+import it.unipv.java.persistance.PersistanceFacade;
 
 public class UserModel {
 
@@ -88,7 +88,7 @@ public class UserModel {
 	}
 
 	public List<UserModel> tuttiDipendenti() {
-		return DataAccessFacade.getInstance().mostraDipendenti();
+		return PersistanceFacade.getInstance().mostraDipendenti();
 	}
 
 	public void modificaProfilo(String nome, String cognome, String email, UserType userType) {

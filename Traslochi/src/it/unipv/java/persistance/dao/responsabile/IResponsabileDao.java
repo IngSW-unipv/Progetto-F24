@@ -9,6 +9,6 @@ import it.unipv.java.model.user.UserModel;
 
 public interface IResponsabileDao {
     public boolean createResponsabile(RegisterModel c);
-    public boolean getResponsabile(LoginModel r); 
+    public boolean getResponsabile(UserModel datiLogin); 
     public boolean updateResponsabile(UserModel ag);
 }

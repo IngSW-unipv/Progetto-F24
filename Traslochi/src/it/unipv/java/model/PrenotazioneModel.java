@@ -7,7 +7,6 @@ import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 import it.unipv.java.model.user.UserModel;
-import it.unipv.java.persistance.DataAccessFacade;
 import it.unipv.java.persistance.PersistanceFacade;
 
 public class PrenotazioneModel {
@@ -155,7 +154,7 @@ public class PrenotazioneModel {
 		if (validaDati()) {
 			this.setIdPrenotazione(UUID.randomUUID().toString());
 			this.setImportoPagato(importoPagato); // Calcola automaticamente l'importo
-			boolean createSuccess = DataAccessFacade.getInstance().createPrenotazione(this);
+			boolean createSuccess = PersistanceFacade.getInstance().createPrenotazione(this);
 			return createSuccess;
 		} else {
 			return false;
@@ -185,7 +184,7 @@ public class PrenotazioneModel {
 	}
 	
 	public List<PrenotazioneModel> getPrenotazioniUtente(UserModel um) {
-		return DataAccessFacade.getInstance().getPrenotazioniUtente(um);
+		return PersistanceFacade.getInstance().getPrenotazioniUtente();
 		}
 		
 	public void setScadGiorno(String textField_7) {

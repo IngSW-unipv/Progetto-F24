@@ -15,4 +15,16 @@ public class UserModelUtil {
 		int n3 = n2 + 1 + random.nextInt(9 - n2); // Terzo numero, maggiore di n2
 		return baseId + n1 + n2 + n3;
 	}
+	public static UserType determineUserType(UserModel um) {
+		String dominio = um.getEmail().substring(um.getEmail().indexOf("@") + 1);
+		if ("bidons.it".equals(dominio)) {
+			return UserType.DIPENDENTE;
+		} else if ("bidonsResp.it".equals(dominio)) {
+			return UserType.RESPONSABILE;
+		} else {
+			return UserType.CLIENTE;
+		}
+	}
+
+	
 }

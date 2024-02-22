@@ -2,8 +2,8 @@ package it.unipv.java.model;
 
 import it.unipv.java.model.user.UserModel;
 import it.unipv.java.model.user.UserType;
-import it.unipv.java.model.user.UserTypeUtil;
-import it.unipv.java.persistance.DataAccessFacade;
+import it.unipv.java.model.user.UserModelUtil;
+import it.unipv.java.persistance.PersistanceFacade;
 
 public class LoginModel {
     private UserModel um;  
@@ -20,13 +20,11 @@ public class LoginModel {
 	}
 	
 	public boolean confermaLogin() {
-        boolean registrazioneRiuscita = DataAccessFacade.getInstance().loginUser(um);
-        if(registrazioneRiuscita) { return true; } else {
- 		return false;}
+        return PersistanceFacade.getInstance().loginUser(um);
 	}
  
 	public UserType checkuser(UserModel um) { 
- 		return  UserTypeUtil.determineUserType(um);
+ 		return  UserModelUtil.determineUserType(um);
 	}
 	
 
