@@ -7,6 +7,7 @@ import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.TurnoModel;
 import it.unipv.java.model.user.UserModel;
+import it.unipv.java.persistance.factory.SingleFactoryDao;
 
 public class PersistanceFacade {
 	private static PersistanceFacade instance;

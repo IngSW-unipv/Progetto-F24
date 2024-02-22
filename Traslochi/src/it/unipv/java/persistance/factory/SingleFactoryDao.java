@@ -1,4 +1,4 @@
-package it.unipv.java.persistance;
+package it.unipv.java.persistance.factory;
 
 import java.io.FileInputStream;
 import java.util.Properties;
