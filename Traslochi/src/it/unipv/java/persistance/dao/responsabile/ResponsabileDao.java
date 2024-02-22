@@ -60,7 +60,7 @@ public class ResponsabileDao implements IResponsabileDao{
 
 	
 	@Override
-	public boolean getResponsabile(LoginModel lm) {
+	public boolean getResponsabile(UserModel lm) {
 	    conn = DatabaseConnection.startConnection(conn, schema);
 	     
 	    String sql = "SELECT * FROM RESPONSABILE WHERE EMAIL = ?";
@@ -68,7 +68,7 @@ public class ResponsabileDao implements IResponsabileDao{
 	    
 	    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
 	        
-	        pstmt.setString(1, lm.getUm().getEmail()); // Usa il parametro corretto
+	        pstmt.setString(1, lm.getEmail()); // Usa il parametro corretto
 	        rs = pstmt.executeQuery();
 	        
 	        if (rs.next()) {
@@ -78,7 +78,7 @@ public class ResponsabileDao implements IResponsabileDao{
 	            responsabile.setCognome(rs.getString("COGNOME"));
 	            responsabile.setEmail(rs.getString("EMAIL"));
 	            responsabile.setPassword(rs.getString("PASSWORD"));
- 	            SingleSessioneAttiva.getInstance().setUtenteAttivo(responsabile);;
+ 	            SingleSessioneAttiva.getInstance().login(responsabile);;
 	        }
 	    } catch (Exception e) {
 	        e.printStackTrace();

@@ -141,14 +141,14 @@ public class DipendenteDao implements IDipendenteDao {
 
 	}
 
-	public boolean getDipendente(LoginModel ag) {
+	public boolean getDipendente(UserModel ag) {
 		conn = DatabaseConnection.startConnection(conn, schema);
 
 		String sql = "SELECT PASSWORD FROM DIPENDENTE WHERE EMAIL = ?";
 		ResultSet rs = null;
 
 		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-			pstmt.setString(1, ag.getUm().getEmail());
+			pstmt.setString(1, ag.getEmail());
 			rs = pstmt.executeQuery();
 			
 			
@@ -160,7 +160,7 @@ public class DipendenteDao implements IDipendenteDao {
                 um.setCf(rs.getString("CF"));
                 um.setEmail(rs.getString("Email"));
                 um.setPassword(rs.getString("Password"));
-                SingleSessioneAttiva.getInstance().setUtenteAttivo(um);;
+                SingleSessioneAttiva.getInstance().login(um);;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

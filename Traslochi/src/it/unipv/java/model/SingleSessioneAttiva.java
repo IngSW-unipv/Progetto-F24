@@ -8,7 +8,6 @@ public class SingleSessioneAttiva {
 	
 	//Singleton Private Constructor
 	private SingleSessioneAttiva() {
-		this.utenteAttivo = null;
 	}
 	
 	//Singleton getInstance
@@ -18,7 +17,10 @@ public class SingleSessioneAttiva {
 		}
 		return instance;
 	}
-	
+	//Login User gives meaning to active Instance
+	public void login(UserModel utenteAttivo) {
+		this.utenteAttivo = utenteAttivo;
+	}
 	//Logout User kills active Instance
 	public void logout() {
 	    SingleSessioneAttiva.instance = null;
@@ -27,8 +29,5 @@ public class SingleSessioneAttiva {
 	//Getters Setters
 	public UserModel getUtenteAttivo() {
 		return utenteAttivo;
-	}
-	public void setUtenteAttivo(UserModel utenteAttivo) {
-		this.utenteAttivo = utenteAttivo;
 	}
 }
