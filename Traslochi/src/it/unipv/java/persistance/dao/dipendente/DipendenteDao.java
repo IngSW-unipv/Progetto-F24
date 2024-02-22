@@ -29,13 +29,14 @@ public class DipendenteDao implements IDipendenteDao {
 		PreparedStatement st1;
 		boolean esito = true;
 		try {
-			String query = "INSERT INTO DIPENDENTE (NOME,COGNOME,EMAIL,PASSWORD,IDCLIENTE) VALUES(?,?,?,?,?)";
+			String query = "INSERT INTO Dipendente (IDDipendente, Nome, Cognome, CF, Email, Password) VALUES(?, ?, ?, ?, ?, ?)";
 			st1 = conn.prepareStatement(query);
-			st1.setString(1, c.getUm().getNome());
-			st1.setString(2, c.getUm().getCognome());
-			st1.setString(3, c.getUm().getEmail());
-			st1.setString(4, c.getUm().getPassword());
-			st1.setString(5, c.getUm().getId());
+			st1.setString(1, c.getUm().getId());
+			st1.setString(2, c.getUm().getNome());
+			st1.setString(3, c.getUm().getCognome());
+			st1.setString(4, c.getUm().getCf());
+			st1.setString(5, c.getUm().getEmail());
+			st1.setString(6, c.getUm().getPassword());
 			st1.executeUpdate();
 
 		} catch (Exception e) {

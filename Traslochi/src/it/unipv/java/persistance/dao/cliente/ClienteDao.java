@@ -27,14 +27,14 @@ public class ClienteDao implements IClienteDao {
 		PreparedStatement st1;
 		boolean esito = true;
 		try {
-			String query = "INSERT INTO CLIENTE (NOME,COGNOME,CF,EMAIL,PASSWORD,IDCLIENTE) VALUES(?,?,?,?,?,?)";
+			String query = "INSERT INTO Cliente (IDCliente, Nome, Cognome, CF, Email, Password) VALUES(?, ?, ?, ?, ?, ?)";
 			st1 = conn.prepareStatement(query);
-			st1.setString(1, c.getUm().getNome());
-			st1.setString(2, c.getUm().getCognome());
-			st1.setString(3, c.getUm().getCf());
-			st1.setString(4, c.getUm().getEmail());
-			st1.setString(5, c.getUm().getPassword());		
-			st1.setString(6, c.getUm().getId());
+			st1.setString(1, c.getUm().getId());
+			st1.setString(2, c.getUm().getNome());
+			st1.setString(3, c.getUm().getCognome());
+			st1.setString(4, c.getUm().getCf());
+			st1.setString(5, c.getUm().getEmail());
+			st1.setString(6, c.getUm().getPassword());	
 			st1.executeUpdate();
 
 		} catch (Exception e) {
@@ -141,7 +141,7 @@ public class ClienteDao implements IClienteDao {
 	public boolean getCliente(UserModel ag) {
 	    conn = DatabaseConnection.startConnection(conn, schema);
 
- 	    String sql = "SELECT IDCliente, Nome, Cognome, CF, Email, PASSWORD FROM CLIENTE WHERE EMAIL = ?";
+ 	    String sql = "SELECT IDCliente, Nome, Cognome, CF, Email, Password FROM CLIENTE WHERE EMAIL = ?";
 	    ResultSet rs = null;
 
 	    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {

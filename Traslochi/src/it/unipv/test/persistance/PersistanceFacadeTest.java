@@ -27,7 +27,7 @@ public class PersistanceFacadeTest {
 	public void init() {
 		PersistanceFacade.getInstance();
 		utenteDaLoggare = new UserModel();
-		utenteDaLoggare.setId("Prova");
+		utenteDaLoggare.setId("IDPROVAREGISTR");
 		utenteDaLoggare.setNome("NomeProva");
 		utenteDaLoggare.setCognome("CognomeProva");
 		utenteDaLoggare.setCf("CFPROVA");
