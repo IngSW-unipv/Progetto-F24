@@ -7,7 +7,7 @@ import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.TurnoModel;
 import it.unipv.java.model.user.UserModel;
-import it.unipv.java.persistance.factory.SingleFactoryDao;
+import it.unipv.java.persistance.factory.SingleDaoFactory;
 
 public class PersistanceFacade {
 	private static PersistanceFacade instance;
@@ -25,11 +25,11 @@ public class PersistanceFacade {
 	public boolean loginUser(UserModel datiLogin) {
 		switch(datiLogin.getUserType()) {
 		case DIPENDENTE:
-			return SingleFactoryDao.getInstance().getDipendentePersistance().getDipendente(datiLogin);
+			return SingleDaoFactory.getInstance().getDipendentePersistance().getDipendente(datiLogin);
 		case RESPONSABILE:
-			return SingleFactoryDao.getInstance().getResponsabilePersistance().getResponsabile(datiLogin);
+			return SingleDaoFactory.getInstance().getResponsabilePersistance().getResponsabile(datiLogin);
 		case CLIENTE:
-			return SingleFactoryDao.getInstance().getClientePersistance().getCliente(datiLogin);
+			return SingleDaoFactory.getInstance().getClientePersistance().getCliente(datiLogin);
 		}	
 		return false;
 	}
@@ -37,61 +37,61 @@ public class PersistanceFacade {
 	public boolean registerUser(RegisterModel datiRegistrazione) {
 		switch(datiRegistrazione.getUm().getUserType()) {
 		case DIPENDENTE:
-			return SingleFactoryDao.getInstance().getDipendentePersistance().createDipendente(datiRegistrazione);
+			return SingleDaoFactory.getInstance().getDipendentePersistance().createDipendente(datiRegistrazione);
 		case RESPONSABILE:
-			return SingleFactoryDao.getInstance().getResponsabilePersistance().createResponsabile(datiRegistrazione);
+			return SingleDaoFactory.getInstance().getResponsabilePersistance().createResponsabile(datiRegistrazione);
 		case CLIENTE:
-			return SingleFactoryDao.getInstance().getClientePersistance().createCliente(datiRegistrazione);
+			return SingleDaoFactory.getInstance().getClientePersistance().createCliente(datiRegistrazione);
 		}	
 		return false;
 	}
 	
 	public boolean eliminaDipendente(UserModel user) {
-			return SingleFactoryDao.getInstance().getDipendentePersistance().deleteDipendente(user);
+			return SingleDaoFactory.getInstance().getDipendentePersistance().deleteDipendente(user);
 	}
 
 	public boolean getTurno(TurnoModel tm) {
-		return SingleFactoryDao.getInstance().getTurnoPersistance().createTurno(tm);
+		return SingleDaoFactory.getInstance().getTurnoPersistance().createTurno(tm);
 	}
 
 	public boolean aggiungiTurno(TurnoModel tm) {
-		return SingleFactoryDao.getInstance().getTurnoPersistance().createTurno(tm);
+		return SingleDaoFactory.getInstance().getTurnoPersistance().createTurno(tm);
 	}
 	
 	public List<TurnoModel> mostraTurni() {
-		return SingleFactoryDao.getInstance().getTurnoPersistance().getAllTurni(); 
+		return SingleDaoFactory.getInstance().getTurnoPersistance().getAllTurni(); 
 	}
 	
 	public boolean modificaProfilo() {
 		switch (SingleSessioneAttiva.getInstance().getUtenteAttivo().getUserType()) {
 		case CLIENTE:
-			return SingleFactoryDao.getInstance().getClientePersistance().updateCliente(SingleSessioneAttiva.getInstance().getUtenteAttivo());
+			return SingleDaoFactory.getInstance().getClientePersistance().updateCliente(SingleSessioneAttiva.getInstance().getUtenteAttivo());
 		case DIPENDENTE:
-			return SingleFactoryDao.getInstance().getDipendentePersistance().updateDipendente(SingleSessioneAttiva.getInstance().getUtenteAttivo());
+			return SingleDaoFactory.getInstance().getDipendentePersistance().updateDipendente(SingleSessioneAttiva.getInstance().getUtenteAttivo());
 		case RESPONSABILE:
-			return SingleFactoryDao.getInstance().getResponsabilePersistance().updateResponsabile(SingleSessioneAttiva.getInstance().getUtenteAttivo());
+			return SingleDaoFactory.getInstance().getResponsabilePersistance().updateResponsabile(SingleSessioneAttiva.getInstance().getUtenteAttivo());
 		}
 		return false ; 
 	}
 	
 	public boolean createPrenotazione(PrenotazioneModel datiPrenotazione) {
-		return SingleFactoryDao.getInstance().getPrenotazionePersistance().createPrenotazione(datiPrenotazione);
+		return SingleDaoFactory.getInstance().getPrenotazionePersistance().createPrenotazione(datiPrenotazione);
 	}
 	
 	public List<PrenotazioneModel> getPrenotazioniUtente() {
-		return SingleFactoryDao.getInstance().getPrenotazionePersistance().getPrenotazione();
+		return SingleDaoFactory.getInstance().getPrenotazionePersistance().getPrenotazione();
 	}
 	
 	public List<PrenotazioneModel> mostraPrenotazioni() {
-		return SingleFactoryDao.getInstance().getPrenotazionePersistance().getAllPrenotazioni();
+		return SingleDaoFactory.getInstance().getPrenotazionePersistance().getAllPrenotazioni();
 	}
 	
 	public boolean setTurno(TurnoModel tm) {
-		return SingleFactoryDao.getInstance().getTurnoPersistance().createTurno(tm);
+		return SingleDaoFactory.getInstance().getTurnoPersistance().createTurno(tm);
 	}
 	
 	public List<UserModel> mostraDipendenti() {
-		return SingleFactoryDao.getInstance().getDipendentePersistance().getAllDipendenti();
+		return SingleDaoFactory.getInstance().getDipendentePersistance().getAllDipendenti();
 	}
 
 	public UserModel visualizzaProfilo(UserModel um) {

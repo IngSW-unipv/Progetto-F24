@@ -13,19 +13,15 @@ import it.unipv.java.persistance.dao.responsabile.IResponsabileDao;
 import it.unipv.java.persistance.dao.responsabile.ResponsabileDao;
 import it.unipv.java.persistance.dao.turno.ITurnoDao;
 import it.unipv.java.persistance.dao.turno.TurnoDao;
+import it.unipv.java.persistance.factory.strategies.IDaoFactoryStrategy;
 
-public class SingleFactoryDao {
-	public enum PersistanceTypes {
-		Default,
-		MySql,
-		Xml,	//Unimplemented
-		Txt		//Unimplemented
-	}
-	private static SingleFactoryDao instance;
+public class SingleDaoFactory {
+	private IDaoFactoryStrategy strategy;
+	private static SingleDaoFactory instance;
 	private static final String DATATYPE_PROPERTY="Persistance_Type";
 	private PersistanceTypes persistenzaAttiva;
 	
-	private SingleFactoryDao() {
+	private SingleDaoFactory() {
 		persistenzaAttiva = PersistanceTypes.Default;
 		init();
 	}
@@ -36,8 +32,7 @@ public class SingleFactoryDao {
 		Properties p = new Properties(System.getProperties());
 		p.load(new FileInputStream("properties/properties"));
 		String tipoPersistenza=p.getProperty(DATATYPE_PROPERTY);
-		
-		this.persistenzaAttiva = PersistanceTypes.valueOf(tipoPersistenza);
+		this.persistenzaAttiva = PersistanceTypes.valueOf(tipoPersistenza); //Es. MySql
 		
 		} catch (Exception e) {
 		// TODO Auto-generated catch block
@@ -45,9 +40,9 @@ public class SingleFactoryDao {
 		}
 	}
 
-	public static SingleFactoryDao getInstance() {
+	public static SingleDaoFactory getInstance() {
 		if(instance == null) {
-			instance = new SingleFactoryDao();
+			instance = new SingleDaoFactory();
 		}
 		return instance;
 	}
