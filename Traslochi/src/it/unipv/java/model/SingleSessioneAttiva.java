@@ -3,8 +3,8 @@ package it.unipv.java.model;
 import it.unipv.java.model.user.UserModel;
 
 public class SingleSessioneAttiva {
-	private UserModel utenteAttivo;
 	private static SingleSessioneAttiva instance;
+	private UserModel utenteAttivo;
 	
 	//Singleton Private Constructor
 	private SingleSessioneAttiva() {
