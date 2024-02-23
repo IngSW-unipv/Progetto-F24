@@ -50,7 +50,7 @@ public class StrategyFactory {
 				strategyPath=p.getProperty(persistenzaAttiva);
 
 				Constructor<?> c = Class.forName(strategyPath).getConstructor();
-				strategy =(RdbDaoStrategy)c.newInstance();
+				strategy =(IDaoFactoryStrategy)c.newInstance();
 
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
