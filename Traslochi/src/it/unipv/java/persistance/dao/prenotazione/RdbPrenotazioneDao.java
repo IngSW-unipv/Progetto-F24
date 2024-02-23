@@ -12,11 +12,11 @@ import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.user.UserModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 
-public class PrenotazioneDao implements IPrenotazioneDao{
+public class RdbPrenotazioneDao implements IPrenotazioneDao{
 	private String schema;
 	private Connection conn;
 	
-	public PrenotazioneDao() {
+	public RdbPrenotazioneDao() {
 		super();
 		this.schema = "Traslochi";	//Inserisci Qui nome schema Prenotazione
 	}

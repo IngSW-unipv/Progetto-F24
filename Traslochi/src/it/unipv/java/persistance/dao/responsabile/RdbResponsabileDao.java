@@ -11,11 +11,11 @@ import it.unipv.java.model.user.UserModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 
 
-public class ResponsabileDao implements IResponsabileDao{
+public class RdbResponsabileDao implements IResponsabileDao{
 	private String schema;
 	private Connection conn;
 	
-	public ResponsabileDao() {
+	public RdbResponsabileDao() {
 		super();
 		this.schema = "Traslochi";	//Inserisci Qui nome schema Responsabile
 	}

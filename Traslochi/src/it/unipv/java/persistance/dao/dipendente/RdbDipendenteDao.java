@@ -13,11 +13,11 @@ import it.unipv.java.model.user.UserModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 
 
-public class DipendenteDao implements IDipendenteDao {
+public class RdbDipendenteDao implements IDipendenteDao {
 	private String schema;
 	private Connection conn;
 
-	public DipendenteDao() {
+	public RdbDipendenteDao() {
 		super();
 		this.schema = "Traslochi"; 
 	}

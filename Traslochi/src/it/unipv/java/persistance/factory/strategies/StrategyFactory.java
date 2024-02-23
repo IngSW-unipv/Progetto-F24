@@ -6,9 +6,13 @@ import java.util.Properties;
 
 public class StrategyFactory {
 	private static StrategyFactory instance;
-	private static IDaoFactoryStrategy strategy;
+	private static final String DATATYPE_PROPERTY="Persistance_Type";
+	private IDaoFactoryStrategy strategy;
 	
-	private StrategyFactory() {}
+	private StrategyFactory() {
+		String tipoPersistenza = findPersistenzaAttiva();
+		this.strategy = setStrategy(tipoPersistenza);
+	}
 	
 	public static StrategyFactory getInstance() {
 		if(instance == null) {
@@ -18,6 +22,20 @@ public class StrategyFactory {
 		
 	}
 
+	private String findPersistenzaAttiva() {
+		try {
+			Properties p = new Properties(System.getProperties());
+			p.load(new FileInputStream("properties/properties"));
+			
+			return p.getProperty(DATATYPE_PROPERTY);
+			
+		} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		}
+		return null;
+	}
+	
 	public IDaoFactoryStrategy setStrategy(String persistenzaAttiva) {	
 		if(strategy == null) {
 			String strategyPath;
@@ -37,4 +55,9 @@ public class StrategyFactory {
 		}
 		return strategy;
 	}
+
+	public IDaoFactoryStrategy getStrategy() {
+		return strategy;
+	}
+	
 }
