@@ -1,4 +1,4 @@
-package it.unipv.test;
+package it.unipv.test.persistance;
 
 import static org.junit.jupiter.api.Assertions.*;
 

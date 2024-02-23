@@ -1,10 +1,4 @@
-package it.unipv.test;
-
-import it.unipv.java.controller.PrenotazioneController;
-import it.unipv.java.model.PrenotazioneModel;
-import it.unipv.java.view.ClienteView;
-import it.unipv.java.view.PrenotazioneView;
-import it.unipv.java.view.WarningView;
+package it.unipv.test.persistance;
 
 public class PrenotazioneTest {
 

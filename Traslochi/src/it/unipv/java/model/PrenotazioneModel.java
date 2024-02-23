@@ -7,12 +7,12 @@ import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 import it.unipv.java.model.user.UserModel;
-import it.unipv.java.persistance.DataAccessFacade;
-import it.unipv.java.persistance.dao.prenotazione.PrenotazioneDao;
+import it.unipv.java.persistance.PersistanceFacade;
 
 public class PrenotazioneModel {
 	private String idPrenotazione;
 	private String idCliente;
+	private String idResponsabile;
 	private String indirizzoDiConsegna;
 	private String dataRitiro;
 	private String dataConsegna;
@@ -24,7 +24,6 @@ public class PrenotazioneModel {
 	private String scadGiorno;
 	private String scadMese;
 	private String scadAnno;
-	private DataAccessFacade dbAccess;
 
 	// Getters
 	public String getIdPrenotazione() {
@@ -128,6 +127,14 @@ public class PrenotazioneModel {
 		return scadGiorno;
 	}
 
+	public String getIdResponsabile() {
+		return idResponsabile;
+	}
+
+	public void setIdResponsabile(String idResponsabile) {
+		this.idResponsabile = idResponsabile;
+	}
+
 	public float calcolaImporto() {
 		long giorni = calcolagiorni(this.dataRitiro, this.dataConsegna);
 		float tariffaMinima = 300;
@@ -156,7 +163,7 @@ public class PrenotazioneModel {
 		if (validaDati()) {
 			this.setIdPrenotazione(UUID.randomUUID().toString());
 			this.setImportoPagato(importoPagato); // Calcola automaticamente l'importo
-			boolean createSuccess = DataAccessFacade.getInstance().createPrenotazione(this);
+			boolean createSuccess = PersistanceFacade.getInstance().createPrenotazione(this);
 			return createSuccess;
 		} else {
 			return false;
@@ -181,14 +188,12 @@ public class PrenotazioneModel {
 		return UUID.randomUUID().toString();
 
 	}
-	  public List<PrenotazioneModel> mostratuttePrenotazioni() {
-		
-		return DataAccessFacade.getInstance().mostraPrenotazioni();
+	public List<PrenotazioneModel> mostratuttePrenotazioni() {
+		return PersistanceFacade.getInstance().mostraPrenotazioni();
 	}
 	
-	  public List<PrenotazioneModel> getPrenotazioniUtente(UserModel um) {
-			
-			return DataAccessFacade.getInstance().getPrenotazioniUtente(um);
+	public List<PrenotazioneModel> getPrenotazioniUtente(UserModel um) {
+		return PersistanceFacade.getInstance().getPrenotazioniUtente();
 		}
 		
 	public void setScadGiorno(String textField_7) {

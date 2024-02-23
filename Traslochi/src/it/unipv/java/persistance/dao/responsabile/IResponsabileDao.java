@@ -1,13 +1,12 @@
 package it.unipv.java.persistance.dao.responsabile;
 
-import java.util.List;
-
-import it.unipv.java.model.LoginModel;
 import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.user.UserModel;
  
-
 public interface IResponsabileDao {
-    public boolean createResponsabile(RegisterModel c);
-     public UserModel getResponsabile(UserModel r); 
+
+    public boolean getResponsabile(UserModel datiLogin);
+    public boolean createResponsabile(RegisterModel datiRegistrazione);
+    public boolean updateResponsabile(UserModel utente);
+    public boolean deleteResponsabile(UserModel utente);
 }

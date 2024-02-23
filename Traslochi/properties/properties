@@ -3,4 +3,13 @@ DBURL =jdbc:mysql://localhost:3306/traslochi?serverTimezone=UTC
 db_usn= root
 db_psw = Password23.
 
+#Modificabile dall'utente con i seguenti valori[MySql, Xml, Txt]
+#Cosa fare se si vuole aggiungere una nuova persistenza?
+#Aggiungerla qui in questo file
+#Creare un oggetto corrispondente nelle strategie
+
 Persistance_Type = MySql
+
+MySql = it.unipv.java.persistance.factory.strategies.RdbDaoStrategy
+Xml = it.unipv.java.persistance.factory.strategies.XmlDaoStrategy
+Txt = it.unipv.java.persistance.factory.strategies.TxtDaoStrategy

@@ -1,10 +1,10 @@
 package it.unipv.java.model;
 
 import it.unipv.java.model.user.UserModel;
-import it.unipv.java.persistance.DataAccessFacade;
+import it.unipv.java.persistance.PersistanceFacade;
 
 public class RegisterModel {
-    private UserModel um;  
+    private UserModel um;
  
     public RegisterModel(UserModel um) {
         this.um = um;
@@ -54,7 +54,7 @@ public class RegisterModel {
             try {
                 // Assumi che AuthGestor.registerUser possa lavorare direttamente con UserModel
             	
-                boolean registrazioneRiuscita = DataAccessFacade.getInstance().registerUser(this);
+                boolean registrazioneRiuscita = PersistanceFacade.getInstance().registerUser(this);
                 if (!registrazioneRiuscita) {
                 	
                     System.err.println("Registrazione fallita a causa di un errore nel processo di salvataggio.");

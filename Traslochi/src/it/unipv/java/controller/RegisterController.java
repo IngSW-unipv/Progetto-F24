@@ -7,8 +7,6 @@ import javax.swing.JButton;
 import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.user.UserModel;
 import it.unipv.java.model.user.UserType;
-import it.unipv.java.model.user.UserTypeUtil;
-import it.unipv.java.persistance.DataAccessFacade;
 import it.unipv.java.view.LoginView;
 import it.unipv.java.view.RegisterView;
 import it.unipv.java.view.WarningView;
@@ -18,7 +16,6 @@ public class RegisterController {
 	private RegisterView rv;
 	private RegisterModel rm;
 	private LoginView lv;
-	private UserTypeUtil utu;
 
 
 	//NON è INIZIALIZZATO REGISTERMODEL, Non FUNZIONA VIEW PER QUELLO

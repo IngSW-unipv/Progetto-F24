@@ -23,13 +23,13 @@ public class PrenotazioneController {
 	private void setlisteners() {
 		pv.getButtonConfermaPren().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//PrenotazioneModel pm= new PrenotazioneModel();
+//				PrenotazioneModel pm= new PrenotazioneModel();
 				pm.setIndirizzodiRitiro(pv.getIndirizzoRitiro());
 				pm.setIndirizzoDiConsegna(pv.getIndirizzoConsegna());
 				pm.setDataRitiro(pv.getDataRitiro());
 				pm.setDataConsegna(pv.getDataConsegna());
 				pm.setCVC(pv.getTextField_6());
-				  pm.setScadGiorno(pv.getTextField_7());
+				pm.setScadGiorno(pv.getTextField_7());
 				pm.setScadMese(pv.getTextField_8());
 				pm.setScadAnno(pv.getTextField_9());
 				

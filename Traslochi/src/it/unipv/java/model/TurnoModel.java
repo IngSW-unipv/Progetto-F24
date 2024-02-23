@@ -1,10 +1,8 @@
 package it.unipv.java.model;
-import java.sql.Time;
 import java.util.List;
 
-import javax.swing.JTextField;
 
-import it.unipv.java.persistance.DataAccessFacade;
+import it.unipv.java.persistance.PersistanceFacade;
  
 public class TurnoModel {
  
@@ -40,11 +38,11 @@ public class TurnoModel {
 	}
 	
 	public boolean aggiungiTurno() {
-		return DataAccessFacade.getInstance().aggiungiTurno(this);
+		return PersistanceFacade.getInstance().aggiungiTurno(this);
 	}
 	
 	public List<TurnoModel> mostraTurni() {
-		return DataAccessFacade.getInstance().mostraTurni();
+		return PersistanceFacade.getInstance().mostraTurni();
 	}
      
 	public String toString() {

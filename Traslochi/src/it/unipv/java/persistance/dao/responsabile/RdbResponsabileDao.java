@@ -4,17 +4,17 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import it.unipv.java.model.LoginModel;
 import it.unipv.java.model.RegisterModel;
+import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.user.UserModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 
 
-public class ResponsabileDao implements IResponsabileDao{
+public class RdbResponsabileDao implements IResponsabileDao{
 	private String schema;
 	private Connection conn;
 	
-	public ResponsabileDao() {
+	public RdbResponsabileDao() {
 		super();
 		this.schema = "Traslochi";	//Inserisci Qui nome schema Responsabile
 	}
@@ -24,12 +24,9 @@ public class ResponsabileDao implements IResponsabileDao{
 	public boolean createResponsabile(RegisterModel c) {
 	    conn = DatabaseConnection.startConnection(conn, schema);
 	    PreparedStatement st1 = null;
-
 	    boolean esito = true;
-
 	    try {
  	        String query = "INSERT INTO Responsabile (IDResponsabile, Nome, Cognome, CF, Email, Password) VALUES (?, ?, ?, ?, ?, ?)";
-
 	        st1 = conn.prepareStatement(query);
  	        st1.setString(1, c.getUm().getId());
 	        st1.setString(2, c.getUm().getNome());
@@ -37,7 +34,6 @@ public class ResponsabileDao implements IResponsabileDao{
 	        st1.setString(4, c.getUm().getCf()); 
 	        st1.setString(5, c.getUm().getEmail());
 	        st1.setString(6, c.getUm().getPassword());
-
  	        st1.executeUpdate();
 
 	    } catch (Exception e) {
@@ -53,14 +49,12 @@ public class ResponsabileDao implements IResponsabileDao{
 	        }
 	        DatabaseConnection.closeConnection(conn);
 	    }
-
 	    return esito;
 	}
 
 	
 	@Override
-	public UserModel getResponsabile(UserModel lm) {
-	    UserModel responsabile = null; // Inizializza l'utente responsabile come null
+	public boolean getResponsabile(UserModel lm) {
 	    conn = DatabaseConnection.startConnection(conn, schema);
 	     
 	    String sql = "SELECT * FROM RESPONSABILE WHERE EMAIL = ?";
@@ -72,13 +66,13 @@ public class ResponsabileDao implements IResponsabileDao{
 	        rs = pstmt.executeQuery();
 	        
 	        if (rs.next()) {
- 	                responsabile = new UserModel();
-	                responsabile.setId(rs.getString("ID"));
-	                responsabile.setNome(rs.getString("NOME"));
-	                responsabile.setCognome(rs.getString("COGNOME"));
-	                responsabile.setEmail(rs.getString("EMAIL"));
-	                responsabile.setPassword(rs.getString("PASSWORD"));
- 	            
+	        	UserModel responsabile = new UserModel();
+	            responsabile.setId(rs.getString("ID"));
+	            responsabile.setNome(rs.getString("NOME"));
+	            responsabile.setCognome(rs.getString("COGNOME"));
+	            responsabile.setEmail(rs.getString("EMAIL"));
+	            responsabile.setPassword(rs.getString("PASSWORD"));
+ 	            SingleSessioneAttiva.getInstance().login(responsabile);;
 	        }
 	    } catch (Exception e) {
 	        e.printStackTrace();
@@ -86,12 +80,27 @@ public class ResponsabileDao implements IResponsabileDao{
 	        try {
 	            if (rs != null) rs.close();
 	            DatabaseConnection.closeConnection(conn);
+	            return true;
 	        } catch (Exception e) {
 	            e.printStackTrace();
 	        }
 	    }
 	    
-	    return responsabile; // Restituisce l'utente responsabile se il login ha successo, altrimenti null
+	    return false; // Restituisce l'utente responsabile se il login ha successo, altrimenti null
+	}
+
+
+	@Override
+	public boolean updateResponsabile(UserModel ag) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	@Override
+	public boolean deleteResponsabile(UserModel utente) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 

@@ -3,48 +3,55 @@ package it.unipv.java.persistance.dao.dipendente;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import it.unipv.java.model.LoginModel;
 import it.unipv.java.model.RegisterModel;
+import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.user.UserModel;
-import it.unipv.java.persistance.DataAccessFacade;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 
 
-public class DipendenteDao implements IDipendenteDao {
+public class RdbDipendenteDao implements IDipendenteDao {
 	private String schema;
 	private Connection conn;
 
-	public DipendenteDao() {
+	public RdbDipendenteDao() {
 		super();
 		this.schema = "Traslochi"; 
 	}
 
 	@Override
 	public boolean createDipendente(RegisterModel c) {
-
 		conn = DatabaseConnection.startConnection(conn, schema);
-		PreparedStatement st1;
+		PreparedStatement st1 = null;
 		boolean esito = true;
 		try {
-			String query = "INSERT INTO DIPENDENTE (NOME,COGNOME,EMAIL,PASSWORD,IDCLIENTE) VALUES(?,?,?,?,?)";
+			String query = "INSERT INTO Dipendente (IDDipendente, Nome, Cognome, CF, Email, Password) VALUES(?, ?, ?, ?, ?, ?)";
 			st1 = conn.prepareStatement(query);
-			st1.setString(1, c.getUm().getNome());
-			st1.setString(2, c.getUm().getCognome());
-			st1.setString(3, c.getUm().getEmail());
-			st1.setString(4, c.getUm().getPassword());
-			st1.setString(5, c.getUm().getId());
+			st1.setString(1, c.getUm().getId());
+			st1.setString(2, c.getUm().getNome());
+			st1.setString(3, c.getUm().getCognome());
+			st1.setString(4, c.getUm().getCf());
+			st1.setString(5, c.getUm().getEmail());
+			st1.setString(6, c.getUm().getPassword());
 			st1.executeUpdate();
 
 		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		} finally {
-			DatabaseConnection.closeConnection(conn);
-		}
-		return true;
+	        e.printStackTrace();
+	        esito = false;
+	    } finally {
+ 	        if (st1 != null) {
+	            try {
+	                st1.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	        DatabaseConnection.closeConnection(conn);
+	    }
+	    return esito;
 	}
 
  	@Override
@@ -141,11 +148,8 @@ public class DipendenteDao implements IDipendenteDao {
 
 	}
 
-	public UserModel getDipendente(UserModel ag) {
-
-		boolean loginSuccess = false;
+	public boolean getDipendente(UserModel ag) {
 		conn = DatabaseConnection.startConnection(conn, schema);
-		UserModel um= null;
 
 		String sql = "SELECT PASSWORD FROM DIPENDENTE WHERE EMAIL = ?";
 		ResultSet rs = null;
@@ -156,13 +160,14 @@ public class DipendenteDao implements IDipendenteDao {
 			
 			
 			if (rs.next()) {
-				um = new UserModel();
+				UserModel um = new UserModel();
 				um.setId(rs.getString("IDCliente"));
                 um.setNome(rs.getString("Nome"));
                 um.setCognome(rs.getString("Cognome"));
                 um.setCf(rs.getString("CF"));
                 um.setEmail(rs.getString("Email"));
                 um.setPassword(rs.getString("Password"));
+                SingleSessioneAttiva.getInstance().login(um);;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -171,12 +176,13 @@ public class DipendenteDao implements IDipendenteDao {
 				if (rs != null)
 					rs.close();
 				DatabaseConnection.closeConnection(conn);
+				return true;
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
 
-		return um;
+		return false;
 	}
 
  
