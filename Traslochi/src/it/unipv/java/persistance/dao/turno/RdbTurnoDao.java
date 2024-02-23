@@ -12,12 +12,12 @@ import it.unipv.java.model.TurnoModel;
 import it.unipv.java.model.user.UserModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 
-public class TurnoDao implements ITurnoDao {
+public class RdbTurnoDao implements ITurnoDao {
 	
 	private String schema;
 	private Connection conn;
 	
-	public TurnoDao() {
+	public RdbTurnoDao() {
 		super();
 		this.schema = "Traslochi"; //nome schema 
 	}
@@ -95,27 +95,29 @@ public class TurnoDao implements ITurnoDao {
 
  	public boolean createTurno(TurnoModel t) {
 		conn=DatabaseConnection.startConnection(conn,schema);
-
-	    PreparedStatement st1;
-
+	    PreparedStatement st1 = null;
 	    boolean esito = true;
-
 	    try {
- 	        String query = "INSERT INTO Turno (Orario,idDipendente, IDMezzo) VALUES (?, ?, ?, ?)";
-
+ 	        String query = "INSERT INTO Turno (OrarioInizio, IDDipendente, IndirizzoLavoro) VALUES (?, ?, ?)";
 	        st1 = conn.prepareStatement(query);
 	        st1.setString(1, t.getOrarioini());
- 	        st1.setString(3, t.getIdDipendente());
-	        st1.setString(4, t.getIndLavoro());
- 
+ 	        st1.setString(2, t.getIdDipendente());
+	        st1.setString(3, t.getIndLavoro());
+	        st1.executeUpdate();
 	  
-	    } catch (SQLException e) {
+	    } catch (Exception e) {
 	        e.printStackTrace();
 	        esito = false;
 	    } finally {
+ 	        if (st1 != null) {
+	            try {
+	                st1.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
 	        DatabaseConnection.closeConnection(conn);
 	    }
-
 	    return esito;
 	}
 

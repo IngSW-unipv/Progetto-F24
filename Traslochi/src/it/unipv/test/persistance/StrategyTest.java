@@ -14,7 +14,7 @@ public class StrategyTest {
 	
 	private UserModel set() {
 		UserModel user = new UserModel();
-		user .setId("IDPROVAREGISTR");
+		user.setId("IDPROVAREGISTR");
 		user.setNome("NomeProva");
 		user.setCognome("CognomeProva");
 		user.setCf("CFPROVA");
@@ -23,7 +23,6 @@ public class StrategyTest {
 		user.setUserType(UserType.DIPENDENTE);
 		return user;
 	}
-
 
 	public UserModel getResponsabile() {
 		return responsabile;
@@ -38,5 +37,4 @@ public class StrategyTest {
 		RegisterModel registra = new RegisterModel(test.getResponsabile());
 		PersistanceFacade.getInstance().registerUser(registra);
 	}
-
 }

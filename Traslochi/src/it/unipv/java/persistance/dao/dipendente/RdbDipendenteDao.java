@@ -3,6 +3,7 @@ package it.unipv.java.persistance.dao.dipendente;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,9 +24,9 @@ public class RdbDipendenteDao implements IDipendenteDao {
 
 	@Override
 	public boolean createDipendente(RegisterModel c) {
-
 		conn = DatabaseConnection.startConnection(conn, schema);
-		PreparedStatement st1;
+		PreparedStatement st1 = null;
+		boolean esito = true;
 		try {
 			String query = "INSERT INTO Dipendente (IDDipendente, Nome, Cognome, CF, Email, Password) VALUES(?, ?, ?, ?, ?, ?)";
 			st1 = conn.prepareStatement(query);
@@ -38,12 +39,19 @@ public class RdbDipendenteDao implements IDipendenteDao {
 			st1.executeUpdate();
 
 		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		} finally {
-			DatabaseConnection.closeConnection(conn);
-		}
-		return true;
+	        e.printStackTrace();
+	        esito = false;
+	    } finally {
+ 	        if (st1 != null) {
+	            try {
+	                st1.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	        DatabaseConnection.closeConnection(conn);
+	    }
+	    return esito;
 	}
 
  	@Override

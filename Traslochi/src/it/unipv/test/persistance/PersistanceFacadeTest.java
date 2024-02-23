@@ -14,7 +14,7 @@ import it.unipv.java.model.user.UserModel;
 import it.unipv.java.model.user.UserType;
 import it.unipv.java.persistance.PersistanceFacade;
 
-public class UserTest {
+public class PersistanceFacadeTest {
 	private UserModel utenteDaLoggare;
 	private UserModel clienteDaLoggare;
 	private UserModel dipendenteDaLoggare;

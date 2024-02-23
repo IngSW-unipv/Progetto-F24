@@ -3,9 +3,10 @@ package it.unipv.java.persistance.dao.responsabile;
 import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.user.UserModel;
  
-
 public interface IResponsabileDao {
-    public boolean createResponsabile(RegisterModel c);
-    public boolean getResponsabile(UserModel datiLogin); 
-    public boolean updateResponsabile(UserModel ag);
+
+    public boolean getResponsabile(UserModel datiLogin);
+    public boolean createResponsabile(RegisterModel datiRegistrazione);
+    public boolean updateResponsabile(UserModel utente);
+    public boolean deleteResponsabile(UserModel utente);
 }

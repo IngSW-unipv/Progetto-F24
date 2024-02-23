@@ -6,10 +6,10 @@ import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.user.UserModel;
 
 public interface IClienteDao {
-    public boolean createCliente(RegisterModel c);
-    public boolean updateCliente(UserModel u);
-    public List<UserModel> getAllClienti();
-    public boolean getCliente(UserModel  datiLogin);
-    public boolean deleteCliente(UserModel d); 
 	
+	public List<UserModel> getAllClienti();
+	public boolean getCliente(UserModel  datiLogin);
+	public boolean createCliente(RegisterModel datiRegistrazione);
+    public boolean updateCliente(UserModel utente);
+    public boolean deleteCliente(UserModel utente); 
 }

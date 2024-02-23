@@ -46,8 +46,8 @@ CREATE TABLE IF NOT EXISTS Cliente (
     -- Include other attributes for the client
 );
 
--- Creating the 'Prenotazioni' table
-CREATE TABLE IF NOT EXISTS Prenotazioni (
+-- Creating the 'Prenotazione' table
+CREATE TABLE IF NOT EXISTS Prenotazione (
     IDPrenotazione VARCHAR(255) PRIMARY KEY,
     IDCliente VARCHAR(255), 
     IndirizzoDiConsegna VARCHAR(255),
@@ -80,7 +80,7 @@ INSERT INTO Turno (OrarioInizio, IDDipendente, IndirizzoLavoro) VALUES ('09:00:0
 INSERT INTO Turno (OrarioInizio, IDDipendente, IndirizzoLavoro) VALUES ('10:00:00', 'DIPN003', 'Piazza Napoli 3');
 
 -- Inserimenti per la tabella Prenotazioni
-INSERT INTO Prenotazioni (IDPrenotazione, IDCliente, IndirizzoDiConsegna, IndirizzoDiRitiro, DataRitiro, DataConsegna, MetodoDiPagamento, ImportodaPagare, StatoPrenotazione, IDResponsabile) VALUES ('PREN001', 'CLNT001', 'Via Torino 4', 'Via Firenze 5', '2023-03-01', '2023-03-02', 'Carta di Credito', 1500.0, 'Confermata', 'RESP001');
-INSERT INTO Prenotazioni (IDPrenotazione, IDCliente, IndirizzoDiConsegna, IndirizzoDiRitiro, DataRitiro, DataConsegna, MetodoDiPagamento, ImportodaPagare, StatoPrenotazione, IDResponsabile) VALUES ('PREN002', 'CLNT002', 'Via Genova 6', 'Via Palermo 7', '2023-04-01', '2023-04-02', 'Bonifico Bancario', 2500.0, 'In attesa', 'RESP002');
-INSERT INTO Prenotazioni (IDPrenotazione, IDCliente, IndirizzoDiConsegna, IndirizzoDiRitiro, DataRitiro, DataConsegna, MetodoDiPagamento, ImportodaPagare, StatoPrenotazione, IDResponsabile) VALUES ('PREN003', 'CLNT003', 'Via Venezia 8', 'Via Bari 9', '2023-05-01', '2023-05-02', 'PayPal', 3500.0, 'Completata', NULL);
+INSERT INTO Prenotazione (IDPrenotazione, IDCliente, IndirizzoDiConsegna, IndirizzoDiRitiro, DataRitiro, DataConsegna, MetodoDiPagamento, ImportodaPagare, StatoPrenotazione, IDResponsabile) VALUES ('PREN001', 'CLNT001', 'Via Torino 4', 'Via Firenze 5', '2023-03-01', '2023-03-02', 'Carta di Credito', 1500.0, 'Confermata', 'RESP001');
+INSERT INTO Prenotazione (IDPrenotazione, IDCliente, IndirizzoDiConsegna, IndirizzoDiRitiro, DataRitiro, DataConsegna, MetodoDiPagamento, ImportodaPagare, StatoPrenotazione, IDResponsabile) VALUES ('PREN002', 'CLNT002', 'Via Genova 6', 'Via Palermo 7', '2023-04-01', '2023-04-02', 'Bonifico Bancario', 2500.0, 'In attesa', 'RESP002');
+INSERT INTO Prenotazione (IDPrenotazione, IDCliente, IndirizzoDiConsegna, IndirizzoDiRitiro, DataRitiro, DataConsegna, MetodoDiPagamento, ImportodaPagare, StatoPrenotazione, IDResponsabile) VALUES ('PREN003', 'CLNT003', 'Via Venezia 8', 'Via Bari 9', '2023-05-01', '2023-05-02', 'PayPal', 3500.0, 'Completata', NULL);
 

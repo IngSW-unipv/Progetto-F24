@@ -3,6 +3,7 @@ package it.unipv.java.persistance.dao.cliente;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,7 @@ public class RdbClienteDao implements IClienteDao {
 	@Override
 	public boolean createCliente(RegisterModel c) {
 		conn = DatabaseConnection.startConnection(conn, schema);
-		PreparedStatement st1;
+		PreparedStatement st1 = null;
 		boolean esito = true;
 		try {
 			String query = "INSERT INTO Cliente (IDCliente, Nome, Cognome, CF, Email, Password) VALUES(?, ?, ?, ?, ?, ?)";
@@ -38,13 +39,19 @@ public class RdbClienteDao implements IClienteDao {
 			st1.executeUpdate();
 
 		} catch (Exception e) {
-			e.printStackTrace();
-			esito = false;
-		}
-
-		DatabaseConnection.closeConnection(conn);
-		return esito;
-
+	        e.printStackTrace();
+	        esito = false;
+	    } finally {
+ 	        if (st1 != null) {
+	            try {
+	                st1.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	        DatabaseConnection.closeConnection(conn);
+	    }
+	    return esito;
 	}
 
 	

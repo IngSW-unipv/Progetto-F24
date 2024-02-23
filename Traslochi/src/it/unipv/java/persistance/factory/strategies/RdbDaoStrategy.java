@@ -9,7 +9,7 @@ import it.unipv.java.persistance.dao.prenotazione.RdbPrenotazioneDao;
 import it.unipv.java.persistance.dao.responsabile.IResponsabileDao;
 import it.unipv.java.persistance.dao.responsabile.RdbResponsabileDao;
 import it.unipv.java.persistance.dao.turno.ITurnoDao;
-import it.unipv.java.persistance.dao.turno.TurnoDao;
+import it.unipv.java.persistance.dao.turno.RdbTurnoDao;
 import it.unipv.java.persistance.factory.DaoFactory;
 
 public class RdbDaoStrategy implements IDaoFactoryStrategy{
@@ -39,7 +39,7 @@ public class RdbDaoStrategy implements IDaoFactoryStrategy{
 
 	@Override
 	public ITurnoDao getTurnoDao(DaoFactory instance) {
-		return new TurnoDao();
+		return new RdbTurnoDao();
 	}
 
 }

@@ -24,12 +24,9 @@ public class RdbResponsabileDao implements IResponsabileDao{
 	public boolean createResponsabile(RegisterModel c) {
 	    conn = DatabaseConnection.startConnection(conn, schema);
 	    PreparedStatement st1 = null;
-
 	    boolean esito = true;
-
 	    try {
  	        String query = "INSERT INTO Responsabile (IDResponsabile, Nome, Cognome, CF, Email, Password) VALUES (?, ?, ?, ?, ?, ?)";
-
 	        st1 = conn.prepareStatement(query);
  	        st1.setString(1, c.getUm().getId());
 	        st1.setString(2, c.getUm().getNome());
@@ -37,7 +34,6 @@ public class RdbResponsabileDao implements IResponsabileDao{
 	        st1.setString(4, c.getUm().getCf()); 
 	        st1.setString(5, c.getUm().getEmail());
 	        st1.setString(6, c.getUm().getPassword());
-
  	        st1.executeUpdate();
 
 	    } catch (Exception e) {
@@ -53,7 +49,6 @@ public class RdbResponsabileDao implements IResponsabileDao{
 	        }
 	        DatabaseConnection.closeConnection(conn);
 	    }
-
 	    return esito;
 	}
 
@@ -97,6 +92,13 @@ public class RdbResponsabileDao implements IResponsabileDao{
 
 	@Override
 	public boolean updateResponsabile(UserModel ag) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	@Override
+	public boolean deleteResponsabile(UserModel utente) {
 		// TODO Auto-generated method stub
 		return false;
 	}

@@ -12,6 +12,7 @@ import it.unipv.java.persistance.PersistanceFacade;
 public class PrenotazioneModel {
 	private String idPrenotazione;
 	private String idCliente;
+	private String idResponsabile;
 	private String indirizzoDiConsegna;
 	private String dataRitiro;
 	private String dataConsegna;
@@ -124,6 +125,14 @@ public class PrenotazioneModel {
 
 	public String getScadGiorno() {
 		return scadGiorno;
+	}
+
+	public String getIdResponsabile() {
+		return idResponsabile;
+	}
+
+	public void setIdResponsabile(String idResponsabile) {
+		this.idResponsabile = idResponsabile;
 	}
 
 	public float calcolaImporto() {
