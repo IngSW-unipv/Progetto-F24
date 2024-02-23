@@ -15,7 +15,6 @@ public class DatabaseConnection {
 		private static String password;
 		private static String dbDriver;
 		private static String dbURL;
-		private static DatabaseConnection conn;
 		
 		private static void init() {
 			Properties p = new Properties(System.getProperties());

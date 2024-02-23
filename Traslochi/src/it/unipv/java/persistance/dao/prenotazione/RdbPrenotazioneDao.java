@@ -9,12 +9,10 @@ import java.util.List;
 
 import it.unipv.java.model.PrenotazioneModel;
 import it.unipv.java.model.SingleSessioneAttiva;
-import it.unipv.java.model.user.UserModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 
 public class RdbPrenotazioneDao implements IPrenotazioneDao{
 	private String schema;
-	private Connection conn;
 	
 	public RdbPrenotazioneDao() {
 		super();

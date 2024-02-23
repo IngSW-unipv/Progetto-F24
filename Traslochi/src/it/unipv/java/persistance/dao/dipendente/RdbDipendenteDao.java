@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import it.unipv.java.model.LoginModel;
 import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.user.UserModel;
@@ -27,7 +26,6 @@ public class RdbDipendenteDao implements IDipendenteDao {
 
 		conn = DatabaseConnection.startConnection(conn, schema);
 		PreparedStatement st1;
-		boolean esito = true;
 		try {
 			String query = "INSERT INTO Dipendente (IDDipendente, Nome, Cognome, CF, Email, Password) VALUES(?, ?, ?, ?, ?, ?)";
 			st1 = conn.prepareStatement(query);
