@@ -1,6 +1,6 @@
 package it.unipv.java.persistance.factory;
 
-public enum PersistanceTypes {
+public enum PersistanceTypesINUTILE {
 	Default,
 	MySql,
 	Xml,	//Unimplemented

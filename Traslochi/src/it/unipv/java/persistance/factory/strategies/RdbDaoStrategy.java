@@ -10,31 +10,36 @@ import it.unipv.java.persistance.dao.responsabile.IResponsabileDao;
 import it.unipv.java.persistance.dao.responsabile.ResponsabileDao;
 import it.unipv.java.persistance.dao.turno.ITurnoDao;
 import it.unipv.java.persistance.dao.turno.TurnoDao;
+import it.unipv.java.persistance.factory.SingleDaoFactory;
 
 public class RdbDaoStrategy implements IDaoFactoryStrategy{
-
+	
+	public RdbDaoStrategy() {
+		
+	}
+	
 	@Override
-	public IDipendenteDao getDipendenteDao() {
+	public IDipendenteDao getDipendenteDao(SingleDaoFactory instance) {
 		return new DipendenteDao();
 	}
 
 	@Override
-	public IClienteDao getClienteDao() {
+	public IClienteDao getClienteDao(SingleDaoFactory instance) {
 		return new ClienteDao();
 	}
 
 	@Override
-	public IResponsabileDao getResponsabileDao() {
+	public IResponsabileDao getResponsabileDao(SingleDaoFactory instance) {
 		return new ResponsabileDao();
 	}
 
 	@Override
-	public IPrenotazioneDao getPrenotazioneDao() {
+	public IPrenotazioneDao getPrenotazioneDao(SingleDaoFactory instance) {
 		return new PrenotazioneDao();
 	}
 
 	@Override
-	public ITurnoDao getTurnoDao() {
+	public ITurnoDao getTurnoDao(SingleDaoFactory instance) {
 		return new TurnoDao();
 	}
 

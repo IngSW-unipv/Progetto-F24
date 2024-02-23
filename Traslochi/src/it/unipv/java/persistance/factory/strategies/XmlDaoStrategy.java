@@ -5,35 +5,36 @@ import it.unipv.java.persistance.dao.dipendente.IDipendenteDao;
 import it.unipv.java.persistance.dao.prenotazione.IPrenotazioneDao;
 import it.unipv.java.persistance.dao.responsabile.IResponsabileDao;
 import it.unipv.java.persistance.dao.turno.ITurnoDao;
+import it.unipv.java.persistance.factory.SingleDaoFactory;
 
 public class XmlDaoStrategy implements IDaoFactoryStrategy{
 
 	@Override
-	public IDipendenteDao getDipendenteDao() {
+	public IDipendenteDao getDipendenteDao(SingleDaoFactory instance) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public IClienteDao getClienteDao() {
+	public IClienteDao getClienteDao(SingleDaoFactory instance) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public IResponsabileDao getResponsabileDao() {
+	public IResponsabileDao getResponsabileDao(SingleDaoFactory instance) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public IPrenotazioneDao getPrenotazioneDao() {
+	public IPrenotazioneDao getPrenotazioneDao(SingleDaoFactory instance) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ITurnoDao getTurnoDao() {
+	public ITurnoDao getTurnoDao(SingleDaoFactory instance) {
 		// TODO Auto-generated method stub
 		return null;
 	}
