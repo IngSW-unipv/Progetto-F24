@@ -14,7 +14,7 @@ import it.unipv.java.model.user.UserModel;
 import it.unipv.java.model.user.UserType;
 import it.unipv.java.persistance.PersistanceFacade;
 
-public class PersistanceFacadeTest {
+public class UserTest {
 	private UserModel utenteDaLoggare;
 	private UserModel clienteDaLoggare;
 	private UserModel dipendenteDaLoggare;
@@ -27,7 +27,6 @@ public class PersistanceFacadeTest {
 	public void init() {
 		PersistanceFacade.getInstance();
 		utenteDaLoggare = new UserModel();
-		utenteDaLoggare.setId("IDPROVAREGISTR");
 		utenteDaLoggare.setNome("NomeProva");
 		utenteDaLoggare.setCognome("CognomeProva");
 		utenteDaLoggare.setCf("CFPROVA");
@@ -36,12 +35,15 @@ public class PersistanceFacadeTest {
 		
 		clienteDaLoggare = utenteDaLoggare;
 		clienteDaLoggare.setUserType(UserType.CLIENTE);
+		clienteDaLoggare.setId("IDPROVACLIENTE");
 		
 		dipendenteDaLoggare = utenteDaLoggare;
 		dipendenteDaLoggare.setUserType(UserType.DIPENDENTE);
+		dipendenteDaLoggare.setId("IDPROVADIPENDENTE");
 		
 		responsabileDaLoggare = utenteDaLoggare;
 		responsabileDaLoggare.setUserType(UserType.RESPONSABILE);
+		responsabileDaLoggare.setId("IDPROVARESPONSABILE");
 		
 		clienteRegistrazione = new RegisterModel(clienteDaLoggare);
 		dipendenteRegistrazione = new RegisterModel(dipendenteDaLoggare);

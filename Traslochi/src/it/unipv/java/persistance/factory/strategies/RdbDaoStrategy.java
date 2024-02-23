@@ -15,7 +15,6 @@ import it.unipv.java.persistance.factory.DaoFactory;
 public class RdbDaoStrategy implements IDaoFactoryStrategy{
 	
 	public RdbDaoStrategy() {
-		
 	}
 	
 	@Override
