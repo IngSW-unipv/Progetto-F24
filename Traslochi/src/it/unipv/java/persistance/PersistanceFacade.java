@@ -8,7 +8,17 @@ import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.TurnoModel;
 import it.unipv.java.model.user.UserModel;
 import it.unipv.java.persistance.factory.DaoFactory;
+import it.unipv.java.persistance.factory.strategies.IDaoFactoryStrategy;
 
+/**
+ * La classe PersistanceFacade definisce un oggetto Facade Singleton con lo 
+ * strato di Persistenza. Questa classe contiene tutte le operazioni necessarie per
+ * accedere, modificare e estrarre informazioni dalla forma di persistenza sottostante
+ * senza conoscere quale sia il tipo di persistenza adottata.
+ * 
+ * @author Pasciu01
+ * @version 1.0
+ */
 public class PersistanceFacade {
 	private static PersistanceFacade instance;
 	
