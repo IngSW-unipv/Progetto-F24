@@ -7,6 +7,13 @@ import it.unipv.java.persistance.dao.responsabile.IResponsabileDao;
 import it.unipv.java.persistance.dao.turno.ITurnoDao;
 import it.unipv.java.persistance.factory.DaoFactory;
 
+/**
+ * Interfaccia che specifica quali siano i metodi che devono essere
+ * adottati da una strategia.
+ * @author Pasciu01
+ * @see StrategyFactory
+ * @version 1.0
+ */
 public interface IDaoFactoryStrategy {
 	IDipendenteDao getDipendenteDao(DaoFactory instance);
 	IClienteDao getClienteDao(DaoFactory instance);

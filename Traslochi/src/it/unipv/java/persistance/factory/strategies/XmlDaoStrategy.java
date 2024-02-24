@@ -7,6 +7,14 @@ import it.unipv.java.persistance.dao.responsabile.IResponsabileDao;
 import it.unipv.java.persistance.dao.turno.ITurnoDao;
 import it.unipv.java.persistance.factory.DaoFactory;
 
+/**
+ * Una strategia di creazione degli oggetti Dao. Questa strategia specifica
+ * l'utilizzo di un file Xml, pertanto restituisce oggetti XmlDao.
+ * NON IMPLEMENTATA
+ * @author Pasciu01
+ * @see IDaoFactoryStrategy
+ * @version 1.0
+ */
 public class XmlDaoStrategy implements IDaoFactoryStrategy{
 
 	@Override

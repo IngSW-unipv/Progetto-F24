@@ -4,9 +4,16 @@ import java.io.FileInputStream;
 import java.lang.reflect.Constructor;
 import java.util.Properties;
 
+/**
+ * La classe StrategyFactory rappresenta l'oggetto Singleton che si occupa di
+ * identificare e attuare la strategia di creazione oggetti IDao attraverso 
+ * ciò che viene specificato nel file properties, andando a scegliere tra le
+ * IDaoFactoryStrategy esistenti.
+ * @author Pasciu01
+ * @see IDaoFactoryStrategy
+ * @version 1.0
+ */
 public class StrategyFactory {
-	//Questo oggetto Singleton, a partire da una strategia specificata in properties/properties
-	//costruisce gli oggetti Dao figlie delle interfacce IDAO
 	private static StrategyFactory instance;
 	private static final String DATATYPE_PROPERTY="Persistance_Type";
 	private IDaoFactoryStrategy strategy;
@@ -17,7 +24,14 @@ public class StrategyFactory {
 		String tipoPersistenza = findPersistenzaAttiva();
 		this.strategy = setStrategy(tipoPersistenza);
 	}
-	
+	/**
+	 * Restituisce l'istanza StrategyFactory. Quando viene creata per la prima volta, va a leggere nel file
+	 * properties quale sia la strategia di creazione da adottare e la attiva.
+	 * @author Pasciu01
+	 * @see IDaoFactoryStrategy
+	 * @see StrategyFactory
+	 * @version 1.0
+	 */
 	public static StrategyFactory getInstance() {
 		if(instance == null) {
 			instance = new StrategyFactory();
@@ -25,13 +39,21 @@ public class StrategyFactory {
 		return instance;
 		
 	}
-	//Leggi nel file properties qual'è la strategia da usare
+	/**
+	 * Metodo che legge nel file properties quale sia il tipo di persistenza da
+	 * adottare.
+	 * @author Pasciu01
+	 * @return tipoPersistenza La stringa che specifica quale sia il tipo di
+	 * strategia da attivare, ossia quale sia il tipo di persistenza da usare. 
+	 * @version 1.0
+	 */
 	private String findPersistenzaAttiva() {
+		String tipoPersistenza;
 		try {
 			Properties p = new Properties(System.getProperties());
 			p.load(new FileInputStream("properties/properties"));
-			
-			return p.getProperty(DATATYPE_PROPERTY);
+			tipoPersistenza = p.getProperty(DATATYPE_PROPERTY);
+			return tipoPersistenza;
 			
 		} catch (Exception e) {
 		// TODO Auto-generated catch block
@@ -39,7 +61,15 @@ public class StrategyFactory {
 		}
 		return null;
 	}
-	//Setta la strategia da adottare
+
+	/**
+	 * Metodo che attiva la strategia da adottare a partire da quello che c'è scritto
+	 * nel file properties.
+	 * @author Pasciu01
+	 * @param persistenzaAttiva la String che specifica quale sia la strategia da attuare.
+	 * @return strategy L'oggetto IDaoFactoryStrategy che si dovrà usare d'ora in avanti.
+	 * @version 1.0
+	 */
 	public IDaoFactoryStrategy setStrategy(String persistenzaAttiva) {	
 		if(strategy == null) {
 			String strategyPath;
@@ -59,7 +89,12 @@ public class StrategyFactory {
 		}
 		return strategy;
 	}
-	//Restituisci la strategia, fondamentalmente a DaoFactory
+	
+	/**
+	 * Metodo che restituisce la strategia attivata da StrategyFactory.
+	 * @author Pasciu01
+	 * @version 1.0
+	 */
 	public IDaoFactoryStrategy getStrategy() {
 		return strategy;
 	}

@@ -12,6 +12,13 @@ import it.unipv.java.persistance.dao.turno.ITurnoDao;
 import it.unipv.java.persistance.dao.turno.RdbTurnoDao;
 import it.unipv.java.persistance.factory.DaoFactory;
 
+/**
+ * Una strategia di creazione degli oggetti Dao. Questa strategia specifica
+ * l'utilizzo di un Database Relazionale, pertanto restituisce oggetti RdbDao.
+ * @author Pasciu01
+ * @see IDaoFactoryStrategy
+ * @version 1.0
+ */
 public class RdbDaoStrategy implements IDaoFactoryStrategy{
 	
 	public RdbDaoStrategy() {
