@@ -23,7 +23,6 @@ public class DatabaseConnectionTest {
             try (Connection conn = DriverManager.getConnection(url, username, password)) {
                 System.out.println("Connessione al database riuscita!");
                 conn.close();
-                System.out.println("La connessione è stata chiusa!");
             }
         } catch (ClassNotFoundException e) {
             System.out.println("Il driver JDBC non è stato trovato.");
