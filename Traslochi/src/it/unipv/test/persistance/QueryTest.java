@@ -90,6 +90,10 @@ public class QueryTest {
 		rdbTurno = new RdbTurnoDao();
 		rdbPrenotazione = new RdbPrenotazioneDao();
 	}
+	@Ignore
+	@Test
+	public void testRegisterUser() {
+				}
 	@Test
 	public void testCreateQuery() {
 		assertTrue("Cliente non registrato", rdbCliente.createCliente(clienteRegistrazione));
@@ -98,10 +102,7 @@ public class QueryTest {
 		assertTrue("Turno non registrato", rdbTurno.createTurno(turno));
 		assertTrue("Prenotazione non registrata", rdbPrenotazione.createPrenotazione(modelloPrenotazione));
 	}
-	@Ignore
-	@Test
-	public void testRegisterUser() {
-				}
+
 	@Ignore
 	@Test
 	public void testLoginUser() {
