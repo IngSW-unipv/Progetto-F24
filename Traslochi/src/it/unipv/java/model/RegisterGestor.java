@@ -5,7 +5,9 @@ import it.unipv.java.persistance.PersistanceFacade;
 public class RegisterGestor {
 	private RegisterData datiRegitrazione;
 	
-	public RegisterGestor() {}
+	public RegisterGestor(RegisterData datiRegitrazione) {
+		this.datiRegitrazione = datiRegitrazione;
+	}
 
 	public RegisterData getDatiRegitrazione() {
 		return datiRegitrazione;

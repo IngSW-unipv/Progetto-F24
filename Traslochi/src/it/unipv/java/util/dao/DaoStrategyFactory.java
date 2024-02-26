@@ -15,14 +15,14 @@ import it.unipv.java.util.dao.strategies.IDaoFactoryStrategy;
  * @see IDaoFactoryStrategy
  * @version 1.0
  */
-public class StrategyFactory {
-	private static StrategyFactory instance;
+public class DaoStrategyFactory {
+	private static DaoStrategyFactory instance;
 	private static final String DATATYPE_PROPERTY="Persistance_Type";
 	private IDaoFactoryStrategy strategy;
 	
 	//La prima volta che viene creato, viene riconosciuto quale tipo di persistenza si vuole usare
 	//e viene inizializzata la strategia
-	private StrategyFactory() {
+	private DaoStrategyFactory() {
 		String tipoPersistenza = findPersistenzaAttiva();
 		this.strategy = setStrategy(tipoPersistenza);
 	}
@@ -31,12 +31,12 @@ public class StrategyFactory {
 	 * properties quale sia la strategia di creazione da adottare e la attiva.
 	 * @author Pasciu01
 	 * @see IDaoFactoryStrategy
-	 * @see StrategyFactory
+	 * @see DaoStrategyFactory
 	 * @version 1.0
 	 */
-	public static StrategyFactory getInstance() {
+	public static DaoStrategyFactory getInstance() {
 		if(instance == null) {
-			instance = new StrategyFactory();
+			instance = new DaoStrategyFactory();
 		}
 		return instance;
 		

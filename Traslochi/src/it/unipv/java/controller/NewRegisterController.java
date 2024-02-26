@@ -4,24 +4,35 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import it.unipv.java.model.RegisterData;
+import it.unipv.java.util.responsabilitychain.RegistrationHandler;
 import it.unipv.java.view.LoginView;
 import it.unipv.java.view.RegisterView;
 
 public class NewRegisterController {
 	private RegisterView rv;
-	private RegisterData rd;
+	private RegisterData datiInseriti;
 	
 	public NewRegisterController(RegisterView registerView) {
 		this.rv = registerView;
+		this.datiInseriti = new RegisterData();
 		setListeners();
 
 	}
 
 	private void setListeners() {
-		
 		rv.getBottoneConfermaReg().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//QUI SI DEVE APPLICARE UN PATTERN CHAIN OF RESPONSABILITY PER IL CONTROLLO DATI + REGISTRAZIONE
+				datiInseriti.setNomeInserito(rv.getNome());
+				datiInseriti.setCognomeInserito(rv.getCognome());
+				datiInseriti.setCfInserito(rv.getCF());
+				datiInseriti.setEmailInserita(rv.getEmail());
+				datiInseriti.setPasswordInserita(rv.getPass());
+				datiInseriti.setConfermaPasswordInserita(rv.getPassRipetuta());
+				
+				//Pseudo Chain Of Responsibility
+				RegistrationHandler gestoreRegistrazione = new RegistrationHandler(datiInseriti);
+				if(gestoreRegistrazione.executeChainControllo())
+					gestoreRegistrazione.registraUtente(datiInseriti);
 			}
 		});
 		rv.getBottoneReturn().addActionListener(new ActionListener() {
@@ -31,29 +42,6 @@ public class NewRegisterController {
 				lv.setVisible(true);	
 			}
 		});
-
-	}
-
-	public boolean passControl(String pass) {
-		if(pass.equals(rv.getPassRipetuta())) {
-			return true;
-		} else {
-			return false;
-		}
 	}
 	
-	public boolean vuotoControl() {
-		if(!rv.getNome().trim().isEmpty() && !rv.getCognome().trim().isEmpty() && !rv.getEmail().trim().isEmpty()
-				&& !rv.getCF().trim().isEmpty() && !rv.getPass().trim().isEmpty() && !rv.getPassRipetuta().trim().isEmpty()) {
-			
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	public boolean emailControl(String email) {
-		return email.contains("@");
-	}
-	 
-}// fine register controller
+}

@@ -1,12 +1,10 @@
 package it.unipv.java.model.user;
 
-import java.util.List;
-
 import it.unipv.java.model.TurnoModel;
 
 public class Dipendente extends User{
 	private String idDipendente;
-	private List<TurnoModel> turno;
+	private TurnoModel turnoAssegnato;
 	
 	public Dipendente() {
 		// TODO Auto-generated constructor stub
@@ -20,12 +18,12 @@ public class Dipendente extends User{
 		this.idDipendente = idDipendente;
 	}
 
-	public List<TurnoModel> getTurno() {
-		return turno;
+	public TurnoModel getTurnoAssegnato() {
+		return turnoAssegnato;
 	}
 
-	public void setTurno(List<TurnoModel> turno) {
-		this.turno = turno;
+	public void setTurnoAssegnato(TurnoModel turnoAssegnato) {
+		this.turnoAssegnato = turnoAssegnato;
 	}
 	
 	@Override
