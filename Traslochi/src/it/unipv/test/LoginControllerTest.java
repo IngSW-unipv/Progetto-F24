@@ -2,7 +2,7 @@ package it.unipv.test;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
-import it.unipv.java.controller.NewLoginController;
+import it.unipv.java.controller.LoginController;
 import it.unipv.java.view.ClienteView;
 import it.unipv.java.view.DipendentView;
 import it.unipv.java.view.LoginView;
