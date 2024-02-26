@@ -9,11 +9,12 @@ db_psw = Password23.
 #Creare un oggetto corrispondente nelle strategie
 Persistance_Type = MySql
 
-MySql = it.unipv.java.util.dao.RdbDaoStrategy
+MySql = it.unipv.java.util.dao.strategies.RdbDaoStrategy
 Xml = it.unipv.java.util.dao.strategies.XmlDaoStrategy
 Txt = it.unipv.java.util.dao.strategies.TxtDaoStrategy
 
 #Domini specifici per responsabili e dipendenti
+altroDominio.it = it.unipv.java.util.user.strategies.ClienteStrategy
 bidonsResp.it = it.unipv.java.util.user.strategies.ResponsabileStrategy
 bidons.it = it.unipv.java.util.user.strategies.DipendenteStrategy
 

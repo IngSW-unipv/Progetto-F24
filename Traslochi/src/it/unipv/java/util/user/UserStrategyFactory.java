@@ -53,7 +53,7 @@ public class UserStrategyFactory {
 			String dominioClassName = p.getProperty(dominio);
 			
 			if(dominioClassName == null)
-				dominioClassName = "it.unipv.java.strategies.user.ClienteStrategy";
+				dominioClassName = p.getProperty("altroDominio.it");
 			
 			Constructor<?> c = Class.forName(dominioClassName).getConstructor();
 			strategiaUtente=(IUserStrategy)c.newInstance();

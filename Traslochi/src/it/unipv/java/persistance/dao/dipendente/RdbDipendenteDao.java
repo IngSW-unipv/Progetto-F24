@@ -155,7 +155,7 @@ public class RdbDipendenteDao implements IDipendenteDao {
 	public User getDipendente(LoginData ag) {
 		conn = DatabaseConnection.startConnection(conn, schema);
 		Dipendente um = new Dipendente();
-		String sql = "SELECT PASSWORD FROM DIPENDENTE WHERE EMAIL = ?";
+		String sql = "SELECT IDDipendente, Nome, Cognome, CF, Email, Password FROM DIPENDENTE WHERE EMAIL = ?";
 		ResultSet rs = null;
 
 		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -164,7 +164,7 @@ public class RdbDipendenteDao implements IDipendenteDao {
 			
 			
 			if (rs.next()) {
-				um.setIdDipendente(rs.getString("IDCliente"));
+				um.setIdDipendente(rs.getString("IDDipendente"));
                 um.setNome(rs.getString("Nome"));
                 um.setCognome(rs.getString("Cognome"));
                 um.setCf(rs.getString("CF"));

@@ -13,8 +13,8 @@ public class DipendenteStrategy implements IUserStrategy{
 
 	@Override
 	public void flussoController(ActionListener actionListener) {
-		DipendentView dv= new DipendentView();
-		DipendenteController dc= new DipendenteController(dv);
+		DipendentView dv = new DipendentView();
+		DipendenteController dc = new DipendenteController(dv);
 		dv.setVisible(true);
 		
 	}

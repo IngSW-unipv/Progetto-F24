@@ -61,7 +61,7 @@ public class RdbResponsabileDao implements IResponsabileDao{
 	public User getResponsabile(LoginData lm) {
 	    conn = DatabaseConnection.startConnection(conn, schema);
 	    Responsabile responsabile = new Responsabile();
-	    String sql = "SELECT * FROM RESPONSABILE WHERE EMAIL = ?";
+	    String sql = "SELECT IDResponsabile, Nome, Cognome, CF, Email, Password FROM RESPONSABILE WHERE EMAIL = ?";
 	    ResultSet rs = null;
 	    
 	    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -70,7 +70,7 @@ public class RdbResponsabileDao implements IResponsabileDao{
 	        rs = pstmt.executeQuery();
 	        
 	        if (rs.next()) {
-	            responsabile.setIdResponsabile(rs.getString("ID"));
+	            responsabile.setIdResponsabile(rs.getString("IDResponsabile"));
 	            responsabile.setNome(rs.getString("NOME"));
 	            responsabile.setCognome(rs.getString("COGNOME"));
 	            responsabile.setEmail(rs.getString("EMAIL"));

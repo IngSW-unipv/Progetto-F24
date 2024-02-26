@@ -14,7 +14,7 @@ public class ClienteStrategy implements IUserStrategy{
 	@Override
 	public void flussoController(ActionListener actionListener) {
 		ClienteView cv = new ClienteView();
-		ClienteController cc= new ClienteController(cv);
+		ClienteController cc = new ClienteController(cv);
 		cv.setVisible(true);
 	}
 
