@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import it.unipv.java.model.LoginData;
 import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.newuser.User;
-import it.unipv.java.strategies.user.UserStrategyFactory;
+import it.unipv.java.util.user.UserStrategyFactory;
 import it.unipv.java.view.LoginView;
 import it.unipv.java.view.RegisterView;
 import it.unipv.java.view.WarningView;

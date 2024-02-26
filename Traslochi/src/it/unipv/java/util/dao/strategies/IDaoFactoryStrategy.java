@@ -1,4 +1,4 @@
-package it.unipv.java.strategies.dao;
+package it.unipv.java.util.dao.strategies;
 
 import it.unipv.java.persistance.DaoFactory;
 import it.unipv.java.persistance.dao.cliente.IClienteDao;
@@ -6,6 +6,7 @@ import it.unipv.java.persistance.dao.dipendente.IDipendenteDao;
 import it.unipv.java.persistance.dao.prenotazione.IPrenotazioneDao;
 import it.unipv.java.persistance.dao.responsabile.IResponsabileDao;
 import it.unipv.java.persistance.dao.turno.ITurnoDao;
+import it.unipv.java.util.dao.StrategyFactory;
 
 /**
  * Interfaccia che specifica quali siano i metodi che devono essere

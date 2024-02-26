@@ -9,8 +9,8 @@ import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.TurnoModel;
 import it.unipv.java.model.newuser.User;
 import it.unipv.java.model.user.UserModel;
-import it.unipv.java.strategies.dao.IDaoFactoryStrategy;
-import it.unipv.java.strategies.user.UserStrategyFactory;
+import it.unipv.java.util.dao.strategies.IDaoFactoryStrategy;
+import it.unipv.java.util.user.UserStrategyFactory;
 
 /**
  * La classe PersistanceFacade definisce un oggetto Facade Singleton con lo 

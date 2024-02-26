@@ -1,4 +1,4 @@
-package it.unipv.java.strategies.user;
+package it.unipv.java.util.user.strategies;
 
 import java.awt.event.ActionListener;
 

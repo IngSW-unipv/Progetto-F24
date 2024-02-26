@@ -1,4 +1,4 @@
-package it.unipv.java.strategies.user;
+package it.unipv.java.util.user;
 
 import java.io.FileInputStream;
 import java.lang.reflect.Constructor;
@@ -7,10 +7,12 @@ import java.util.Properties;
 import it.unipv.java.model.LoginData;
 import it.unipv.java.model.newuser.User;
 import it.unipv.java.model.user.UserType;
+import it.unipv.java.util.user.strategies.IUserStrategy;
 
 public class UserStrategyFactory {
 	private static UserStrategyFactory instance;
 	private IUserStrategy strategiaUtente;
+	private static final String USER_PROPERTYNAME = "User";
 
 	private UserStrategyFactory() {
 	}
@@ -24,8 +26,13 @@ public class UserStrategyFactory {
 	}
 
 	public IUserStrategy getUserControllerStrategy(User tipoUtente) {
-			try {
-				String tipoUtenteClassName = tipoUtente.getClass().getName();
+		Properties p = new Properties(System.getProperties());
+		String className = tipoUtente.getClass().getSimpleName();
+		try {
+			p.load(new FileInputStream("properties/properties"));
+			String UnformattedString = p.getProperty(USER_PROPERTYNAME);
+			String tipoUtenteClassName = String.format(UnformattedString, className);
+				
 				Constructor<?> c = Class.forName(tipoUtenteClassName).getConstructor();
 				strategiaUtente=(IUserStrategy)c.newInstance();
 				

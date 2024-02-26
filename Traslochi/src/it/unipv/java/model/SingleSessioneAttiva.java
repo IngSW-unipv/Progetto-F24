@@ -21,7 +21,9 @@ public class SingleSessioneAttiva {
 
 	public void login(LoginData datiLogin) {
 		User utenteDaAttivare = PersistanceFacade.getInstance().loginUser(datiLogin);
-		if(datiLogin.getPasswordInserita() == utenteDaAttivare.getPassword())
+//		Non posso fare datiLogin.getPasswordInserita() == utenteDaAttivare.getPassword() perchè
+//		id(PasswordInserita) != id(Password)
+		if(datiLogin.getPasswordInserita().equals(utenteDaAttivare.getPassword()))
 			this.utenteAttivo = utenteDaAttivare;
 	}
 	
