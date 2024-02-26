@@ -1,11 +1,11 @@
-package it.unipv.java.persistance.factory;
+package it.unipv.java.persistance;
 
 import it.unipv.java.persistance.dao.cliente.IClienteDao;
 import it.unipv.java.persistance.dao.dipendente.IDipendenteDao;
 import it.unipv.java.persistance.dao.prenotazione.IPrenotazioneDao;
 import it.unipv.java.persistance.dao.responsabile.IResponsabileDao;
 import it.unipv.java.persistance.dao.turno.ITurnoDao;
-import it.unipv.java.persistance.factory.strategies.StrategyFactory;
+import it.unipv.java.strategies.dao.StrategyFactory;
 
 /**
  * La classe DaoFactory rappresenta l'oggetto Singleton che si occupa di

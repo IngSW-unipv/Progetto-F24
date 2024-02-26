@@ -2,13 +2,15 @@ package it.unipv.java.persistance;
 
 import java.util.List;
 
+import it.unipv.java.model.LoginData;
 import it.unipv.java.model.PrenotazioneModel;
 import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.TurnoModel;
+import it.unipv.java.model.newuser.User;
 import it.unipv.java.model.user.UserModel;
-import it.unipv.java.persistance.factory.DaoFactory;
-import it.unipv.java.persistance.factory.strategies.IDaoFactoryStrategy;
+import it.unipv.java.strategies.dao.IDaoFactoryStrategy;
+import it.unipv.java.strategies.user.UserStrategyFactory;
 
 /**
  * La classe PersistanceFacade definisce un oggetto Facade Singleton con lo 
@@ -32,16 +34,8 @@ public class PersistanceFacade {
 		return instance;
 	}
 	
-	public boolean loginUser(UserModel datiLogin) {
-		switch(datiLogin.getUserType()) {
-		case DIPENDENTE:
-			return DaoFactory.getInstance().getDipendentePersistance().getDipendente(datiLogin);
-		case RESPONSABILE:
-			return DaoFactory.getInstance().getResponsabilePersistance().getResponsabile(datiLogin);
-		case CLIENTE:
-			return DaoFactory.getInstance().getClientePersistance().getCliente(datiLogin);
-		}	
-		return false;
+	public User loginUser(LoginData datiLogin) {
+		return UserStrategyFactory.getInstance().getUserLoginStrategy(datiLogin).getUser(this, datiLogin);
 	}
 	
 	public boolean registerUser(RegisterModel datiRegistrazione) {

@@ -1,10 +1,11 @@
 package it.unipv.java.model;
 
-import it.unipv.java.model.user.UserModel;
+import it.unipv.java.model.newuser.User;
+import it.unipv.java.persistance.PersistanceFacade;
 
 public class SingleSessioneAttiva {
 	private static SingleSessioneAttiva instance;
-	private UserModel utenteAttivo;
+	private User utenteAttivo;
 	
 	//Singleton Private Constructor
 	private SingleSessioneAttiva() {
@@ -17,17 +18,18 @@ public class SingleSessioneAttiva {
 		}
 		return instance;
 	}
-	//Login User gives meaning to active Instance
-	public void login(UserModel utenteAttivo) {
-		this.utenteAttivo = utenteAttivo;
+
+	public void login(LoginData datiLogin) {
+		this.utenteAttivo = PersistanceFacade.getInstance().loginUser(datiLogin);
 	}
+	
 	//Logout User kills active Instance
 	public void logout() {
 	    SingleSessioneAttiva.instance = null;
 	}
 	
-	//Getters Setters
-	public UserModel getUtenteAttivo() {
+	//Getters e Setters
+	public User getUtenteAttivo() {
 		return utenteAttivo;
 	}
 }

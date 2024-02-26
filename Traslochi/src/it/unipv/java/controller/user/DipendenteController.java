@@ -1,4 +1,4 @@
-package it.unipv.java.controller.dashboard;
+package it.unipv.java.controller.user;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,7 +15,7 @@ public class DipendenteController {
     private VisualizzaProfiloView pv;
     private UserModel um;
     
-    public DipendenteController(UserModel um, DipendentView dv) { 
+    public DipendenteController(DipendentView dv) { 
         this.tm = new TurnoModel();
         this.um=um;
         this.dv = dv;

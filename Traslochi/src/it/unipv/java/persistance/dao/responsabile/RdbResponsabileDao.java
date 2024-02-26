@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.SingleSessioneAttiva;
+import it.unipv.java.model.newuser.Responsabile;
+import it.unipv.java.model.newuser.User;
 import it.unipv.java.model.user.UserModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 
@@ -66,13 +68,13 @@ public class RdbResponsabileDao implements IResponsabileDao{
 	        rs = pstmt.executeQuery();
 	        
 	        if (rs.next()) {
-	        	UserModel responsabile = new UserModel();
-	            responsabile.setId(rs.getString("ID"));
+	        	Responsabile responsabile = new Responsabile();
+	            responsabile.setIdResponsabile(rs.getString("ID"));
 	            responsabile.setNome(rs.getString("NOME"));
 	            responsabile.setCognome(rs.getString("COGNOME"));
 	            responsabile.setEmail(rs.getString("EMAIL"));
 	            responsabile.setPassword(rs.getString("PASSWORD"));
- 	            SingleSessioneAttiva.getInstance().login(responsabile);;
+ 	            SingleSessioneAttiva.getInstance().setUtenteAttivo((User)responsabile);;
 	        }
 	    } catch (Exception e) {
 	        e.printStackTrace();

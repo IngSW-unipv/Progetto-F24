@@ -7,9 +7,11 @@ db_psw = Password23.
 #Cosa fare se si vuole aggiungere una nuova persistenza?
 #Aggiungerla qui in questo file
 #Creare un oggetto corrispondente nelle strategie
-
 Persistance_Type = MySql
-
 MySql = it.unipv.java.persistance.factory.strategies.RdbDaoStrategy
 Xml = it.unipv.java.persistance.factory.strategies.XmlDaoStrategy
 Txt = it.unipv.java.persistance.factory.strategies.TxtDaoStrategy
+
+#Domini specifici per responsabili e dipendenti
+bidonsResp.it = it.unipv.java.strategies.user.ResponsabileStrategy
+bidons.it = it.unipv.java.strategies.user.DipendenteStrategy

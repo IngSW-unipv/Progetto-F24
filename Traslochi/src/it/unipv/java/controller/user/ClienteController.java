@@ -1,4 +1,4 @@
-package it.unipv.java.controller.dashboard;
+package it.unipv.java.controller.user;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

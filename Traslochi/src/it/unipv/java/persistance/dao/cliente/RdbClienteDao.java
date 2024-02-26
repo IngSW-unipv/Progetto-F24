@@ -164,7 +164,7 @@ public class RdbClienteDao implements IClienteDao {
 	                um.setCf(rs.getString("CF"));
 	                um.setEmail(rs.getString("Email"));
 	                um.setPassword(rs.getString("Password"));
-	               SingleSessioneAttiva.getInstance().login(um);;
+	               SingleSessioneAttiva.getInstance().setUtenteAttivo(um);;
 	        }
 	    } catch (Exception e) {
 	        e.printStackTrace();

@@ -1,4 +1,4 @@
-package it.unipv.java.controller.dashboard;
+package it.unipv.java.controller.user;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,11 +21,8 @@ public class ResponsabileController {
 	private PrenotazioneModel pm;
 	
 	//HO TOLTO ASSEGNATURNO E TURNOMODEL DAL COSTRUTTORE --> NIKUZ
-	public ResponsabileController(UserModel um, ResponsabileView rv) {
-		this.um = um;
+	public ResponsabileController(ResponsabileView rv) {
 		this.rv = rv;
- 		this.at=at;
-		this.tm=tm;
 		setListeners();
 	}
 	

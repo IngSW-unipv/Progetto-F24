@@ -1,4 +1,4 @@
-package it.unipv.java.persistance.factory.strategies;
+package it.unipv.java.strategies.dao;
 
 import java.io.FileInputStream;
 import java.lang.reflect.Constructor;

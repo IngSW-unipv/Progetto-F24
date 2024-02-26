@@ -8,7 +8,7 @@ import org.junit.Test;
 import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.user.UserModel;
 import it.unipv.java.model.user.UserType;
-import it.unipv.java.persistance.factory.DaoFactory;
+import it.unipv.java.persistance.DaoFactory;
 
 public class StrategyTxtTest {
 	private RegisterModel registra;
