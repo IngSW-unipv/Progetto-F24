@@ -7,8 +7,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import it.unipv.java.model.LoginData;
 import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.SingleSessioneAttiva;
+import it.unipv.java.model.newuser.Cliente;
+import it.unipv.java.model.newuser.User;
 import it.unipv.java.model.user.UserModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 
@@ -145,26 +149,24 @@ public class RdbClienteDao implements IClienteDao {
 	}
    
 	
-	public boolean getCliente(UserModel ag) {
+	public User getCliente(LoginData datiInseriti) {
 	    conn = DatabaseConnection.startConnection(conn, schema);
-
+	    Cliente cliente = new Cliente();
  	    String sql = "SELECT IDCliente, Nome, Cognome, CF, Email, Password FROM CLIENTE WHERE EMAIL = ?";
 	    ResultSet rs = null;
 
 	    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-	        pstmt.setString(1, ag.getEmail());
+	        pstmt.setString(1, datiInseriti.getEmailInserita());
 	        rs = pstmt.executeQuery();
 
 	        if (rs.next()) {
 	            // = rs.getString("PASSWORD");
-	               UserModel um = new UserModel();
- 	                um.setId(rs.getString("IDCliente"));
-	                um.setNome(rs.getString("Nome"));
-	                um.setCognome(rs.getString("Cognome"));
-	                um.setCf(rs.getString("CF"));
-	                um.setEmail(rs.getString("Email"));
-	                um.setPassword(rs.getString("Password"));
-	               SingleSessioneAttiva.getInstance().setUtenteAttivo(um);;
+ 	                cliente.setIdCliente(rs.getString("IDCliente"));
+	                cliente.setNome(rs.getString("Nome"));
+	                cliente.setCognome(rs.getString("Cognome"));
+	                cliente.setCf(rs.getString("CF"));
+	                cliente.setEmail(rs.getString("Email"));
+	                cliente.setPassword(rs.getString("Password"));
 	        }
 	    } catch (Exception e) {
 	        e.printStackTrace();
@@ -172,13 +174,13 @@ public class RdbClienteDao implements IClienteDao {
 	        try {
 	            if (rs != null) rs.close();
 	            DatabaseConnection.closeConnection(conn);
-	            return true;
+	            return cliente;
 	        } catch (Exception e) {
 	            e.printStackTrace();
 	        }
 	    }
 
-	    return false;
+	    return cliente;
 	}
 
 }//fine getCliente

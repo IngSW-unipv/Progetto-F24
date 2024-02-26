@@ -6,14 +6,6 @@ public abstract class User {
     private String cf;
     private String email;
     private String password;
-    
-    public User(String nome, String cognome, String cf, String email, String password) {
-        this.nome = nome;
-        this.cognome = cognome;
-        this.cf = cf;
-        this.email = email;
-        this.password = password;
-    }
 
     public String getNome() {
         return nome;

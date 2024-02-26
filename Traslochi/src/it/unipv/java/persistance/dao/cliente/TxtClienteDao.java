@@ -2,7 +2,9 @@ package it.unipv.java.persistance.dao.cliente;
 
 import java.util.List;
 
+import it.unipv.java.model.LoginData;
 import it.unipv.java.model.RegisterModel;
+import it.unipv.java.model.newuser.User;
 import it.unipv.java.model.user.UserModel;
 
 public class TxtClienteDao implements IClienteDao{
@@ -16,10 +18,10 @@ public class TxtClienteDao implements IClienteDao{
 	}
 
 	@Override
-	public boolean getCliente(UserModel datiLogin) {
+	public User getCliente(LoginData datiLogin) {
 		// TODO Auto-generated method stub
 		System.out.println("getCliente succeded");
-		return true;
+		return null;
 	}
 
 	@Override

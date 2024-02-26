@@ -8,10 +8,7 @@ public class Cliente extends User {
 	private String idCliente;
 	private List<PrenotazioneModel> prenotazioniCliente;
 	
-	public Cliente(String nome, String cognome, String cf, String email, String password) {
-		super(nome, cognome, cf, email, password);
-		// TODO Auto-generated constructor stub
-	}
+	public Cliente() {}
 	
 	public List<PrenotazioneModel> getPrenotazioniCliente() {
 		return prenotazioniCliente;
