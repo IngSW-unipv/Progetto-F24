@@ -27,4 +27,15 @@ public class Responsabile extends User{
 		return super.toString() + 
 				"idResponsabile=" + this.getIdResponsabile() + "]";
 	}
+
+	@Override
+	public String getId() {
+		return this.getIdResponsabile();
+	}
+
+	@Override
+	public void setId(String idUser) {
+		// TODO Auto-generated method stub
+		
+	}
 }

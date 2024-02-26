@@ -31,4 +31,14 @@ public class Cliente extends User {
 		return super.toString() + 
 				"idCliente=" + this.getIdCliente() + "]";
 	}
+
+	@Override
+	public String getId() {
+		return this.getIdCliente();
+	}
+
+	@Override
+	public void setId(String idUser) {
+		//TO-DO
+	}
 }

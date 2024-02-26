@@ -33,4 +33,15 @@ public class Dipendente extends User{
 		return super.toString() + 
 				"idDipendente=" + this.getIdDipendente() + "]";
 	}
+
+	@Override
+	public String getId() {
+		return this.getIdDipendente();
+	}
+
+	@Override
+	public void setId(String idUser) {
+		// TODO Auto-generated method stub
+		
+	}
 }

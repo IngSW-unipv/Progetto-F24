@@ -46,7 +46,10 @@ public abstract class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
+    
+    public abstract String getId();
+    public abstract void setId(String idUser);
+    
 	@Override
     public String toString() {
     	return "User=" + this.getClass().getSimpleName() + "\n" 
