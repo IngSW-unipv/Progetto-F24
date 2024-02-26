@@ -1,23 +1,10 @@
-package it.unipv.java.model.newuser;
-
-import java.util.List;
-
-import it.unipv.java.model.PrenotazioneModel;
+package it.unipv.java.model.user;
 
 public class Cliente extends User {
 	private String idCliente;
-	private List<PrenotazioneModel> prenotazioniCliente;
 	
 	public Cliente() {}
 	
-	public List<PrenotazioneModel> getPrenotazioniCliente() {
-		return prenotazioniCliente;
-	}
-
-	public void setPrenotazioniCliente(List<PrenotazioneModel> prenotazioniCliente) {
-		this.prenotazioniCliente = prenotazioniCliente;
-	}
-
 	public String getIdCliente() {
 		return idCliente;
 	}

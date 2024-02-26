@@ -8,8 +8,8 @@ import java.sql.SQLException;
 import it.unipv.java.model.LoginData;
 import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.SingleSessioneAttiva;
-import it.unipv.java.model.newuser.Responsabile;
-import it.unipv.java.model.newuser.User;
+import it.unipv.java.model.user.Responsabile;
+import it.unipv.java.model.user.User;
 import it.unipv.java.model.user.UserModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 

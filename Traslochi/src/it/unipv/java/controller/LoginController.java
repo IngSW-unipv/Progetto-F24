@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import it.unipv.java.model.LoginData;
 import it.unipv.java.model.SingleSessioneAttiva;
-import it.unipv.java.model.newuser.User;
+import it.unipv.java.model.user.User;
 import it.unipv.java.util.user.UserStrategyFactory;
 import it.unipv.java.view.LoginView;
 import it.unipv.java.view.RegisterView;
@@ -24,7 +24,6 @@ public class LoginController {
 		schermataLogin.getLoginButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				datiInseriti = new LoginData(schermataLogin.getEmail(),schermataLogin.getPassword());
-//QUI SI POTREBBE APPLICARE UN PATTERN CHAIN OF RESPONSABILITY PER IL CONTROLLO DATI + AUTENTICAZIONE
 				SingleSessioneAttiva.getInstance().login(datiInseriti);
 				User utenteLoggato = SingleSessioneAttiva.getInstance().getUtenteAttivo();
 				if(utenteLoggato != null) {

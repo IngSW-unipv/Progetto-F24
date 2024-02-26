@@ -1,4 +1,4 @@
-package it.unipv.java.model.newuser;
+package it.unipv.java.model.user;
 
 import java.util.List;
 

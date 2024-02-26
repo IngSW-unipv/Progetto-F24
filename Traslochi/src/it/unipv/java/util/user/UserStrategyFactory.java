@@ -5,13 +5,14 @@ import java.lang.reflect.Constructor;
 import java.util.Properties;
 
 import it.unipv.java.model.LoginData;
-import it.unipv.java.model.newuser.User;
-import it.unipv.java.model.user.UserType;
+import it.unipv.java.model.RegisterData;
+import it.unipv.java.model.RegisterModel;
+import it.unipv.java.model.user.User;
 import it.unipv.java.util.user.strategies.IUserStrategy;
 
 public class UserStrategyFactory {
 	private static UserStrategyFactory instance;
-	private IUserStrategy strategiaUtente;
+	private IUserStrategy controllerUtente;
 	private static final String USER_PROPERTYNAME = "User";
 
 	private UserStrategyFactory() {
@@ -34,14 +35,14 @@ public class UserStrategyFactory {
 			String tipoUtenteClassName = String.format(UnformattedString, className);
 				
 				Constructor<?> c = Class.forName(tipoUtenteClassName).getConstructor();
-				strategiaUtente=(IUserStrategy)c.newInstance();
+				controllerUtente=(IUserStrategy)c.newInstance();
 				
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				strategiaUtente=null;
+				controllerUtente=null;
 			}
-		return strategiaUtente;
+		return controllerUtente;
 	}	
 	
 	public IUserStrategy getUserLoginStrategy(LoginData datiLogin) {
@@ -56,13 +57,35 @@ public class UserStrategyFactory {
 				dominioClassName = p.getProperty("altroDominio.it");
 			
 			Constructor<?> c = Class.forName(dominioClassName).getConstructor();
-			strategiaUtente=(IUserStrategy)c.newInstance();
+			controllerUtente = (IUserStrategy)c.newInstance();
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			strategiaUtente=null;
+			controllerUtente = null;
 		}
-	return strategiaUtente;
-}	
+	return controllerUtente;
+}
+
+	public IUserStrategy getUserRegisterStrategy(RegisterData datiRegistrazione) {
+		String dominio = datiRegistrazione.getUtenteDaRegistrare().getEmail().substring(datiRegistrazione.getUtenteDaRegistrare().getEmail().indexOf("@") + 1);
+		Properties p = new Properties(System.getProperties());
+		
+		try {
+			p.load(new FileInputStream("properties/properties"));
+			String dominioClassName = p.getProperty(dominio);
+			
+			if(dominioClassName == null)
+				dominioClassName = p.getProperty("altroDominio.it");
+			
+			Constructor<?> c = Class.forName(dominioClassName).getConstructor();
+			controllerUtente = (IUserStrategy)c.newInstance();
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			controllerUtente = null;
+		}
+	return controllerUtente;
+	}
 }

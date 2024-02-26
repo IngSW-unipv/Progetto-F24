@@ -3,7 +3,7 @@ package it.unipv.test.persistance;
 import it.unipv.java.controller.LoginController;
 import it.unipv.java.model.LoginData;
 import it.unipv.java.model.SingleSessioneAttiva;
-import it.unipv.java.model.newuser.User;
+import it.unipv.java.model.user.User;
 import it.unipv.java.view.LoginView;
 
 public class LoginTest {

@@ -4,7 +4,7 @@ import it.unipv.java.model.user.UserModel;
 import it.unipv.java.persistance.PersistanceFacade;
 
 public class RegisterModel {
-    private UserModel um;
+    private User um;
  
     public RegisterModel(UserModel um) {
         this.um = um;

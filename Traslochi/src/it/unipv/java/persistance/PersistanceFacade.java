@@ -4,11 +4,11 @@ import java.util.List;
 
 import it.unipv.java.model.LoginData;
 import it.unipv.java.model.PrenotazioneModel;
+import it.unipv.java.model.RegisterData;
 import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.TurnoModel;
-import it.unipv.java.model.newuser.User;
-import it.unipv.java.model.user.UserModel;
+import it.unipv.java.model.user.User;
 import it.unipv.java.util.dao.strategies.IDaoFactoryStrategy;
 import it.unipv.java.util.user.UserStrategyFactory;
 
@@ -38,16 +38,8 @@ public class PersistanceFacade {
 		return UserStrategyFactory.getInstance().getUserLoginStrategy(datiLogin).getUser(this, datiLogin);
 	}
 	
-	public boolean registerUser(RegisterModel datiRegistrazione) {
-		switch(datiRegistrazione.getUm().getUserType()) {
-		case DIPENDENTE:
-			return DaoFactory.getInstance().getDipendentePersistance().createDipendente(datiRegistrazione);
-		case RESPONSABILE:
-			return DaoFactory.getInstance().getResponsabilePersistance().createResponsabile(datiRegistrazione);
-		case CLIENTE:
-			return DaoFactory.getInstance().getClientePersistance().createCliente(datiRegistrazione);
-		}	
-		return false;
+	public boolean registerUser(RegisterData datiRegistrazione) {
+		return UserStrategyFactory.getInstance().getUserRegisterStrategy(datiRegistrazione).createUser(this, datiRegistrazione);
 	}
 	
 /*	public boolean modificaProfilo() {
@@ -61,12 +53,12 @@ public class PersistanceFacade {
 		}
 		return false ; 
 	} */
-	
+/*	
 //	DEVE ESSERE ELIMINA USER? DISAMBIGUARE SU CHI/COME SI POSSANO ELIMINARE USER
 	public boolean eliminaDipendente(UserModel user) {
 			return DaoFactory.getInstance().getDipendentePersistance().deleteDipendente(user);
 	}
-
+*/
 	public boolean getTurno(TurnoModel tm) {
 		return DaoFactory.getInstance().getTurnoPersistance().createTurno(tm);
 	}
@@ -94,7 +86,7 @@ public class PersistanceFacade {
 	public boolean setTurno(TurnoModel tm) {
 		return DaoFactory.getInstance().getTurnoPersistance().createTurno(tm);
 	}
-	
+/*	
 	public List<UserModel> mostraDipendenti() {
 		return DaoFactory.getInstance().getDipendentePersistance().getAllDipendenti();
 	}
@@ -103,4 +95,5 @@ public class PersistanceFacade {
 		// TODO Auto-generated method stub
 		return null;
 	}
+*/
 }

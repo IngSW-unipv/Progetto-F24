@@ -1,4 +1,4 @@
-package it.unipv.java.model.newuser;
+package it.unipv.java.model.user;
 
 public abstract class User {
     private String nome;

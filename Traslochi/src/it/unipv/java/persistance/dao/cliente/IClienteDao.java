@@ -3,15 +3,14 @@ package it.unipv.java.persistance.dao.cliente;
 import java.util.List;
 
 import it.unipv.java.model.LoginData;
-import it.unipv.java.model.RegisterModel;
-import it.unipv.java.model.newuser.User;
-import it.unipv.java.model.user.UserModel;
+import it.unipv.java.model.RegisterData;
+import it.unipv.java.model.user.User;
 
 public interface IClienteDao {
 	
-	public List<UserModel> getAllClienti();
+	public List<User> getAllClienti();
 	public User getCliente(LoginData  datiLogin);
-	public boolean createCliente(RegisterModel datiRegistrazione);
-    public boolean updateCliente(UserModel utente);
-    public boolean deleteCliente(UserModel utente); 
+	public boolean createCliente(RegisterData datiRegistrazione);
+    public boolean updateCliente(User utente);
+    public boolean deleteCliente(User utente); 
 }

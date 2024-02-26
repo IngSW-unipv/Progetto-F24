@@ -1,6 +1,8 @@
 package it.unipv.java.model;
 
-import it.unipv.java.model.newuser.User;
+import java.util.List;
+
+import it.unipv.java.model.user.User;
 import it.unipv.java.persistance.PersistanceFacade;
 
 public class SingleSessioneAttiva {
@@ -25,11 +27,23 @@ public class SingleSessioneAttiva {
 //		id(PasswordInserita) != id(Password)
 		if(datiLogin.getPasswordInserita().equals(utenteDaAttivare.getPassword()))
 			this.utenteAttivo = utenteDaAttivare;
+		STRATEGIA	
+				CLIENTE		INSTANZIA PRENOTAZIONI
+				DIPENDENTE 	INSTANZIA TURNI
+				RESPONSABILE INSTANZIA TUTTIDIPENDENTI, TUTTE PRENOTAZIONI, TUTTI TURNI
 	}
 	
 	//Logout User kills active Instance
 	public void logout() {
 	    SingleSessioneAttiva.instance = null;
+	}
+	
+	public List<PrenotazioneModel> setPrenotazioniCliente() {
+		return PersistanceFacade.getInstance().getPrenotazioniUtente();
+	}
+	
+	public List<PrenotazioneModel> getPrenotazioniCliente() {
+		return PersistanceFacade.getInstance().getPrenotazioniUtente();
 	}
 	
 	//Getters e Setters

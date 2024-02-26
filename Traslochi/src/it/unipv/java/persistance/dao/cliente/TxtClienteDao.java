@@ -4,7 +4,7 @@ import java.util.List;
 
 import it.unipv.java.model.LoginData;
 import it.unipv.java.model.RegisterModel;
-import it.unipv.java.model.newuser.User;
+import it.unipv.java.model.user.User;
 import it.unipv.java.model.user.UserModel;
 
 public class TxtClienteDao implements IClienteDao{

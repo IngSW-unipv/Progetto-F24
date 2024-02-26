@@ -69,7 +69,6 @@ public class RdbPrenotazioneDao implements IPrenotazioneDao{
 	            if (rs.next()) {
 	        		PrenotazioneModel prenotazione  = new PrenotazioneModel();
 	                prenotazione.setIdPrenotazione(rs.getString("IDPrenotazione"));
-	                
 	            	prenotazione.setIndirizzodiRitiro(rs.getString("IndirizzoDiRitiro"));
 	    	        prenotazione.setIndirizzoDiConsegna("IndirizzoDiConsegna");
 	    	        prenotazione.setDataRitiro("DataRitiro");
