@@ -8,8 +8,7 @@ public class Dipendente extends User{
 	private String idDipendente;
 	private List<TurnoModel> turno;
 	
-	public Dipendente(String nome, String cognome, String cf, String email, String password) {
-		super(nome, cognome, cf, email, password);
+	public Dipendente() {
 		// TODO Auto-generated constructor stub
 	}
 

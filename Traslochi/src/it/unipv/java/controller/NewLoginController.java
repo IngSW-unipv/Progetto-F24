@@ -56,4 +56,4 @@ public class NewLoginController {
 	public ActionListener getLoginButtonActionListener() {
         return lv.getLoginButton().getActionListeners()[0];
     }
-}// fine loginController
+}

@@ -54,7 +54,7 @@ public class RdbPrenotazioneDao implements IPrenotazioneDao{
 	}
 
 	@Override
-	public  List <PrenotazioneModel> getPrenotazione() {
+	public  List <PrenotazioneModel> getPrenotazioniUtente() {
 	    List<PrenotazioneModel> prenotazioni = new ArrayList<>();
 
 	    Connection conn = null;

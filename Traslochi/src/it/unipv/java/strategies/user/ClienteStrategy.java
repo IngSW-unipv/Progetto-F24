@@ -13,10 +13,9 @@ public class ClienteStrategy implements IUserStrategy{
 
 	@Override
 	public void flussoController(ActionListener actionListener) {
-		ClienteView cl = new ClienteView();
-		ClienteController cc= new ClienteController(loginuser,cl);
-		//PrenotazioneController pc= new PrenotazioneController();
-		cl.setVisible(true);
+		ClienteView cv = new ClienteView();
+		ClienteController cc= new ClienteController(cv);
+		cv.setVisible(true);
 	}
 
 	@Override

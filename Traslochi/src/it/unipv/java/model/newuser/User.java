@@ -47,7 +47,7 @@ public abstract class User {
         this.password = password;
     }
 
-    @Override
+	@Override
     public String toString() {
     	return "User=" + this.getClass().getSimpleName() + "\n" 
     		 + "nome=" + this.getNome() + "\n" 

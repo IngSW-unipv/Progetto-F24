@@ -50,7 +50,7 @@ public class PersistanceFacade {
 		return false;
 	}
 	
-	public boolean modificaProfilo() {
+/*	public boolean modificaProfilo() {
 		switch (SingleSessioneAttiva.getInstance().getUtenteAttivo().getUserType()) {
 		case CLIENTE:
 			return DaoFactory.getInstance().getClientePersistance().updateCliente(SingleSessioneAttiva.getInstance().getUtenteAttivo());
@@ -60,7 +60,7 @@ public class PersistanceFacade {
 			return DaoFactory.getInstance().getResponsabilePersistance().updateResponsabile(SingleSessioneAttiva.getInstance().getUtenteAttivo());
 		}
 		return false ; 
-	}
+	} */
 	
 //	DEVE ESSERE ELIMINA USER? DISAMBIGUARE SU CHI/COME SI POSSANO ELIMINARE USER
 	public boolean eliminaDipendente(UserModel user) {
@@ -84,7 +84,7 @@ public class PersistanceFacade {
 	}
 	
 	public List<PrenotazioneModel> getPrenotazioniUtente() {
-		return DaoFactory.getInstance().getPrenotazionePersistance().getPrenotazione();
+		return DaoFactory.getInstance().getPrenotazionePersistance().getPrenotazioniUtente();
 	}
 	
 	public List<PrenotazioneModel> mostraPrenotazioni() {

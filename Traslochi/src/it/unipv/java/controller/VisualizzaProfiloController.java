@@ -66,7 +66,7 @@ public class VisualizzaProfiloController {
 				um.setEmail(vpv.getEmail());
 				um.setCf(vpv.getCodFis());
  				 
-				vpm.modificaProfilo(um);
+//				vpm.modificaProfilo(um);
 			}
 		});
 		

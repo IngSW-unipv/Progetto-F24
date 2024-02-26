@@ -18,7 +18,6 @@ public class Cliente extends User {
 		this.prenotazioniCliente = prenotazioniCliente;
 	}
 
-
 	public String getIdCliente() {
 		return idCliente;
 	}

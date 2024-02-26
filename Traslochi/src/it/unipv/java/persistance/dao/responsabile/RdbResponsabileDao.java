@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import it.unipv.java.model.LoginData;
 import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.newuser.Responsabile;
@@ -56,25 +58,23 @@ public class RdbResponsabileDao implements IResponsabileDao{
 
 	
 	@Override
-	public boolean getResponsabile(UserModel lm) {
+	public User getResponsabile(LoginData lm) {
 	    conn = DatabaseConnection.startConnection(conn, schema);
-	     
+	    Responsabile responsabile = new Responsabile();
 	    String sql = "SELECT * FROM RESPONSABILE WHERE EMAIL = ?";
 	    ResultSet rs = null;
 	    
 	    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
 	        
-	        pstmt.setString(1, lm.getEmail()); // Usa il parametro corretto
+	        pstmt.setString(1, lm.getEmailInserita()); // Usa il parametro corretto
 	        rs = pstmt.executeQuery();
 	        
 	        if (rs.next()) {
-	        	Responsabile responsabile = new Responsabile();
 	            responsabile.setIdResponsabile(rs.getString("ID"));
 	            responsabile.setNome(rs.getString("NOME"));
 	            responsabile.setCognome(rs.getString("COGNOME"));
 	            responsabile.setEmail(rs.getString("EMAIL"));
 	            responsabile.setPassword(rs.getString("PASSWORD"));
- 	            SingleSessioneAttiva.getInstance().setUtenteAttivo((User)responsabile);;
 	        }
 	    } catch (Exception e) {
 	        e.printStackTrace();
@@ -82,13 +82,13 @@ public class RdbResponsabileDao implements IResponsabileDao{
 	        try {
 	            if (rs != null) rs.close();
 	            DatabaseConnection.closeConnection(conn);
-	            return true;
+	            return responsabile;
 	        } catch (Exception e) {
 	            e.printStackTrace();
 	        }
 	    }
 	    
-	    return false; // Restituisce l'utente responsabile se il login ha successo, altrimenti null
+	    return responsabile;
 	}
 
 

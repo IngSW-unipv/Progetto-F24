@@ -17,7 +17,7 @@ public class ClienteController {
 	private ClienteView cv;
 	private VisualizzaProfiloView pv;
 	
-	public ClienteController(UserModel um, ClienteView cv) {
+	public ClienteController(ClienteView cv) {
 		this.um = um;
 		this.cv = cv;
 		
@@ -45,7 +45,7 @@ public class ClienteController {
 	private void riempiPrenotazioniClienteTXT() {
 		PrenotazioneModel pren = new PrenotazioneModel();
 		List<PrenotazioneModel> lista = new ArrayList<PrenotazioneModel>();
-		lista = pren.getPrenotazioniUtente(um);
+		//lista = pren.getPrenotazioniUtente(um);
 		if(lista == null)
 			cv.getTextPrenotazioni().setText("Nessuna Prenotazione Effettuata!");
 		else

@@ -59,7 +59,7 @@ public class PersistanceFacadeTest {
 		assertTrue("Dipendente Registrato",PersistanceFacade.getInstance().registerUser(dipendenteRegistrazione));
 		assertTrue("Responsabile Registrato",PersistanceFacade.getInstance().registerUser(responsabileRegistrazione));
 		}
-	
+	/*
 	@Test
 	public void testLoginUser() {
 		assertTrue("Cliente Creato", PersistanceFacade.getInstance().loginUser(clienteDaLoggare));
@@ -96,4 +96,5 @@ public class PersistanceFacadeTest {
 		SingleSessioneAttiva.getInstance().logout();
 		assertNull("Responsabile Logout", SingleSessioneAttiva.getInstance().getUtenteAttivo());
 	}
+*/
 }

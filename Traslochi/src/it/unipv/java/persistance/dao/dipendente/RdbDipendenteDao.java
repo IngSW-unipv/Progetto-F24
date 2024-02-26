@@ -7,8 +7,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import it.unipv.java.model.LoginData;
 import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.SingleSessioneAttiva;
+import it.unipv.java.model.newuser.Dipendente;
+import it.unipv.java.model.newuser.User;
 import it.unipv.java.model.user.UserModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 
@@ -148,26 +152,24 @@ public class RdbDipendenteDao implements IDipendenteDao {
 
 	}
 
-	public boolean getDipendente(UserModel ag) {
+	public User getDipendente(LoginData ag) {
 		conn = DatabaseConnection.startConnection(conn, schema);
-
+		Dipendente um = new Dipendente();
 		String sql = "SELECT PASSWORD FROM DIPENDENTE WHERE EMAIL = ?";
 		ResultSet rs = null;
 
 		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-			pstmt.setString(1, ag.getEmail());
+			pstmt.setString(1, ag.getEmailInserita());
 			rs = pstmt.executeQuery();
 			
 			
 			if (rs.next()) {
-				UserModel um = new UserModel();
-				um.setId(rs.getString("IDCliente"));
+				um.setIdDipendente(rs.getString("IDCliente"));
                 um.setNome(rs.getString("Nome"));
                 um.setCognome(rs.getString("Cognome"));
                 um.setCf(rs.getString("CF"));
                 um.setEmail(rs.getString("Email"));
                 um.setPassword(rs.getString("Password"));
-                SingleSessioneAttiva.getInstance().setUtenteAttivo(um);;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -176,15 +178,13 @@ public class RdbDipendenteDao implements IDipendenteDao {
 				if (rs != null)
 					rs.close();
 				DatabaseConnection.closeConnection(conn);
-				return true;
+				return um;
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
 
-		return false;
+		return um;
 	}
-
- 
 
 }

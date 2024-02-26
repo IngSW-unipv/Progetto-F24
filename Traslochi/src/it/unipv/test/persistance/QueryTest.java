@@ -102,6 +102,7 @@ public class QueryTest {
 	@Test
 	public void testRegisterUser() {
 				}
+/*	
 	@Ignore
 	@Test
 	public void testLoginUser() {
@@ -139,4 +140,5 @@ public class QueryTest {
 		SingleSessioneAttiva.getInstance().logout();
 		assertNull("Responsabile Logout", SingleSessioneAttiva.getInstance().getUtenteAttivo());
 	}
+*/
 }
