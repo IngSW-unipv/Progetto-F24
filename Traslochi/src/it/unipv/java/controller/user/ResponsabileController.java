@@ -6,7 +6,7 @@ import java.util.List;
 
 import it.unipv.java.model.PrenotazioneModel;
 import it.unipv.java.model.TurnoModel;
-import it.unipv.java.model.user.UserModel;
+import it.unipv.java.model.user.User;
 import it.unipv.java.view.AssegnaTurnoView;
 import it.unipv.java.view.ClienteView;
 import it.unipv.java.view.RegisterView;
@@ -14,7 +14,7 @@ import it.unipv.java.view.ResponsabileView;
 import it.unipv.java.view.VisualizzaProfiloView;
 
 public class ResponsabileController {
-	private UserModel um;
+	private User um;
 	private ResponsabileView rv;
  	private AssegnaTurnoView at;
 	private TurnoModel tm;
@@ -49,16 +49,16 @@ public class ResponsabileController {
 	   
 	
 	//ORA DEVO MOSTRARE TUTTI I DIPENDENTI DAL DB
-	List<UserModel> dipendenti= um.tuttiDipendenti();//ARRAYLIST CON TUTTI I DIPENDENTI QUA SI FA BINDING COMPONENTE VIEW E DIPENDENTI, SECONDO ME NON ANDRANNO TUTTI A CAPO SARANNO TUTTI IN UN UNICA FILA
+/*	List<User> dipendenti= um.tuttiDipendenti();//ARRAYLIST CON TUTTI I DIPENDENTI QUA SI FA BINDING COMPONENTE VIEW E DIPENDENTI, SECONDO ME NON ANDRANNO TUTTI A CAPO SARANNO TUTTI IN UN UNICA FILA
 	StringBuilder sb = new StringBuilder();
 	
-	for(UserModel dipendente : dipendenti) {
+	for(User dipendente : dipendenti) {
 		sb.append(dipendente.toString()).append("\n");
 	}
 	
 	rv.getTuttiDipendenti().setText(sb.toString());
 	
-	
+*/	
 	
 	//ORA DEVO MOSTRARE TUTTE LE PRENOTAZIONI DAL DB
 	List<PrenotazioneModel> prenotazioni= pm.mostratuttePrenotazioni();

@@ -5,7 +5,6 @@ import java.util.List;
 import it.unipv.java.model.LoginData;
 import it.unipv.java.model.PrenotazioneModel;
 import it.unipv.java.model.RegisterData;
-import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.TurnoModel;
 import it.unipv.java.model.user.User;

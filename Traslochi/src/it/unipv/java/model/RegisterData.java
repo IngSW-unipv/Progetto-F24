@@ -7,6 +7,8 @@ public class RegisterData {
     private String emailInserita;
     private String passwordInserita;
     private String confermaPasswordInserita;
+    private String userId;
+    
 	
     public String getNomeInserito() {
 		return nomeInserito;
@@ -43,6 +45,12 @@ public class RegisterData {
 	}
 	public void setConfermaPasswordInserita(String confermaPasswordInserita) {
 		this.confermaPasswordInserita = confermaPasswordInserita;
+	}
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
     
     

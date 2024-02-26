@@ -30,7 +30,7 @@ public class LoginController {
 					schermataLogin.setVisible(false);
 					UserStrategyFactory.getInstance().getUserControllerStrategy(utenteLoggato).flussoController(this);
 				} else {
-					WarningView wv= new WarningView();
+					WarningView wv = new WarningView();
 					wv.mostraErroreLoginUtente();
 					wv.getBottoneRiprova().addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) { 
@@ -45,7 +45,7 @@ public class LoginController {
 		schermataLogin.getRegisterButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				RegisterView registerView = new RegisterView();
-				RegisterController registerController = new RegisterController(registerView);
+				NewRegisterController registerController = new NewRegisterController(registerView);
 				registerView.setVisible(true);
 			}
 		});

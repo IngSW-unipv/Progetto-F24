@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 import it.unipv.java.controller.user.ResponsabileController;
 import it.unipv.java.model.LoginData;
 import it.unipv.java.model.RegisterData;
-import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.user.User;
 import it.unipv.java.persistance.DaoFactory;
 import it.unipv.java.persistance.PersistanceFacade;

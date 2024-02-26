@@ -39,7 +39,7 @@ public class NewRegisterController {
 			public void actionPerformed(ActionEvent e) {
 				rv.setVisible(false);
 				LoginView lv = new LoginView();
-				lv.setVisible(true);	
+				lv.setVisible(true);
 			}
 		});
 	}

@@ -3,15 +3,14 @@ package it.unipv.java.persistance.dao.cliente;
 import java.util.List;
 
 import it.unipv.java.model.LoginData;
-import it.unipv.java.model.RegisterModel;
+import it.unipv.java.model.RegisterData;
 import it.unipv.java.model.user.User;
-import it.unipv.java.model.user.UserModel;
 
 public class TxtClienteDao implements IClienteDao{
 	
 	public TxtClienteDao() {}
 	@Override
-	public List<UserModel> getAllClienti() {
+	public List<User> getAllClienti() {
 		// TODO Auto-generated method stub
 		System.out.println("getAllClienti succeded");
 		return null;
@@ -25,21 +24,21 @@ public class TxtClienteDao implements IClienteDao{
 	}
 
 	@Override
-	public boolean createCliente(RegisterModel datiRegistrazione) {
+	public boolean createCliente(RegisterData datiRegistrazione) {
 		// TODO Auto-generated method stub
 		System.out.println("createCliente succeded");
 		return true;
 	}
 
 	@Override
-	public boolean updateCliente(UserModel utente) {
+	public boolean updateCliente(User utente) {
 		// TODO Auto-generated method stub
 		System.out.println("updateCliente succeded");
 		return true;
 	}
 
 	@Override
-	public boolean deleteCliente(UserModel utente) {
+	public boolean deleteCliente(User utente) {
 		// TODO Auto-generated method stub
 		System.out.println("deleteCliente succeded");
 		return true;

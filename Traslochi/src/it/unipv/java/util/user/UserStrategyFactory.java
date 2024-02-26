@@ -6,7 +6,6 @@ import java.util.Properties;
 
 import it.unipv.java.model.LoginData;
 import it.unipv.java.model.RegisterData;
-import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.user.User;
 import it.unipv.java.util.user.strategies.IUserStrategy;
 
@@ -68,7 +67,7 @@ public class UserStrategyFactory {
 }
 
 	public IUserStrategy getUserRegisterStrategy(RegisterData datiRegistrazione) {
-		String dominio = datiRegistrazione.getUtenteDaRegistrare().getEmail().substring(datiRegistrazione.getUtenteDaRegistrare().getEmail().indexOf("@") + 1);
+		String dominio = datiRegistrazione.getEmailInserita().substring(datiRegistrazione.getEmailInserita().indexOf("@") + 1);
 		Properties p = new Properties(System.getProperties());
 		
 		try {

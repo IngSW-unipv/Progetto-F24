@@ -7,13 +7,13 @@ import java.util.List;
 
 import it.unipv.java.controller.PrenotazioneController;
 import it.unipv.java.model.PrenotazioneModel;
-import it.unipv.java.model.user.UserModel;
+import it.unipv.java.model.user.User;
 import it.unipv.java.view.ClienteView;
 import it.unipv.java.view.PrenotazioneView;
 import it.unipv.java.view.VisualizzaProfiloView;
 
 public class ClienteController {
-	private UserModel um;
+	private User um;
 	private ClienteView cv;
 	private VisualizzaProfiloView pv;
 	

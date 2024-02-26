@@ -6,11 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import it.unipv.java.model.LoginData;
-import it.unipv.java.model.RegisterModel;
-import it.unipv.java.model.SingleSessioneAttiva;
+import it.unipv.java.model.RegisterData;
 import it.unipv.java.model.user.Responsabile;
 import it.unipv.java.model.user.User;
-import it.unipv.java.model.user.UserModel;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 
 
@@ -25,20 +23,20 @@ public class RdbResponsabileDao implements IResponsabileDao{
 	
 	
 	@Override
-	public boolean createResponsabile(RegisterModel c) {
+	public boolean createResponsabile(RegisterData c) {
 	    conn = DatabaseConnection.startConnection(conn, schema);
 	    PreparedStatement st1 = null;
 	    boolean esito = true;
 	    try {
  	        String query = "INSERT INTO Responsabile (IDResponsabile, Nome, Cognome, CF, Email, Password) VALUES (?, ?, ?, ?, ?, ?)";
-	        st1 = conn.prepareStatement(query);
- 	        st1.setString(1, c.getUm().getId());
-	        st1.setString(2, c.getUm().getNome());
-	        st1.setString(3, c.getUm().getCognome());
-	        st1.setString(4, c.getUm().getCf()); 
-	        st1.setString(5, c.getUm().getEmail());
-	        st1.setString(6, c.getUm().getPassword());
- 	        st1.executeUpdate();
+ 	        st1 = conn.prepareStatement(query);
+			st1.setString(1, c.getUserId());
+			st1.setString(2, c.getNomeInserito());
+			st1.setString(3, c.getCognomeInserito());
+			st1.setString(4, c.getCfInserito());
+			st1.setString(5, c.getEmailInserita());
+			st1.setString(6, c.getPasswordInserita());	
+			st1.executeUpdate();
 
 	    } catch (Exception e) {
 	        e.printStackTrace();
@@ -93,14 +91,14 @@ public class RdbResponsabileDao implements IResponsabileDao{
 
 
 	@Override
-	public boolean updateResponsabile(UserModel ag) {
+	public boolean updateResponsabile(User ag) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 
 	@Override
-	public boolean deleteResponsabile(UserModel utente) {
+	public boolean deleteResponsabile(User utente) {
 		// TODO Auto-generated method stub
 		return false;
 	}
