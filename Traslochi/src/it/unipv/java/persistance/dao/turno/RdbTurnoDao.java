@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.unipv.java.model.TurnoModel;
-import it.unipv.java.model.user.UserModel;
+import it.unipv.java.model.user.User;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 
 public class RdbTurnoDao implements ITurnoDao {
@@ -52,7 +52,7 @@ public class RdbTurnoDao implements ITurnoDao {
 	}
 
  
-	public TurnoModel getTurno(UserModel d) {
+	public TurnoModel getTurno(User d) {
 		TurnoModel t = null;
 	    Connection conn = null; // Ensure conn is declared and initialized
 

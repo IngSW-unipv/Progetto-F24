@@ -61,14 +61,14 @@ CREATE TABLE IF NOT EXISTS Prenotazione (
     FOREIGN KEY (IDCliente) REFERENCES Cliente(IDCliente)
 );
  -- Inserimenti per la tabella Dipendente
-INSERT INTO Dipendente (IDDipendente, Nome, Cognome, CF, Email, Password) VALUES ('DIPN001', 'Mario', 'Rossi', 'RSSMRA85M01H501Z', 'mario.rossi@email.com', 'passwordHash1');
-INSERT INTO Dipendente (IDDipendente, Nome, Cognome, CF, Email, Password) VALUES ('DIPN002', 'Luca', 'Bianchi', 'LCABNC82S18F205J', 'luca.bianchi@email.com', 'passwordHash2');
-INSERT INTO Dipendente (IDDipendente, Nome, Cognome, CF, Email, Password) VALUES ('DIPN003', 'Giulia', 'Verdi', 'GVLGIA88D44A001S', 'giulia.verdi@email.com', 'passwordHash3');
+INSERT INTO Dipendente (IDDipendente, Nome, Cognome, CF, Email, Password) VALUES ('DIPN001', 'Mario', 'Rossi', 'RSSMRA85M01H501Z', 'mario.rossi@bidons.it', 'passwordHash1');
+INSERT INTO Dipendente (IDDipendente, Nome, Cognome, CF, Email, Password) VALUES ('DIPN002', 'Luca', 'Bianchi', 'LCABNC82S18F205J', 'luca.bianchi@bidons.it', 'passwordHash2');
+INSERT INTO Dipendente (IDDipendente, Nome, Cognome, CF, Email, Password) VALUES ('DIPN003', 'Giulia', 'Verdi', 'GVLGIA88D44A001S', 'giulia.verdi@bidons.it', 'passwordHash3');
 
 -- Inserimenti per la tabella Responsabile
-INSERT INTO Responsabile (IDResponsabile, Nome, Cognome, CF, Email, Password) VALUES ('RESP001', 'Anna', 'Gialli', 'ANNGIA72P65Z404X', 'anna.gialli@email.com', 'passwordHash1');
-INSERT INTO Responsabile (IDResponsabile, Nome, Cognome, CF, Email, Password) VALUES ('RESP002', 'Carlo', 'Neri', 'CRLNRI69E07F839K', 'carlo.neri@email.com', 'passwordHash2');
-INSERT INTO Responsabile (IDResponsabile, Nome, Cognome, CF, Email, Password) VALUES ('RESP003', 'Sofia', 'Marroni', 'SOFMRR80A41G273H', 'sofia.marroni@email.com', 'passwordHash3');
+INSERT INTO Responsabile (IDResponsabile, Nome, Cognome, CF, Email, Password) VALUES ('RESP001', 'Anna', 'Gialli', 'ANNGIA72P65Z404X', 'anna.gialli@bidonsResp.it', 'passwordHash1');
+INSERT INTO Responsabile (IDResponsabile, Nome, Cognome, CF, Email, Password) VALUES ('RESP002', 'Carlo', 'Neri', 'CRLNRI69E07F839K', 'carlo.neri@bidonsResp.it', 'passwordHash2');
+INSERT INTO Responsabile (IDResponsabile, Nome, Cognome, CF, Email, Password) VALUES ('RESP003', 'Sofia', 'Marroni', 'SOFMRR80A41G273H', 'sofia.marroni@bidonsResp.it', 'passwordHash3');
 
 -- Inserimenti per la tabella Cliente
 INSERT INTO Cliente (IDCliente, Nome, Cognome, CF, Email, Password) VALUES ('CLNT001', 'Marco', 'Celeste', 'MCRCST76M04H501P', 'marco.celeste@email.com', 'passwordHash1');

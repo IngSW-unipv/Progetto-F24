@@ -105,6 +105,13 @@ public class WarningView {
 		riprovaButton.setText("Riprova");
 	}
 	
+	public void mostraErroreLoginUtente() {
+		initialize();
+		frame.setVisible(true);
+		label.setText("L'utente/La Password inserite sono errate!");
+		riprovaButton.setText("Riprova");
+	}
+	
 	public void mostraErrorMetodoPag() {
 		initialize();
 		frame.setVisible(true);

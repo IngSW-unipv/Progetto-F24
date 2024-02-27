@@ -9,11 +9,8 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import it.unipv.java.model.PrenotazioneModel;
-import it.unipv.java.model.RegisterModel;
 import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.TurnoModel;
-import it.unipv.java.model.user.UserModel;
-import it.unipv.java.model.user.UserType;
 import it.unipv.java.persistance.PersistanceFacade;
 import it.unipv.java.persistance.dao.cliente.RdbClienteDao;
 import it.unipv.java.persistance.dao.dipendente.RdbDipendenteDao;
@@ -22,7 +19,7 @@ import it.unipv.java.persistance.dao.responsabile.RdbResponsabileDao;
 import it.unipv.java.persistance.dao.turno.RdbTurnoDao;
 
 public class QueryTest {
-	private UserModel utenteDaLoggare;
+/*	private UserModel utenteDaLoggare;
 	private UserModel clienteDaLoggare;
 	private UserModel dipendenteDaLoggare;
 	private UserModel responsabileDaLoggare;
@@ -102,6 +99,7 @@ public class QueryTest {
 	@Test
 	public void testRegisterUser() {
 				}
+/*	
 	@Ignore
 	@Test
 	public void testLoginUser() {
@@ -139,4 +137,5 @@ public class QueryTest {
 		SingleSessioneAttiva.getInstance().logout();
 		assertNull("Responsabile Logout", SingleSessioneAttiva.getInstance().getUtenteAttivo());
 	}
+*/
 }

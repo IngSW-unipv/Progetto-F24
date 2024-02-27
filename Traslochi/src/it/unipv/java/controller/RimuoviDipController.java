@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JDialog;
 
 import it.unipv.java.model.DeleteModel;
-import it.unipv.java.model.user.UserModel;
+import it.unipv.java.model.user.User;
 import it.unipv.java.view.RimuoviDipView;
 import it.unipv.java.view.WarningView;
 
@@ -26,10 +26,10 @@ public class RimuoviDipController {
 				rdv.setVisible(false);	
 			}
 		});
-		
+/*		
 		rdv.getButtonConfermaRim().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				UserModel dm = new UserModel();
+				User dm = new User();
 				dm.setCf(rdv.getCodiceFiscale());
 				dm.setId(rdv.getIdDipendente()); 
 				//Warning:Fallimento o Successo.
@@ -41,7 +41,7 @@ public class RimuoviDipController {
 							wv.closeWindow();
 						} 
 					});
-				}else{
+					}else{
 					wv.elimNonEffettuata();
 					wv.getBottoneRiprova().addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) { 
@@ -50,7 +50,7 @@ public class RimuoviDipController {
 					});
 				}
 			}
-		});
+		});*/
 	}
 	/*
 	public static void main(String[] args) {

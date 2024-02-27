@@ -3,89 +3,56 @@ package it.unipv.java.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import it.unipv.java.controller.dashboard.ClienteController;
-import it.unipv.java.controller.dashboard.DipendenteController;
-import it.unipv.java.controller.dashboard.ResponsabileController;
-import it.unipv.java.model.LoginModel;
-import it.unipv.java.model.user.UserModel;
-import it.unipv.java.model.user.UserType;
-import it.unipv.java.view.ClienteView;
-import it.unipv.java.view.DipendentView;
+import it.unipv.java.model.LoginData;
+import it.unipv.java.model.SingleSessioneAttiva;
+import it.unipv.java.model.user.User;
+import it.unipv.java.util.user.UserStrategyFactory;
 import it.unipv.java.view.LoginView;
 import it.unipv.java.view.RegisterView;
-import it.unipv.java.view.ResponsabileView;
 import it.unipv.java.view.WarningView;
 
 public class LoginController {
-	public LoginModel lm;
-	public LoginView lv;
-	//private ClienteView cv;
-	private DipendentView dv;
-	private ResponsabileView rv;
+	public LoginData datiInseriti;
+	public LoginView loginView;
 
-	public LoginController(LoginView lv) {
-		this.lv = lv;
-		this.lm= new LoginModel();
+	public LoginController(LoginView schermataLogin) {
+		this.loginView = schermataLogin;
 		setListeners();
 	}
 
 	private void setListeners() {
-		lv.getLoginButton().addActionListener(new ActionListener() {
+		loginView.getLoginButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				UserModel loginuser = new UserModel();
-				loginuser.setEmail(lv.getEmail());
-				loginuser.setPassword(lv.getPassword());
-				lm.setUm(loginuser);
-				if (lm.confermaLogin()) {
-					lv.setVisible(false);
-					//istanzio la home page quale? dipende dal valore di ritorno di conferma login se dip,cliente,respons
-					UserType ut= lm.checkuser(loginuser);//QUA RITORNA UN USERTYPE
-					switch(ut) {
-					case CLIENTE: 
-						ClienteView cl = new ClienteView();
-						ClienteController cc= new ClienteController(loginuser,cl);
-						//PrenotazioneController pc= new PrenotazioneController();
-						cl.setVisible(true);
-						break;
-					case DIPENDENTE:
-						DipendentView dv= new DipendentView();
-						DipendenteController dc= new DipendenteController(loginuser,dv);
-						dv.setVisible(true);
-						
-					    break;
-					case RESPONSABILE:
-						ResponsabileView rv= new ResponsabileView();
-						ResponsabileController rc= new ResponsabileController(loginuser, rv);
-						rv.setVisible(true);
-						break;
-					}
-					
+				datiInseriti = new LoginData(loginView.getEmail(),loginView.getPassword());
+				SingleSessioneAttiva.getInstance().login(datiInseriti);
+				User utenteLoggato = SingleSessioneAttiva.getInstance().getUtenteAttivo();
+				if(utenteLoggato != null) {
+					loginView.setVisible(false);
+					UserStrategyFactory.getInstance().getUserControllerStrategy(utenteLoggato).flussoController(this);
 				} else {
-					// lm.showErrorMessage("Errore nella registrazione. Verifica i dati inseriti.");
-					WarningView wv= new WarningView();
-					wv.mostraErrorGenerale();
+					WarningView wv = new WarningView();
+					wv.mostraErroreLoginUtente();
 					wv.getBottoneRiprova().addActionListener(new ActionListener() {
-						 public void actionPerformed(ActionEvent e) { 
+						public void actionPerformed(ActionEvent e) { 
 							 wv.closeWindow();
-							 lv.setPassword("");
-						 } });
-				}
+							 loginView.setPassword("");
+							 loginView.setEmail("");
+						 }
+					});
+				}										
 			}
 		});
-
-		lv.getRegisterButton().addActionListener(new ActionListener() {
+		loginView.getRegisterButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				RegisterView registerView = new RegisterView();
-				RegisterController rc= new RegisterController(registerView);
+				RegisterController registerController = new RegisterController(registerView);
 				registerView.setVisible(true);
+				loginView.setVisible(false);
 			}
 		});
-
 	}
 	
 	public ActionListener getLoginButtonActionListener() {
-        return lv.getLoginButton().getActionListeners()[0];
+        return loginView.getLoginButton().getActionListeners()[0];
     }
-	
-
-}// fine loginController
+}

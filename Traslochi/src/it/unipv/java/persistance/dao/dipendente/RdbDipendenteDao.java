@@ -7,9 +7,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import it.unipv.java.model.RegisterModel;
+
+import it.unipv.java.model.LoginData;
+import it.unipv.java.model.RegisterData;
 import it.unipv.java.model.SingleSessioneAttiva;
-import it.unipv.java.model.user.UserModel;
+import it.unipv.java.model.user.Dipendente;
+import it.unipv.java.model.user.User;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 
 
@@ -23,19 +26,19 @@ public class RdbDipendenteDao implements IDipendenteDao {
 	}
 
 	@Override
-	public boolean createDipendente(RegisterModel c) {
+	public boolean createDipendente(RegisterData c) {
 		conn = DatabaseConnection.startConnection(conn, schema);
 		PreparedStatement st1 = null;
 		boolean esito = true;
 		try {
 			String query = "INSERT INTO Dipendente (IDDipendente, Nome, Cognome, CF, Email, Password) VALUES(?, ?, ?, ?, ?, ?)";
 			st1 = conn.prepareStatement(query);
-			st1.setString(1, c.getUm().getId());
-			st1.setString(2, c.getUm().getNome());
-			st1.setString(3, c.getUm().getCognome());
-			st1.setString(4, c.getUm().getCf());
-			st1.setString(5, c.getUm().getEmail());
-			st1.setString(6, c.getUm().getPassword());
+			st1.setString(1, c.getUserId());
+			st1.setString(2, c.getNomeInserito());
+			st1.setString(3, c.getCognomeInserito());
+			st1.setString(4, c.getCfInserito());
+			st1.setString(5, c.getEmailInserita());
+			st1.setString(6, c.getPasswordInserita());	
 			st1.executeUpdate();
 
 		} catch (Exception e) {
@@ -55,7 +58,7 @@ public class RdbDipendenteDao implements IDipendenteDao {
 	}
 
  	@Override
-	public boolean updateDipendente(UserModel u) {
+	public boolean updateDipendente(User u) {
  	    Connection conn = null;
 
 	    try {
@@ -85,7 +88,7 @@ public class RdbDipendenteDao implements IDipendenteDao {
 
 
  	@Override
-	public boolean deleteDipendente(UserModel u) {
+	public boolean deleteDipendente(User u) {
 
 		conn = DatabaseConnection.startConnection(conn, schema);
 
@@ -106,8 +109,8 @@ public class RdbDipendenteDao implements IDipendenteDao {
 		return true;
 	}
 
- 	public List<UserModel> getAllDipendenti() {
-		List<UserModel> dipendenti = new ArrayList<>();
+ 	public List<User> getAllDipendenti() {
+		List<User> dipendenti = new ArrayList<>();
 
 		Statement stmt = null;
 		ResultSet rs = null;
@@ -121,10 +124,11 @@ public class RdbDipendenteDao implements IDipendenteDao {
 			rs = stmt.executeQuery(sql);
 
 			while (rs.next()) {
-				UserModel dipendente = new UserModel();
-				dipendente.setId(rs.getString("IDDIPENDENTI"));
+				Dipendente dipendente = new Dipendente();
+				dipendente.setId(rs.getString("IDDIPENDENTE"));
 				dipendente.setNome(rs.getString("NOME"));
 				dipendente.setCognome(rs.getString("COGNOME"));
+				dipendente.setCf(rs.getString("CF"));
 				dipendente.setEmail(rs.getString("EMAIL"));
 				dipendenti.add(dipendente);
 			}
@@ -148,26 +152,24 @@ public class RdbDipendenteDao implements IDipendenteDao {
 
 	}
 
-	public boolean getDipendente(UserModel ag) {
+	public User getDipendente(LoginData ag) {
 		conn = DatabaseConnection.startConnection(conn, schema);
-
-		String sql = "SELECT PASSWORD FROM DIPENDENTE WHERE EMAIL = ?";
+		Dipendente um = new Dipendente();
+		String sql = "SELECT IDDipendente, Nome, Cognome, CF, Email, Password FROM DIPENDENTE WHERE EMAIL = ?";
 		ResultSet rs = null;
 
 		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-			pstmt.setString(1, ag.getEmail());
+			pstmt.setString(1, ag.getEmailInserita());
 			rs = pstmt.executeQuery();
 			
 			
 			if (rs.next()) {
-				UserModel um = new UserModel();
-				um.setId(rs.getString("IDCliente"));
+				um.setIdDipendente(rs.getString("IDDipendente"));
                 um.setNome(rs.getString("Nome"));
                 um.setCognome(rs.getString("Cognome"));
                 um.setCf(rs.getString("CF"));
                 um.setEmail(rs.getString("Email"));
                 um.setPassword(rs.getString("Password"));
-                SingleSessioneAttiva.getInstance().login(um);;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -176,15 +178,13 @@ public class RdbDipendenteDao implements IDipendenteDao {
 				if (rs != null)
 					rs.close();
 				DatabaseConnection.closeConnection(conn);
-				return true;
+				return um;
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
 
-		return false;
+		return um;
 	}
-
- 
 
 }

@@ -54,7 +54,7 @@ public class RdbPrenotazioneDao implements IPrenotazioneDao{
 	}
 
 	@Override
-	public  List <PrenotazioneModel> getPrenotazione() {
+	public  List <PrenotazioneModel> getPrenotazioniUtente() {
 	    List<PrenotazioneModel> prenotazioni = new ArrayList<>();
 
 	    Connection conn = null;
@@ -69,11 +69,10 @@ public class RdbPrenotazioneDao implements IPrenotazioneDao{
 	            if (rs.next()) {
 	        		PrenotazioneModel prenotazione  = new PrenotazioneModel();
 	                prenotazione.setIdPrenotazione(rs.getString("IDPrenotazione"));
-	                
 	            	prenotazione.setIndirizzodiRitiro(rs.getString("IndirizzoDiRitiro"));
-	    	        prenotazione.setIndirizzoDiConsegna("IndirizzoDiConsegna");
-	    	        prenotazione.setDataRitiro("DataRitiro");
-	    	        prenotazione.setDataConsegna("DataConsegna");
+	    	        prenotazione.setIndirizzoDiConsegna(rs.getString("IndirizzoDiConsegna"));
+	    	        prenotazione.setDataRitiro(rs.getString("DataRitiro"));
+	    	        prenotazione.setDataConsegna(rs.getString("DataConsegna"));
 	    	        prenotazioni.add(prenotazione);
  	            }
 	        }
