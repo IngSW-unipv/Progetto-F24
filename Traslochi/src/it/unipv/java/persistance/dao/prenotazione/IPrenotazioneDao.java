@@ -2,13 +2,13 @@ package it.unipv.java.persistance.dao.prenotazione;
 
 import java.util.List;
 
-import it.unipv.java.model.PrenotazioneModel;
+import it.unipv.java.model.PrenotazioneData;
 
 public interface IPrenotazioneDao {
 	
-	public List<PrenotazioneModel> getAllPrenotazioni();
-	public List<PrenotazioneModel> getPrenotazioniUtente();
-	public boolean createPrenotazione(PrenotazioneModel datiPrenotazione);
-	public boolean updatePrenotazione(PrenotazioneModel datiPrenotazione);
-	public boolean deletePrenotazione(PrenotazioneModel datiPrenotazione);
+	public List<PrenotazioneData> getAllPrenotazioni();
+	public List<PrenotazioneData> getPrenotazioniUtente();
+	public boolean createPrenotazione(PrenotazioneData datiPrenotazione);
+	public boolean updatePrenotazione(PrenotazioneData datiPrenotazione);
+	public boolean deletePrenotazione(PrenotazioneData datiPrenotazione);
 }

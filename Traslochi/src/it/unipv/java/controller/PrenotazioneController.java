@@ -7,16 +7,16 @@ import it.unipv.java.view.ClienteView;
 import it.unipv.java.view.PrenotazioneView;
 import it.unipv.java.view.WarningView;
 import it.unipv.java.controller.user.ClienteController;
-import it.unipv.java.model.PrenotazioneModel;
+import it.unipv.java.model.PrenotazioneData;
 
 public class PrenotazioneController {
-	private PrenotazioneModel pm;
+	private PrenotazioneData pm;
 	private PrenotazioneView pv;
 	private WarningView wv;
 	private ClienteView cv;
 
 	public PrenotazioneController(PrenotazioneView pv) {
-		this.pm = new PrenotazioneModel();
+		this.pm = new PrenotazioneData();
 		this.pv = pv;
 		setlisteners();
 	}

@@ -18,7 +18,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.border.SoftBevelBorder;
 
-import it.unipv.java.model.PrenotazioneModel;
+import it.unipv.java.model.PrenotazioneData;
 
 import javax.swing.border.BevelBorder;
 import javax.swing.JSeparator;
@@ -581,7 +581,7 @@ public class PrenotazioneView extends JFrame {
 		this.textField_9 = textField_9;
 	}
 
-	public void setViewTest(PrenotazioneModel pm) {
+	public void setViewTest(PrenotazioneData pm) {
 		indirizzoRitiro.setText(pm.getIndirizzodiRitiro());
 		indirizzoConsegna.setText(pm.getIndirizzoDiConsegna());
 		dataRitiro.setText(pm.getDataRitiro());

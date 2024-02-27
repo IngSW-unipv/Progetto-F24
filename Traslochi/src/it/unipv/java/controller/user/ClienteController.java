@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.unipv.java.controller.PrenotazioneController;
-import it.unipv.java.model.PrenotazioneModel;
+import it.unipv.java.model.PrenotazioneData;
 import it.unipv.java.model.user.User;
 import it.unipv.java.persistance.PersistanceFacade;
 import it.unipv.java.view.ClienteView;
@@ -44,10 +44,10 @@ public class ClienteController {
 	}
 	
 	private void riempiPrenotazioniClienteTXT() {
-		List<PrenotazioneModel> prenotazioni= PersistanceFacade.getInstance().getPrenotazioniCliente();
+		List<PrenotazioneData> prenotazioni= PersistanceFacade.getInstance().getPrenotazioniCliente();
 		StringBuilder sb1 = new StringBuilder();
 		
-		for(PrenotazioneModel prenotazione : prenotazioni) {
+		for(PrenotazioneData prenotazione : prenotazioni) {
 			sb1.append(prenotazione.toString()).append("\n");
 		}
 		

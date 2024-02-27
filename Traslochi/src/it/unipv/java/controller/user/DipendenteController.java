@@ -4,22 +4,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalTime;
 
-import it.unipv.java.model.TurnoModel;
-import it.unipv.java.model.user.User;
+import it.unipv.java.model.TurnoData;
 import it.unipv.java.view.DipendentView;
 import it.unipv.java.view.VisualizzaProfiloView;
 
 public class DipendenteController {
-    private TurnoModel tm;
+    private TurnoData tm;
     private DipendentView dv;
     private VisualizzaProfiloView pv;
-    private User um;
     
     public DipendenteController(DipendentView dv) { 
-        this.tm = new TurnoModel();
-        this.um=um;
+        this.tm = new TurnoData();
         this.dv = dv;
-        this.pv = pv;
         setListeners();
     }
 

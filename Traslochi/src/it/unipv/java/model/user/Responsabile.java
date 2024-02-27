@@ -2,12 +2,12 @@ package it.unipv.java.model.user;
 
 import java.util.List;
 
-import it.unipv.java.model.TurnoModel;
+import it.unipv.java.model.TurnoData;
 
 public class Responsabile extends User{
 	private String idResponsabile;
 	private List<Dipendente> dipendentiRegistrati;
-	private List<TurnoModel> turniRegistrati;
+	private List<TurnoData> turniRegistrati;
 	
 	public String getIdResponsabile() {
 		return idResponsabile;
@@ -25,11 +25,11 @@ public class Responsabile extends User{
 		this.dipendentiRegistrati = dipendentiRegistrati;
 	}
 
-	public List<TurnoModel> getTurniRegistrati() {
+	public List<TurnoData> getTurniRegistrati() {
 		return turniRegistrati;
 	}
 
-	public void setTurniRegistrati(List<TurnoModel> turniRegistrati) {
+	public void setTurniRegistrati(List<TurnoData> turniRegistrati) {
 		this.turniRegistrati = turniRegistrati;
 	}
 	

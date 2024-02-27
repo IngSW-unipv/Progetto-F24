@@ -2,11 +2,11 @@ package it.unipv.java.model.user;
 
 import java.util.List;
 
-import it.unipv.java.model.PrenotazioneModel;
+import it.unipv.java.model.PrenotazioneData;
 
 public class Cliente extends User {
 	private String idCliente;
-	private List<PrenotazioneModel> prenotazioniUtente;
+	private List<PrenotazioneData> prenotazioniUtente;
 	
 	public Cliente() {}
 	
@@ -18,11 +18,11 @@ public class Cliente extends User {
 		this.idCliente = idCliente;
 	}
 
-	public List<PrenotazioneModel> getPrenotazioniUtente() {
+	public List<PrenotazioneData> getPrenotazioniUtente() {
 		return prenotazioniUtente;
 	}
 
-	public void setPrenotazioniUtente(List<PrenotazioneModel> prenotazioniUtente) {
+	public void setPrenotazioniUtente(List<PrenotazioneData> prenotazioniUtente) {
 		this.prenotazioniUtente = prenotazioniUtente;
 	}
 	@Override

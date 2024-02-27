@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import it.unipv.java.model.PrenotazioneModel;
+import it.unipv.java.model.PrenotazioneData;
 import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 
@@ -22,8 +22,8 @@ public class RdbPrenotazioneDao implements IPrenotazioneDao{
   
 
 	@Override
-	public List <PrenotazioneModel> getAllPrenotazioni() {
-	    List<PrenotazioneModel> prenotazioni = new ArrayList<>();
+	public List <PrenotazioneData> getAllPrenotazioni() {
+	    List<PrenotazioneData> prenotazioni = new ArrayList<>();
 	    Connection conn = null;
 	    ResultSet rs = null;
 
@@ -33,7 +33,7 @@ public class RdbPrenotazioneDao implements IPrenotazioneDao{
 	        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
 	            rs = stmt.executeQuery();
 	            while (rs.next()) {
-	            	PrenotazioneModel p = new PrenotazioneModel();
+	            	PrenotazioneData p = new PrenotazioneData();
 	                p.setIdPrenotazione(rs.getString ("IDPrenotazione"));
 	                p.setIdCliente(rs.getString("IDCliente"));
 	                //p.setIndirizzoConsegna(rs.getString() .getIndirizzoDiConsegna("IndirizzoDiConsegna"));
@@ -54,8 +54,8 @@ public class RdbPrenotazioneDao implements IPrenotazioneDao{
 	}
 
 	@Override
-	public  List <PrenotazioneModel> getPrenotazioniUtente() {
-	    List<PrenotazioneModel> prenotazioni = new ArrayList<>();
+	public  List <PrenotazioneData> getPrenotazioniUtente() {
+	    List<PrenotazioneData> prenotazioni = new ArrayList<>();
 
 	    Connection conn = null;
 	    ResultSet rs = null;
@@ -67,7 +67,7 @@ public class RdbPrenotazioneDao implements IPrenotazioneDao{
 	            stmt.setString(1, SingleSessioneAttiva.getInstance().getUtenteAttivo().getId());
 	            rs = stmt.executeQuery();
 	            if (rs.next()) {
-	        		PrenotazioneModel prenotazione  = new PrenotazioneModel();
+	        		PrenotazioneData prenotazione  = new PrenotazioneData();
 	                prenotazione.setIdPrenotazione(rs.getString("IDPrenotazione"));
 	            	prenotazione.setIndirizzodiRitiro(rs.getString("IndirizzoDiRitiro"));
 	    	        prenotazione.setIndirizzoDiConsegna(rs.getString("IndirizzoDiConsegna"));
@@ -85,7 +85,7 @@ public class RdbPrenotazioneDao implements IPrenotazioneDao{
 	}
 
 	@Override
-	public boolean createPrenotazione(PrenotazioneModel p) {
+	public boolean createPrenotazione(PrenotazioneData p) {
 		conn = DatabaseConnection.startConnection(conn, schema);
 		PreparedStatement st1 = null;
 	    boolean esito = true;
@@ -123,7 +123,7 @@ public class RdbPrenotazioneDao implements IPrenotazioneDao{
 		    return esito;
 		}
   
-	public boolean updatePrenotazione(PrenotazioneModel p) {
+	public boolean updatePrenotazione(PrenotazioneData p) {
 	    Connection conn = null;
 	    boolean success = true;
 
@@ -154,7 +154,7 @@ public class RdbPrenotazioneDao implements IPrenotazioneDao{
 	}
 
 	@Override
-	public boolean deletePrenotazione(PrenotazioneModel p) {
+	public boolean deletePrenotazione(PrenotazioneData p) {
 	    Connection conn = null;
 	    boolean success = false;
 

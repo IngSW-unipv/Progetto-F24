@@ -4,8 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-import it.unipv.java.model.PrenotazioneModel;
-import it.unipv.java.model.TurnoModel;
+import it.unipv.java.model.PrenotazioneData;
+import it.unipv.java.model.TurnoData;
 import it.unipv.java.model.user.Dipendente;
 import it.unipv.java.model.user.User;
 import it.unipv.java.persistance.PersistanceFacade;
@@ -19,8 +19,8 @@ public class ResponsabileController {
 	private Dipendente dip;
 	private ResponsabileView rv;
  	private AssegnaTurnoView at;
-	private TurnoModel tm;
-	private PrenotazioneModel pm;
+	private TurnoData tm;
+	private PrenotazioneData pm;
 	
 	//HO TOLTO ASSEGNATURNO E TURNOMODEL DAL COSTRUTTORE --> NIKUZ
 	public ResponsabileController(ResponsabileView rv) {
@@ -71,10 +71,10 @@ public class ResponsabileController {
 	
 	
 	//ORA DEVO MOSTRARE TUTTE LE PRENOTAZIONI DAL DB
-	List<PrenotazioneModel> prenotazioni= PersistanceFacade.getInstance().mostraPrenotazioni();
+	List<PrenotazioneData> prenotazioni= PersistanceFacade.getInstance().mostraPrenotazioni();
 	StringBuilder sb1 = new StringBuilder();
 	
-	for(PrenotazioneModel prenotazione : prenotazioni) {
+	for(PrenotazioneData prenotazione : prenotazioni) {
 		sb1.append(prenotazione.toString()).append("\n");
 	}
 	
@@ -84,10 +84,10 @@ public class ResponsabileController {
 		
 		
 	//ORA DEVO MOSTRARE TUTTE I TURNI
-	List<TurnoModel> turni= PersistanceFacade.getInstance().mostraTurni();
+	List<TurnoData> turni= PersistanceFacade.getInstance().mostraTurni();
 	StringBuilder sb2 = new StringBuilder();
 	
-	for(TurnoModel turno : turni) {
+	for(TurnoData turno : turni) {
 		sb2.append(turno.toString()).append("\n");
 	}
 	
