@@ -1,0 +1,79 @@
+controller
+	user
+		ClienteController
+		DipendenteController
+		ResponsabileController
+	LoginController
+	PrenotazioneController
+	RegisterController
+	RimuoviDipController
+	VisualizzaProfiloController
+	
+
+model
+	user
+		Cliente
+		Dipendente
+		Responsabile
+		User
+	DeleteModel
+	Indirizzo
+	LoginData
+	PrenotazioneModel
+	RegisterData
+	SingleSessioneAttiva
+	TurnoModel
+	
+
+persistance
+			dao
+				cliente
+					IClienteDao
+					RdbClienteDao
+					TxtClienteDao
+				dipendente
+					IDipendenteDao
+					RdbDipendenteDao
+				prenotazione
+					IPrenotazioneDao
+					RdbPrenotazioneDao
+				responsabile
+					IResponsabileDao
+					RdbResponsabileDao
+				turno
+					ITurnoDao
+					RdbTurnoDao
+				DaoFactory
+				DatabaseConnection
+				PersistanceFacade
+
+util
+	dao
+		strategies
+				IDaoFactoryStrategy
+				RdbDaoStrategy
+				TxtDaoStrategy
+				XmlDaoStrategy
+		DaoStrategyFactory
+	
+	responsabilitychain
+		handlers
+			ControlloCF
+			ControlloConfermaPassword
+			ControlloEmail
+			ControlloNome
+			ControlloPassword
+			IControllo
+			VuotoControl
+		RegistrationHandler
+	
+	user
+		strategies
+			ClienteStrategy
+			DipendenteStrategy
+			IUserStrategy
+			ResponsabileStrategy
+		UserStrategyFactory
+
+view
+	
