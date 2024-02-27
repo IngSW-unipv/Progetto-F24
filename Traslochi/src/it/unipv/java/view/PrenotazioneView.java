@@ -4,11 +4,9 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -22,8 +20,6 @@ import it.unipv.java.model.PrenotazioneModel;
 
 import javax.swing.border.BevelBorder;
 import javax.swing.JSeparator;
-import javax.swing.JList;
-import javax.swing.JScrollBar;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JRadioButton;

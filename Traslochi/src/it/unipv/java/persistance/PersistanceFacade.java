@@ -51,12 +51,12 @@ public class PersistanceFacade {
 		}
 		return false ; 
 	} */
-/*	
+	
 //	DEVE ESSERE ELIMINA USER? DISAMBIGUARE SU CHI/COME SI POSSANO ELIMINARE USER
-	public boolean eliminaDipendente(UserModel user) {
+	public boolean eliminaDipendente(User user) {
 			return DaoFactory.getInstance().getDipendentePersistance().deleteDipendente(user);
 	}
-*/
+
 	public boolean getTurno(TurnoModel tm) {
 		return DaoFactory.getInstance().getTurnoPersistance().createTurno(tm);
 	}

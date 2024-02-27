@@ -14,9 +14,9 @@ public class ResponsabileStrategy implements IUserStrategy{
 
 	@Override
 	public void flussoController(ActionListener actionListener) {
-		ResponsabileView rv = new ResponsabileView();
-		ResponsabileController rc = new ResponsabileController(rv);
-		rv.setVisible(true);
+		ResponsabileView responsabileView = new ResponsabileView();
+		ResponsabileController responsabileController = new ResponsabileController(responsabileView);
+		responsabileView.setVisible(true);
 	}
 
 	@Override

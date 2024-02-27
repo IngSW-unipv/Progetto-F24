@@ -1,7 +1,6 @@
 package it.unipv.java.view;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -16,7 +15,6 @@ import java.awt.SystemColor;
 import javax.swing.JSeparator;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JTextField;
-import java.awt.Color;
 import java.awt.Toolkit;
 
 public class RimuoviDipView extends JDialog {
