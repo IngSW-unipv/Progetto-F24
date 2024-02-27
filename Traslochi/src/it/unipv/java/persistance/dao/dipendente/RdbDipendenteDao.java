@@ -125,9 +125,10 @@ public class RdbDipendenteDao implements IDipendenteDao {
 
 			while (rs.next()) {
 				Dipendente dipendente = new Dipendente();
-				dipendente.setId(rs.getString("IDDIPENDENTI"));
+				dipendente.setId(rs.getString("IDDIPENDENTE"));
 				dipendente.setNome(rs.getString("NOME"));
 				dipendente.setCognome(rs.getString("COGNOME"));
+				dipendente.setCf(rs.getString("CF"));
 				dipendente.setEmail(rs.getString("EMAIL"));
 				dipendenti.add(dipendente);
 			}

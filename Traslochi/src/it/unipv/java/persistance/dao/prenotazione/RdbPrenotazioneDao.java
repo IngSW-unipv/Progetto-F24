@@ -70,9 +70,9 @@ public class RdbPrenotazioneDao implements IPrenotazioneDao{
 	        		PrenotazioneModel prenotazione  = new PrenotazioneModel();
 	                prenotazione.setIdPrenotazione(rs.getString("IDPrenotazione"));
 	            	prenotazione.setIndirizzodiRitiro(rs.getString("IndirizzoDiRitiro"));
-	    	        prenotazione.setIndirizzoDiConsegna("IndirizzoDiConsegna");
-	    	        prenotazione.setDataRitiro("DataRitiro");
-	    	        prenotazione.setDataConsegna("DataConsegna");
+	    	        prenotazione.setIndirizzoDiConsegna(rs.getString("IndirizzoDiConsegna"));
+	    	        prenotazione.setDataRitiro(rs.getString("DataRitiro"));
+	    	        prenotazione.setDataConsegna(rs.getString("DataConsegna"));
 	    	        prenotazioni.add(prenotazione);
  	            }
 	        }

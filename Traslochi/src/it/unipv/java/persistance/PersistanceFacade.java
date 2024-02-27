@@ -6,6 +6,7 @@ import it.unipv.java.model.LoginData;
 import it.unipv.java.model.PrenotazioneModel;
 import it.unipv.java.model.RegisterData;
 import it.unipv.java.model.TurnoModel;
+import it.unipv.java.model.user.Dipendente;
 import it.unipv.java.model.user.User;
 import it.unipv.java.util.user.UserStrategyFactory;
 
@@ -72,7 +73,7 @@ public class PersistanceFacade {
 		return DaoFactory.getInstance().getPrenotazionePersistance().createPrenotazione(datiPrenotazione);
 	}
 	
-	public List<PrenotazioneModel> getPrenotazioniUtente() {
+	public List<PrenotazioneModel> getPrenotazioniCliente() {
 		return DaoFactory.getInstance().getPrenotazionePersistance().getPrenotazioniUtente();
 	}
 	
@@ -83,6 +84,12 @@ public class PersistanceFacade {
 	public boolean setTurno(TurnoModel tm) {
 		return DaoFactory.getInstance().getTurnoPersistance().createTurno(tm);
 	}
+	
+	public List<User> getTuttiDipendenti() {
+		return DaoFactory.getInstance().getDipendentePersistance().getAllDipendenti();
+	}
+	
+	
 /*	public User getLastUser() {
 		return UserStrategyFactory.getInstance().getUserLoginStrategy().getUser(this, datiLogin);
 	}

@@ -28,8 +28,10 @@ public class Dipendente extends User{
 	
 	@Override
 	public String toString() {
-		return super.toString() + 
-				"idDipendente=" + this.getIdDipendente() + "]";
+	    	return this.getNome() + " " 
+	             + this.getCognome() + " " 
+	       		 + this.getCf() + " "
+	       		 + this.getEmail() + "\n";     
 	}
 
 	@Override

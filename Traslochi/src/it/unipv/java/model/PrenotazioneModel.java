@@ -193,7 +193,7 @@ public class PrenotazioneModel {
 	}
 	
 	public List<PrenotazioneModel> getPrenotazioniUtente(User um) {
-		return PersistanceFacade.getInstance().getPrenotazioniUtente();
+		return PersistanceFacade.getInstance().getPrenotazioniCliente();
 		}
 		
 	public void setScadGiorno(String textField_7) {
@@ -201,8 +201,9 @@ public class PrenotazioneModel {
 
 	}
 	
+	@Override
 	public String toString() {
         return "Indirizzo di Ritiro: " + indirizzodiRitiro + ", Indirizzo di Consegna: " + indirizzoDiConsegna + ", Data di Ritiro: " + dataRitiro + ", Data di Consegna: " + dataConsegna
-        		+ ", Importo da Pagare: " + importoPagato;
+        		+ ", Importo da Pagare: " + calcolaImporto() + "\n";
     }
 }

@@ -8,6 +8,7 @@ import java.util.List;
 import it.unipv.java.controller.PrenotazioneController;
 import it.unipv.java.model.PrenotazioneModel;
 import it.unipv.java.model.user.User;
+import it.unipv.java.persistance.PersistanceFacade;
 import it.unipv.java.view.ClienteView;
 import it.unipv.java.view.PrenotazioneView;
 import it.unipv.java.view.VisualizzaProfiloView;
@@ -43,18 +44,17 @@ public class ClienteController {
 	}
 	
 	private void riempiPrenotazioniClienteTXT() {
-		PrenotazioneModel pren = new PrenotazioneModel();
-		List<PrenotazioneModel> lista = new ArrayList<PrenotazioneModel>();
-		//lista = pren.getPrenotazioniUtente(um);
-		if(lista == null)
-			cv.getTextPrenotazioni().setText("Nessuna Prenotazione Effettuata!");
-		else
-			for(PrenotazioneModel prenotazione : lista) {
-				cv.getTextPrenotazioni().setText(
-						prenotazione.getIndirizzodiRitiro() +
-						prenotazione.getIndirizzoDiConsegna() +
-						prenotazione.getDataRitiro() +
-						prenotazione.getDataConsegna() +"/n");
+		List<PrenotazioneModel> prenotazioni= PersistanceFacade.getInstance().getPrenotazioniCliente();
+		StringBuilder sb1 = new StringBuilder();
+		
+		for(PrenotazioneModel prenotazione : prenotazioni) {
+			sb1.append(prenotazione.toString()).append("\n");
 		}
+		
+		cv.getTextPrenotazioni().setText(sb1.toString());
+		
 	}
+	
+	
+	
 }

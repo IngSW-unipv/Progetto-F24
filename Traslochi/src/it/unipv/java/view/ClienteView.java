@@ -293,5 +293,7 @@ public class ClienteView extends JFrame {
 		this.textPrenotazioni = textPrenotazioni;
 	}
     
-    
+	
+
+	
 }

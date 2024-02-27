@@ -46,6 +46,6 @@ public class TurnoModel {
 	}
      
 	public String toString() {
-        return "Orario di Inizio Turno: " + orarioini + ", ID Dipendente: " + idDipendente + ", Indirizzo di Lavoro: " + indLavoro;
+        return "Orario di Inizio Turno: " + orarioini + ", ID Dipendente: " + idDipendente + ", Indirizzo di Lavoro: " + indLavoro + "\n";
     }
 }//Fine turnModel
