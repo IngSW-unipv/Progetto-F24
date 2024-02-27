@@ -11,7 +11,6 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.SystemColor;
 import java.awt.Toolkit;
-import java.awt.Point;
 import javax.swing.SwingConstants;
 
 public class WarningView {

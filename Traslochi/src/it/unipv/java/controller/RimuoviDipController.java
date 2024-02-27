@@ -3,12 +3,8 @@ package it.unipv.java.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JDialog;
-
 import it.unipv.java.model.DeleteModel;
-import it.unipv.java.model.user.User;
 import it.unipv.java.view.RimuoviDipView;
-import it.unipv.java.view.WarningView;
 
 public class RimuoviDipController {
 
