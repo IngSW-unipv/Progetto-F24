@@ -3,6 +3,7 @@ package it.unipv.java.model.user;
 import java.util.List;
 
 import it.unipv.java.model.PrenotazioneModel;
+import it.unipv.java.persistance.PersistanceFacade;
 
 public class Cliente extends User {
 	private String idCliente;
@@ -19,7 +20,7 @@ public class Cliente extends User {
 	}
 
 	public List<PrenotazioneModel> getPrenotazioniUtente() {
-		return prenotazioniUtente;
+		return PersistanceFacade.getInstance().getPrenotazioniCliente();
 	}
 
 	public void setPrenotazioniUtente(List<PrenotazioneModel> prenotazioniUtente) {

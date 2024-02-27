@@ -12,8 +12,7 @@ public class VisualizzaProfiloController {
 	private VisualizzaProfiloView vpv;
 
 	
-	VisualizzaProfiloController(User um, VisualizzaProfiloView vpv) {
-		this.um = um;
+	public VisualizzaProfiloController(VisualizzaProfiloView vpv) {
 		this.vpv = vpv;
 		setFields();
 		setListeners();
