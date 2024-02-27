@@ -138,4 +138,9 @@ public class QueryTest {
 		assertNull("Responsabile Logout", SingleSessioneAttiva.getInstance().getUtenteAttivo());
 	}
 */
-}
+public void QueryTest() {
+      // TODO implement this operation
+      throw new UnsupportedOperationException("not implemented");
+   }
+   
+   }

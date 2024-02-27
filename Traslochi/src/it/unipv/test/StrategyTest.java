@@ -36,4 +36,9 @@ public class StrategyTest {
 		PersistanceFacade.getInstance().registerUser(registra);
 	}
 	*/
-}
+public void StrategyTest() {
+      // TODO implement this operation
+      throw new UnsupportedOperationException("not implemented");
+   }
+   
+   }

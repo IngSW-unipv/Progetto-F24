@@ -11,10 +11,10 @@ public class DatabaseConnection {
 		private static final String PROPERTYDBURL = "DBURL";
 		private static final String PROPERTYNAME = "db_usn"; 
 		private static final String PROPERTYPSW = "db_psw"; 
-		private static String username;
+public static String username;
 		private static String password;
-		private static String dbDriver;
-		private static String dbURL;
+public static String dbDriver;
+public static String dbURL;
 		
 		private static void init() {
 			Properties p = new Properties(System.getProperties());
@@ -30,7 +30,7 @@ public class DatabaseConnection {
 			}
 		}
 
-		public static Connection startConnection(Connection conn, String schema) // se la connessione era andata in time out passandogliela di nuovo verifico se Ã¨ gia aperta
+		public static Connection startConnection(Connection conn, String schema) // se la connessione era andata in time out passandogliela di nuovo verifico se è gia aperta
 		{
 			init();
 
