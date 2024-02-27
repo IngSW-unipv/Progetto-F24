@@ -12,8 +12,10 @@ import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.TurnoModel;
 import it.unipv.java.model.user.Responsabile;
 import it.unipv.java.model.user.User;
+import it.unipv.java.view.AssegnaTurnoView;
 import it.unipv.java.view.RegisterView;
 import it.unipv.java.view.ResponsabileView;
+import it.unipv.java.view.RimuoviDipView;
 import it.unipv.java.view.VisualizzaProfiloView;
 
 public class ResponsabileController {
@@ -39,13 +41,16 @@ public class ResponsabileController {
 		
 		rv.getButtonAssegnaTurno().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//TODO
+				AssegnaTurnoView atv = new AssegnaTurnoView();
+				atv.setVisible(true);
+				
 			}
 		});
 		
 		rv.getButtonRimuoviDip().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//TODO
+				RimuoviDipView rdv = new RimuoviDipView();
+				rdv.setVisible(true);
 			}
 		});
 		
