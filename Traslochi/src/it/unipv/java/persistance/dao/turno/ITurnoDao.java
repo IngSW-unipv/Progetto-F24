@@ -7,7 +7,7 @@ import it.unipv.java.model.user.User;
  
 
 public interface ITurnoDao {
-	public List<TurnoModel> getAllTurni();
+	public List<TurnoModel> getAllTurni(); 
     public TurnoModel getTurno(User d); //fatta da un dipendente
-    public boolean createTurno(TurnoModel c);
+    public boolean createTurno(TurnoModel c); //fatta dal responsabile
  }

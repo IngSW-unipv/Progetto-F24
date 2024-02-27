@@ -49,7 +49,7 @@ public static String dbURL;
 				conn = DriverManager.getConnection(dbURL, username, password);// Apertura connessione 
 
 			}
-			catch (Exception e) //unica  
+			catch (Exception e) 
 			{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
