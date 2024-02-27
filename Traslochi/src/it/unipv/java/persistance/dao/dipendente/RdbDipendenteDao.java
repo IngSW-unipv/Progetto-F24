@@ -13,7 +13,7 @@ import it.unipv.java.model.RegisterData;
 import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.user.Dipendente;
 import it.unipv.java.model.user.User;
-import it.unipv.java.persistance.dao.DatabaseConnection;
+import it.unipv.java.persistance.DatabaseConnection;
 
 
 public class RdbDipendenteDao implements IDipendenteDao {

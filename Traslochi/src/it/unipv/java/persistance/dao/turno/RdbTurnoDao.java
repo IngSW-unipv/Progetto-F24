@@ -10,7 +10,7 @@ import java.util.List;
 
 import it.unipv.java.model.TurnoModel;
 import it.unipv.java.model.user.User;
-import it.unipv.java.persistance.dao.DatabaseConnection;
+import it.unipv.java.persistance.DatabaseConnection;
 
 public class RdbTurnoDao implements ITurnoDao {
 	
