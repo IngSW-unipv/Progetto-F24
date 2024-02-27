@@ -47,6 +47,7 @@ public class ClienteView extends JFrame {
     private JTextPane txtPaneTesto;
     private JButton buttonPrenotazione;
     private JTextPane textPrenotazioni;
+    private JButton buttonLogOut;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
@@ -67,6 +68,7 @@ public class ClienteView extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 1332, 681);
         setResizable(true); // Imposta la finestra come ridimensionabile
+        setLocationRelativeTo(null);
 
         contentPane = new JPanel();
         contentPane.setBackground(SystemColor.text);
@@ -241,26 +243,40 @@ public class ClienteView extends JFrame {
         buttonVisProfilo.setBorder(null);
         buttonVisProfilo.setBackground(SystemColor.textHighlight);
         buttonVisProfilo.setFocusable(false);
+        
+        buttonLogOut = new JButton("Log Out");
+        buttonLogOut.setForeground(SystemColor.window);
+        buttonLogOut.setFont(new Font("Tahoma", Font.BOLD, 11));
+        buttonLogOut.setFocusable(false);
+        buttonLogOut.setBorder(null);
+        buttonLogOut.setBackground(SystemColor.textHighlight);
+        buttonLogOut.setFocusable(false);
+    
         GroupLayout gl_panel = new GroupLayout(panel);
         gl_panel.setHorizontalGroup(
         	gl_panel.createParallelGroup(Alignment.LEADING)
         		.addGroup(gl_panel.createSequentialGroup()
         			.addGap(83)
         			.addComponent(homePageLabel, GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
-        			.addGap(817)
+        			.addGap(639)
+        			.addComponent(buttonLogOut, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE)
+        			.addGap(18)
         			.addComponent(buttonVisProfilo, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE)
         			.addGap(1327))
         );
         gl_panel.setVerticalGroup(
         	gl_panel.createParallelGroup(Alignment.LEADING)
-        		.addGroup(gl_panel.createSequentialGroup()
-        			.addContainerGap()
-        			.addComponent(homePageLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        		.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
+        			.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
+        				.addGroup(Alignment.LEADING, gl_panel.createSequentialGroup()
+        					.addGap(21)
+        					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+        						.addComponent(buttonVisProfilo, GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+        						.addComponent(buttonLogOut, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)))
+        				.addGroup(gl_panel.createSequentialGroup()
+        					.addContainerGap()
+        					.addComponent(homePageLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         			.addGap(19))
-        		.addGroup(gl_panel.createSequentialGroup()
-        			.addGap(21)
-        			.addComponent(buttonVisProfilo, GroupLayout.DEFAULT_SIZE, 15, Short.MAX_VALUE)
-        			.addGap(31))
         );
         panel.setLayout(gl_panel);
         contentPane.setLayout(gl_contentPane);
@@ -284,6 +300,10 @@ public class ClienteView extends JFrame {
     public JButton getBottonePrenotazione() {
     	return buttonPrenotazione;
     }
+    
+    public JButton getBottoneLogOut() {
+    	return buttonLogOut;
+    }
 
 	public JTextPane getTextPrenotazioni() {
 		return textPrenotazioni;
@@ -292,8 +312,4 @@ public class ClienteView extends JFrame {
 	public void setTextPrenotazioni(JTextPane textPrenotazioni) {
 		this.textPrenotazioni = textPrenotazioni;
 	}
-    
-	
-
-	
 }
