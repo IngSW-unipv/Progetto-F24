@@ -8,10 +8,6 @@ import it.unipv.java.persistance.PersistanceFacade;
 
 public class Responsabile extends User{
 	private String idResponsabile;
-	private List<Dipendente> dipendentiRegistrati;
-	private List<TurnoModel> turniRegistrati;
-	private List<PrenotazioneModel> prenotazioniRegistrate;
-	
 	
 	public String getIdResponsabile() {
 		return idResponsabile;
