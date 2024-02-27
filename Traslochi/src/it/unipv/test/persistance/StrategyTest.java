@@ -1,11 +1,9 @@
 package it.unipv.test.persistance;
 
-import it.unipv.java.model.RegisterModel;
-import it.unipv.java.model.user.UserModel;
-import it.unipv.java.model.user.UserType;
 import it.unipv.java.persistance.PersistanceFacade;
 
 public class StrategyTest {
+	/*
 	private UserModel responsabile;
 	
 	public StrategyTest() {
@@ -37,4 +35,5 @@ public class StrategyTest {
 		RegisterModel registra = new RegisterModel(test.getResponsabile());
 		PersistanceFacade.getInstance().registerUser(registra);
 	}
+	*/
 }

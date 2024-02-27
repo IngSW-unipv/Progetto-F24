@@ -7,9 +7,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import it.unipv.java.model.RegisterModel;
-import it.unipv.java.model.SingleSessioneAttiva;
-import it.unipv.java.model.user.UserModel;
+
+import it.unipv.java.model.LoginData;
+import it.unipv.java.model.RegisterData;
+import it.unipv.java.model.user.Cliente;
+import it.unipv.java.model.user.User;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 
 
@@ -23,19 +25,19 @@ public class RdbClienteDao implements IClienteDao {
 	}
 
 	@Override
-	public boolean createCliente(RegisterModel c) {
+	public boolean createCliente(RegisterData c) {
 		conn = DatabaseConnection.startConnection(conn, schema);
 		PreparedStatement st1 = null;
 		boolean esito = true;
 		try {
 			String query = "INSERT INTO Cliente (IDCliente, Nome, Cognome, CF, Email, Password) VALUES(?, ?, ?, ?, ?, ?)";
 			st1 = conn.prepareStatement(query);
-			st1.setString(1, c.getUm().getId());
-			st1.setString(2, c.getUm().getNome());
-			st1.setString(3, c.getUm().getCognome());
-			st1.setString(4, c.getUm().getCf());
-			st1.setString(5, c.getUm().getEmail());
-			st1.setString(6, c.getUm().getPassword());	
+			st1.setString(1, c.getUserId());
+			st1.setString(2, c.getNomeInserito());
+			st1.setString(3, c.getCognomeInserito());
+			st1.setString(4, c.getCfInserito());
+			st1.setString(5, c.getEmailInserita());
+			st1.setString(6, c.getPasswordInserita());	
 			st1.executeUpdate();
 
 		} catch (Exception e) {
@@ -56,7 +58,7 @@ public class RdbClienteDao implements IClienteDao {
 
 	
 	@Override
-	public boolean updateCliente(UserModel ag) {
+	public boolean updateCliente(User ag) {
 
 		conn = DatabaseConnection.startConnection(conn, schema);
 		String query = "UPDATE CLIENTE SET NOME=?,COGNOME=?,CF=?,EMAIL=?,PASSWORD=? WHERE id=?";
@@ -83,7 +85,7 @@ public class RdbClienteDao implements IClienteDao {
 	}
 
 	@Override
-	public boolean deleteCliente(UserModel  ag) {
+	public boolean deleteCliente(User  ag) {
 
 		String query = "DELETE FROM ClientE WHERE idCliente = ?";
 		try (PreparedStatement st1 = conn.prepareStatement(query)) {
@@ -102,8 +104,8 @@ public class RdbClienteDao implements IClienteDao {
 	}
 
 	@Override
-	public List<UserModel> getAllClienti() {
-		List<UserModel> clienti = new ArrayList<>();
+	public List<User> getAllClienti() {
+		List<User> clienti = new ArrayList<>();
  
 		Statement stmt = null;
 		ResultSet rs = null;
@@ -118,7 +120,7 @@ public class RdbClienteDao implements IClienteDao {
 
 			// Process the result set
 			while (rs.next()) {
-				UserModel c =   new UserModel();
+				Cliente c =   new Cliente();
 				c.setId(rs.getString("IDDIPENDENTI")); // Adjust the method names and types accordingly
 				c.setNome(rs.getString("NOME"));
 				c.setCognome(rs.getString("COGNOME"));
@@ -145,26 +147,24 @@ public class RdbClienteDao implements IClienteDao {
 	}
    
 	
-	public boolean getCliente(UserModel ag) {
+	public User getCliente(LoginData datiInseriti) {
 	    conn = DatabaseConnection.startConnection(conn, schema);
-
+	    Cliente cliente = new Cliente();
  	    String sql = "SELECT IDCliente, Nome, Cognome, CF, Email, Password FROM CLIENTE WHERE EMAIL = ?";
 	    ResultSet rs = null;
 
 	    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-	        pstmt.setString(1, ag.getEmail());
+	        pstmt.setString(1, datiInseriti.getEmailInserita());
 	        rs = pstmt.executeQuery();
 
 	        if (rs.next()) {
 	            // = rs.getString("PASSWORD");
-	               UserModel um = new UserModel();
- 	                um.setId(rs.getString("IDCliente"));
-	                um.setNome(rs.getString("Nome"));
-	                um.setCognome(rs.getString("Cognome"));
-	                um.setCf(rs.getString("CF"));
-	                um.setEmail(rs.getString("Email"));
-	                um.setPassword(rs.getString("Password"));
-	               SingleSessioneAttiva.getInstance().login(um);;
+ 	                cliente.setIdCliente(rs.getString("IDCliente"));
+	                cliente.setNome(rs.getString("Nome"));
+	                cliente.setCognome(rs.getString("Cognome"));
+	                cliente.setCf(rs.getString("CF"));
+	                cliente.setEmail(rs.getString("Email"));
+	                cliente.setPassword(rs.getString("Password"));
 	        }
 	    } catch (Exception e) {
 	        e.printStackTrace();
@@ -172,13 +172,13 @@ public class RdbClienteDao implements IClienteDao {
 	        try {
 	            if (rs != null) rs.close();
 	            DatabaseConnection.closeConnection(conn);
-	            return true;
+	            return cliente;
 	        } catch (Exception e) {
 	            e.printStackTrace();
 	        }
 	    }
 
-	    return false;
+	    return cliente;
 	}
 
 }//fine getCliente

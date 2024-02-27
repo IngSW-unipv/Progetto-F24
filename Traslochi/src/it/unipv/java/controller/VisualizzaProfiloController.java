@@ -3,17 +3,16 @@ package it.unipv.java.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import it.unipv.java.model.VisualizzaProfiloModel;
-import it.unipv.java.model.user.UserModel;
+import it.unipv.java.model.user.User;
 import it.unipv.java.view.VisualizzaProfiloView;
 
 public class VisualizzaProfiloController {
 
-	private UserModel um;
+	private User um;
 	private VisualizzaProfiloView vpv;
-	private VisualizzaProfiloModel vpm;
+
 	
-	VisualizzaProfiloController(UserModel um, VisualizzaProfiloView vpv) {
+	VisualizzaProfiloController(User um, VisualizzaProfiloView vpv) {
 		this.um = um;
 		this.vpv = vpv;
 		setFields();
@@ -66,7 +65,7 @@ public class VisualizzaProfiloController {
 				um.setEmail(vpv.getEmail());
 				um.setCf(vpv.getCodFis());
  				 
-				vpm.modificaProfilo(um);
+//				vpm.modificaProfilo(um);
 			}
 		});
 		

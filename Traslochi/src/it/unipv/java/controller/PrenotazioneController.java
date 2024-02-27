@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import it.unipv.java.view.ClienteView;
 import it.unipv.java.view.PrenotazioneView;
 import it.unipv.java.view.WarningView;
+import it.unipv.java.controller.user.ClienteController;
 import it.unipv.java.model.PrenotazioneModel;
 
 public class PrenotazioneController {
@@ -82,6 +83,8 @@ public class PrenotazioneController {
 			public void actionPerformed(ActionEvent e) {
 				ClienteView clienteView = new ClienteView();
 				clienteView.setVisible(true);
+				pv.setVisible(false);
+				ClienteController cc = new ClienteController(clienteView);
 			}
 		});
 	}

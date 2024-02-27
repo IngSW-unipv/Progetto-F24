@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-import it.unipv.java.model.user.UserModel;
+import it.unipv.java.model.user.User;
 import it.unipv.java.persistance.PersistanceFacade;
 
 public class PrenotazioneModel {
@@ -192,8 +192,8 @@ public class PrenotazioneModel {
 		return PersistanceFacade.getInstance().mostraPrenotazioni();
 	}
 	
-	public List<PrenotazioneModel> getPrenotazioniUtente(UserModel um) {
-		return PersistanceFacade.getInstance().getPrenotazioniUtente();
+	public List<PrenotazioneModel> getPrenotazioniUtente(User um) {
+		return PersistanceFacade.getInstance().getPrenotazioniCliente();
 		}
 		
 	public void setScadGiorno(String textField_7) {
@@ -201,8 +201,9 @@ public class PrenotazioneModel {
 
 	}
 	
+	@Override
 	public String toString() {
         return "Indirizzo di Ritiro: " + indirizzodiRitiro + ", Indirizzo di Consegna: " + indirizzoDiConsegna + ", Data di Ritiro: " + dataRitiro + ", Data di Consegna: " + dataConsegna
-        		+ ", Importo da Pagare: " + importoPagato;
+        		+ ", Importo da Pagare: " + calcolaImporto() + "\n";
     }
 }

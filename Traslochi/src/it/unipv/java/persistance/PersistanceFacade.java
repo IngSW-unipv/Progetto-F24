@@ -2,13 +2,13 @@ package it.unipv.java.persistance;
 
 import java.util.List;
 
+import it.unipv.java.model.LoginData;
 import it.unipv.java.model.PrenotazioneModel;
-import it.unipv.java.model.RegisterModel;
-import it.unipv.java.model.SingleSessioneAttiva;
+import it.unipv.java.model.RegisterData;
 import it.unipv.java.model.TurnoModel;
-import it.unipv.java.model.user.UserModel;
-import it.unipv.java.persistance.factory.DaoFactory;
-import it.unipv.java.persistance.factory.strategies.IDaoFactoryStrategy;
+import it.unipv.java.model.user.Dipendente;
+import it.unipv.java.model.user.User;
+import it.unipv.java.util.user.UserStrategyFactory;
 
 /**
  * La classe PersistanceFacade definisce un oggetto Facade Singleton con lo 
@@ -32,31 +32,15 @@ public class PersistanceFacade {
 		return instance;
 	}
 	
-	public boolean loginUser(UserModel datiLogin) {
-		switch(datiLogin.getUserType()) {
-		case DIPENDENTE:
-			return DaoFactory.getInstance().getDipendentePersistance().getDipendente(datiLogin);
-		case RESPONSABILE:
-			return DaoFactory.getInstance().getResponsabilePersistance().getResponsabile(datiLogin);
-		case CLIENTE:
-			return DaoFactory.getInstance().getClientePersistance().getCliente(datiLogin);
-		}	
-		return false;
+	public User loginUser(LoginData datiLogin) {
+		return UserStrategyFactory.getInstance().getUserLoginStrategy(datiLogin.getEmailInserita()).getUser(this, datiLogin);
 	}
 	
-	public boolean registerUser(RegisterModel datiRegistrazione) {
-		switch(datiRegistrazione.getUm().getUserType()) {
-		case DIPENDENTE:
-			return DaoFactory.getInstance().getDipendentePersistance().createDipendente(datiRegistrazione);
-		case RESPONSABILE:
-			return DaoFactory.getInstance().getResponsabilePersistance().createResponsabile(datiRegistrazione);
-		case CLIENTE:
-			return DaoFactory.getInstance().getClientePersistance().createCliente(datiRegistrazione);
-		}	
-		return false;
+	public boolean registerUser(RegisterData datiRegistrazione) {
+		return UserStrategyFactory.getInstance().getUserRegisterStrategy(datiRegistrazione).createUser(this, datiRegistrazione);
 	}
 	
-	public boolean modificaProfilo() {
+/*	public boolean modificaProfilo() {
 		switch (SingleSessioneAttiva.getInstance().getUtenteAttivo().getUserType()) {
 		case CLIENTE:
 			return DaoFactory.getInstance().getClientePersistance().updateCliente(SingleSessioneAttiva.getInstance().getUtenteAttivo());
@@ -66,13 +50,13 @@ public class PersistanceFacade {
 			return DaoFactory.getInstance().getResponsabilePersistance().updateResponsabile(SingleSessioneAttiva.getInstance().getUtenteAttivo());
 		}
 		return false ; 
-	}
-	
+	} */
+/*	
 //	DEVE ESSERE ELIMINA USER? DISAMBIGUARE SU CHI/COME SI POSSANO ELIMINARE USER
 	public boolean eliminaDipendente(UserModel user) {
 			return DaoFactory.getInstance().getDipendentePersistance().deleteDipendente(user);
 	}
-
+*/
 	public boolean getTurno(TurnoModel tm) {
 		return DaoFactory.getInstance().getTurnoPersistance().createTurno(tm);
 	}
@@ -89,8 +73,8 @@ public class PersistanceFacade {
 		return DaoFactory.getInstance().getPrenotazionePersistance().createPrenotazione(datiPrenotazione);
 	}
 	
-	public List<PrenotazioneModel> getPrenotazioniUtente() {
-		return DaoFactory.getInstance().getPrenotazionePersistance().getPrenotazione();
+	public List<PrenotazioneModel> getPrenotazioniCliente() {
+		return DaoFactory.getInstance().getPrenotazionePersistance().getPrenotazioniUtente();
 	}
 	
 	public List<PrenotazioneModel> mostraPrenotazioni() {
@@ -101,6 +85,15 @@ public class PersistanceFacade {
 		return DaoFactory.getInstance().getTurnoPersistance().createTurno(tm);
 	}
 	
+	public List<User> getTuttiDipendenti() {
+		return DaoFactory.getInstance().getDipendentePersistance().getAllDipendenti();
+	}
+	
+	
+/*	public User getLastUser() {
+		return UserStrategyFactory.getInstance().getUserLoginStrategy().getUser(this, datiLogin);
+	}
+/*	
 	public List<UserModel> mostraDipendenti() {
 		return DaoFactory.getInstance().getDipendentePersistance().getAllDipendenti();
 	}
@@ -109,4 +102,6 @@ public class PersistanceFacade {
 		// TODO Auto-generated method stub
 		return null;
 	}
+*/
+
 }

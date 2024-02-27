@@ -2,119 +2,52 @@ package it.unipv.java.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
 
-import it.unipv.java.model.RegisterModel;
-import it.unipv.java.model.user.UserModel;
-import it.unipv.java.model.user.UserType;
+import it.unipv.java.model.RegisterData;
+import it.unipv.java.util.responsabilitychain.RegistrationHandler;
 import it.unipv.java.view.LoginView;
 import it.unipv.java.view.RegisterView;
-import it.unipv.java.view.WarningView;
 
 public class RegisterController {
-
-	private RegisterView rv;
-	private RegisterModel rm;
-	private LoginView lv;
-
-
-	//NON è INIZIALIZZATO REGISTERMODEL, Non FUNZIONA VIEW PER QUELLO
+	private RegisterView registerView;
+	private RegisterData datiInseriti;
+	
 	public RegisterController(RegisterView registerView) {
-		this.rv = registerView; 
-		this.rm= new RegisterModel(new UserModel());
-		initcomponents();
+		this.registerView = registerView;
+		this.datiInseriti = new RegisterData();
+		setListeners();
 
 	}
 
-	private void initcomponents() {
-		
-		rv.getBottoneConfermaReg().addActionListener(new ActionListener() {
+	private void setListeners() {
+		registerView.getBottoneConfermaReg().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Creazione di un nuovo UserModel con i dati raccolti dalla view
-				boolean control= passControl(rv.getPass());
-				//boolean controlNull= rm.validaDati();
+				datiInseriti.setNomeInserito(registerView.getNome());
+				datiInseriti.setCognomeInserito(registerView.getCognome());
+				datiInseriti.setCfInserito(registerView.getCF());
+				datiInseriti.setEmailInserita(registerView.getEmail());
+				datiInseriti.setPasswordInserita(registerView.getPass());
+				datiInseriti.setConfermaPasswordInserita(registerView.getPassRipetuta());
 				
-				if(control) {
-				UserModel um = new UserModel();
-				um.setNome(rv.getNome());
-				um.setCognome(rv.getCognome());
-				um.setCf(rv.getCF());
-				um.setEmail(rv.getEmail());
-				um.setPassword(rv.getPass());
-				boolean controlNull= rm.validaDati(um);
-				
-				if(controlNull) {
-				rm.setUserModel(um);
-				} else if(!controlNull) {
-					WarningView wv2= new WarningView();
-					wv2.mostraErrorGenerale();
-					wv2.getBottoneRiprova().addActionListener(new ActionListener() {
-						 public void actionPerformed(ActionEvent e) { 
-							 //rv.riprovaPassword();
-							 wv2.closeWindow();
-						 } });
+				//Pseudo Chain Of Responsability
+				RegistrationHandler gestoreRegistrazione = new RegistrationHandler(datiInseriti);
+				if(gestoreRegistrazione.executeChainControllo()) {	
+					gestoreRegistrazione.registraUtente(datiInseriti);
+				} else {
+					registerView.setPass("");
+					registerView.setPassRipetuta("");
 				}
-				
- 				if (rm.confermaRegistrazione()) {
- 					WarningView wv= new WarningView();
- 					rv.setVisible(false);
-				/*	wv.registrEffettuata();
-					wv.getBottoneRiprova().addActionListener(new ActionListener() {
-						 public void actionPerformed(ActionEvent e) { 
-							 wv.closeWindow();
-						 } });*/
-					
-				} }  else if (!control) {
-					WarningView wv1= new WarningView();
-					wv1.mostraErrorPassword();
-					wv1.getBottoneRiprova().addActionListener(new ActionListener() {
-						 public void actionPerformed(ActionEvent e) { 
-							 rv.riprovaPassword();
-							 wv1.closeWindow();
-						 } });
-					
-				} 
-				else if(!emailControl(rv.getEmail())) {
-					WarningView wv3= new WarningView();
-					wv3.mostraErrorEmail();
-					wv3.getBottoneRiprova().addActionListener(new ActionListener() {
-						 public void actionPerformed(ActionEvent e) { 
-							 rv.setEmail("");
-							 wv3.closeWindow();
-						 } });
-				}
-				
+			}
+		});
+		registerView.getBottoneReturn().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				registerView.setVisible(false);
+				LoginView loginView = new LoginView();
+				LoginController loginController = new LoginController(loginView);
+				loginView.setVisible(true);
 				
 			}
 		});
-		rv.getBottoneReturn().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				rv.setVisible(false);	
-			}
-		});
-
-	}
-
-	public boolean passControl(String pass) {
-		if(pass.equals(rv.getPassRipetuta())) {
-			return true;
-		} else {
-			return false;
-		}
 	}
 	
-	public boolean vuotoControl() {
-		if(!rv.getNome().trim().isEmpty() && !rv.getCognome().trim().isEmpty() && !rv.getEmail().trim().isEmpty()
-				&& !rv.getCF().trim().isEmpty() && !rv.getPass().trim().isEmpty() && !rv.getPassRipetuta().trim().isEmpty()) {
-			
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	public boolean emailControl(String email) {
-		return email.contains("@");
-	}
-	 
-}// fine register controller
+}
