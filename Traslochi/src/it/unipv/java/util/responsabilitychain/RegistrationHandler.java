@@ -58,4 +58,8 @@ public class RegistrationHandler {
 		int n3 = n2 + 1 + random.nextInt(9 - n2); // Terzo numero, maggiore di n2
 		return baseId + n1 + n2 + n3;
 		}
+
+    public List<IControllo> getCatenaControlli() {
+        return this.catenaControlli;
+    }
 }
