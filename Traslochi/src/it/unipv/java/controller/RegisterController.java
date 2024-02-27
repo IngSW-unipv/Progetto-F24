@@ -31,8 +31,8 @@ public class RegisterController {
 				
 				//Pseudo Chain Of Responsibility
 				RegistrationHandler gestoreRegistrazione = new RegistrationHandler(datiInseriti);
-				if(gestoreRegistrazione.executeChainControllo())
-					gestoreRegistrazione.registraUtente(datiInseriti);
+				if(gestoreRegistrazione.executeChainControllo());
+//					gestoreRegistrazione.registraUtente(datiInseriti);
 			}
 		});
 		registerView.getBottoneReturn().addActionListener(new ActionListener() {

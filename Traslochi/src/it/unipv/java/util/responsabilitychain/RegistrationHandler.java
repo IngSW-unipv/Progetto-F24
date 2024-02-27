@@ -44,12 +44,12 @@ public class RegistrationHandler {
 		return verifica;
     }
 
-    public boolean initUserId(RegisterData datiInseriti) {
+ /*   public boolean initUserId(RegisterData datiInseriti) {
     	IUserStrategy strategiaUtente = UserStrategyFactory.getInstance().getUserLoginStrategy(datiInseriti.getEmailInserita()).getUser(null, null);
     	PersistanceFacade.getInstance().
     }
 	public boolean registraUtente(RegisterData datiInseriti) {
 		return PersistanceFacade.getInstance().registerUser(datiInseriti);
 		
-	}
+	}*/
 }

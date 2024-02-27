@@ -85,7 +85,7 @@ public class PersistanceFacade {
 	public boolean setTurno(TurnoModel tm) {
 		return DaoFactory.getInstance().getTurnoPersistance().createTurno(tm);
 	}
-	public User getLastUser() {
+/*	public User getLastUser() {
 		return UserStrategyFactory.getInstance().getUserLoginStrategy().getUser(this, datiLogin);
 	}
 /*	
