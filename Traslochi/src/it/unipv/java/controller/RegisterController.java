@@ -29,10 +29,10 @@ public class RegisterController {
 				datiInseriti.setPasswordInserita(registerView.getPass());
 				datiInseriti.setConfermaPasswordInserita(registerView.getPassRipetuta());
 				
-				//Pseudo Chain Of Responsibility
+				//Pseudo Chain Of Responsability
 				RegistrationHandler gestoreRegistrazione = new RegistrationHandler(datiInseriti);
 				if(gestoreRegistrazione.executeChainControllo());
-//					gestoreRegistrazione.registraUtente(datiInseriti);
+					gestoreRegistrazione.registraUtente(datiInseriti);
 			}
 		});
 		registerView.getBottoneReturn().addActionListener(new ActionListener() {

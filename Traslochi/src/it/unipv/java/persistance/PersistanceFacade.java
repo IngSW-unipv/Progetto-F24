@@ -5,10 +5,8 @@ import java.util.List;
 import it.unipv.java.model.LoginData;
 import it.unipv.java.model.PrenotazioneModel;
 import it.unipv.java.model.RegisterData;
-import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.TurnoModel;
 import it.unipv.java.model.user.User;
-import it.unipv.java.util.dao.strategies.IDaoFactoryStrategy;
 import it.unipv.java.util.user.UserStrategyFactory;
 
 /**
@@ -98,4 +96,5 @@ public class PersistanceFacade {
 		return null;
 	}
 */
+
 }

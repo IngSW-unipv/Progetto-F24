@@ -2,9 +2,9 @@ package it.unipv.java.util.responsabilitychain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import it.unipv.java.model.RegisterData;
-import it.unipv.java.model.user.User;
 import it.unipv.java.persistance.PersistanceFacade;
 import it.unipv.java.util.responsabilitychain.handlers.ControlloCF;
 import it.unipv.java.util.responsabilitychain.handlers.ControlloConfermaPassword;
@@ -13,8 +13,6 @@ import it.unipv.java.util.responsabilitychain.handlers.ControlloNome;
 import it.unipv.java.util.responsabilitychain.handlers.ControlloPassword;
 import it.unipv.java.util.responsabilitychain.handlers.IControllo;
 import it.unipv.java.util.responsabilitychain.handlers.VuotoControl;
-import it.unipv.java.util.user.UserStrategyFactory;
-import it.unipv.java.util.user.strategies.IUserStrategy;
 
 public class RegistrationHandler {
 	private RegisterData datiInseriti;
@@ -43,13 +41,21 @@ public class RegistrationHandler {
     	}
 		return verifica;
     }
-
- /*   public boolean initUserId(RegisterData datiInseriti) {
-    	IUserStrategy strategiaUtente = UserStrategyFactory.getInstance().getUserLoginStrategy(datiInseriti.getEmailInserita()).getUser(null, null);
-    	PersistanceFacade.getInstance().
-    }
+    
 	public boolean registraUtente(RegisterData datiInseriti) {
+		datiInseriti.setUserId(RegistrationHandler.generateIdFromCf(datiInseriti.getCfInserito()));
 		return PersistanceFacade.getInstance().registerUser(datiInseriti);
-		
-	}*/
+	}
+	
+	public static String generateIdFromCf(String cf) {
+		if (cf == null || cf.length() < 5) {
+			throw new IllegalArgumentException("CF non valido");
+		}
+		String baseId = cf.substring(0, 5); // Estrae le prime 5 cifre dal CF
+		Random random = new Random();
+		int n1 = random.nextInt(8); // Primo numero tra 0 e 7
+		int n2 = n1 + 1 + random.nextInt(8 - n1); // Secondo numero, maggiore di n1
+		int n3 = n2 + 1 + random.nextInt(9 - n2); // Terzo numero, maggiore di n2
+		return baseId + n1 + n2 + n3;
+		}
 }
