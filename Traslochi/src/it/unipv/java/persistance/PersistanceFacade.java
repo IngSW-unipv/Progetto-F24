@@ -34,7 +34,7 @@ public class PersistanceFacade {
 	}
 	
 	public User loginUser(LoginData datiLogin) {
-		return UserStrategyFactory.getInstance().getUserLoginStrategy(datiLogin).getUser(this, datiLogin);
+		return UserStrategyFactory.getInstance().getUserLoginStrategy(datiLogin.getEmailInserita()).getUser(this, datiLogin);
 	}
 	
 	public boolean registerUser(RegisterData datiRegistrazione) {
@@ -84,6 +84,9 @@ public class PersistanceFacade {
 	
 	public boolean setTurno(TurnoModel tm) {
 		return DaoFactory.getInstance().getTurnoPersistance().createTurno(tm);
+	}
+	public User getLastUser() {
+		return UserStrategyFactory.getInstance().getUserLoginStrategy().getUser(this, datiLogin);
 	}
 /*	
 	public List<UserModel> mostraDipendenti() {

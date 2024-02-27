@@ -4,7 +4,6 @@ import java.io.FileInputStream;
 import java.lang.reflect.Constructor;
 import java.util.Properties;
 
-import it.unipv.java.model.LoginData;
 import it.unipv.java.model.RegisterData;
 import it.unipv.java.model.user.User;
 import it.unipv.java.util.user.strategies.IUserStrategy;
@@ -44,8 +43,9 @@ public class UserStrategyFactory {
 		return controllerUtente;
 	}	
 	
-	public IUserStrategy getUserLoginStrategy(LoginData datiLogin) {
-		String dominio = datiLogin.getEmailInserita().substring(datiLogin.getEmailInserita().indexOf("@") + 1);
+	public IUserStrategy getUserLoginStrategy(String Email) {
+//		String dominio = datiLogin.getEmailInserita().substring(datiLogin.getEmailInserita().indexOf("@") + 1);
+		String dominio = Email.substring(Email.indexOf("@") + 1);
 		Properties p = new Properties(System.getProperties());
 		
 		try {

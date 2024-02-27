@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.unipv.java.model.RegisterData;
+import it.unipv.java.model.user.User;
 import it.unipv.java.persistance.PersistanceFacade;
 import it.unipv.java.util.responsabilitychain.handlers.ControlloCF;
 import it.unipv.java.util.responsabilitychain.handlers.ControlloConfermaPassword;
@@ -13,6 +14,7 @@ import it.unipv.java.util.responsabilitychain.handlers.ControlloPassword;
 import it.unipv.java.util.responsabilitychain.handlers.IControllo;
 import it.unipv.java.util.responsabilitychain.handlers.VuotoControl;
 import it.unipv.java.util.user.UserStrategyFactory;
+import it.unipv.java.util.user.strategies.IUserStrategy;
 
 public class RegistrationHandler {
 	private RegisterData datiInseriti;
@@ -42,6 +44,10 @@ public class RegistrationHandler {
 		return verifica;
     }
 
+    public boolean initUserId(RegisterData datiInseriti) {
+    	IUserStrategy strategiaUtente = UserStrategyFactory.getInstance().getUserLoginStrategy(datiInseriti.getEmailInserita()).getUser(null, null);
+    	PersistanceFacade.getInstance().
+    }
 	public boolean registraUtente(RegisterData datiInseriti) {
 		return PersistanceFacade.getInstance().registerUser(datiInseriti);
 		

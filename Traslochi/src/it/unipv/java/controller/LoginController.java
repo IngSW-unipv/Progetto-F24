@@ -45,7 +45,7 @@ public class LoginController {
 		schermataLogin.getRegisterButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				RegisterView registerView = new RegisterView();
-				NewRegisterController registerController = new NewRegisterController(registerView);
+				RegisterController registerController = new RegisterController(registerView);
 				registerView.setVisible(true);
 			}
 		});
