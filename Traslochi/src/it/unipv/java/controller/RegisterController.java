@@ -39,7 +39,9 @@ public class RegisterController {
 			public void actionPerformed(ActionEvent e) {
 				registerView.setVisible(false);
 				LoginView loginView = new LoginView();
+				LoginController loginController = new LoginController(loginView);
 				loginView.setVisible(true);
+				
 			}
 		});
 	}

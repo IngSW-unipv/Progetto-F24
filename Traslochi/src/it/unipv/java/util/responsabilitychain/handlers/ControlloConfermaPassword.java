@@ -10,7 +10,7 @@ public class ControlloConfermaPassword implements IControllo{
 
 	@Override
 	public boolean controllaParametro(RegisterData datiRegistrazione) {
-		if(datiRegistrazione.getPasswordInserita() == datiRegistrazione.getConfermaPasswordInserita())
+		if (datiRegistrazione.getPasswordInserita().equals(datiRegistrazione.getConfermaPasswordInserita()))
 			return true;
 		
 		WarningView wv = new WarningView();

@@ -13,21 +13,21 @@ import it.unipv.java.view.WarningView;
 
 public class LoginController {
 	public LoginData datiInseriti;
-	public LoginView schermataLogin;
+	public LoginView loginView;
 
 	public LoginController(LoginView schermataLogin) {
-		this.schermataLogin = schermataLogin;
+		this.loginView = schermataLogin;
 		setListeners();
 	}
 
 	private void setListeners() {
-		schermataLogin.getLoginButton().addActionListener(new ActionListener() {
+		loginView.getLoginButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				datiInseriti = new LoginData(schermataLogin.getEmail(),schermataLogin.getPassword());
+				datiInseriti = new LoginData(loginView.getEmail(),loginView.getPassword());
 				SingleSessioneAttiva.getInstance().login(datiInseriti);
 				User utenteLoggato = SingleSessioneAttiva.getInstance().getUtenteAttivo();
 				if(utenteLoggato != null) {
-					schermataLogin.setVisible(false);
+					loginView.setVisible(false);
 					UserStrategyFactory.getInstance().getUserControllerStrategy(utenteLoggato).flussoController(this);
 				} else {
 					WarningView wv = new WarningView();
@@ -35,23 +35,24 @@ public class LoginController {
 					wv.getBottoneRiprova().addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) { 
 							 wv.closeWindow();
-							 schermataLogin.setPassword("");
-							 schermataLogin.setEmail("");
+							 loginView.setPassword("");
+							 loginView.setEmail("");
 						 }
 					});
 				}										
 			}
 		});
-		schermataLogin.getRegisterButton().addActionListener(new ActionListener() {
+		loginView.getRegisterButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				RegisterView registerView = new RegisterView();
 				RegisterController registerController = new RegisterController(registerView);
 				registerView.setVisible(true);
+				loginView.setVisible(false);
 			}
 		});
 	}
 	
 	public ActionListener getLoginButtonActionListener() {
-        return schermataLogin.getLoginButton().getActionListeners()[0];
+        return loginView.getLoginButton().getActionListeners()[0];
     }
 }
