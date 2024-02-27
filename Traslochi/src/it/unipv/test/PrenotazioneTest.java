@@ -1,4 +1,4 @@
-package it.unipv.test.persistance;
+package it.unipv.test;
 
 public class PrenotazioneTest {
 

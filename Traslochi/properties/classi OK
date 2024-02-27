@@ -3,7 +3,7 @@ controller
 		ClienteController
 		DipendenteController
 		ResponsabileController
-	LoginController
+	LoginController						OK, MANCA JAVADOC, FOGLIOPASCIU
 	PrenotazioneController
 	RegisterController
 	RimuoviDipController

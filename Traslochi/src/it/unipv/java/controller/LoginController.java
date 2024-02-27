@@ -12,7 +12,7 @@ import it.unipv.java.view.RegisterView;
 import it.unipv.java.view.WarningView;
 
 public class LoginController {
-	public LoginData datiInseriti;
+	public LoginData datiInseriti;	//Model
 	public LoginView loginView;
 
 	public LoginController(LoginView schermataLogin) {
@@ -26,7 +26,7 @@ public class LoginController {
 				datiInseriti = new LoginData(loginView.getEmail(),loginView.getPassword());
 				SingleSessioneAttiva.getInstance().login(datiInseriti);
 				User utenteLoggato = SingleSessioneAttiva.getInstance().getUtenteAttivo();
-				if(utenteLoggato != null) {
+				if(utenteLoggato.getEmail() == datiInseriti.getEmailInserita()) {
 					loginView.setVisible(false);
 					UserStrategyFactory.getInstance().getUserControllerStrategy(utenteLoggato).flussoController(this);
 				} else {
@@ -51,8 +51,4 @@ public class LoginController {
 			}
 		});
 	}
-	
-	public ActionListener getLoginButtonActionListener() {
-        return loginView.getLoginButton().getActionListeners()[0];
-    }
 }

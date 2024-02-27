@@ -1,12 +1,10 @@
 package it.unipv.test.persistance;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -31,7 +29,6 @@ public class DatabaseConnectionTest {
 				Assert.assertNotNull("Connessione allo schema " + schema + " non riuscita!",conn);
 				conn.close();
 			}
-			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

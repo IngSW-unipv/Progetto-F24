@@ -14,12 +14,10 @@ import it.unipv.java.view.PrenotazioneView;
 import it.unipv.java.view.VisualizzaProfiloView;
 
 public class ClienteController {
-	private User um;
 	private ClienteView cv;
 	private VisualizzaProfiloView pv;
 	
 	public ClienteController(ClienteView cv) {
-		this.um = um;
 		this.cv = cv;
 		
 		riempiPrenotazioniClienteTXT();

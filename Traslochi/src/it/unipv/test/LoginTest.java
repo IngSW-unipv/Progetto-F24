@@ -1,4 +1,4 @@
-package it.unipv.test.persistance;
+package it.unipv.test;
 
 import it.unipv.java.controller.LoginController;
 import it.unipv.java.model.LoginData;
