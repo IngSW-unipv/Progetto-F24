@@ -1,4 +1,4 @@
-package it.unipv.test.persistance;
+package it.unipv.test;
 
 import static org.junit.Assert.assertTrue;
 

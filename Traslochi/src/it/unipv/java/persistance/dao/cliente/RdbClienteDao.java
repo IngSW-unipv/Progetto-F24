@@ -12,7 +12,7 @@ import it.unipv.java.model.LoginData;
 import it.unipv.java.model.RegisterData;
 import it.unipv.java.model.user.Cliente;
 import it.unipv.java.model.user.User;
-import it.unipv.java.persistance.dao.DatabaseConnection;
+import it.unipv.java.persistance.DatabaseConnection;
 
 
 public class RdbClienteDao implements IClienteDao {

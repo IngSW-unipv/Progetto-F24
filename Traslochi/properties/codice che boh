@@ -1,0 +1,11 @@
+		// QUESTO è DA INSERIRE IN ASSEGNATURNOCONTROLLER !!!!!!!!!!!!!!!!!!
+		/*
+		 * at.getButtonConfTurno().addActionListener(new ActionListener() {
+		 * 
+		 * public void actionPerformed(ActionEvent e) {
+		 * tm.setIdDipendente(at.getIdDip()); tm.setIndLavoro(at.getIndLavoro());
+		 * tm.setOrarioini(at.getOrarioIniTur()); boolean success=tm.aggiungiTurno();
+		 * //TI RITORNA DAL DB RESTUIRE QUALCOSA VIEW
+		 * 
+		 * } });
+		 */

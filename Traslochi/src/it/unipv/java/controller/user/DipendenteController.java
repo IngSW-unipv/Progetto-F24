@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalTime;
 
+import it.unipv.java.controller.VisualizzaProfiloController;
 import it.unipv.java.model.TurnoModel;
 import it.unipv.java.model.user.User;
 import it.unipv.java.view.DipendentView;
@@ -12,21 +13,19 @@ import it.unipv.java.view.VisualizzaProfiloView;
 public class DipendenteController {
     private TurnoModel tm;
     private DipendentView dv;
-    private VisualizzaProfiloView pv;
-    private User um;
     
     public DipendenteController(DipendentView dv) { 
         this.tm = new TurnoModel();
-        this.um=um;
         this.dv = dv;
-        this.pv = pv;
         setListeners();
     }
 
     private void setListeners() {
         dv.getButtonVisProfilo().addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                pv.setVisible(true);
+            	VisualizzaProfiloView profiloView = new VisualizzaProfiloView();
+				VisualizzaProfiloController profiloController = new VisualizzaProfiloController(profiloView);
+				profiloView.setVisible(true);
             }
         });
 
