@@ -7,7 +7,6 @@ import it.unipv.java.persistance.PersistanceFacade;
 
 public class Cliente extends User {
 	private String idCliente;
-	private List<PrenotazioneModel> prenotazioniUtente;
 	
 	public Cliente() {}
 	
@@ -19,13 +18,6 @@ public class Cliente extends User {
 		this.idCliente = idCliente;
 	}
 
-	public List<PrenotazioneModel> getPrenotazioniUtente() {
-		return PersistanceFacade.getInstance().getPrenotazioniCliente();
-	}
-
-	public void setPrenotazioniUtente(List<PrenotazioneModel> prenotazioniUtente) {
-		this.prenotazioniUtente = prenotazioniUtente;
-	}
 	@Override
 	public String toString() {
 		return super.toString() + 
@@ -40,5 +32,9 @@ public class Cliente extends User {
 	@Override
 	public void setId(String idUser) {
 		//TO-DO
+	}
+	
+	public List<PrenotazioneModel> getPrenotazioniUtente() {
+		return PersistanceFacade.getInstance().getPrenotazioniCliente();
 	}
 }

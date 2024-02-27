@@ -50,12 +50,12 @@ public class ClienteController {
 
 		clienteLoggato = (Cliente) SingleSessioneAttiva.getInstance().getUtenteAttivo();
 		prenotazioni = clienteLoggato.getPrenotazioniUtente();
-		StringBuilder sb1 = new StringBuilder();
+		StringBuilder sb = new StringBuilder();
 
 		for (PrenotazioneModel prenotazione : prenotazioni) {
-			sb1.append(prenotazione.toString()).append("\n");
+			sb.append(prenotazione.toString()).append("\n");
 		}
-		clienteView.getTextPrenotazioni().setText(sb1.toString());
+		clienteView.getTextPrenotazioni().setText(sb.toString());
 	}
 
 }

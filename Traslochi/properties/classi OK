@@ -1,7 +1,7 @@
 controller
 	user
-		ClienteController
-		DipendenteController
+		ClienteController				OK, MANCA JAVADOC, FOGLIOPASCIU
+		DipendenteController			DA FARE, NON SI CAPISCE
 		ResponsabileController
 	LoginController						OK, MANCA JAVADOC, FOGLIOPASCIU
 	PrenotazioneController
