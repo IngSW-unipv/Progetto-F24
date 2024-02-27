@@ -8,9 +8,9 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import it.unipv.java.model.PrenotazioneData;
+import it.unipv.java.model.PrenotazioneModel;
 import it.unipv.java.model.SingleSessioneAttiva;
-import it.unipv.java.model.TurnoData;
+import it.unipv.java.model.TurnoModel;
 import it.unipv.java.persistance.PersistanceFacade;
 import it.unipv.java.persistance.dao.cliente.RdbClienteDao;
 import it.unipv.java.persistance.dao.dipendente.RdbDipendenteDao;

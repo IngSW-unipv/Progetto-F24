@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 import it.unipv.java.model.user.User;
 import it.unipv.java.persistance.PersistanceFacade;
 
-public class PrenotazioneData {
+public class PrenotazioneModel {
 	private String idPrenotazione;
 	private String idCliente;
 	private String idResponsabile;
@@ -188,11 +188,11 @@ public class PrenotazioneData {
 		return UUID.randomUUID().toString();
 
 	}
-	public List<PrenotazioneData> mostratuttePrenotazioni() {
+	public List<PrenotazioneModel> mostratuttePrenotazioni() {
 		return PersistanceFacade.getInstance().mostraPrenotazioni();
 	}
 	
-	public List<PrenotazioneData> getPrenotazioniUtente(User um) {
+	public List<PrenotazioneModel> getPrenotazioniUtente(User um) {
 		return PersistanceFacade.getInstance().getPrenotazioniCliente();
 		}
 		

@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import it.unipv.java.model.TurnoData;
+import it.unipv.java.model.TurnoModel;
 import it.unipv.java.model.user.User;
 import it.unipv.java.persistance.dao.DatabaseConnection;
 
@@ -22,8 +22,8 @@ public class RdbTurnoDao implements ITurnoDao {
 		this.schema = "Traslochi"; //nome schema 
 	}
 	
-	public List<TurnoData> getAllTurni() {
-	    List<TurnoData> turni = new ArrayList<>();
+	public List<TurnoModel> getAllTurni() {
+	    List<TurnoModel> turni = new ArrayList<>();
 	    Connection conn = null;
 	    try {
 			conn=DatabaseConnection.startConnection(conn,schema);
@@ -34,7 +34,7 @@ public class RdbTurnoDao implements ITurnoDao {
 
 	            // Processa il ResultSet
 	            while (rs.next()) {
-	                TurnoData t = new TurnoData();
+	                TurnoModel t = new TurnoModel();
 	                // Supponendo che in TurnoModel ci sia un metodo setOrarioInizio che accetta un parametro di tipo Time
 	                t.setOrarioini(rs.getString("OrarioInizio")); 
 	                t.setIdDipendente(rs.getString("idDipendente"));
@@ -52,8 +52,8 @@ public class RdbTurnoDao implements ITurnoDao {
 	}
 
  
-	public TurnoData getTurno(User d) {
-		TurnoData t = null;
+	public TurnoModel getTurno(User d) {
+		TurnoModel t = null;
 	    Connection conn = null; // Ensure conn is declared and initialized
 
  	    String sql = "SELECT * FROM Turno "
@@ -71,7 +71,7 @@ public class RdbTurnoDao implements ITurnoDao {
  	            rs = pstmt.executeQuery();
 	            
  	            if (rs.next()) {
-	                t = new TurnoData();
+	                t = new TurnoModel();
  	                t.setOrarioini(rs.getString("OrarioInizio")); 
  	                t.setOrarioini(rs.getString("idDipendente")); 
  	                t.setOrarioini(rs.getString("IndirizzoLavoro")); 
@@ -93,7 +93,7 @@ public class RdbTurnoDao implements ITurnoDao {
 	}
 
 
- 	public boolean createTurno(TurnoData t) {
+ 	public boolean createTurno(TurnoModel t) {
 		conn=DatabaseConnection.startConnection(conn,schema);
 	    PreparedStatement st1 = null;
 	    boolean esito = true;

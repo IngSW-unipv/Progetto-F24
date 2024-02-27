@@ -3,9 +3,9 @@ package it.unipv.java.persistance;
 import java.util.List;
 
 import it.unipv.java.model.LoginData;
-import it.unipv.java.model.PrenotazioneData;
+import it.unipv.java.model.PrenotazioneModel;
 import it.unipv.java.model.RegisterData;
-import it.unipv.java.model.TurnoData;
+import it.unipv.java.model.TurnoModel;
 import it.unipv.java.model.user.Dipendente;
 import it.unipv.java.model.user.User;
 import it.unipv.java.util.user.UserStrategyFactory;
@@ -57,31 +57,31 @@ public class PersistanceFacade {
 			return DaoFactory.getInstance().getDipendentePersistance().deleteDipendente(user);
 	}
 */
-	public boolean getTurno(TurnoData tm) {
+	public boolean getTurno(TurnoModel tm) {
 		return DaoFactory.getInstance().getTurnoPersistance().createTurno(tm);
 	}
 
-	public boolean aggiungiTurno(TurnoData tm) {
+	public boolean aggiungiTurno(TurnoModel tm) {
 		return DaoFactory.getInstance().getTurnoPersistance().createTurno(tm);
 	}
 	
-	public List<TurnoData> mostraTurni() {
+	public List<TurnoModel> mostraTurni() {
 		return DaoFactory.getInstance().getTurnoPersistance().getAllTurni(); 
 	}
 	
-	public boolean createPrenotazione(PrenotazioneData datiPrenotazione) {
+	public boolean createPrenotazione(PrenotazioneModel datiPrenotazione) {
 		return DaoFactory.getInstance().getPrenotazionePersistance().createPrenotazione(datiPrenotazione);
 	}
 	
-	public List<PrenotazioneData> getPrenotazioniCliente() {
+	public List<PrenotazioneModel> getPrenotazioniCliente() {
 		return DaoFactory.getInstance().getPrenotazionePersistance().getPrenotazioniUtente();
 	}
 	
-	public List<PrenotazioneData> mostraPrenotazioni() {
+	public List<PrenotazioneModel> mostraPrenotazioni() {
 		return DaoFactory.getInstance().getPrenotazionePersistance().getAllPrenotazioni();
 	}
 	
-	public boolean setTurno(TurnoData tm) {
+	public boolean setTurno(TurnoModel tm) {
 		return DaoFactory.getInstance().getTurnoPersistance().createTurno(tm);
 	}
 	

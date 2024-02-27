@@ -4,13 +4,13 @@ import java.util.List;
 
 import it.unipv.java.persistance.PersistanceFacade;
  
-public class TurnoData {
+public class TurnoModel {
  
     private String orarioini;  
     private String idDipendente; 
     private String indLavoro;    
     
-    public TurnoData() {
+    public TurnoModel() {
     }
 
 	public String getOrarioini() {
@@ -41,7 +41,7 @@ public class TurnoData {
 		return PersistanceFacade.getInstance().aggiungiTurno(this);
 	}
 	
-	public List<TurnoData> mostraTurni() {
+	public List<TurnoModel> mostraTurni() {
 		return PersistanceFacade.getInstance().mostraTurni();
 	}
      
