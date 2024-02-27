@@ -144,12 +144,12 @@ public class ResponsabileView extends JFrame {
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		JLabel lblNewLabel_2_1 = new JLabel("DIPENDENTI");
+		JLabel lblNewLabel_2_1 = new JLabel("TURNI");
 		lblNewLabel_2_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_2_1.setForeground(SystemColor.textHighlight);
 		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
-		JLabel lblNewLabel_2_2 = new JLabel("DIPENDENTI");
+		JLabel lblNewLabel_2_2 = new JLabel("PRENOTAZIONI");
 		lblNewLabel_2_2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_2_2.setForeground(SystemColor.textHighlight);
 		lblNewLabel_2_2.setFont(new Font("Tahoma", Font.BOLD, 14));
