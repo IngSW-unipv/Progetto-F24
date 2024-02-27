@@ -268,6 +268,7 @@ public class ResponsabileView extends JFrame {
 		);
 		
 		tuttePrenotazioni = new JTextPane();
+		tuttePrenotazioni.setFont(new Font("Tahoma", Font.BOLD, 11));
 		tuttePrenotazioni.setForeground(new Color(100, 149, 237));
 		tuttePrenotazioni.setBackground(SystemColor.inactiveCaptionBorder);
 		tuttePrenotazioni.setBorder(new CompoundBorder());
@@ -277,6 +278,7 @@ public class ResponsabileView extends JFrame {
 		scrollPane_2.setRowHeaderView(scrollBar_2);
 		
 		tuttiTurni = new JTextPane();
+		tuttiTurni.setFont(new Font("Tahoma", Font.BOLD, 11));
 		tuttiTurni.setForeground(new Color(100, 149, 237));
 		tuttiTurni.setBackground(SystemColor.inactiveCaptionBorder);
 		tuttiTurni.setBorder(new CompoundBorder());
@@ -286,6 +288,7 @@ public class ResponsabileView extends JFrame {
 		scrollPane_1.setRowHeaderView(scrollBar_1);
 		
 		tuttiDipendenti = new JTextPane();
+		tuttiDipendenti.setFont(new Font("Tahoma", Font.BOLD, 11));
 		tuttiDipendenti.setForeground(new Color(100, 149, 237));
 		tuttiDipendenti.setBackground(SystemColor.inactiveCaptionBorder);
 		tuttiDipendenti.setDisabledTextColor(SystemColor.textHighlight);
@@ -304,28 +307,16 @@ public class ResponsabileView extends JFrame {
 	}
 
 
-	public void setButtonAggiungiDip(JButton buttonAggiungiDip) {
-		this.buttonAggiungiDip = buttonAggiungiDip;
-	}
-
-
 	public JButton getButtonAssegnaTurno() {
 		return buttonAssegnaTurno;
 	}
 
-
-	public void setButtonAssegnaTurno(JButton buttonAssegnaTurno) {
-		this.buttonAssegnaTurno = buttonAssegnaTurno;
-	}
-
-
 	public JButton getButtonRimuoviDip() {
 		return buttonRimuoviDip;
 	}
-
-
-	public void setButtonRimuoviDip(JButton buttonRimuoviDip) {
-		this.buttonRimuoviDip = buttonRimuoviDip;
+	
+	public JButton getButtonVisProfilo() {
+		return buttonVisProfilo;
 	}
 
 
