@@ -2,12 +2,10 @@ package it.unipv.java.persistance;
 
 import java.util.List;
 
-import it.unipv.java.model.DeleteModel;
 import it.unipv.java.model.LoginData;
-import it.unipv.java.model.PrenotazioneModel;
+import it.unipv.java.model.PrenotazioneData;
 import it.unipv.java.model.RegisterData;
 import it.unipv.java.model.TurnoModel;
-import it.unipv.java.model.user.Dipendente;
 import it.unipv.java.model.user.User;
 import it.unipv.java.util.user.UserStrategyFactory;
 
@@ -74,15 +72,15 @@ public class PersistanceFacade {
 		return DaoFactory.getInstance().getTurnoPersistance().getAllTurni(); 
 	}
 	
-	public boolean createPrenotazione(PrenotazioneModel datiPrenotazione) {
+	public boolean createPrenotazione(PrenotazioneData datiPrenotazione) {
 		return DaoFactory.getInstance().getPrenotazionePersistance().createPrenotazione(datiPrenotazione);
 	}
 	
-	public List<PrenotazioneModel> getPrenotazioniCliente() {
+	public List<PrenotazioneData> getPrenotazioniCliente() {
 		return DaoFactory.getInstance().getPrenotazionePersistance().getPrenotazioniUtente();
 	}
 	
-	public List<PrenotazioneModel> mostraPrenotazioni() {
+	public List<PrenotazioneData> mostraPrenotazioni() {
 		return DaoFactory.getInstance().getPrenotazionePersistance().getAllPrenotazioni();
 	}
 	

@@ -1,5 +1,4 @@
 package it.unipv.test;
-import void;
 
 public class PrenotazioneTest {
 public void PrenotazioneTest() {

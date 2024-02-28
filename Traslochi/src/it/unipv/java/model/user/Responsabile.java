@@ -2,7 +2,7 @@ package it.unipv.java.model.user;
 
 import java.util.List;
 
-import it.unipv.java.model.PrenotazioneModel;
+import it.unipv.java.model.PrenotazioneData;
 import it.unipv.java.model.TurnoModel;
 import it.unipv.java.persistance.PersistanceFacade;
 
@@ -44,7 +44,7 @@ public class Responsabile extends User{
 		return PersistanceFacade.getInstance().mostraTurni();
 	}
 	
-	public List<PrenotazioneModel> getPrenotazioniRegistrate() {
+	public List<PrenotazioneData> getPrenotazioniRegistrate() {
 		return PersistanceFacade.getInstance().mostraPrenotazioni();
 	}
 }

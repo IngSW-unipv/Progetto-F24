@@ -2,7 +2,7 @@ package it.unipv.java.model.user;
 
 import java.util.List;
 
-import it.unipv.java.model.PrenotazioneModel;
+import it.unipv.java.model.PrenotazioneData;
 import it.unipv.java.persistance.PersistanceFacade;
 
 public class Cliente extends User {
@@ -34,7 +34,7 @@ public class Cliente extends User {
 		//TO-DO
 	}
 	
-	public List<PrenotazioneModel> getPrenotazioniUtente() {
+	public List<PrenotazioneData> getPrenotazioniUtente() {
 		return PersistanceFacade.getInstance().getPrenotazioniCliente();
 	}
 }

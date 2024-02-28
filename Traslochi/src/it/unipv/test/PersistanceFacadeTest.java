@@ -1,5 +1,4 @@
 package it.unipv.test;
-import void;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;

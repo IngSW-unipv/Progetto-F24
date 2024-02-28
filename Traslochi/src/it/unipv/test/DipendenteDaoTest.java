@@ -1,5 +1,4 @@
 package it.unipv.test;
-import void;
 
 import static org.junit.jupiter.api.Assertions.*;
 
