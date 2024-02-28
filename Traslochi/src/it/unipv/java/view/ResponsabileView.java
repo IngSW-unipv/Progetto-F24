@@ -260,6 +260,7 @@ public class ResponsabileView extends JFrame {
 		);
 		
 		tuttePrenotazioni = new JTextPane();
+		tuttePrenotazioni.setEditable(false);
 		tuttePrenotazioni.setFont(new Font("Tahoma", Font.BOLD, 11));
 		tuttePrenotazioni.setForeground(new Color(100, 149, 237));
 		tuttePrenotazioni.setBackground(SystemColor.inactiveCaptionBorder);
@@ -270,6 +271,7 @@ public class ResponsabileView extends JFrame {
 		scrollPane_2.setRowHeaderView(scrollBar_2);
 		
 		tuttiTurni = new JTextPane();
+		tuttiTurni.setEditable(false);
 		tuttiTurni.setFont(new Font("Tahoma", Font.BOLD, 11));
 		tuttiTurni.setForeground(new Color(100, 149, 237));
 		tuttiTurni.setBackground(SystemColor.inactiveCaptionBorder);
@@ -280,6 +282,7 @@ public class ResponsabileView extends JFrame {
 		scrollPane_1.setRowHeaderView(scrollBar_1);
 		
 		tuttiDipendenti = new JTextPane();
+		tuttiDipendenti.setEditable(false);
 		tuttiDipendenti.setFont(new Font("Tahoma", Font.BOLD, 11));
 		tuttiDipendenti.setForeground(new Color(100, 149, 237));
 		tuttiDipendenti.setBackground(SystemColor.inactiveCaptionBorder);
