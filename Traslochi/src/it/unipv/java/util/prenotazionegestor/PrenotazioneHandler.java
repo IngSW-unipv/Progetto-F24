@@ -43,16 +43,16 @@ public class PrenotazioneHandler {
 		}
 	}
 
-	public boolean savePrenotazione() {
-		if (validaDati()) {
-			this.setIdPrenotazione(UUID.randomUUID().toString());
-			this.setImportoPagato(importoPagato); // Calcola automaticamente l'importo
-			boolean createSuccess = PersistanceFacade.getInstance().createPrenotazione(this);
-			return createSuccess;
-		} else {
-			return false;
-		}
-	}
+//	public boolean savePrenotazione() {
+//		if (validaDati()) {
+//			this.setIdPrenotazione(UUID.randomUUID().toString());
+//			this.setImportoPagato(importoPagato); // Calcola automaticamente l'importo
+//			boolean createSuccess = PersistanceFacade.getInstance().createPrenotazione(this);
+//			return createSuccess;
+//		} else {
+//			return false;
+//		}
+//	}
 
 	public boolean validaDati() {
 		// Validazione Dati

@@ -52,12 +52,13 @@ public class NewPrenotazioneController {
 		});
 		
 		//Terribile, ultra accoppiato ad un tipo di riempimento che non c'entra nulla
-		pv.getButtonMostraImporto().addActionListener(new ActionListener() {
+		pv.getButtonCalcolaImporto().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				datiInseriti.setDataRitiro(pv.getDataRitiro());
 				datiInseriti.setDataConsegna(pv.getDataConsegna());
-				PrenotazioneHandler prenotazioneHandler = new PrenotazioneHandler(fillPrenotazioneCarta());
-				pv.setImportoDaPagare(Double.toString(prenotazioneHandler.calcolaImporto()));
+//				if(pv.getDataRitiro() != null && pv.getDataConsegna() != null)
+//					PrenotazioneHandler prenotazioneHandler = new PrenotazioneHandler(fillPrenotazioneCarta());
+//					pv.setImportoDaPagare(Double.toString(prenotazioneHandler.calcolaImporto()));
 			}
 		});
 	}
