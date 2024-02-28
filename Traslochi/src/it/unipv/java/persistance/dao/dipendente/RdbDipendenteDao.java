@@ -88,26 +88,34 @@ public class RdbDipendenteDao implements IDipendenteDao {
 
 
  	@Override
-	public boolean deleteDipendente(User u) {
+ 	public boolean deleteDipendente(User u) {
+ 	    Connection conn = null;
 
-		conn = DatabaseConnection.startConnection(conn, schema);
+ 	    try {
+ 	        conn = DatabaseConnection.startConnection(conn, schema);
 
-		String query = "DELETE FROM Dipendente WHERE IDDipendente = ? ";
+ 	        // Elimina prima i turni associati al dipendente
+ 	        String deleteTurniQuery = "DELETE FROM Turno WHERE IDDipendente = ?";
+ 	        try (PreparedStatement stTurni = conn.prepareStatement(deleteTurniQuery)) {
+ 	            stTurni.setString(1, u.getId());
+ 	            stTurni.executeUpdate();
+ 	        }
 
-		try (PreparedStatement st1 = conn.prepareStatement(query)) {
+ 	        // Quindi elimina il dipendente
+ 	        String deleteDipendenteQuery = "DELETE FROM Dipendente WHERE IDDipendente = ?";
+ 	        try (PreparedStatement stDipendente = conn.prepareStatement(deleteDipendenteQuery)) {
+ 	            stDipendente.setString(1, u.getId());
+ 	            stDipendente.executeUpdate();
+ 	        }
 
-			st1.setString(1, u.getId());
-			st1.executeUpdate();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		} finally {
-			DatabaseConnection.closeConnection(conn);
-		}
-
-		return true;
-	}
+ 	        return true; // Operazione completata con successo
+ 	    } catch (SQLException e) {
+ 	        e.printStackTrace(); // Gestisci eventuali eccezioni
+ 	        return false;
+ 	    } finally {
+ 	        DatabaseConnection.closeConnection(conn); // Chiudi la connessione
+ 	    }
+ 	}
 
  	public List<User> getAllDipendenti() {
 		List<User> dipendenti = new ArrayList<>();
