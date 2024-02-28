@@ -158,6 +158,21 @@ public class WarningView {
 		
 	}
 	
+	public void turnoAssegnato() {
+		initialize();
+		frame.setVisible(true);
+		label.setText("Dipendente non presente !");
+		riprovaButton.setText("Riprova");
+	}
+	
+	public void turnoNonAssegnato() {
+		initialize();
+		frame.setVisible(true);
+		label.setText("Dipendente non presente !");
+		riprovaButton.setText("Riprova");
+		
+	}
+	
 	public boolean isVisible() {
 		if (frame.isVisible()) {
 			return true;
