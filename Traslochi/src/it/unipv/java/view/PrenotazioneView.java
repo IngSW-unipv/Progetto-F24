@@ -509,8 +509,8 @@ public class PrenotazioneView extends JFrame {
 		return importoDaPagare.getText();
 	}
 
-	public void setImportoDaPagare(JTextField importoDaPagare) {
-		this.importoDaPagare = importoDaPagare;
+	public void setImportoDaPagare(String string) {
+		importoDaPagare.setText(string);
 	}
 
 	public JButton getButtonTornaIndietro() {

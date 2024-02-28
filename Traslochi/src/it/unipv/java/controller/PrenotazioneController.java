@@ -7,10 +7,12 @@ import it.unipv.java.view.ClienteView;
 import it.unipv.java.view.PrenotazioneView;
 import it.unipv.java.view.WarningView;
 import it.unipv.java.controller.user.ClienteController;
+import it.unipv.java.model.PrenotazioneData;
 import it.unipv.java.model.PrenotazioneModel;
 
 public class PrenotazioneController {
 	private PrenotazioneModel pm;
+	private PrenotazioneData datiInseriti;
 	private PrenotazioneView pv;
 	private WarningView wv;
 	private ClienteView cv;
@@ -18,13 +20,14 @@ public class PrenotazioneController {
 	public PrenotazioneController(PrenotazioneView pv) {
 		this.pm = new PrenotazioneModel();
 		this.pv = pv;
+		this.datiInseriti = new PrenotazioneData();
 		setlisteners();
 	}
 
 	private void setlisteners() {
 		pv.getButtonConfermaPren().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				PrenotazioneModel pm= new PrenotazioneModel();
+				pm = new PrenotazioneModel();
 				pm.setIndirizzodiRitiro(pv.getIndirizzoRitiro());
 				pm.setIndirizzoDiConsegna(pv.getIndirizzoConsegna());
 				pm.setDataRitiro(pv.getDataRitiro());
@@ -34,7 +37,6 @@ public class PrenotazioneController {
 				pm.setScadMese(pv.getTextField_8());
 				pm.setScadAnno(pv.getTextField_9());
 				
-
 				if (!pv.getRadioCarta().isSelected() && !pv.getRadioContanti().isSelected()) {
 					// eccezione: pm.showErrorMessage("Seleziona un metodo di pagamento");
 					wv.mostraErrorMetodoPag();
