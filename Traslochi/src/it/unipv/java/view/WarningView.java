@@ -173,6 +173,20 @@ public class WarningView {
 		
 	}
 	
+	public void idNonEsistente() {
+		initialize();
+		frame.setVisible(true);
+		label.setText("ID errato, riprovare");
+		riprovaButton.setText("Riprova");
+	}
+	
+	public void spazioVuoto() {
+		initialize();
+		frame.setVisible(true);
+		label.setText("inserire tutti i dati!");
+		riprovaButton.setText("Riprova");
+	}
+	
 	public boolean isVisible() {
 		if (frame.isVisible()) {
 			return true;
