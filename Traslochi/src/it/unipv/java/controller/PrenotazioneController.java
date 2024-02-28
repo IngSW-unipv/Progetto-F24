@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import it.unipv.java.controller.user.ClienteController;
 import it.unipv.java.model.PrenotazioneData;
+import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.util.responsabilitychain.PrenotazioneHandler;
 import it.unipv.java.view.ClienteView;
 import it.unipv.java.view.PrenotazioneView;
@@ -35,6 +36,9 @@ public class PrenotazioneController {
 							public void actionPerformed(ActionEvent e) {
 								wv.closeWindow();
 								pv.setVisible(false);
+								ClienteView cv = new ClienteView();
+								ClienteController cc = new ClienteController(cv);
+								cv.setVisible(true);
 							}
 						});
 					} else {
@@ -96,6 +100,12 @@ public class PrenotazioneController {
 		datiInseriti.setScadGiorno(pv.getTextField_7());
 		datiInseriti.setScadMese(pv.getTextField_8());
 		datiInseriti.setScadAnno(pv.getTextField_9());
+		datiInseriti.setStatoPrenotazione("In attesa");
+		datiInseriti.setIdCliente(SingleSessioneAttiva.getInstance().getUtenteAttivo().getId());
+		if(pv.getRadioCarta().isSelected())
+			datiInseriti.setMetodoPagamento("Carta di credito");
+		if(pv.getRadioContanti().isSelected())
+			datiInseriti.setMetodoPagamento("Contanti");
 		return datiInseriti;
 	}
 }

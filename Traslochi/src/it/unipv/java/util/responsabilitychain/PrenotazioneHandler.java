@@ -51,7 +51,7 @@ public class PrenotazioneHandler {
 	}
 
 	public long calcolagiorni(String dataRitiro, String dataConsegna) {
-		SimpleDateFormat myFormat = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat myFormat = new SimpleDateFormat("dd-MM-yyyy");
 		try {
 			Date date1 = myFormat.parse(dataRitiro);
 			Date date2 = myFormat.parse(dataConsegna);
