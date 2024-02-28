@@ -1,2 +1,4 @@
 /ClienteDao.class
 /IClienteDao.class
+/RdbClienteDao.class
+/TxtClienteDao.class

@@ -1,4 +1,5 @@
 package it.unipv.test;
+import void;
 
 import it.unipv.java.controller.LoginController;
 import it.unipv.java.model.LoginData;
@@ -7,6 +8,11 @@ import it.unipv.java.model.user.User;
 import it.unipv.java.view.LoginView;
 
 public class LoginTest {
+public void LoginTest() {
+      // TODO implement this operation
+      throw new UnsupportedOperationException("not implemented");
+   }
+   
 	public static void main(String[] args) {
 		LoginView login = new LoginView();
 		LoginController cv = new LoginController(login);

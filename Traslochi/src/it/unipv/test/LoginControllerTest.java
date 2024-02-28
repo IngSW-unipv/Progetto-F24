@@ -107,4 +107,9 @@ class LoginControllerTest {
         assertTrue(wv.isVisible());
     }
 */
-}
+/*package*/ void LoginControllerTest() {
+      // TODO implement this operation
+      throw new UnsupportedOperationException("not implemented");
+   }
+   
+   }

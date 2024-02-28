@@ -15,10 +15,8 @@ public class RegisterController {
 	public RegisterController(RegisterView registerView) {
 		this.registerView = registerView;
 		this.datiInseriti = new RegisterData();
-		setListeners();
-
+		setListeners(); 
 	}
-
 	private void setListeners() {
 		registerView.getBottoneConfermaReg().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -27,8 +25,7 @@ public class RegisterController {
 				datiInseriti.setCfInserito(registerView.getCF());
 				datiInseriti.setEmailInserita(registerView.getEmail());
 				datiInseriti.setPasswordInserita(registerView.getPass());
-				datiInseriti.setConfermaPasswordInserita(registerView.getPassRipetuta());
-				
+				datiInseriti.setConfermaPasswordInserita(registerView.getPassRipetuta()); 
 				//Pseudo Chain Of Responsability
 				RegistrationHandler gestoreRegistrazione = new RegistrationHandler(datiInseriti);
 				if(gestoreRegistrazione.executeChainControllo()) {	
@@ -38,7 +35,7 @@ public class RegisterController {
 					registerView.setPassRipetuta("");
 				}
 			}
-		});
+		}); 
 		registerView.getBottoneReturn().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				registerView.setVisible(false);
