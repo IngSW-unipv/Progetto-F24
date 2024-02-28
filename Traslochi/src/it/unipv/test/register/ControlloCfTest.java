@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import it.unipv.java.model.RegisterData;
 import it.unipv.java.util.responsabilitychain.handlers.ControlloCF;
 
-public class ControlloCFTest {
+public class ControlloCfTest {
 
     @Test
     public void testCfValido() {
