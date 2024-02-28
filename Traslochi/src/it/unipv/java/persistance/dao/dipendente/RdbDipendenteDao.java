@@ -92,7 +92,7 @@ public class RdbDipendenteDao implements IDipendenteDao {
 
 		conn = DatabaseConnection.startConnection(conn, schema);
 
-		String query = "DELETE FROM Dipendente WHERE idDipendente = ? ";
+		String query = "DELETE FROM Dipendente WHERE IDDipendente = ? ";
 
 		try (PreparedStatement st1 = conn.prepareStatement(query)) {
 

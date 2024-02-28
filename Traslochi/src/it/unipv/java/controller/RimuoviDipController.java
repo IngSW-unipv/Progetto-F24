@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import it.unipv.java.model.DeleteModel;
+import it.unipv.java.model.user.User;
+import it.unipv.java.util.responsabilitychain.RemoveDipHandler;
 import it.unipv.java.view.RimuoviDipView;
 
 public class RimuoviDipController {
@@ -17,12 +19,28 @@ public class RimuoviDipController {
 		setListeners();
 	}
 	private void setListeners() {
-		rdv.getButtonReturn().addActionListener(new ActionListener() {		//Manca il return button nella view
+		rdv.getButtonAnnulla().addActionListener(new ActionListener() {	
 			public void actionPerformed(ActionEvent e) {
 				rdv.setVisible(false);	
 			}
 		});
-/*		
+
+		
+		rdv.getButtonConfermaRim().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/*		
 		rdv.getButtonConfermaRim().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				User dm = new User();

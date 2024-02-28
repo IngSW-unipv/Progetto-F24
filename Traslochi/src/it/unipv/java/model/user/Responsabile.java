@@ -34,6 +34,8 @@ public class Responsabile extends User{
 		
 	}
 	
+	
+	
 	public List<User> getDipendentiRegistrati() {
 		return PersistanceFacade.getInstance().getTuttiDipendenti();
 	}

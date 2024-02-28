@@ -1,5 +1,5 @@
 package it.unipv.test;
-import void;
+//import void;
 
 import it.unipv.java.controller.LoginController;
 import it.unipv.java.view.LoginView;

@@ -168,13 +168,6 @@ public class RimuoviDipView extends JDialog {
 	}
 
 
-
-	public void setButtonConfermaRim(JButton buttonConfermaRim) {
-		this.buttonConfermaRim = buttonConfermaRim;
-	}
-
-
-
 	
 	public JButton getButtonAnnulla() {
 		return buttonAnnulla;

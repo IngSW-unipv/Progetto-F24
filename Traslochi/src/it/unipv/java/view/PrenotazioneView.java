@@ -48,6 +48,7 @@ public class PrenotazioneView extends JFrame {
 	private JRadioButton radioContanti;
 	private JPanel panelBancomat;
 	private JButton buttonConfermaPren;
+	private JButton buttonMostraImporto;
 	
 	
 
@@ -72,6 +73,7 @@ public class PrenotazioneView extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(null);
+		setLocationRelativeTo(null);
 
 		setContentPane(contentPane);
 		
@@ -179,7 +181,6 @@ public class PrenotazioneView extends JFrame {
 		importoDaPagare.setBackground(new Color(240, 248, 255));
 		importoDaPagare.setBorder(null);
 		importoDaPagare.setHorizontalAlignment(SwingConstants.RIGHT);
-		importoDaPagare.setText("0");
 		importoDaPagare.setFont(new Font("Tahoma", Font.BOLD, 20));
 		importoDaPagare.setColumns(10);
 		
@@ -192,6 +193,7 @@ public class PrenotazioneView extends JFrame {
 		buttonConfermaPren.setForeground(new Color(248, 248, 255));
 		buttonConfermaPren.setBackground(new Color(30, 144, 255));
 		buttonConfermaPren.setBorder(null);
+		buttonConfermaPren.setFocusable(false);
 		
 		JLabel lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setIcon(new ImageIcon("resources/IconaMetodoPag.jpg"));
@@ -207,6 +209,13 @@ public class PrenotazioneView extends JFrame {
 		
 		JLabel lblNewLabel_3_3_1_1 = new JLabel("");
 		lblNewLabel_3_3_1_1.setIcon(new ImageIcon("resources/iconaIndirizzo.jpg"));
+		
+		buttonMostraImporto = new JButton("Mostra Importo");
+		buttonMostraImporto.setForeground(new Color(248, 248, 255));
+		buttonMostraImporto.setFont(new Font("Tahoma", Font.BOLD, 15));
+		buttonMostraImporto.setBorder(null);
+		buttonMostraImporto.setBackground(SystemColor.activeCaption);
+		buttonMostraImporto.setFocusable(false);
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -223,22 +232,23 @@ public class PrenotazioneView extends JFrame {
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
 								.addGroup(gl_contentPane.createSequentialGroup()
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-											.addGroup(gl_contentPane.createSequentialGroup()
-												.addComponent(radioCarta)
-												.addGap(77)
-												.addComponent(radioContanti))
-											.addComponent(lblMetodoDiPagamento, GroupLayout.PREFERRED_SIZE, 155, GroupLayout.PREFERRED_SIZE)
-											.addGroup(gl_contentPane.createSequentialGroup()
-												.addComponent(lblImportoDaPagare, GroupLayout.PREFERRED_SIZE, 297, GroupLayout.PREFERRED_SIZE)
-												.addPreferredGap(ComponentPlacement.RELATED))
-											.addComponent(lblDataDiRitiro, GroupLayout.PREFERRED_SIZE, 297, GroupLayout.PREFERRED_SIZE)
-											.addComponent(dataRitiro)
-											.addComponent(separator_2, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE))
 										.addGroup(gl_contentPane.createSequentialGroup()
-											.addComponent(importoDaPagare, GroupLayout.PREFERRED_SIZE, 137, GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.RELATED)
-											.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
+											.addComponent(radioCarta)
+											.addGap(77)
+											.addComponent(radioContanti))
+										.addComponent(lblMetodoDiPagamento, GroupLayout.PREFERRED_SIZE, 155, GroupLayout.PREFERRED_SIZE)
+										.addComponent(lblDataDiRitiro, GroupLayout.PREFERRED_SIZE, 297, GroupLayout.PREFERRED_SIZE)
+										.addComponent(dataRitiro)
+										.addComponent(separator_2, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
+										.addGroup(gl_contentPane.createSequentialGroup()
+											.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+												.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+													.addComponent(importoDaPagare, GroupLayout.PREFERRED_SIZE, 137, GroupLayout.PREFERRED_SIZE)
+													.addPreferredGap(ComponentPlacement.RELATED)
+													.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
+													.addPreferredGap(ComponentPlacement.UNRELATED)
+													.addComponent(buttonMostraImporto, GroupLayout.PREFERRED_SIZE, 128, GroupLayout.PREFERRED_SIZE))
+												.addComponent(lblImportoDaPagare, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 297, GroupLayout.PREFERRED_SIZE))
 											.addPreferredGap(ComponentPlacement.RELATED)))
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 										.addGroup(gl_contentPane.createSequentialGroup()
@@ -253,11 +263,12 @@ public class PrenotazioneView extends JFrame {
 														.addComponent(separator_2_1, GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))
 													.addGap(324))))
 										.addGroup(gl_contentPane.createSequentialGroup()
-											.addGap(187)
-											.addComponent(buttonConfermaPren, GroupLayout.PREFERRED_SIZE, 341, GroupLayout.PREFERRED_SIZE))
-										.addGroup(gl_contentPane.createSequentialGroup()
 											.addGap(63)
-											.addComponent(panelBancomat, GroupLayout.DEFAULT_SIZE, 781, Short.MAX_VALUE))))
+											.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+												.addGroup(gl_contentPane.createSequentialGroup()
+													.addGap(244)
+													.addComponent(buttonConfermaPren, GroupLayout.PREFERRED_SIZE, 225, GroupLayout.PREFERRED_SIZE))
+												.addComponent(panelBancomat, GroupLayout.DEFAULT_SIZE, 781, Short.MAX_VALUE)))))
 								.addComponent(separator_1, GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
 								.addComponent(lblIndirizzoDiConsegna, GroupLayout.PREFERRED_SIZE, 419, GroupLayout.PREFERRED_SIZE)
 								.addComponent(indirizzoConsegna)
@@ -324,11 +335,13 @@ public class PrenotazioneView extends JFrame {
 							.addGap(18)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 								.addComponent(importoDaPagare, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblNewLabel_1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+								.addComponent(lblNewLabel_1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(buttonMostraImporto, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE))
 							.addGap(43))
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(9)
-							.addComponent(buttonConfermaPren, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE))))
+							.addGap(12)
+							.addComponent(buttonConfermaPren, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
+							.addContainerGap())))
 		);
 		
 		JLabel labelNomeTitCarta = new JLabel("Nome del Titolare della carta");
@@ -516,9 +529,9 @@ public class PrenotazioneView extends JFrame {
 	public JButton getButtonTornaIndietro() {
 		return buttonTornaIndietro;
 	}
-
-	public void setButtonTornaIndietro(JButton buttonTornaIndietro) {
-		this.buttonTornaIndietro = buttonTornaIndietro;
+	
+	public JButton getButtonCalcolaImporto() {
+		return buttonMostraImporto;
 	}
 
 	public JButton getButtonConfermaPren() {

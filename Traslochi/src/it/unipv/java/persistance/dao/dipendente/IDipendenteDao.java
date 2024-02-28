@@ -2,6 +2,7 @@ package it.unipv.java.persistance.dao.dipendente;
 
 import java.util.List;
 
+import it.unipv.java.model.DeleteModel;
 import it.unipv.java.model.LoginData;
 import it.unipv.java.model.RegisterData;
 import it.unipv.java.model.user.User;

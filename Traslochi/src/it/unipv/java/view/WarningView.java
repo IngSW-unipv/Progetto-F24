@@ -132,6 +132,13 @@ public class WarningView {
 	public void closeWindow() {
         frame.setVisible(false);
     }
+	
+	public void idErrato() {
+		initialize();
+		frame.setVisible(true);
+		label.setText("ID o CF errato/i");
+		riprovaButton.setText("Riprova");
+	}
 
 
 	public void elimEffettuata() {

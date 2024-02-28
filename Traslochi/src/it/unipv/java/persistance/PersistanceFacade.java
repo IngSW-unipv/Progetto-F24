@@ -2,6 +2,7 @@ package it.unipv.java.persistance;
 
 import java.util.List;
 
+import it.unipv.java.model.DeleteModel;
 import it.unipv.java.model.LoginData;
 import it.unipv.java.model.PrenotazioneModel;
 import it.unipv.java.model.RegisterData;
@@ -40,6 +41,8 @@ public class PersistanceFacade {
 		return UserStrategyFactory.getInstance().getUserRegisterStrategy(datiRegistrazione).createUser(this, datiRegistrazione);
 	}
 	
+	
+	
 /*	public boolean modificaProfilo() {
 		switch (SingleSessioneAttiva.getInstance().getUtenteAttivo().getUserType()) {
 		case CLIENTE:
@@ -53,9 +56,11 @@ public class PersistanceFacade {
 	} */
 	
 //	DEVE ESSERE ELIMINA USER? DISAMBIGUARE SU CHI/COME SI POSSANO ELIMINARE USER
-	public boolean eliminaDipendente(User user) {
-			return DaoFactory.getInstance().getDipendentePersistance().deleteDipendente(user);
+	public boolean eliminaDipendente(User u) {
+			return DaoFactory.getInstance().getDipendentePersistance().deleteDipendente(u);
 	}
+	
+	
 
 	public boolean getTurno(TurnoModel tm) {
 		return DaoFactory.getInstance().getTurnoPersistance().createTurno(tm);
