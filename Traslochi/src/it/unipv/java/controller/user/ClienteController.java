@@ -7,7 +7,7 @@ import java.util.List;
 
 import it.unipv.java.controller.PrenotazioneController;
 import it.unipv.java.controller.VisualizzaProfiloController;
-import it.unipv.java.model.PrenotazioneModel;
+import it.unipv.java.model.PrenotazioneData;
 import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.user.Cliente;
 import it.unipv.java.view.ClienteView;
@@ -46,13 +46,13 @@ public class ClienteController {
 
 	private void riempiPrenotazioniClienteTXT() {
 		Cliente clienteLoggato = new Cliente();
-		List<PrenotazioneModel> prenotazioni = new ArrayList<PrenotazioneModel>();
+		List<PrenotazioneData> prenotazioni = new ArrayList<PrenotazioneData>();
 
 		clienteLoggato = (Cliente) SingleSessioneAttiva.getInstance().getUtenteAttivo();
 		prenotazioni = clienteLoggato.getPrenotazioniUtente();
 		StringBuilder sb = new StringBuilder();
 
-		for (PrenotazioneModel prenotazione : prenotazioni) {
+		for (PrenotazioneData prenotazione : prenotazioni) {
 			sb.append(prenotazione.toString()).append("\n");
 		}
 		clienteView.getTextPrenotazioni().setText(sb.toString());

@@ -165,4 +165,20 @@ public class WarningView {
 			return false;
 		}
 	}
+
+
+	public void mostraErrorPrenotazione() {
+		initialize();
+		frame.setVisible(true);
+		label.setText("Registrazione non effettuata!");
+		riprovaButton.setText("Riprova");
+	}
+
+
+	public void mostraConfermaPrenotazione() {
+		initialize();
+		frame.setVisible(true);
+		label.setText("Registrazione effettuata!");
+		riprovaButton.setText("OK");
+	}
 }

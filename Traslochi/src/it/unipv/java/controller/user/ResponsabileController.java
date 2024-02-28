@@ -8,7 +8,7 @@ import java.util.List;
 import it.unipv.java.controller.RegisterController;
 import it.unipv.java.controller.RimuoviDipController;
 import it.unipv.java.controller.VisualizzaProfiloController;
-import it.unipv.java.model.PrenotazioneModel;
+import it.unipv.java.model.PrenotazioneData;
 import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.TurnoModel;
 import it.unipv.java.model.user.Responsabile;
@@ -66,13 +66,13 @@ public class ResponsabileController {
 	}
 
 	private void riempiPrenotazioniTXT() {
-		List<PrenotazioneModel> tuttePrenotazioni = new ArrayList<PrenotazioneModel>();
+		List<PrenotazioneData> tuttePrenotazioni = new ArrayList<PrenotazioneData>();
 		Responsabile responsabileLoggato = new Responsabile();
 		responsabileLoggato = (Responsabile) SingleSessioneAttiva.getInstance().getUtenteAttivo();
 		tuttePrenotazioni = responsabileLoggato.getPrenotazioniRegistrate();
 		StringBuilder sb = new StringBuilder();
 
-		for (PrenotazioneModel prenotazione : tuttePrenotazioni) {
+		for (PrenotazioneData prenotazione : tuttePrenotazioni) {
 			sb.append(prenotazione.toString()).append("\n");
 		}
 		rv.getTuttePrenotazioni().setText(sb.toString());
