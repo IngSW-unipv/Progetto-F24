@@ -3,6 +3,7 @@ package it.unipv.java.util.responsabilitychain;
 import java.util.List;
 
 import it.unipv.java.model.DeleteModel;
+import it.unipv.java.model.user.Dipendente;
 import it.unipv.java.model.user.Responsabile;
 import it.unipv.java.model.user.User;
 import it.unipv.java.persistance.PersistanceFacade;
@@ -14,12 +15,14 @@ public class RemoveDipHandler {
 	
 	public RemoveDipHandler(DeleteModel dm) {
 		this.dm= dm;
-		this.resp= resp;
+		this.resp= new Responsabile();
 	}
 	
-	public User getDipendente(List<User> listaDip) {
+	public User getDipendente() {
+		List<User> listaDip = resp.getDipendentiRegistrati();
 		for (User user: listaDip) {
-			if(user.getId().equals(dm.getIdInserito()) && user.getCf().equals(dm.getCfInserito())) {
+			Dipendente dipendente = (Dipendente) user;
+			if(dipendente.getId() != null  && dipendente.getCf() != null && dipendente.getId().equals(dm.getIdInserito()) && dipendente.getCf().equals(dm.getCfInserito())) {
 				return user;
 			}
 		}

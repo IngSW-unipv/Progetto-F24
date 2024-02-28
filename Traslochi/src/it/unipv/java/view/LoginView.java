@@ -103,6 +103,7 @@ public class LoginView extends JFrame {
 		loginButton.setIcon(null);
 		loginButton.setForeground(Color.WHITE);
 		loginButton.setBackground(SystemColor.textHighlight);
+		loginButton.setFocusable(false);
 		
 		email = new JTextArea();
 		

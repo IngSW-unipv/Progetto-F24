@@ -15,12 +15,9 @@ public class RimuoviDipController {
 
 	private RimuoviDipView rdv;
 	private DeleteModel delm;
-	private Responsabile respo;
 	
-	public RimuoviDipController(RimuoviDipView rdv, DeleteModel dm) {
+	public RimuoviDipController(RimuoviDipView rdv) {
 		this.rdv = rdv;
-		this.delm = dm;
-		this.respo= respo;
 		setListeners();
 	}
 	
@@ -34,11 +31,12 @@ public class RimuoviDipController {
 		
 		rdv.getButtonConfermaRim().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				delm= new DeleteModel();
 				delm.setCf(rdv.getCodiceFiscale());
 				delm.setId(rdv.getIdDipendente());
 				
 				RemoveDipHandler rdh= new RemoveDipHandler(delm);
-				boolean confElim = rdh.eliminaDipendente(rdh.getDipendente(respo.getDipendentiRegistrati()));
+				boolean confElim = rdh.eliminaDipendente(rdh.getDipendente());
 				WarningView wv = new WarningView();
 				if(confElim) {
 					rdv.setVisible(false);
@@ -48,7 +46,7 @@ public class RimuoviDipController {
 							wv.closeWindow();
 						}
 					});
-				} else {
+				} else{
 					wv.idErrato();
 					wv.getBottoneRiprova().addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {

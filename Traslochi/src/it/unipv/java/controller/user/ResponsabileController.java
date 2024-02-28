@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.unipv.java.controller.RegisterController;
+import it.unipv.java.controller.RimuoviDipController;
 import it.unipv.java.controller.VisualizzaProfiloController;
 import it.unipv.java.model.PrenotazioneModel;
 import it.unipv.java.model.SingleSessioneAttiva;
@@ -49,8 +50,9 @@ public class ResponsabileController {
 		
 		rv.getButtonRimuoviDip().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				RimuoviDipView rdv = new RimuoviDipView();
-				rdv.setVisible(true);
+				RimuoviDipView rimuoviDipView = new RimuoviDipView();
+				rimuoviDipView.setVisible(true);
+				RimuoviDipController rdc = new RimuoviDipController(rimuoviDipView);
 			}
 		});
 		
