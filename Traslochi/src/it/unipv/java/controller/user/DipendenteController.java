@@ -4,10 +4,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalTime;
 
+import it.unipv.java.controller.LoginController;
 import it.unipv.java.controller.VisualizzaProfiloController;
 import it.unipv.java.model.TurnoModel;
 import it.unipv.java.model.user.User;
 import it.unipv.java.view.DipendentView;
+import it.unipv.java.view.LoginView;
 import it.unipv.java.view.VisualizzaProfiloView;
 
 public class DipendenteController {
@@ -45,6 +47,16 @@ public class DipendenteController {
                 String orarioFine = LocalTime.now().toString();
                 dv.setOrarioFineTurno(orarioFine);
                  
+             }
+        });
+        
+        dv.getButtonLogOut().addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	LoginView login = new LoginView();
+            	LoginController lg=new LoginController(login);
+            	dv.setVisible(false);
+            	login.setVisible(true);
+                  
              }
         });
     }

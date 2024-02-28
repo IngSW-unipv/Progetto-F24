@@ -51,7 +51,11 @@ public class PrenotazioneHandler {
 	}
 
 	public long calcolagiorni(String dataRitiro, String dataConsegna) {
+<<<<<<< Updated upstream
 		SimpleDateFormat myFormat = new SimpleDateFormat("dd-MM-yyyy");
+=======
+		SimpleDateFormat myFormat = new SimpleDateFormat("yyyy-MM-dd");
+>>>>>>> Stashed changes
 		try {
 			Date date1 = myFormat.parse(dataRitiro);
 			Date date2 = myFormat.parse(dataConsegna);

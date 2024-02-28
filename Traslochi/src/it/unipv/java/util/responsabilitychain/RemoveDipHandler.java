@@ -31,18 +31,52 @@ public class RemoveDipHandler {
 	
 	
 	public boolean eliminaDipendente(User u) {
+<<<<<<< Updated upstream
 		boolean b= true;
 		if(u != null) {
+=======
+		//u= getDipendente(resp.getDipendentiRegistrati());
+ 		if(u != null) {
+>>>>>>> Stashed changes
 			PersistanceFacade.getInstance().eliminaDipendente(u);
-			b= true;
-			return b;
-		} else if(u == null){
-			b= false;
-			return b;
+ 			return true;
+		} else{
+ 			return false;
 		}
+<<<<<<< Updated upstream
 		return b;
 	}
 
+=======
+ 	}
+	
+	
+	
+	
+	
+/*
+	public boolean confermaEliminazione(String idDip) {
+		boolean esito= false;
+		if(dip.getId().equals(dm.getIdInserito()) && dip.getCf().equals(dm.getCfInserito())) {
+			PersistanceFacade.getInstance().eliminaDipendente();
+			WarningView wv0= new WarningView();
+			wv0.elimEffettuata();
+			esito= true;
+		} else if (!(dip.getId().equals(dm.getIdInserito()) && dip.getCf().equals(dm.getCfInserito()))){
+			WarningView wv= new WarningView();
+			wv.idErrato();
+			esito=false;
+		}
+		
+		return esito;
+		
+		
+		
+     }
+	*/
+	
+	
+>>>>>>> Stashed changes
 }
 
 	
