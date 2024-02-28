@@ -5,11 +5,15 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
+<<<<<<< HEAD
 import it.unipv.java.controller.LoginController;
+=======
+import it.unipv.java.controller.AssegnaTurnoController;
+>>>>>>> c13bce9a62913991e42e9ed09c96d95ca9efb038
 import it.unipv.java.controller.RegisterController;
 import it.unipv.java.controller.RimuoviDipController;
 import it.unipv.java.controller.VisualizzaProfiloController;
-import it.unipv.java.model.PrenotazioneModel;
+import it.unipv.java.model.PrenotazioneData;
 import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.TurnoModel;
 import it.unipv.java.model.user.Responsabile;
@@ -45,6 +49,7 @@ public class ResponsabileController {
 		rv.getButtonAssegnaTurno().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				AssegnaTurnoView atv = new AssegnaTurnoView();
+				AssegnaTurnoController atc= new AssegnaTurnoController(atv);
 				atv.setVisible(true);
 				
 			}
@@ -53,8 +58,8 @@ public class ResponsabileController {
 		rv.getButtonRimuoviDip().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				RimuoviDipView rimuoviDipView = new RimuoviDipView();
-				rimuoviDipView.setVisible(true);
 				RimuoviDipController rdc = new RimuoviDipController(rimuoviDipView);
+				rimuoviDipView.setVisible(true);
 			}
 		});
 		
@@ -80,13 +85,13 @@ public class ResponsabileController {
 	}
 
 	private void riempiPrenotazioniTXT() {
-		List<PrenotazioneModel> tuttePrenotazioni = new ArrayList<PrenotazioneModel>();
+		List<PrenotazioneData> tuttePrenotazioni = new ArrayList<PrenotazioneData>();
 		Responsabile responsabileLoggato = new Responsabile();
 		responsabileLoggato = (Responsabile) SingleSessioneAttiva.getInstance().getUtenteAttivo();
 		tuttePrenotazioni = responsabileLoggato.getPrenotazioniRegistrate();
 		StringBuilder sb = new StringBuilder();
 
-		for (PrenotazioneModel prenotazione : tuttePrenotazioni) {
+		for (PrenotazioneData prenotazione : tuttePrenotazioni) {
 			sb.append(prenotazione.toString()).append("\n");
 		}
 		rv.getTuttePrenotazioni().setText(sb.toString());

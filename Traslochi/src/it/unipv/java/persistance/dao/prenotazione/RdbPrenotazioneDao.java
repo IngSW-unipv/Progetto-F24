@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import it.unipv.java.model.PrenotazioneModel;
+import it.unipv.java.model.PrenotazioneData;
 import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.persistance.DatabaseConnection;
 
@@ -22,8 +22,8 @@ public class RdbPrenotazioneDao implements IPrenotazioneDao{
   
 
 	@Override
-	public List <PrenotazioneModel> getAllPrenotazioni() {
-	    List<PrenotazioneModel> prenotazioni = new ArrayList<>();
+	public List <PrenotazioneData> getAllPrenotazioni() {
+	    List<PrenotazioneData> prenotazioni = new ArrayList<>();
 	    Connection conn = null;
 	    ResultSet rs = null;
 
@@ -33,14 +33,14 @@ public class RdbPrenotazioneDao implements IPrenotazioneDao{
 	        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
 	            rs = stmt.executeQuery();
 	            while (rs.next()) {
-	            	PrenotazioneModel p = new PrenotazioneModel();
+	            	PrenotazioneData p = new PrenotazioneData();
 	                p.setIdPrenotazione(rs.getString ("IDPrenotazione"));
 	                p.setIdCliente(rs.getString("IDCliente"));
 	                //p.setIndirizzoConsegna(rs.getString() .getIndirizzoDiConsegna("IndirizzoDiConsegna"));
 	                p.setDataRitiro(rs.getString("DataRitiro"));
 	                p.setDataConsegna(rs.getString("DataConsegna"));
-	                p.setMetodoDiPagamento(rs.getString("MetodoDiPagamento"));
-	                p.setImportoPagato(rs.getFloat("ImportoDaPagare"));
+	                p.setMetodoPagamento(rs.getString("MetodoDiPagamento"));
+	                p.setImporto(rs.getFloat("ImportoDaPagare"));
 	                p.setStatoPrenotazione(rs.getString("StatoPrenotazione"));
 	                prenotazioni.add(p);
 	            }
@@ -54,8 +54,8 @@ public class RdbPrenotazioneDao implements IPrenotazioneDao{
 	}
 
 	@Override
-	public  List <PrenotazioneModel> getPrenotazioniUtente() {
-	    List<PrenotazioneModel> prenotazioni = new ArrayList<>();
+	public  List <PrenotazioneData> getPrenotazioniUtente() {
+	    List<PrenotazioneData> prenotazioni = new ArrayList<>();
 
 	    Connection conn = null;
 	    ResultSet rs = null;
@@ -67,10 +67,10 @@ public class RdbPrenotazioneDao implements IPrenotazioneDao{
 	            stmt.setString(1, SingleSessioneAttiva.getInstance().getUtenteAttivo().getId());
 	            rs = stmt.executeQuery();
 	            if (rs.next()) {
-	        		PrenotazioneModel prenotazione  = new PrenotazioneModel();
+	            	PrenotazioneData prenotazione  = new PrenotazioneData();
 	                prenotazione.setIdPrenotazione(rs.getString("IDPrenotazione"));
-	            	prenotazione.setIndirizzodiRitiro(rs.getString("IndirizzoDiRitiro"));
-	    	        prenotazione.setIndirizzoDiConsegna(rs.getString("IndirizzoDiConsegna"));
+	            	prenotazione.setIndirizzoRitiro(rs.getString("IndirizzoDiRitiro"));
+	    	        prenotazione.setIndirizzoConsegna(rs.getString("IndirizzoDiConsegna"));
 	    	        prenotazione.setDataRitiro(rs.getString("DataRitiro"));
 	    	        prenotazione.setDataConsegna(rs.getString("DataConsegna"));
 	    	        prenotazioni.add(prenotazione);
@@ -85,26 +85,25 @@ public class RdbPrenotazioneDao implements IPrenotazioneDao{
 	}
 
 	@Override
-	public boolean createPrenotazione(PrenotazioneModel p) {
+	public boolean createPrenotazione(PrenotazioneData p) {
 		conn = DatabaseConnection.startConnection(conn, schema);
 		PreparedStatement st1 = null;
 	    boolean esito = true;
 	    try {
 	    	String query = "INSERT INTO Prenotazione(IDPrenotazione, IDCliente, IndirizzoDiConsegna, "
 	        										+ "IndirizzoDiRitiro, DataRitiro, DataConsegna, "
-	        										+ "MetodoDiPagamento, ImportoDaPagare, StatoPrenotazione, "
-	        										+ "IDResponsabile) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	        										+ "MetodoDiPagamento, ImportoDaPagare,"
+	        										+ " StatoPrenotazione) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	    	st1 = conn.prepareStatement(query);
 	    	st1.setString(1, p.getIdPrenotazione());
 	        st1.setString(2, p.getIdCliente());
-	        st1.setString(3, p.getIndirizzoDiConsegna());
-	        st1.setString(4, p.getIndirizzodiRitiro());
+	        st1.setString(3, p.getIndirizzoConsegna());
+	        st1.setString(4, p.getIndirizzoRitiro());
 	        st1.setString(5, p.getDataRitiro());
 	        st1.setString(6, p.getDataConsegna());
 	        st1.setString(7, p.getMetodoPagamento());
-	        st1.setFloat(8, p.getImportoPagato());
+	        st1.setFloat(8, p.getImporto());
 	        st1.setString(9, p.getStatoPrenotazione());
-	        st1.setString(10, p.getIdResponsabile());
 	        st1.executeUpdate();
 	        
 	        } catch (Exception e) {
@@ -123,7 +122,7 @@ public class RdbPrenotazioneDao implements IPrenotazioneDao{
 		    return esito;
 		}
   
-	public boolean updatePrenotazione(PrenotazioneModel p) {
+	public boolean updatePrenotazione(PrenotazioneData p) {
 	    Connection conn = null;
 	    boolean success = true;
 
@@ -132,11 +131,11 @@ public class RdbPrenotazioneDao implements IPrenotazioneDao{
 	        String query = "UPDATE Prenotazione SET IDCliente=?, IndirizzoDiConsegna=?, DataRitiro=?, DataConsegna=?, MetodoDiPagamento=?, ImportoDaPagare=?, StatoPrenotazione=? WHERE IDPrenotazione=?";
 	        try (PreparedStatement st1 = conn.prepareStatement(query)) {
 	            st1.setString(1, p.getIdCliente());
-	            st1.setString(2, p.getIndirizzoDiConsegna());
+	            st1.setString(2, p.getIndirizzoConsegna());
 	            st1.setString(3, p.getDataRitiro());
 	            st1.setString(4, p.getDataConsegna());
 	            st1.setString(5, p.getMetodoPagamento());
-	            st1.setFloat(6, p.getImportoPagato());
+	            st1.setFloat(6, p.getImporto());
 	            st1.setString(7, p.getStatoPrenotazione());
 	            st1.setString(8, p.getIdPrenotazione());
 
@@ -154,7 +153,7 @@ public class RdbPrenotazioneDao implements IPrenotazioneDao{
 	}
 
 	@Override
-	public boolean deletePrenotazione(PrenotazioneModel p) {
+	public boolean deletePrenotazione(PrenotazioneData p) {
 	    Connection conn = null;
 	    boolean success = false;
 

@@ -1,24 +1,44 @@
-package it.unipv.java.util.prenotazionegestor;
+package it.unipv.java.util.responsabilitychain;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 import it.unipv.java.model.PrenotazioneData;
-import it.unipv.java.model.PrenotazioneModel;
 import it.unipv.java.model.user.User;
 import it.unipv.java.persistance.PersistanceFacade;
+import it.unipv.java.util.responsabilitychain.handlers.ControlloCF;
+import it.unipv.java.util.responsabilitychain.handlers.ControlloConfermaPassword;
+import it.unipv.java.util.responsabilitychain.handlers.ControlloEmail;
+import it.unipv.java.util.responsabilitychain.handlers.ControlloNome;
+import it.unipv.java.util.responsabilitychain.handlers.ControlloPassword;
+import it.unipv.java.util.responsabilitychain.handlers.IControllo;
+import it.unipv.java.util.responsabilitychain.handlers.VuotoControl;
+import it.unipv.java.view.WarningView;
 
 public class PrenotazioneHandler {
 	private PrenotazioneData datiInseriti;
-
+    private List<IControllo> catenaControlli;
+    
 	public PrenotazioneHandler(PrenotazioneData datiInseriti) {
 		this.datiInseriti = datiInseriti;
 		datiInseriti.setImporto(calcolaImporto());
+    	this.catenaControlli = new ArrayList<IControllo>();
+        buildChain();
 	}
-
+	
+	public void buildChain() {
+       	catenaControlli.add(new ControlloConfermaPassword());
+    	catenaControlli.add(new ControlloPassword());
+    	catenaControlli.add(new ControlloEmail());
+    	catenaControlli.add(new ControlloCF());
+    	catenaControlli.add(new ControlloNome());
+    	catenaControlli.add(new VuotoControl());
+    }
+	
 //	potrebbe esserci uno strategy per il calcolo degli importi.
 	public float calcolaImporto() {
 		long giorni = calcolagiorni(datiInseriti.getDataRitiro(), datiInseriti.getDataConsegna());
@@ -31,7 +51,7 @@ public class PrenotazioneHandler {
 	}
 
 	public long calcolagiorni(String dataRitiro, String dataConsegna) {
-		SimpleDateFormat myFormat = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat myFormat = new SimpleDateFormat("dd-MM-yyyy");
 		try {
 			Date date1 = myFormat.parse(dataRitiro);
 			Date date2 = myFormat.parse(dataConsegna);
@@ -43,16 +63,15 @@ public class PrenotazioneHandler {
 		}
 	}
 
-//	public boolean savePrenotazione() {
-//		if (validaDati()) {
-//			this.setIdPrenotazione(UUID.randomUUID().toString());
-//			this.setImportoPagato(importoPagato); // Calcola automaticamente l'importo
-//			boolean createSuccess = PersistanceFacade.getInstance().createPrenotazione(this);
-//			return createSuccess;
-//		} else {
-//			return false;
-//		}
-//	}
+	public boolean registraPrenotazione() {
+		if (validaDati()) {
+			datiInseriti.setIdPrenotazione(generateUniqueId());
+			if(PersistanceFacade.getInstance().createPrenotazione(datiInseriti))
+				return true;
+			else return false;
+		}
+		return false;
+	}
 
 	public boolean validaDati() {
 		// Validazione Dati
@@ -70,23 +89,17 @@ public class PrenotazioneHandler {
 
 	private String generateUniqueId() {
 		return UUID.randomUUID().toString();
-
 	}
 
-	public List<PrenotazioneModel> mostratuttePrenotazioni() {
+	public List<PrenotazioneData> mostratuttePrenotazioni() {
 		return PersistanceFacade.getInstance().mostraPrenotazioni();
 	}
 
-	public List<PrenotazioneModel> getPrenotazioniUtente(User um) {
+	public List<PrenotazioneData> getPrenotazioniUtente(User um) {
 		return PersistanceFacade.getInstance().getPrenotazioniCliente();
 	}
 
 	public void setScadGiorno(String textField_7) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void registraPrenotazione() {
 		// TODO Auto-generated method stub
 
 	}

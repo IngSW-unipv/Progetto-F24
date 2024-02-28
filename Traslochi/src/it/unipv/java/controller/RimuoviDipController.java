@@ -41,10 +41,10 @@ public class RimuoviDipController {
 				if(confElim) {
 					rdv.setVisible(false);
 					wv.elimEffettuata();
+					rdv.setVisible(false);
 					wv.getBottoneRiprova().addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
 							wv.closeWindow();
-							rdv.setVisible(false);
 						}
 					});
 				} else{

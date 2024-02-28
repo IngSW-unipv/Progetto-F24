@@ -158,11 +158,42 @@ public class WarningView {
 		
 	}
 	
+	public void turnoAssegnato() {
+		initialize();
+		frame.setVisible(true);
+		label.setText("turno assegnato");
+		riprovaButton.setText("ok");
+	}
+	
+	public void turnoNonAssegnato() {
+		initialize();
+		frame.setVisible(true);
+		label.setText("errore nei dati, riprovare");
+		riprovaButton.setText("Riprova");
+		
+	}
+	
 	public boolean isVisible() {
 		if (frame.isVisible()) {
 			return true;
 		} else {
 			return false;
 		}
+	}
+
+
+	public void mostraErrorPrenotazione() {
+		initialize();
+		frame.setVisible(true);
+		label.setText("Registrazione non effettuata!");
+		riprovaButton.setText("Riprova");
+	}
+
+
+	public void mostraConfermaPrenotazione() {
+		initialize();
+		frame.setVisible(true);
+		label.setText("Registrazione effettuata!");
+		riprovaButton.setText("OK");
 	}
 }

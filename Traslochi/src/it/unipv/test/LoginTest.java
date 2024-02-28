@@ -1,5 +1,4 @@
 package it.unipv.test;
-import void;
 
 import it.unipv.java.controller.LoginController;
 import it.unipv.java.model.LoginData;

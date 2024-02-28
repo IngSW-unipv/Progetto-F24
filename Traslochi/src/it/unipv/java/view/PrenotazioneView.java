@@ -16,7 +16,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.border.SoftBevelBorder;
 
-import it.unipv.java.model.PrenotazioneModel;
+import it.unipv.java.model.PrenotazioneData;
 
 import javax.swing.border.BevelBorder;
 import javax.swing.JSeparator;
@@ -425,7 +425,7 @@ public class PrenotazioneView extends JFrame {
 		txtContanti.setBackground(new Color(240, 248, 255));
 		txtContanti.setCaretColor(new Color(240, 248, 255));
 		txtContanti.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		txtContanti.setText("I contanti dovranno essere consegnati al nostro Dipendente incaricato di svolgere il Trasloco. Nel caso di mancato pagamento la vostra prenotazione verrà annullata.");
+		txtContanti.setText("I contanti dovranno essere consegnati al nostro Dipendente incaricato di svolgere il Trasloco. Nel caso di mancato pagamento il trasloco non verrà effettuato.");
 		txtContanti.setBounds(10, 14, 761, 92);
 		panelBancomat.add(txtContanti);
 		contentPane.setLayout(gl_contentPane);
@@ -590,12 +590,12 @@ public class PrenotazioneView extends JFrame {
 		this.textField_9 = textField_9;
 	}
 
-	public void setViewTest(PrenotazioneModel pm) {
-		indirizzoRitiro.setText(pm.getIndirizzodiRitiro());
-		indirizzoConsegna.setText(pm.getIndirizzoDiConsegna());
+	public void setViewTest(PrenotazioneData pm) {
+		indirizzoRitiro.setText(pm.getIndirizzoRitiro());
+		indirizzoConsegna.setText(pm.getIndirizzoConsegna());
 		dataRitiro.setText(pm.getDataRitiro());
 		dataConsegna.setText(pm.getDataConsegna());
-		textField_6.setText(pm.getCVC());
+		textField_6.setText(pm.getCvc());
 		textField_7.setText(pm.getScadGiorno());
 		textField_8.setText(pm.getScadMese());
 		textField_9.setText(pm.getScadAnno());
