@@ -71,7 +71,7 @@ public class ResponsabileController {
 		
 		rv.getButtonLogOut().addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-            	
+            	SingleSessioneAttiva.getInstance().logout();
             	LoginView login = new LoginView();
             	LoginController lg=new LoginController(login);
             	login.setVisible(true);

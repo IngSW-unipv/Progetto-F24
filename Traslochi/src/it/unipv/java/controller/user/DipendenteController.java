@@ -6,6 +6,7 @@ import java.time.LocalTime;
 
 import it.unipv.java.controller.LoginController;
 import it.unipv.java.controller.VisualizzaProfiloController;
+import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.TurnoModel;
 import it.unipv.java.view.DipendentView;
 import it.unipv.java.view.LoginView;
@@ -51,6 +52,7 @@ public class DipendenteController {
         
         dv.getButtonLogOut().addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+            	SingleSessioneAttiva.getInstance().logout();
             	LoginView login = new LoginView();
             	LoginController lg=new LoginController(login);
             	dv.setVisible(false);

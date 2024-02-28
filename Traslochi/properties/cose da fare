@@ -1,0 +1,40 @@
+A livello di funzionalità minime:
+1. Aggiustare i controlli di registrazione e implementare controlli:
+																	prenotazione
+																	modifica (volendo)
+
+2. Responsabile, dopo che crea un dipendente deve refreshare la sua view
+3. Verifica che i Pattern siano implementati tutti giusti
+4. Test
+
+Cose extra da fare:
+1. WarningView refactor
+2. Eventuale pila di controller/view
+3. PasswordHash
+4. Aggiustare dipendente
+
+A livello di ordine:
+1.Controllo su tutte le classi perchè:	Valgano i Solid
+										tutti gli attributi abbiano nomi coerenti
+										Getter/setter sensati
+										Costruttori sensati
+
+2. Organizzazione migliore dei package
+
+DOCUMENTAZIONE:
+1.JavaDoc:
+			StrategyFactory
+			DaoFactory
+			PersistanceFacade
+			SingleSessioneAttiva
+			Handlers
+2. Uml
+3. Presentazione
+4. Ripasso completo programma
+
+RIPASSO TEORIA:
+				UP
+				PATTERN GRASP TUTTI
+				GOF SOLO STRATEGY, SINGLETON, FACADE, FACTORY, SAREBBE MEGLIO ANCHE OBSERVER
+				PRINCIPI SOLID
+				

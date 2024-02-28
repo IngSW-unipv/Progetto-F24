@@ -26,7 +26,7 @@ public class LoginController {
 				datiInseriti = new LoginData(loginView.getEmail(), loginView.getPassword());
 				SingleSessioneAttiva.getInstance().login(datiInseriti);
 				User utenteLoggato = SingleSessioneAttiva.getInstance().getUtenteAttivo();
-				if (utenteLoggato.getEmail().equals(datiInseriti.getEmailInserita())) {
+				if (utenteLoggato != null && utenteLoggato.getEmail().equals(datiInseriti.getEmailInserita())) {
 					loginView.setVisible(false);
 					UserStrategyFactory.getInstance().getUserControllerStrategy(utenteLoggato).flussoController(this);
 				} else {

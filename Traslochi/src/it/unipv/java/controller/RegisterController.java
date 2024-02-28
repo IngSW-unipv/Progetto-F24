@@ -30,7 +30,6 @@ public class RegisterController {
 				RegistrationHandler gestoreRegistrazione = new RegistrationHandler(datiInseriti);
 				if(gestoreRegistrazione.executeChainControllo()) {	
 					gestoreRegistrazione.registraUtente(datiInseriti);
-					registerView.setVisible(false);
 				} else {
 					registerView.setPass("");
 					registerView.setPassRipetuta("");

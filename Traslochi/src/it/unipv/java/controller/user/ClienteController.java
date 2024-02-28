@@ -46,7 +46,7 @@ public class ClienteController {
 		});
 		clienteView.getBottoneLogOut().addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-            	
+            	SingleSessioneAttiva.getInstance().logout();
             	LoginView login = new LoginView();
             	LoginController lg = new LoginController(login);
             	login.setVisible(true);
