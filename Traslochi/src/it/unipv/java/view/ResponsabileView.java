@@ -58,8 +58,8 @@ public class ResponsabileView extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.text);
 		contentPane.setBorder(null);
-
 		setContentPane(contentPane);
+		setLocationRelativeTo(null);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(30, 144, 255));

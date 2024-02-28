@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import it.unipv.java.model.TurnoModel;
 import it.unipv.java.persistance.PersistanceFacade;
 import it.unipv.java.view.AssegnaTurnoView;
+import it.unipv.java.view.WarningView;
 
 public class AssegnaTurnoController {
 
@@ -31,9 +32,26 @@ public class AssegnaTurnoController {
 				tm.setIndLavoro(atv.getIndLavoro());
 				tm.setOrarioini(atv.getOrarioIniTur());
 				
+				WarningView wv= new WarningView();
 				boolean result = PersistanceFacade.getInstance().aggiungiTurno(tm);
 				if(result) {
-					
+					atv.setVisible(false);
+					wv.turnoAssegnato();
+					wv.getBottoneRiprova().addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) {
+							wv.closeWindow();
+						}
+					});
+				} else if (!result) {
+					wv.turnoNonAssegnato();
+					wv.getBottoneRiprova().addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) {
+							wv.closeWindow();
+							atv.setOrarioIniTur("");
+							atv.setIndLavoro("");
+							atv.setIdDip("");
+						}
+					});
 				}
 			}
 		});
