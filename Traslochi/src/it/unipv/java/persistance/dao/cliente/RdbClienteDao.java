@@ -61,7 +61,7 @@ public class RdbClienteDao implements IClienteDao {
 	public boolean updateCliente(User ag) {
 
 		conn = DatabaseConnection.startConnection(conn, schema);
-		String query = "UPDATE CLIENTE SET NOME=?,COGNOME=?,CF=?,EMAIL=?,PASSWORD=? WHERE id=?";
+		String query = "UPDATE CLIENTE SET NOME=?,COGNOME=?,CF=?,EMAIL=? WHERE IDCliente=?";
 
 		try (PreparedStatement st1 = conn.prepareStatement(query)) {
 
@@ -69,8 +69,7 @@ public class RdbClienteDao implements IClienteDao {
 			st1.setString(2, ag.getCognome());
 			st1.setString(3, ag.getCf());
 			st1.setString(4, ag.getEmail());
-			st1.setString(5, ag.getPassword());
-			st1.setString(6, ag.getId());
+			st1.setString(5, ag.getId());
 
 			st1.executeUpdate();
 

@@ -1,19 +1,14 @@
 package it.unipv.java.view;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JTextPane;
 import java.awt.Font;
 import javax.swing.JLabel;
 import java.awt.SystemColor;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import java.awt.Toolkit;
@@ -23,6 +18,10 @@ import javax.swing.SwingConstants;
 
 public class AssegnaTurnoView extends JDialog {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
 	private JButton buttonConfTurno;
 	private JTextField idDip;

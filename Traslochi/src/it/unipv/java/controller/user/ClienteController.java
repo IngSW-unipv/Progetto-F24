@@ -5,12 +5,14 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import it.unipv.java.controller.LoginController;
 import it.unipv.java.controller.PrenotazioneController;
 import it.unipv.java.controller.VisualizzaProfiloController;
 import it.unipv.java.model.PrenotazioneData;
 import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.user.Cliente;
 import it.unipv.java.view.ClienteView;
+import it.unipv.java.view.LoginView;
 import it.unipv.java.view.PrenotazioneView;
 import it.unipv.java.view.VisualizzaProfiloView;
 
@@ -42,6 +44,15 @@ public class ClienteController {
 				clienteView.setVisible(false);
 			}
 		});
+		clienteView.getBottoneLogOut().addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	
+            	LoginView login = new LoginView();
+            	LoginController lg = new LoginController(login);
+            	login.setVisible(true);
+            	clienteView.setVisible(false); 
+            }
+        });
 	}
 
 	private void riempiPrenotazioniClienteTXT() {

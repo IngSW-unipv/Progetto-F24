@@ -30,4 +30,9 @@ public class DipendenteStrategy implements IUserStrategy{
 		return DaoFactory.getInstance().getDipendentePersistance().createDipendente(datiRegistrazione);
 	}
 
+	@Override
+	public boolean updateUser(PersistanceFacade persistanceFacade, User utenteAttivo) {
+		return DaoFactory.getInstance().getDipendentePersistance().updateDipendente(utenteAttivo);
+	}
+
 }

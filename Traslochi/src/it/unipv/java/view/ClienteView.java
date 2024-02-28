@@ -21,7 +21,11 @@ import java.awt.Toolkit;
 
 public class ClienteView extends JFrame {
 
-    private JPanel contentPane;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
     private JButton buttonVisProfilo;
     private JTextPane txtPaneTesto;
     private JButton buttonPrenotazione;

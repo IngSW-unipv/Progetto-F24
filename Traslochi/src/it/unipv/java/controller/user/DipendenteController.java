@@ -7,7 +7,6 @@ import java.time.LocalTime;
 import it.unipv.java.controller.LoginController;
 import it.unipv.java.controller.VisualizzaProfiloController;
 import it.unipv.java.model.TurnoModel;
-import it.unipv.java.model.user.User;
 import it.unipv.java.view.DipendentView;
 import it.unipv.java.view.LoginView;
 import it.unipv.java.view.VisualizzaProfiloView;

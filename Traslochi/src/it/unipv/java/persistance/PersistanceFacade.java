@@ -91,6 +91,10 @@ public class PersistanceFacade {
 	public List<User> getTuttiDipendenti() {
 		return DaoFactory.getInstance().getDipendentePersistance().getAllDipendenti();
 	}
+
+	public boolean modificaProfilo(User utenteAttivo) {
+		return UserStrategyFactory.getInstance().getUserControllerStrategy(utenteAttivo).updateUser(this, utenteAttivo);
+	}
 	
 	
 /*	public User getLastUser() {

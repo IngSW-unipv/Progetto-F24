@@ -7,7 +7,6 @@ import it.unipv.java.model.user.Dipendente;
 import it.unipv.java.model.user.Responsabile;
 import it.unipv.java.model.user.User;
 import it.unipv.java.persistance.PersistanceFacade;
-import it.unipv.java.view.WarningView;
 
 public class RemoveDipHandler {
 	private DeleteModel dm;
@@ -31,28 +30,14 @@ public class RemoveDipHandler {
 	
 	
 	public boolean eliminaDipendente(User u) {
-<<<<<<< Updated upstream
-		boolean b= true;
-		if(u != null) {
-=======
 		//u= getDipendente(resp.getDipendentiRegistrati());
  		if(u != null) {
->>>>>>> Stashed changes
-			PersistanceFacade.getInstance().eliminaDipendente(u);
- 			return true;
-		} else{
- 			return false;
-		}
-<<<<<<< Updated upstream
-		return b;
+			if(PersistanceFacade.getInstance().eliminaDipendente(u))
+				return true;
+			else return false;
+ 		}
+		return false;
 	}
-
-=======
- 	}
-	
-	
-	
-	
 	
 /*
 	public boolean confermaEliminazione(String idDip) {
@@ -75,8 +60,7 @@ public class RemoveDipHandler {
      }
 	*/
 	
-	
->>>>>>> Stashed changes
+
 }
 
 	

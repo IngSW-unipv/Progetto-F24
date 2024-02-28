@@ -17,7 +17,6 @@ import it.unipv.java.util.responsabilitychain.handlers.ControlloNome;
 import it.unipv.java.util.responsabilitychain.handlers.ControlloPassword;
 import it.unipv.java.util.responsabilitychain.handlers.IControllo;
 import it.unipv.java.util.responsabilitychain.handlers.VuotoControl;
-import it.unipv.java.view.WarningView;
 
 public class PrenotazioneHandler {
 	private PrenotazioneData datiInseriti;
@@ -51,11 +50,8 @@ public class PrenotazioneHandler {
 	}
 
 	public long calcolagiorni(String dataRitiro, String dataConsegna) {
-<<<<<<< Updated upstream
+
 		SimpleDateFormat myFormat = new SimpleDateFormat("dd-MM-yyyy");
-=======
-		SimpleDateFormat myFormat = new SimpleDateFormat("yyyy-MM-dd");
->>>>>>> Stashed changes
 		try {
 			Date date1 = myFormat.parse(dataRitiro);
 			Date date2 = myFormat.parse(dataConsegna);

@@ -5,11 +5,9 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-<<<<<<< HEAD
+
 import it.unipv.java.controller.LoginController;
-=======
 import it.unipv.java.controller.AssegnaTurnoController;
->>>>>>> c13bce9a62913991e42e9ed09c96d95ca9efb038
 import it.unipv.java.controller.RegisterController;
 import it.unipv.java.controller.RimuoviDipController;
 import it.unipv.java.controller.VisualizzaProfiloController;

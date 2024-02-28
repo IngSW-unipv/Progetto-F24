@@ -17,6 +17,10 @@ import javax.swing.JTextField;
 
 public class DipendentView extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField indirizzoLavoro;
 	private JTextField orarioInizioTurno;

@@ -5,11 +5,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import it.unipv.java.model.RegisterData;
 import it.unipv.java.util.responsabilitychain.handlers.ControlloPassword;
 
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-import it.unipv.java.model.RegisterData;
-import it.unipv.java.util.responsabilitychain.handlers.ControlloPassword;
-
 public class ControlloPasswordTest {
 
     @Test

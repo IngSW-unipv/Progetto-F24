@@ -1,12 +1,12 @@
 package it.unipv.test;
-
+/*
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import it.unipv.java.persistance.DaoFactory;
-
+*/
 public class StrategyTxtTest {
 /*
 	private RegisterModel registra;

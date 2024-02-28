@@ -1,7 +1,8 @@
 package it.unipv.test;
 
 public class PrenotazioneTest {
-public void PrenotazioneTest() {
+
+	public PrenotazioneTest() {
       // TODO implement this operation
       throw new UnsupportedOperationException("not implemented");
    }

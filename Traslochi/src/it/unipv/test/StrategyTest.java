@@ -1,6 +1,6 @@
 package it.unipv.test;
 
-import it.unipv.java.persistance.PersistanceFacade;
+//import it.unipv.java.persistance.PersistanceFacade;
 
 public class StrategyTest {
 	/*
@@ -36,7 +36,7 @@ public class StrategyTest {
 		PersistanceFacade.getInstance().registerUser(registra);
 	}
 	*/
-public void StrategyTest() {
+public StrategyTest() {
       // TODO implement this operation
       throw new UnsupportedOperationException("not implemented");
    }

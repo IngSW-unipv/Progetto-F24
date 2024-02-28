@@ -31,6 +31,10 @@ import java.awt.Toolkit;
 
 public class PrenotazioneView extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField indirizzoRitiro;
 	private JTextField indirizzoConsegna;

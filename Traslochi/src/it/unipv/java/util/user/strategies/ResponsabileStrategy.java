@@ -28,4 +28,9 @@ public class ResponsabileStrategy implements IUserStrategy{
 	public boolean createUser(PersistanceFacade persistanceFacade, RegisterData datiRegistrazione) {
 		return DaoFactory.getInstance().getResponsabilePersistance().createResponsabile(datiRegistrazione);
 	}
+
+	@Override
+	public boolean updateUser(PersistanceFacade persistanceFacade, User utenteAttivo) {
+		return DaoFactory.getInstance().getResponsabilePersistance().updateResponsabile(utenteAttivo);
+	}
 }

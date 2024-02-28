@@ -4,12 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import it.unipv.java.model.SingleSessioneAttiva;
-import it.unipv.java.model.user.User;
 import it.unipv.java.view.VisualizzaProfiloView;
 
 public class VisualizzaProfiloController {
-
-	private User um;
 	private VisualizzaProfiloView vpv;
 
 	

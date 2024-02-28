@@ -29,4 +29,9 @@ public class ClienteStrategy implements IUserStrategy{
 		return DaoFactory.getInstance().getClientePersistance().createCliente(datiRegistrazione);
 	}
 
+	@Override
+	public boolean updateUser(PersistanceFacade persistanceFacade, User utenteAttivo) {
+		return DaoFactory.getInstance().getClientePersistance().updateCliente(utenteAttivo);
+	}
+
 }

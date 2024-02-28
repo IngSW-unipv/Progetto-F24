@@ -1,5 +1,5 @@
 package it.unipv.test;
-
+/*
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
@@ -16,7 +16,7 @@ import it.unipv.java.persistance.dao.dipendente.RdbDipendenteDao;
 import it.unipv.java.persistance.dao.prenotazione.RdbPrenotazioneDao;
 import it.unipv.java.persistance.dao.responsabile.RdbResponsabileDao;
 import it.unipv.java.persistance.dao.turno.RdbTurnoDao;
-
+*/
 public class QueryTest {
 /*	private UserModel utenteDaLoggare;
 	private UserModel clienteDaLoggare;
@@ -137,7 +137,7 @@ public class QueryTest {
 		assertNull("Responsabile Logout", SingleSessioneAttiva.getInstance().getUtenteAttivo());
 	}
 */
-public void QueryTest() {
+public QueryTest() {
       // TODO implement this operation
       throw new UnsupportedOperationException("not implemented");
    }

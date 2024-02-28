@@ -1,5 +1,5 @@
 package it.unipv.test;
-
+/*
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
@@ -13,9 +13,10 @@ import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.user.Cliente;
 import it.unipv.java.model.user.User;
 import it.unipv.java.persistance.PersistanceFacade;
-
+*/
 public class PersistanceFacadeTest {
-public void PersistanceFacadeTest() {
+/*
+	public void PersistanceFacadeTest() {
       // TODO implement this operation
       throw new UnsupportedOperationException("not implemented");
    }
