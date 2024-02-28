@@ -26,8 +26,10 @@ public class RemoveDipHandler {
 		return null;
 	}
 	
-	public boolean eliminaDipendente(String idDip) {
-		
+	
+	public boolean eliminaDipendente(User u) {
+		//u= getDipendente(resp.getDipendentiRegistrati());
+		return PersistanceFacade.getInstance().eliminaDipendente(u);
 	}
 	
 	

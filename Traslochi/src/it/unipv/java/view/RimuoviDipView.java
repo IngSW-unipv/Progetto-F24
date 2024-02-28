@@ -178,22 +178,18 @@ public class RimuoviDipView extends JDialog {
 	public String getIdDipendente() {
 		return idDipendente.getText();
 	}
-
-
-
-	public void setIdDipendente(JTextField idDipendente) {
-		this.idDipendente = idDipendente;
+	
+	public void setIdDipendente(String id) {
+		idDipendente.setText(id);
 	}
-
-
 
 	public String getCodiceFiscale() {
 		return codiceFiscale.getText();
 	}
-
-
-
-	public void setCodiceFiscale(JTextField codiceFiscale) {
-		this.codiceFiscale = codiceFiscale;
+	
+	public void setCfDipendente(String cf) {
+		codiceFiscale.setText(cf);
 	}
+
 }
+

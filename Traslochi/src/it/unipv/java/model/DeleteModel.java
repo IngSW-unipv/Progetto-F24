@@ -17,5 +17,12 @@ public class DeleteModel {
 		return cfInserito;
 	}
 	
+	public void setId(String idDip) {
+		idInserito= idDip;
+	}
+	
+	public void setCf(String cf) {
+		cfInserito= cf;
+	}
 
 }
