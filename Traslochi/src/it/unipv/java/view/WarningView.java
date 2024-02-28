@@ -161,14 +161,14 @@ public class WarningView {
 	public void turnoAssegnato() {
 		initialize();
 		frame.setVisible(true);
-		label.setText("Dipendente non presente !");
-		riprovaButton.setText("Riprova");
+		label.setText("turno assegnato");
+		riprovaButton.setText("ok");
 	}
 	
 	public void turnoNonAssegnato() {
 		initialize();
 		frame.setVisible(true);
-		label.setText("Dipendente non presente !");
+		label.setText("errore nei dati, riprovare");
 		riprovaButton.setText("Riprova");
 		
 	}

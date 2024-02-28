@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import it.unipv.java.controller.AssegnaTurnoController;
 import it.unipv.java.controller.RegisterController;
 import it.unipv.java.controller.RimuoviDipController;
 import it.unipv.java.controller.VisualizzaProfiloController;
@@ -43,6 +44,7 @@ public class ResponsabileController {
 		rv.getButtonAssegnaTurno().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				AssegnaTurnoView atv = new AssegnaTurnoView();
+				AssegnaTurnoController atc= new AssegnaTurnoController(atv);
 				atv.setVisible(true);
 				
 			}
@@ -51,8 +53,8 @@ public class ResponsabileController {
 		rv.getButtonRimuoviDip().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				RimuoviDipView rimuoviDipView = new RimuoviDipView();
-				rimuoviDipView.setVisible(true);
 				RimuoviDipController rdc = new RimuoviDipController(rimuoviDipView);
+				rimuoviDipView.setVisible(true);
 			}
 		});
 		
