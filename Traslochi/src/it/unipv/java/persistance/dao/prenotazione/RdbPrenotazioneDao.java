@@ -92,8 +92,8 @@ public class RdbPrenotazioneDao implements IPrenotazioneDao{
 	    try {
 	    	String query = "INSERT INTO Prenotazione(IDPrenotazione, IDCliente, IndirizzoDiConsegna, "
 	        										+ "IndirizzoDiRitiro, DataRitiro, DataConsegna, "
-	        										+ "MetodoDiPagamento, ImportoDaPagare, StatoPrenotazione, "
-	        										+ "IDResponsabile) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	        										+ "MetodoDiPagamento, ImportoDaPagare,"
+	        										+ " StatoPrenotazione) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	    	st1 = conn.prepareStatement(query);
 	    	st1.setString(1, p.getIdPrenotazione());
 	        st1.setString(2, p.getIdCliente());
@@ -104,7 +104,6 @@ public class RdbPrenotazioneDao implements IPrenotazioneDao{
 	        st1.setString(7, p.getMetodoPagamento());
 	        st1.setFloat(8, p.getImporto());
 	        st1.setString(9, p.getStatoPrenotazione());
-	        st1.setString(10, p.getIdResponsabile());
 	        st1.executeUpdate();
 	        
 	        } catch (Exception e) {
