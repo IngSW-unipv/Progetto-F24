@@ -34,4 +34,8 @@ public class SingleSessioneAttiva {
 	public User getUtenteAttivo() {
 		return utenteAttivo;
 	}
+
+	public boolean modificaProfilo() {
+		return PersistanceFacade.getInstance().modificaProfilo(SingleSessioneAttiva.getInstance().getUtenteAttivo());
+ 	}
 }

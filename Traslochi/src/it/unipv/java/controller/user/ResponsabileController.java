@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import it.unipv.java.controller.LoginController;
 import it.unipv.java.controller.RegisterController;
 import it.unipv.java.controller.RimuoviDipController;
 import it.unipv.java.controller.VisualizzaProfiloController;
@@ -14,6 +15,7 @@ import it.unipv.java.model.TurnoModel;
 import it.unipv.java.model.user.Responsabile;
 import it.unipv.java.model.user.User;
 import it.unipv.java.view.AssegnaTurnoView;
+import it.unipv.java.view.LoginView;
 import it.unipv.java.view.RegisterView;
 import it.unipv.java.view.ResponsabileView;
 import it.unipv.java.view.RimuoviDipView;
@@ -63,6 +65,18 @@ public class ResponsabileController {
 				profiloView.setVisible(true);
             }
         });
+		
+		rv.getButtonLogOut().addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	
+            	LoginView login = new LoginView();
+            	LoginController lg=new LoginController(login);
+            	login.setVisible(true);
+ 				rv.setVisible(false); 
+            }
+        });
+	 
+		
 	}
 
 	private void riempiPrenotazioniTXT() {
@@ -76,8 +90,7 @@ public class ResponsabileController {
 			sb.append(prenotazione.toString()).append("\n");
 		}
 		rv.getTuttePrenotazioni().setText(sb.toString());
-	}
-
+	} 
 	private void riempiDipendentiTXT() {
 		List<User> tuttiDipendenti = new ArrayList<User>();
 		Responsabile responsabileLoggato = new Responsabile();

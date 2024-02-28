@@ -35,7 +35,7 @@ public class ResponsabileView extends JFrame {
 	private JTextPane tuttePrenotazioni;
 	private JTextPane tuttiTurni;
 	private JTextPane tuttiDipendenti;
-	
+
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -341,5 +341,7 @@ public class ResponsabileView extends JFrame {
 	public void setTuttiDipendenti(JTextPane tuttiDipendenti) {
 		this.tuttiDipendenti = tuttiDipendenti;
 	}
-	
+	public JButton getButtonLogOut() {
+		return buttonLogOut;
+	}
 }
