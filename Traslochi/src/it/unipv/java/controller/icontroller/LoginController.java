@@ -32,6 +32,8 @@ public class LoginController implements IController{
 					User utenteLoggato = SingleSessioneAttiva.getInstance().getUtenteAttivo();
 					UserStrategyFactory.getInstance().getUserStrategy(utenteLoggato).flussoController(this);
 					loginView.setVisible(false);
+					loginView.setEmail(null);
+					loginView.setPassword(null);
 				} else {
 					WarningView wv = new WarningView();
 					wv.mostraErroreLoginUtente();
