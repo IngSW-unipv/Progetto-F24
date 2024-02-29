@@ -3,50 +3,34 @@ package it.unipv.java.view;
 import java.awt.EventQueue;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.StyledDocument;
-import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import java.awt.GridBagLayout;
-import javax.swing.JTextField;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
 import java.awt.SystemColor;
 import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.JSeparator;
-import java.awt.GridLayout;
-import javax.swing.JTextArea;
-import javax.swing.JCheckBox;
-import javax.swing.SpringLayout;
 import javax.swing.JLabel;
-import javax.swing.JDesktopPane;
-import javax.swing.SwingConstants;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import javax.swing.border.CompoundBorder;
 import javax.swing.ImageIcon;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Color;
 import javax.swing.JTextPane;
-import javax.swing.JList;
-import javax.swing.JTable;
-import javax.swing.border.MatteBorder;
-import javax.swing.JScrollPane;
-import javax.swing.JScrollBar;
 import javax.swing.border.BevelBorder;
-import javax.swing.border.LineBorder;
-import javax.swing.AbstractListModel;
-import javax.swing.UIManager;
 import java.awt.Toolkit;
 
 public class ClienteView extends JFrame {
 
-    private JPanel contentPane;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
     private JButton buttonVisProfilo;
     private JTextPane txtPaneTesto;
     private JButton buttonPrenotazione;
     private JTextPane textPrenotazioni;
+    private JButton buttonLogOut;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
@@ -65,8 +49,9 @@ public class ClienteView extends JFrame {
     	setIconImage(Toolkit.getDefaultToolkit().getImage("resources/IconaLogin.png"));
     	setTitle("Bidons");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 1332, 681);
+        setBounds(100, 100, 1352, 681);
         setResizable(true); // Imposta la finestra come ridimensionabile
+        setLocationRelativeTo(null);
 
         contentPane = new JPanel();
         contentPane.setBackground(SystemColor.text);
@@ -133,34 +118,36 @@ public class ClienteView extends JFrame {
         	gl_contentPane.createParallelGroup(Alignment.LEADING)
         		.addComponent(panel, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 2571, Short.MAX_VALUE)
         		.addGroup(gl_contentPane.createSequentialGroup()
-        			.addGap(91)
         			.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-        				.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-        					.addGroup(gl_contentPane.createSequentialGroup()
-        						.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-        							.addGroup(gl_contentPane.createSequentialGroup()
-        								.addComponent(labelTrasloco, GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
-        								.addGap(227))
-        							.addComponent(lblNewLabel_2, GroupLayout.DEFAULT_SIZE, 617, Short.MAX_VALUE))
-        						.addGap(88)
-        						.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-        							.addGroup(gl_contentPane.createSequentialGroup()
-        								.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
-        								.addGap(10))
-        							.addGroup(gl_contentPane.createSequentialGroup()
-        								.addComponent(lblNewLabel_1)
-        								.addGap(18))))
-        					.addGroup(gl_contentPane.createSequentialGroup()
-        						.addComponent(txtPaneTesto, GroupLayout.DEFAULT_SIZE, 552, Short.MAX_VALUE)
-        						.addGap(207)))
         				.addGroup(gl_contentPane.createSequentialGroup()
-        					.addComponent(separator, GroupLayout.PREFERRED_SIZE, 381, GroupLayout.PREFERRED_SIZE)
-        					.addGap(378)))
-        			.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-        				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+        					.addGap(91)
+        					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+        						.addGroup(gl_contentPane.createSequentialGroup()
+        							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+        								.addGroup(gl_contentPane.createSequentialGroup()
+        									.addComponent(labelTrasloco, GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
+        									.addGap(227))
+        								.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 617, GroupLayout.PREFERRED_SIZE))
+        							.addGap(88)
+        							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+        								.addGroup(gl_contentPane.createSequentialGroup()
+        									.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
+        									.addGap(10))
+        								.addGroup(gl_contentPane.createSequentialGroup()
+        									.addComponent(lblNewLabel_1)
+        									.addGap(18))))
+        						.addGroup(gl_contentPane.createSequentialGroup()
+        							.addComponent(separator, GroupLayout.PREFERRED_SIZE, 381, GroupLayout.PREFERRED_SIZE)
+        							.addGap(378))))
+        				.addGroup(gl_contentPane.createSequentialGroup()
+        					.addGap(40)
+        					.addComponent(txtPaneTesto, GroupLayout.PREFERRED_SIZE, 620, GroupLayout.PREFERRED_SIZE)
+        					.addPreferredGap(ComponentPlacement.RELATED)))
+        			.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+        				.addGroup(gl_contentPane.createSequentialGroup()
         					.addComponent(separator_1, GroupLayout.PREFERRED_SIZE, 402, GroupLayout.PREFERRED_SIZE)
         					.addGap(1319))
-        				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+        				.addGroup(gl_contentPane.createSequentialGroup()
         					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
         						.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
         						.addComponent(labelPren, GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
@@ -191,13 +178,11 @@ public class ClienteView extends JFrame {
         				.addComponent(separator, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
         			.addGap(21)
         			.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-        				.addComponent(txtPaneTesto, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        				.addComponent(buttonPrenotazione, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))
+        				.addComponent(buttonPrenotazione, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(txtPaneTesto, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
         			.addGap(39)
-        			.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-        				.addGroup(gl_contentPane.createSequentialGroup()
-        					.addComponent(lblNewLabel_2, GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
-        					.addGap(22))
+        			.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+        				.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 313, GroupLayout.PREFERRED_SIZE)
         				.addGroup(gl_contentPane.createSequentialGroup()
         					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
         						.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
@@ -205,11 +190,12 @@ public class ClienteView extends JFrame {
         					.addPreferredGap(ComponentPlacement.RELATED)
         					.addComponent(separator_2, GroupLayout.PREFERRED_SIZE, 2, GroupLayout.PREFERRED_SIZE)
         					.addGap(18)
-        					.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 222, GroupLayout.PREFERRED_SIZE)
-        					.addContainerGap())))
+        					.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 222, GroupLayout.PREFERRED_SIZE)))
+        			.addContainerGap(22, Short.MAX_VALUE))
         );
         
         textPrenotazioni = new JTextPane();
+        textPrenotazioni.setForeground(new Color(100, 149, 237));
         textPrenotazioni.setFont(new Font("Tahoma", Font.BOLD, 13));
         textPrenotazioni.setEditable(false);
         textPrenotazioni.setBackground(SystemColor.inactiveCaptionBorder);
@@ -241,26 +227,40 @@ public class ClienteView extends JFrame {
         buttonVisProfilo.setBorder(null);
         buttonVisProfilo.setBackground(SystemColor.textHighlight);
         buttonVisProfilo.setFocusable(false);
+        
+        buttonLogOut = new JButton("Log Out");
+        buttonLogOut.setForeground(SystemColor.window);
+        buttonLogOut.setFont(new Font("Tahoma", Font.BOLD, 11));
+        buttonLogOut.setFocusable(false);
+        buttonLogOut.setBorder(null);
+        buttonLogOut.setBackground(SystemColor.textHighlight);
+        buttonLogOut.setFocusable(false);
+    
         GroupLayout gl_panel = new GroupLayout(panel);
         gl_panel.setHorizontalGroup(
         	gl_panel.createParallelGroup(Alignment.LEADING)
         		.addGroup(gl_panel.createSequentialGroup()
         			.addGap(83)
         			.addComponent(homePageLabel, GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
-        			.addGap(817)
+        			.addGap(639)
+        			.addComponent(buttonLogOut, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE)
+        			.addGap(18)
         			.addComponent(buttonVisProfilo, GroupLayout.PREFERRED_SIZE, 160, GroupLayout.PREFERRED_SIZE)
         			.addGap(1327))
         );
         gl_panel.setVerticalGroup(
         	gl_panel.createParallelGroup(Alignment.LEADING)
-        		.addGroup(gl_panel.createSequentialGroup()
-        			.addContainerGap()
-        			.addComponent(homePageLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        		.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
+        			.addGroup(gl_panel.createParallelGroup(Alignment.TRAILING)
+        				.addGroup(Alignment.LEADING, gl_panel.createSequentialGroup()
+        					.addGap(21)
+        					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+        						.addComponent(buttonVisProfilo, GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+        						.addComponent(buttonLogOut, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)))
+        				.addGroup(gl_panel.createSequentialGroup()
+        					.addContainerGap()
+        					.addComponent(homePageLabel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         			.addGap(19))
-        		.addGroup(gl_panel.createSequentialGroup()
-        			.addGap(21)
-        			.addComponent(buttonVisProfilo, GroupLayout.DEFAULT_SIZE, 15, Short.MAX_VALUE)
-        			.addGap(31))
         );
         panel.setLayout(gl_panel);
         contentPane.setLayout(gl_contentPane);
@@ -284,6 +284,10 @@ public class ClienteView extends JFrame {
     public JButton getBottonePrenotazione() {
     	return buttonPrenotazione;
     }
+    
+    public JButton getBottoneLogOut() {
+    	return buttonLogOut;
+    }
 
 	public JTextPane getTextPrenotazioni() {
 		return textPrenotazioni;
@@ -292,8 +296,4 @@ public class ClienteView extends JFrame {
 	public void setTextPrenotazioni(JTextPane textPrenotazioni) {
 		this.textPrenotazioni = textPrenotazioni;
 	}
-    
-	
-
-	
 }

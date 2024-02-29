@@ -9,7 +9,7 @@ import it.unipv.java.model.LoginData;
 import it.unipv.java.model.RegisterData;
 import it.unipv.java.model.user.Responsabile;
 import it.unipv.java.model.user.User;
-import it.unipv.java.persistance.dao.DatabaseConnection;
+import it.unipv.java.persistance.DatabaseConnection;
 
 
 public class RdbResponsabileDao implements IResponsabileDao{
@@ -59,12 +59,13 @@ public class RdbResponsabileDao implements IResponsabileDao{
 	public User getResponsabile(LoginData lm) {
 	    conn = DatabaseConnection.startConnection(conn, schema);
 	    Responsabile responsabile = new Responsabile();
-	    String sql = "SELECT IDResponsabile, Nome, Cognome, CF, Email, Password FROM RESPONSABILE WHERE EMAIL = ?";
+	    String sql = "SELECT IDResponsabile, Nome, Cognome, CF, Email, Password FROM RESPONSABILE WHERE EMAIL = ? AND Password = ?";
 	    ResultSet rs = null;
 	    
 	    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
 	        
 	        pstmt.setString(1, lm.getEmailInserita()); // Usa il parametro corretto
+	        pstmt.setString(2, lm.getPasswordInserita()); // Usa il parametro corretto
 	        rs = pstmt.executeQuery();
 	        
 	        if (rs.next()) {
@@ -72,6 +73,7 @@ public class RdbResponsabileDao implements IResponsabileDao{
 	            responsabile.setNome(rs.getString("NOME"));
 	            responsabile.setCognome(rs.getString("COGNOME"));
 	            responsabile.setEmail(rs.getString("EMAIL"));
+	            responsabile.setCf(rs.getString("CF"));
 	            responsabile.setPassword(rs.getString("PASSWORD"));
 	        }
 	    } catch (Exception e) {

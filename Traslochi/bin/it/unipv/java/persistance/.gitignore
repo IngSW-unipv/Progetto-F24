@@ -1,2 +1,5 @@
 /PersistanceToModelFacade.class
 /DataAccessFacade.class
+/DaoFactory.class
+/DatabaseConnection.class
+/PersistanceFacade.class

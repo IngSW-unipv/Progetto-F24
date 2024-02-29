@@ -1,5 +1,5 @@
 package it.unipv.test;
-import static org.junit.jupiter.api.Assertions.*;
+/*import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import it.unipv.java.controller.LoginController;
@@ -10,7 +10,7 @@ import it.unipv.java.view.ResponsabileView;
 import it.unipv.java.view.WarningView;
 
 import java.awt.event.ActionEvent;
-
+*/
 class LoginControllerTest {
 /*
     @Test
@@ -18,8 +18,8 @@ class LoginControllerTest {
         // Simuliamo una login view
         LoginView loginView = new LoginView();
         ClienteView cv = new ClienteView();
-        DipendentView dv= new DipendentView();
-        ResponsabileView rv= new ResponsabileView();
+        DipendentView dv = new DipendentView();
+        ResponsabileView rv = new ResponsabileView();
         // Simuliamo un login controller
         LoginController loginController = new LoginController(loginView);
         
@@ -106,5 +106,10 @@ class LoginControllerTest {
         // Verifichiamo che la finestra di avviso sia stata visualizzata
         assertTrue(wv.isVisible());
     }
-*/
-}
+
+ void LoginControllerTest() {
+      // TODO implement this operation
+      throw new UnsupportedOperationException("not implemented");
+   }
+ */
+   }

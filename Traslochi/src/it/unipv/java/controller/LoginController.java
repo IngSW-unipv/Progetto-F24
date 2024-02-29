@@ -12,7 +12,7 @@ import it.unipv.java.view.RegisterView;
 import it.unipv.java.view.WarningView;
 
 public class LoginController {
-	public LoginData datiInseriti;
+	public LoginData datiInseriti; // Model
 	public LoginView loginView;
 
 	public LoginController(LoginView schermataLogin) {
@@ -23,23 +23,22 @@ public class LoginController {
 	private void setListeners() {
 		loginView.getLoginButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				datiInseriti = new LoginData(loginView.getEmail(),loginView.getPassword());
-				SingleSessioneAttiva.getInstance().login(datiInseriti);
-				User utenteLoggato = SingleSessioneAttiva.getInstance().getUtenteAttivo();
-				if(utenteLoggato != null) {
+				datiInseriti = new LoginData(loginView.getEmail(), loginView.getPassword());
+				if (SingleSessioneAttiva.getInstance().login(datiInseriti)) {
+					User utenteLoggato = SingleSessioneAttiva.getInstance().getUtenteAttivo();
+					UserStrategyFactory.getInstance().getUserStrategy(utenteLoggato).flussoController(this);
 					loginView.setVisible(false);
-					UserStrategyFactory.getInstance().getUserControllerStrategy(utenteLoggato).flussoController(this);
 				} else {
 					WarningView wv = new WarningView();
 					wv.mostraErroreLoginUtente();
 					wv.getBottoneRiprova().addActionListener(new ActionListener() {
-						public void actionPerformed(ActionEvent e) { 
-							 wv.closeWindow();
-							 loginView.setPassword("");
-							 loginView.setEmail("");
-						 }
+						public void actionPerformed(ActionEvent e) {
+							wv.closeWindow();
+							loginView.setPassword("");
+							loginView.setEmail("");
+						}
 					});
-				}										
+				}
 			}
 		});
 		loginView.getRegisterButton().addActionListener(new ActionListener() {
@@ -51,8 +50,4 @@ public class LoginController {
 			}
 		});
 	}
-	
-	public ActionListener getLoginButtonActionListener() {
-        return loginView.getLoginButton().getActionListeners()[0];
-    }
 }

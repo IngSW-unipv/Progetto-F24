@@ -7,13 +7,11 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JSeparator;
-import java.awt.Toolkit;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import javax.swing.border.EtchedBorder;
 import java.awt.Dimension;
 import java.awt.EventQueue;
-import java.awt.event.ActionListener;
 import java.awt.SystemColor;
 import javax.swing.JTextArea;
 import javax.swing.JPasswordField;
@@ -105,6 +103,7 @@ public class LoginView extends JFrame {
 		loginButton.setIcon(null);
 		loginButton.setForeground(Color.WHITE);
 		loginButton.setBackground(SystemColor.textHighlight);
+		loginButton.setFocusable(false);
 		
 		email = new JTextArea();
 		

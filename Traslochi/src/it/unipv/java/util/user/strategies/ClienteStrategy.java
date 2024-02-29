@@ -12,6 +12,8 @@ import it.unipv.java.view.ClienteView;
 
 public class ClienteStrategy implements IUserStrategy{
 
+	public ClienteStrategy() {}
+	
 	@Override
 	public void flussoController(ActionListener actionListener) {
 		ClienteView cv = new ClienteView();
@@ -27,6 +29,11 @@ public class ClienteStrategy implements IUserStrategy{
 	@Override
 	public boolean createUser(PersistanceFacade persistanceFacade, RegisterData datiRegistrazione) {
 		return DaoFactory.getInstance().getClientePersistance().createCliente(datiRegistrazione);
+	}
+
+	@Override
+	public boolean updateUser(PersistanceFacade persistanceFacade, User utenteAttivo) {
+		return DaoFactory.getInstance().getClientePersistance().updateCliente(utenteAttivo);
 	}
 
 }

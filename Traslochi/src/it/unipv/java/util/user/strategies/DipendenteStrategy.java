@@ -12,6 +12,8 @@ import it.unipv.java.view.DipendentView;
 
 public class DipendenteStrategy implements IUserStrategy{
 
+	public DipendenteStrategy() {}
+	
 	@Override
 	public void flussoController(ActionListener actionListener) {
 		DipendentView dv = new DipendentView();
@@ -28,6 +30,11 @@ public class DipendenteStrategy implements IUserStrategy{
 	@Override
 	public boolean createUser(PersistanceFacade persistanceFacade, RegisterData datiRegistrazione) {
 		return DaoFactory.getInstance().getDipendentePersistance().createDipendente(datiRegistrazione);
+	}
+
+	@Override
+	public boolean updateUser(PersistanceFacade persistanceFacade, User utenteAttivo) {
+		return DaoFactory.getInstance().getDipendentePersistance().updateDipendente(utenteAttivo);
 	}
 
 }

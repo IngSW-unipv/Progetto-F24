@@ -10,7 +10,7 @@ import java.util.List;
 
 import it.unipv.java.model.TurnoModel;
 import it.unipv.java.model.user.User;
-import it.unipv.java.persistance.dao.DatabaseConnection;
+import it.unipv.java.persistance.DatabaseConnection;
 
 public class RdbTurnoDao implements ITurnoDao {
 	
@@ -35,7 +35,8 @@ public class RdbTurnoDao implements ITurnoDao {
 	            // Processa il ResultSet
 	            while (rs.next()) {
 	                TurnoModel t = new TurnoModel();
-	                // Supponendo che in TurnoModel ci sia un metodo setOrarioInizio che accetta un parametro di tipo Time
+	                // Supponendo che in TurnoModel ci sia un metodo setOrarioInizio
+	                //che accetta un parametro di tipo Time
 	                t.setOrarioini(rs.getString("OrarioInizio")); 
 	                t.setIdDipendente(rs.getString("idDipendente"));
 	                t.setIndLavoro(rs.getString("IndirizzoLavoro"));
@@ -125,4 +126,4 @@ public class RdbTurnoDao implements ITurnoDao {
 	 
 
 
-}
+}//fine rdbTurno

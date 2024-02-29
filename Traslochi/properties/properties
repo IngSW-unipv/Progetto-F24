@@ -1,6 +1,10 @@
 DBDRIVER= com.mysql.cj.jdbc.Driver
 DBURL =jdbc:mysql://localhost:3306/traslochi?serverTimezone=UTC
 db_usn= root
+
+#Password Niko
+#db_psw = Elsword2114-
+#Password Ibra-Ricky
 db_psw = Password23.
 
 #Modificabile dall'utente con i seguenti valori[MySql, Xml, Txt]
@@ -9,9 +13,9 @@ db_psw = Password23.
 #Creare un oggetto corrispondente nelle strategie
 Persistance_Type = MySql
 
-MySql = it.unipv.java.util.dao.strategies.RdbDaoStrategy
-Xml = it.unipv.java.util.dao.strategies.XmlDaoStrategy
-Txt = it.unipv.java.util.dao.strategies.TxtDaoStrategy
+MySql = it.unipv.java.persistance.strategy.strategies.RdbDaoStrategy
+Xml = it.unipv.java.persistance.strategy.strategies.XmlDaoStrategy
+Txt = it.unipv.java.persistance.strategy.strategies.TxtDaoStrategy
 
 #Domini specifici per responsabili e dipendenti
 altroDominio.it = it.unipv.java.util.user.strategies.ClienteStrategy

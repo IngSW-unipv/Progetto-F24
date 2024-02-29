@@ -12,11 +12,13 @@ import it.unipv.java.view.ResponsabileView;
 
 public class ResponsabileStrategy implements IUserStrategy{
 
+	public ResponsabileStrategy() {}
+	
 	@Override
 	public void flussoController(ActionListener actionListener) {
-		ResponsabileView rv = new ResponsabileView();
-		ResponsabileController rc = new ResponsabileController(rv);
-		rv.setVisible(true);
+		ResponsabileView responsabileView = new ResponsabileView();
+		ResponsabileController responsabileController = new ResponsabileController(responsabileView);
+		responsabileView.setVisible(true);
 	}
 
 	@Override
@@ -27,5 +29,10 @@ public class ResponsabileStrategy implements IUserStrategy{
 	@Override
 	public boolean createUser(PersistanceFacade persistanceFacade, RegisterData datiRegistrazione) {
 		return DaoFactory.getInstance().getResponsabilePersistance().createResponsabile(datiRegistrazione);
+	}
+
+	@Override
+	public boolean updateUser(PersistanceFacade persistanceFacade, User utenteAttivo) {
+		return DaoFactory.getInstance().getResponsabilePersistance().updateResponsabile(utenteAttivo);
 	}
 }

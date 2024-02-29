@@ -52,35 +52,35 @@ CREATE TABLE IF NOT EXISTS Prenotazione (
     IDCliente VARCHAR(255), 
     IndirizzoDiConsegna VARCHAR(255),
     IndirizzoDiRitiro VARCHAR(255),
-    DataRitiro DATE,
-    DataConsegna DATE,
+    DataRitiro VARCHAR(255),
+    DataConsegna VARCHAR(255),
     MetodoDiPagamento VARCHAR(50),
     ImportodaPagare DECIMAL(10, 2),
     StatoPrenotazione VARCHAR(50),
-    IDResponsabile VARCHAR(255),
     FOREIGN KEY (IDCliente) REFERENCES Cliente(IDCliente)
 );
  -- Inserimenti per la tabella Dipendente
-INSERT INTO Dipendente (IDDipendente, Nome, Cognome, CF, Email, Password) VALUES ('DIPN001', 'Mario', 'Rossi', 'RSSMRA85M01H501Z', 'mario.rossi@bidons.it', 'passwordHash1');
-INSERT INTO Dipendente (IDDipendente, Nome, Cognome, CF, Email, Password) VALUES ('DIPN002', 'Luca', 'Bianchi', 'LCABNC82S18F205J', 'luca.bianchi@bidons.it', 'passwordHash2');
-INSERT INTO Dipendente (IDDipendente, Nome, Cognome, CF, Email, Password) VALUES ('DIPN003', 'Giulia', 'Verdi', 'GVLGIA88D44A001S', 'giulia.verdi@bidons.it', 'passwordHash3');
+INSERT INTO Dipendente (IDDipendente, Nome, Cognome, CF, Email, Password) VALUES ('DIPN001', 'Adam', 'Moutawakkil', 'RSSMRA85M01H501Z', 'adam.mout@bidons.it', 'lorifiuto');
+INSERT INTO Dipendente (IDDipendente, Nome, Cognome, CF, Email, Password) VALUES ('DIPN002', 'Giovanni', 'Campagna', 'LCABNC82S18F205J', 'giovanni.campa@bidons.it', 'nonhostudiato');
+INSERT INTO Dipendente (IDDipendente, Nome, Cognome, CF, Email, Password) VALUES ('DIPN003', 'Soufian', 'Sagdal', 'GVLGIA88D44A001S', 'souf.sag@bidons.it', 'esamisangue');
 
 -- Inserimenti per la tabella Responsabile
-INSERT INTO Responsabile (IDResponsabile, Nome, Cognome, CF, Email, Password) VALUES ('RESP001', 'Anna', 'Gialli', 'ANNGIA72P65Z404X', 'anna.gialli@bidonsResp.it', 'passwordHash1');
-INSERT INTO Responsabile (IDResponsabile, Nome, Cognome, CF, Email, Password) VALUES ('RESP002', 'Carlo', 'Neri', 'CRLNRI69E07F839K', 'carlo.neri@bidonsResp.it', 'passwordHash2');
-INSERT INTO Responsabile (IDResponsabile, Nome, Cognome, CF, Email, Password) VALUES ('RESP003', 'Sofia', 'Marroni', 'SOFMRR80A41G273H', 'sofia.marroni@bidonsResp.it', 'passwordHash3');
+INSERT INTO Responsabile (IDResponsabile, Nome, Cognome, CF, Email, Password) VALUES ('RESP001', 'Kirols', 'Ibrahim', 'BRHKLS02S09F205V', 'ibra@bidonsResp.it', 'adamgay');
+INSERT INTO Responsabile (IDResponsabile, Nome, Cognome, CF, Email, Password) VALUES ('RESP002', 'Nikola', 'Manev', 'MNVNKI69E07F839K', 'niko@bidonsResp.it', 'adamgay');
+INSERT INTO Responsabile (IDResponsabile, Nome, Cognome, CF, Email, Password) VALUES ('RESP003', 'Federico', 'Pasciutti', 'PSCTF80A41G2273H', 'richi@bidonsResp.it', 'adamgay');
 
 -- Inserimenti per la tabella Cliente
-INSERT INTO Cliente (IDCliente, Nome, Cognome, CF, Email, Password) VALUES ('CLNT001', 'Marco', 'Celeste', 'MCRCST76M04H501P', 'marco.celeste@email.com', 'passwordHash1');
-INSERT INTO Cliente (IDCliente, Nome, Cognome, CF, Email, Password) VALUES ('CLNT002', 'Elisa', 'Rosa', 'LSIRSA89B55D969G', 'elisa.rosa@email.com', 'passwordHash2');
-INSERT INTO Cliente (IDCliente, Nome, Cognome, CF, Email, Password) VALUES ('CLNT003', 'Federico', 'Viola', 'FDRCVL93M01L219Z', 'federico.viola@email.com', 'passwordHash3');
+INSERT INTO Cliente (IDCliente, Nome, Cognome, CF, Email, Password) VALUES ('CLNT001', 'Marco', 'Sordi', 'MCRCST76M04H501P', 'marco.sordi@email.com', 'password123');
+INSERT INTO Cliente (IDCliente, Nome, Cognome, CF, Email, Password) VALUES ('CLNT002', 'Elisa', 'Finotti', 'LSIRSA89B55D969G', 'elisa.finotti@email.com', 'password123');
+INSERT INTO Cliente (IDCliente, Nome, Cognome, CF, Email, Password) VALUES ('CLNT003', 'Alice', 'Viola', 'FDRCVL93M01L219Z', 'alice.viola@email.com', 'password123');
+
 -- Inserimenti per la tabella Turno
 INSERT INTO Turno (OrarioInizio, IDDipendente, IndirizzoLavoro) VALUES ('08:00:00', 'DIPN001', 'Via Roma 1');
 INSERT INTO Turno (OrarioInizio, IDDipendente, IndirizzoLavoro) VALUES ('09:00:00', 'DIPN002', 'Corso Milano 2');
 INSERT INTO Turno (OrarioInizio, IDDipendente, IndirizzoLavoro) VALUES ('10:00:00', 'DIPN003', 'Piazza Napoli 3');
 
 -- Inserimenti per la tabella Prenotazioni
-INSERT INTO Prenotazione (IDPrenotazione, IDCliente, IndirizzoDiConsegna, IndirizzoDiRitiro, DataRitiro, DataConsegna, MetodoDiPagamento, ImportodaPagare, StatoPrenotazione, IDResponsabile) VALUES ('PREN001', 'CLNT001', 'Via Torino 4', 'Via Firenze 5', '2023-03-01', '2023-03-02', 'Carta di Credito', 1500.0, 'Confermata', 'RESP001');
-INSERT INTO Prenotazione (IDPrenotazione, IDCliente, IndirizzoDiConsegna, IndirizzoDiRitiro, DataRitiro, DataConsegna, MetodoDiPagamento, ImportodaPagare, StatoPrenotazione, IDResponsabile) VALUES ('PREN002', 'CLNT002', 'Via Genova 6', 'Via Palermo 7', '2023-04-01', '2023-04-02', 'Bonifico Bancario', 2500.0, 'In attesa', 'RESP002');
-INSERT INTO Prenotazione (IDPrenotazione, IDCliente, IndirizzoDiConsegna, IndirizzoDiRitiro, DataRitiro, DataConsegna, MetodoDiPagamento, ImportodaPagare, StatoPrenotazione, IDResponsabile) VALUES ('PREN003', 'CLNT003', 'Via Venezia 8', 'Via Bari 9', '2023-05-01', '2023-05-02', 'PayPal', 3500.0, 'Completata', NULL);
+INSERT INTO Prenotazione (IDPrenotazione, IDCliente, IndirizzoDiConsegna, IndirizzoDiRitiro, DataRitiro, DataConsegna, MetodoDiPagamento, ImportodaPagare, StatoPrenotazione) VALUES ('PREN001', 'CLNT001', 'Via Torino 4', 'Via Firenze 5', '01-03-2023', '02-03-2023', 'Carta di Credito', 1500.0, 'Confermata');
+INSERT INTO Prenotazione (IDPrenotazione, IDCliente, IndirizzoDiConsegna, IndirizzoDiRitiro, DataRitiro, DataConsegna, MetodoDiPagamento, ImportodaPagare, StatoPrenotazione) VALUES ('PREN002', 'CLNT002', 'Via Genova 6', 'Via Palermo 7', '01-04-2023', '02-04-2023', 'Carta di Credito', 2500.0, 'In attesa');
+INSERT INTO Prenotazione (IDPrenotazione, IDCliente, IndirizzoDiConsegna, IndirizzoDiRitiro, DataRitiro, DataConsegna, MetodoDiPagamento, ImportodaPagare, StatoPrenotazione) VALUES ('PREN003', 'CLNT003', 'Via Venezia 8', 'Via Bari 9', '01-05-2023', '02-05-2023', 'Contanti', 3500.0, 'Completata');
 
