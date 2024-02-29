@@ -26,7 +26,7 @@ public class SingleSessioneAttiva {
 		return false;	
 	}
 	
-	//Logout User kills active Instance
+	//Logout User per terminare l'istanza
 	public void logout() {
 	    SingleSessioneAttiva.instance = null;
 	    this.utenteAttivo = null;
