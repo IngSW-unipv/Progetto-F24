@@ -29,20 +29,6 @@ public class AssegnaTurnoView extends JDialog {
 	private JTextField indLavoro;
 	private JButton buttonAnnulla;
 
-
-	
-	public static void main(String[] args) {
-		try {
-			AssegnaTurnoView dialog = new AssegnaTurnoView();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-
-	
 	public AssegnaTurnoView() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("resources/IconaLogin.png"));
 		setTitle("Bidons");

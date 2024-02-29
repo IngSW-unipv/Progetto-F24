@@ -1,7 +1,5 @@
 package it.unipv.java.view;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.Toolkit;
@@ -30,21 +28,6 @@ public class DipendentView extends JFrame {
 	private JButton buttonVisProfilo;
 	private JButton buttonLogOut;
 
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					DipendentView frame = new DipendentView();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	
 	public DipendentView() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("resources/IconaRegister.jpg"));
 		setTitle("Bidons");

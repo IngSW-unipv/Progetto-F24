@@ -47,14 +47,6 @@ public class RegisterView extends JFrame {
 	private JLabel labelTitolo;
 	private JButton buttonReturn;
 
-	public static void main(String[] args) {
-		// Crea un'istanza della finestra di registrazione
-		RegisterView registerView = new RegisterView();
-
-		// Imposta la visibilità della finestra
-		registerView.setVisible(true);
-	}
-
 	public RegisterView() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("resources/Register"));
 		setResizable(false);
@@ -285,9 +277,5 @@ public class RegisterView extends JFrame {
 	public void riprovaPassword() {
 		setPassRipetuta("");
 		setPass("");
-	}
-
-	public void registrazioneEffettuata() {
-		this.setVisible(false);		
 	}
 }

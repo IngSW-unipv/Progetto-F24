@@ -1,22 +1,26 @@
-package it.unipv.java.controller;
+package it.unipv.java.controller.icontroller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JFrame;
+
 import it.unipv.java.model.LoginData;
 import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.user.User;
+import it.unipv.java.util.controllerpila.ControllerGestor;
 import it.unipv.java.util.user.UserStrategyFactory;
 import it.unipv.java.view.LoginView;
 import it.unipv.java.view.RegisterView;
 import it.unipv.java.view.WarningView;
 
-public class LoginController {
+public class LoginController implements IController{
 	public LoginData datiInseriti; // Model
 	public LoginView loginView;
 
 	public LoginController(LoginView schermataLogin) {
 		this.loginView = schermataLogin;
+		this.loginView.setVisible(true);
 		setListeners();
 	}
 
@@ -45,9 +49,14 @@ public class LoginController {
 			public void actionPerformed(ActionEvent e) {
 				RegisterView registerView = new RegisterView();
 				RegisterController registerController = new RegisterController(registerView);
-				registerView.setVisible(true);
+				ControllerGestor.getInstance().getStack().push(registerController);
 				loginView.setVisible(false);
 			}
 		});
+	}
+
+	@Override
+	public JFrame getView() {
+		return this.loginView;
 	}
 }

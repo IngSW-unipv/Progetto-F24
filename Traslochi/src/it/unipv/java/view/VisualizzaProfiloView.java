@@ -1,7 +1,5 @@
 package it.unipv.java.view;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel; 
 import java.awt.Toolkit;
@@ -36,23 +34,7 @@ public class VisualizzaProfiloView extends JFrame {
 	private JTextArea cognome;
 	private JTextArea codiceFiscale;
 	private JTextArea email;
-	
 
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VisualizzaProfiloView frame = new VisualizzaProfiloView();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	
 	public VisualizzaProfiloView() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("resources/IconaLogin.png"));
 		setTitle("Bidons");

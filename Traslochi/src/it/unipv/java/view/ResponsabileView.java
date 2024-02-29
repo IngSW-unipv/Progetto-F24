@@ -1,7 +1,5 @@
 package it.unipv.java.view;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JButton;
@@ -36,21 +34,6 @@ public class ResponsabileView extends JFrame {
 	private JTextPane tuttiTurni;
 	private JTextPane tuttiDipendenti;
 
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ResponsabileView frame = new ResponsabileView();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	
 	public ResponsabileView() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("resources/IconaRegister.jpg"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

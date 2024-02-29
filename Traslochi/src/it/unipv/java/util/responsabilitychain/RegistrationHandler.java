@@ -1,7 +1,5 @@
 package it.unipv.java.util.responsabilitychain;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -15,7 +13,6 @@ import it.unipv.java.util.responsabilitychain.handlers.ControlloNome;
 import it.unipv.java.util.responsabilitychain.handlers.ControlloPassword;
 import it.unipv.java.util.responsabilitychain.handlers.IControllo;
 import it.unipv.java.util.responsabilitychain.handlers.VuotoControl;
-import it.unipv.java.view.WarningView;
 
 public class RegistrationHandler {
 	private RegisterData datiInseriti;

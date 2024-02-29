@@ -1,7 +1,5 @@
 package it.unipv.java.view;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -20,21 +18,6 @@ public class WarningView {
 	private JLabel label;
 	private JPanel panel;
 
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					WarningView window = new WarningView();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	
 	public WarningView() {
 		initialize();
 		
@@ -216,6 +199,7 @@ public class WarningView {
 		frame.setVisible(true);
 		label.setText("Registrazione effettuata!");
 		riprovaButton.setText("OK");
+	}
 
 	public void mostraErrorCampiVuoti() {
 		initialize();

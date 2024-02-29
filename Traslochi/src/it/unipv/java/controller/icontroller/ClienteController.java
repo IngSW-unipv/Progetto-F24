@@ -1,13 +1,12 @@
-package it.unipv.java.controller.user;
+package it.unipv.java.controller.icontroller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import it.unipv.java.controller.LoginController;
-import it.unipv.java.controller.PrenotazioneController;
-import it.unipv.java.controller.VisualizzaProfiloController;
+import javax.swing.JFrame;
+
 import it.unipv.java.model.PrenotazioneData;
 import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.user.Cliente;
@@ -16,11 +15,12 @@ import it.unipv.java.view.LoginView;
 import it.unipv.java.view.PrenotazioneView;
 import it.unipv.java.view.VisualizzaProfiloView;
 
-public class ClienteController {
+public class ClienteController implements IController{
 	private ClienteView clienteView;
 
 	public ClienteController(ClienteView clienteView) {
 		this.clienteView = clienteView;
+		this.clienteView.setVisible(true);
 
 		riempiPrenotazioniClienteTXT();
 		setListeners();
@@ -67,6 +67,11 @@ public class ClienteController {
 			sb.append(prenotazione.toString()).append("\n");
 		}
 		clienteView.getTextPrenotazioni().setText(sb.toString());
+	}
+
+	@Override
+	public JFrame getView() {
+		return this.clienteView;
 	}
 
 }

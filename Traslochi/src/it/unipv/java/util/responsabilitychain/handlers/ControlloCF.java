@@ -35,7 +35,5 @@ public class ControlloCF implements IControllo {
 				wv.closeWindow();
 			}
 		});
-		return false;
 	}
-	}	
 }

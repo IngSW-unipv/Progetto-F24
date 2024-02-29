@@ -15,6 +15,7 @@ public class RimuoviDipController {
 	
 	public RimuoviDipController(RimuoviDipView rdv) {
 		this.rdv = rdv;
+		this.rdv.setVisible(true);
 		setListeners();
 	}
 	

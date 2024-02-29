@@ -1,17 +1,20 @@
-package it.unipv.java.controller;
+package it.unipv.java.controller.icontroller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JFrame;
+
 import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.view.VisualizzaProfiloView;
 
-public class VisualizzaProfiloController {
+public class VisualizzaProfiloController implements IController{
 	private VisualizzaProfiloView vpv;
 
 	
 	public VisualizzaProfiloController(VisualizzaProfiloView vpv) {
 		this.vpv = vpv;
+		this.vpv.setVisible(true);
 		setFields();
 		setListeners();
 	}
@@ -78,6 +81,11 @@ public class VisualizzaProfiloController {
 		});
 
 		
+	}
+
+	@Override
+	public JFrame getView() {
+		return this.vpv;
 	}
 	
 

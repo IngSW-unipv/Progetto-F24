@@ -1,24 +1,25 @@
-package it.unipv.java.controller.user;
+package it.unipv.java.controller.icontroller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalTime;
 
-import it.unipv.java.controller.LoginController;
-import it.unipv.java.controller.VisualizzaProfiloController;
+import javax.swing.JFrame;
+
 import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.TurnoModel;
 import it.unipv.java.view.DipendentView;
 import it.unipv.java.view.LoginView;
 import it.unipv.java.view.VisualizzaProfiloView;
 
-public class DipendenteController {
+public class DipendenteController implements IController{
     private TurnoModel tm;
     private DipendentView dv;
     
     public DipendenteController(DipendentView dv) { 
         this.tm = new TurnoModel();
         this.dv = dv;
+        this.dv.setVisible(true);
         setListeners();
     }
 
@@ -61,4 +62,9 @@ public class DipendenteController {
              }
         });
     }
+
+	@Override
+	public JFrame getView() {
+		return this.dv;
+	}
 }

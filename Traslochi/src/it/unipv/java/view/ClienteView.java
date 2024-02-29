@@ -1,6 +1,5 @@
 package it.unipv.java.view;
 
-import java.awt.EventQueue;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.StyledDocument;
 import javax.swing.JFrame;
@@ -31,19 +30,6 @@ public class ClienteView extends JFrame {
     private JButton buttonPrenotazione;
     private JTextPane textPrenotazioni;
     private JButton buttonLogOut;
-
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    ClienteView frame = new ClienteView();
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
 
     public ClienteView() {
     	setIconImage(Toolkit.getDefaultToolkit().getImage("resources/IconaLogin.png"));

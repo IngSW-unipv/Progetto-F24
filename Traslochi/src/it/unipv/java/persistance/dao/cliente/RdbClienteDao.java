@@ -148,7 +148,7 @@ public class RdbClienteDao implements IClienteDao {
 	
 	public User getCliente(LoginData datiInseriti) {
 	    conn = DatabaseConnection.startConnection(conn, schema);
-	    Cliente cliente = new Cliente();
+	    Cliente cliente = null;
  	    String sql = "SELECT IDCliente, Nome, Cognome, CF, Email, Password FROM CLIENTE WHERE EMAIL = ? AND Password = ?";
 	    ResultSet rs = null;
 
@@ -159,7 +159,7 @@ public class RdbClienteDao implements IClienteDao {
 	        rs = pstmt.executeQuery();
 
 	        if (rs.next()) {
-	            // = rs.getString("PASSWORD");
+	        		cliente = new Cliente();
  	                cliente.setIdCliente(rs.getString("IDCliente"));
 	                cliente.setNome(rs.getString("Nome"));
 	                cliente.setCognome(rs.getString("Cognome"));
