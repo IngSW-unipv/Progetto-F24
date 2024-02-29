@@ -12,22 +12,37 @@ public class VuotoControl implements IControllo{
 	/**
 	 * fa uso di una reflection
 	 */
-	@Override
-	public boolean controllaParametro(RegisterData datiRegistrazione) {
-		Field[] campiRegisterData = datiRegistrazione.getClass().getDeclaredFields();
-		boolean verifica = true;
-		for(Field attributiDaVerificare: campiRegisterData)
-			verifica = verifica && (attributiDaVerificare != null);
-		if(verifica)
-			return true;
-		
-		WarningView wv = new WarningView();
-		wv.mostraErrorGenerale();
-		wv.getBottoneRiprova().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) { 
-				wv.closeWindow();
-			}
-		});
-		return false;
-	}	
+
+	 @Override
+	    public boolean controllaParametro(RegisterData datiRegistrazione) {
+	        Field[] campiRegisterData = datiRegistrazione.getClass().getDeclaredFields();
+	        for (Field campo : campiRegisterData) {
+	            campo.setAccessible(true); // Rende il campo accessibile anche se è privato
+	            
+	            if (!campo.getName().equals("userId")) {  
+	                try {
+	                    Object valoreCampo = campo.get(datiRegistrazione); // Ottiene il valore del campo
+ 	                    if (valoreCampo == null || (valoreCampo instanceof String && ((String) valoreCampo).trim().isEmpty())) {
+	                        mostraAvviso(); 
+	                        return false;
+	                    }
+	                } catch (IllegalAccessException e) {
+	                    e.printStackTrace();
+	                    return false; 
+	                }
+	            }
+	        }
+	        return true; 
+	    }
+
+	    private void mostraAvviso() {
+	        WarningView wv = new WarningView();
+	        wv.mostraErrorCampiVuoti();
+	        wv.getBottoneRiprova().addActionListener(new ActionListener() {
+	            public void actionPerformed(ActionEvent e) {
+	                wv.closeWindow();
+	            }
+	        });
+	    }
+
 }

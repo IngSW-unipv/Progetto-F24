@@ -14,7 +14,7 @@ public class ControlloConfermaPassword implements IControllo{
 			return true;
 		
 		WarningView wv = new WarningView();
-		wv.mostraErrorGenerale();
+		wv.mostraErrorPassword();;
 		wv.getBottoneRiprova().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) { 
 				wv.closeWindow();

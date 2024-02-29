@@ -23,7 +23,7 @@ public class ControlloNome implements IControllo{
 			return true;
 		
 		WarningView wv = new WarningView();
-		wv.mostraErrorGenerale();
+		wv.mostraErroreNome();
 		wv.getBottoneRiprova().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) { 
 				wv.closeWindow();

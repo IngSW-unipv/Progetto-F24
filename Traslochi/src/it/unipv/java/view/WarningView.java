@@ -159,4 +159,36 @@ public class WarningView {
 			return false;
 		}
 	}
+
+
+	public void mostraErrorCfErrato() {
+		initialize();
+		frame.setVisible(true);
+		label.setText("Codice Fiscale non valido!");
+		riprovaButton.setText("Riprova");
+	}
+
+
+	public void mostraErrorCampiVuoti() {
+		initialize();
+		frame.setVisible(true);
+		label.setText("Riempi tutti i campi!");
+		riprovaButton.setText("Riprova");	
+	}
+
+
+	public void mostraErrorPasswordNonValida() {
+		initialize();
+		frame.setVisible(true);
+		label.setText("La Password dovrebbe avere almeno Un carattere maiuscolo, un numero e un carattere speciale!");
+		riprovaButton.setText("Riprova");
+	}
+
+
+	public void mostraErroreNome() {
+		initialize();
+		frame.setVisible(true);
+		label.setText("Il nome non dovrebbe contenere numeri/caratteri speciali!");
+		riprovaButton.setText("Riprova");	
+	}
 }
