@@ -79,9 +79,7 @@ public class ResponsabileController implements IController{
             	ControllerGestor.getInstance().getStack().pop();
             	IController precController = ControllerGestor.getInstance().getStack().peek();
             	precController.getView().setVisible(true);
-//            	LoginView login = new LoginView();
- //           	LoginController lg=new LoginController(login);
- //           	login.setVisible(true);
+//            	
             }
         });
 	 

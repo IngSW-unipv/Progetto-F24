@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 
 import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.TurnoModel;
+import it.unipv.java.util.controllerpila.ControllerGestor;
 import it.unipv.java.view.DipendentView;
 import it.unipv.java.view.LoginView;
 import it.unipv.java.view.VisualizzaProfiloView;
@@ -54,10 +55,10 @@ public class DipendenteController implements IController{
         dv.getButtonLogOut().addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	SingleSessioneAttiva.getInstance().logout();
-            	LoginView login = new LoginView();
-            	LoginController lg=new LoginController(login);
-            	dv.setVisible(false);
-            	login.setVisible(true);
+            	dv.setVisible(false); 
+            	ControllerGestor.getInstance().getStack().pop();
+            	IController precController = ControllerGestor.getInstance().getStack().peek();
+            	precController.getView().setVisible(true);
                   
              }
         });

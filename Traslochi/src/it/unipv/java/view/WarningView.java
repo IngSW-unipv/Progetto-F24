@@ -230,4 +230,18 @@ public class WarningView {
 		label.setText("La mail non è valida!");
 		riprovaButton.setText("Riprova");			
 	}
+	
+	public void mostraModificaEffettuata() {
+		initialize();
+		frame.setVisible(true);
+		label.setText("Modifica Registrata");
+		riprovaButton.setText("ok");			
+	}
+	
+	public void mostraErrorModifiche() {
+		initialize();
+		frame.setVisible(true);
+		label.setText("Modifica non effettuata");
+		riprovaButton.setText("Riprova");			
+	}
 }
