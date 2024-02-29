@@ -29,6 +29,12 @@ class RegistrationHandlerTest {
             public boolean controllaParametro(RegisterData dati) {
                 return true;  
             }
+
+			@Override
+			public void throwWarningView() {
+				// TODO Auto-generated method stub
+				
+			}
         };
 
          handler.buildChain();  
@@ -45,6 +51,12 @@ class RegistrationHandlerTest {
             public boolean controllaParametro(RegisterData dati) {
                 return false;  
             }
+
+			@Override
+			public void throwWarningView() {
+				// TODO Auto-generated method stub
+				
+			}
         };
 
          handler.buildChain();  

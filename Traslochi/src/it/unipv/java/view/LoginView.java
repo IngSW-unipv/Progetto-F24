@@ -11,7 +11,6 @@ import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import javax.swing.border.EtchedBorder;
 import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.SystemColor;
 import javax.swing.JTextArea;
 import javax.swing.JPasswordField;
@@ -35,20 +34,6 @@ public class LoginView extends JFrame {
 	private JLabel lblNewLabel_2;
 	private JButton registerButton;
 	private JLabel lblNewLabel_1;
-	
-
-	public   void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					LoginView login = new LoginView();
-				 login.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	public LoginView() {
 		setTitle("Login ");
@@ -70,7 +55,6 @@ public class LoginView extends JFrame {
 		contentPane.setLayout(null);
 		
 		this.setLocationRelativeTo(null); //CENTRA FRAME AL CENTRO DEL PC
-		this.setVisible(true);
 		
 		panelLogin = new JPanel();
 		panelLogin.setBackground(Color.WHITE);
@@ -227,12 +211,4 @@ public class LoginView extends JFrame {
 	public void setEmail(String em) {
 		email.setText(em);
 	}
-
-	public void apriLogin() {
-		this.setVisible(true);
-	}
-	
-	
-	
-	
 }

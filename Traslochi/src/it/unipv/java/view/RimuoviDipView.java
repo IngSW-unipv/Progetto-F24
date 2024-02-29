@@ -30,20 +30,6 @@ public class RimuoviDipView extends JDialog {
 	private JTextField codiceFiscale;
 	private JButton buttonAnnulla;
 
-	
-	
-	public static void main(String[] args) {
-		try {
-			RimuoviDipView dialog = new RimuoviDipView();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	
-
 	public RimuoviDipView() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("resources/IconaLogin.png"));
 		setTitle("Bidons");

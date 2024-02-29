@@ -19,6 +19,7 @@ public class AssegnaTurnoController {
 	
 	public AssegnaTurnoController(AssegnaTurnoView atv) {
 		this.atv = atv;
+		this.atv.setVisible(true);
 		setListeners();
 	}
 	
@@ -107,6 +108,5 @@ public class AssegnaTurnoController {
 		
 		return result;
 		
-	}
-	
+	}	
 }

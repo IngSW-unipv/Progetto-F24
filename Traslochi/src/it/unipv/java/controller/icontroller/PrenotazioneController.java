@@ -1,9 +1,10 @@
-package it.unipv.java.controller;
+package it.unipv.java.controller.icontroller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import it.unipv.java.controller.user.ClienteController;
+import javax.swing.JFrame;
+
 import it.unipv.java.model.PrenotazioneData;
 import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.util.responsabilitychain.PrenotazioneHandler;
@@ -11,13 +12,14 @@ import it.unipv.java.view.ClienteView;
 import it.unipv.java.view.PrenotazioneView;
 import it.unipv.java.view.WarningView;
 
-public class PrenotazioneController {
+public class PrenotazioneController implements IController{
 	private PrenotazioneData datiInseriti;
 	private PrenotazioneView pv;
 
 	public PrenotazioneController(PrenotazioneView pv) {
 		this.datiInseriti = new PrenotazioneData();
 		this.pv = pv;
+		this.pv.setVisible(true);
 		setlisteners();
 	}
 
@@ -107,5 +109,10 @@ public class PrenotazioneController {
 		if(pv.getRadioContanti().isSelected())
 			datiInseriti.setMetodoPagamento("Contanti");
 		return datiInseriti;
+	}
+
+	@Override
+	public JFrame getView() {
+		return this.pv;
 	}
 }

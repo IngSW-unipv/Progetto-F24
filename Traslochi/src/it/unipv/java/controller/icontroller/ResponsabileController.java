@@ -1,21 +1,20 @@
-package it.unipv.java.controller.user;
+package it.unipv.java.controller.icontroller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JFrame;
 
-import it.unipv.java.controller.LoginController;
 import it.unipv.java.controller.AssegnaTurnoController;
-import it.unipv.java.controller.RegisterController;
 import it.unipv.java.controller.RimuoviDipController;
-import it.unipv.java.controller.VisualizzaProfiloController;
 import it.unipv.java.model.PrenotazioneData;
 import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.TurnoModel;
 import it.unipv.java.model.user.Responsabile;
 import it.unipv.java.model.user.User;
+import it.unipv.java.util.controllerpila.ControllerGestor;
 import it.unipv.java.view.AssegnaTurnoView;
 import it.unipv.java.view.LoginView;
 import it.unipv.java.view.RegisterView;
@@ -23,12 +22,13 @@ import it.unipv.java.view.ResponsabileView;
 import it.unipv.java.view.RimuoviDipView;
 import it.unipv.java.view.VisualizzaProfiloView;
 
-public class ResponsabileController {
+public class ResponsabileController implements IController{
 	private ResponsabileView rv;
 
 	// HO TOLTO ASSEGNATURNO E TURNOMODEL DAL COSTRUTTORE --> NIKUZ
 	public ResponsabileController(ResponsabileView rv) {
 		this.rv = rv;
+		this.rv.setVisible(true);
 		riempiPrenotazioniTXT();
 		riempiTurnoTXT();
 		riempiDipendentiTXT();
@@ -40,14 +40,15 @@ public class ResponsabileController {
 			public void actionPerformed(ActionEvent e) {
 				RegisterView registerView = new RegisterView();
 				RegisterController registerController = new RegisterController(registerView);
-				registerView.setVisible(true);
+				ControllerGestor.getInstance().getStack().push(registerController);
+				rv.setVisible(false);
 			}
 		});
 		
 		rv.getButtonAssegnaTurno().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				AssegnaTurnoView atv = new AssegnaTurnoView();
-				AssegnaTurnoController atc= new AssegnaTurnoController(atv);
+				AssegnaTurnoController atc = new AssegnaTurnoController(atv);
 				atv.setVisible(true);
 				
 			}
@@ -72,10 +73,13 @@ public class ResponsabileController {
 		rv.getButtonLogOut().addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	SingleSessioneAttiva.getInstance().logout();
-            	LoginView login = new LoginView();
-            	LoginController lg=new LoginController(login);
-            	login.setVisible(true);
- 				rv.setVisible(false); 
+            	rv.setVisible(false); 
+            	ControllerGestor.getInstance().getStack().pop();
+            	IController precController = ControllerGestor.getInstance().getStack().peek();
+            	precController.getView().setVisible(true);
+//            	LoginView login = new LoginView();
+ //           	LoginController lg=new LoginController(login);
+ //           	login.setVisible(true);
             }
         });
 	 
@@ -118,5 +122,11 @@ public class ResponsabileController {
 			sb.append(turno.toString()).append("\n");
 		}
 		rv.getTuttiTurni().setText(sb.toString());
+	}
+
+	@Override
+	public JFrame getView() {
+		// TODO Auto-generated method stub
+		return this.rv;
 	}
 }

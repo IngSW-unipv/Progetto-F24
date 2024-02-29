@@ -4,7 +4,6 @@ import java.io.FileInputStream;
 import java.lang.reflect.Constructor;
 import java.util.Properties;
 
-import it.unipv.java.model.RegisterData;
 import it.unipv.java.model.user.User;
 import it.unipv.java.util.user.strategies.IUserStrategy;
 
