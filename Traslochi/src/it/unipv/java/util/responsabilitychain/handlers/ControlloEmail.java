@@ -20,7 +20,11 @@ public class ControlloEmail implements IControllo{
 	public boolean controllaParametro(RegisterData datiRegistrazione) {
 		if(datiRegistrazione.getEmailInserita().matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"))
 			return true;
-		
+		return false;
+	}
+
+	@Override
+	public void throwWarningView() {
 		WarningView wv = new WarningView();
 		wv.mostraErrorEmailNonValida();
 		wv.getBottoneRiprova().addActionListener(new ActionListener() {
@@ -28,6 +32,5 @@ public class ControlloEmail implements IControllo{
 				wv.closeWindow();
 			}
 		});
-		return false;
 	}	
 }

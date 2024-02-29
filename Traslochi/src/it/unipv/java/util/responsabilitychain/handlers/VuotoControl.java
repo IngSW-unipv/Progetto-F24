@@ -23,7 +23,6 @@ public class VuotoControl implements IControllo{
 	                try {
 	                    Object valoreCampo = campo.get(datiRegistrazione); // Ottiene il valore del campo
  	                    if (valoreCampo == null || (valoreCampo instanceof String && ((String) valoreCampo).trim().isEmpty())) {
-	                        mostraAvviso(); 
 	                        return false;
 	                    }
 	                } catch (IllegalAccessException e) {
@@ -35,7 +34,7 @@ public class VuotoControl implements IControllo{
 	        return true; 
 	    }
 
-	    private void mostraAvviso() {
+	    public void throwWarningView() {
 	        WarningView wv = new WarningView();
 	        wv.mostraErrorCampiVuoti();
 	        wv.getBottoneRiprova().addActionListener(new ActionListener() {

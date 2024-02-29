@@ -20,14 +20,17 @@ public class ControlloPassword implements IControllo{
 	public boolean controllaParametro(RegisterData datiRegistrazione) {
 		if(datiRegistrazione.getPasswordInserita().matches("^(?=.*[0-9])(?=.*[!@#$%^&*()-_=+{};:,<.>]).{8,}$"))
 			return true;
-		
+		return false;
+	}
+
+	@Override
+	public void throwWarningView() {
 		WarningView wv = new WarningView();
 		wv.mostraErrorPasswordNonValida();
 		wv.getBottoneRiprova().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) { 
 				wv.closeWindow();
 			}
-		});
-		return false;
+		});	
 	}	
 }

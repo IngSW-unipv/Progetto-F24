@@ -191,4 +191,12 @@ public class WarningView {
 		label.setText("Il nome non dovrebbe contenere numeri/caratteri speciali!");
 		riprovaButton.setText("Riprova");	
 	}
+
+
+	public void mostraErrorEmailNonValida() {
+		initialize();
+		frame.setVisible(true);
+		label.setText("La mail non è valida!");
+		riprovaButton.setText("Riprova");			
+	}
 }

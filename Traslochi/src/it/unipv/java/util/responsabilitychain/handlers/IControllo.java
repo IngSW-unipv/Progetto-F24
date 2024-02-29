@@ -4,4 +4,5 @@ import it.unipv.java.model.RegisterData;
 
 public interface IControllo {
 	public boolean controllaParametro(RegisterData datiRegistrazione);
+	public void throwWarningView();
 }

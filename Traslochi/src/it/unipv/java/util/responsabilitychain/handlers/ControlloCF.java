@@ -21,7 +21,11 @@ public class ControlloCF implements IControllo{
 	public boolean controllaParametro(RegisterData datiRegistrazione) {
 		if(datiRegistrazione.getCfInserito().matches("^[A-Z]{6}\\d{2}[ABCDEHLMPRST]\\d{2}[A-Z]\\d{3}[A-Z]$"))
 			return true;
-		
+		return false;
+	}
+
+	@Override
+	public void throwWarningView() {
 		WarningView wv = new WarningView();
 		wv.mostraErrorCfErrato();
 		wv.getBottoneRiprova().addActionListener(new ActionListener() {
@@ -29,6 +33,5 @@ public class ControlloCF implements IControllo{
 				wv.closeWindow();
 			}
 		});
-		return false;
 	}	
 }

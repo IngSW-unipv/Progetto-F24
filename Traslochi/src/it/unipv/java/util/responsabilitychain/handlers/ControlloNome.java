@@ -21,14 +21,17 @@ public class ControlloNome implements IControllo{
 		if(datiRegistrazione.getNomeInserito().matches("^[a-zA-Z]+$") 
 				&& datiRegistrazione.getCognomeInserito().matches("^[a-zA-Z]+$"))
 			return true;
-		
+		return false;
+	}
+
+	@Override
+	public void throwWarningView() {
 		WarningView wv = new WarningView();
 		wv.mostraErroreNome();
 		wv.getBottoneRiprova().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) { 
 				wv.closeWindow();
 			}
-		});
-		return false;
+		});	
 	}	
 }
