@@ -12,6 +12,8 @@ import it.unipv.java.view.ResponsabileView;
 
 public class ResponsabileStrategy implements IUserStrategy{
 
+	public ResponsabileStrategy() {}
+	
 	@Override
 	public void flussoController(ActionListener actionListener) {
 		ResponsabileView responsabileView = new ResponsabileView();

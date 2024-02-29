@@ -19,15 +19,17 @@ public class SingleSessioneAttiva {
 		return instance;
 	}
 
-	public void login(LoginData datiLogin) {
-		User utenteDaAttivare = PersistanceFacade.getInstance().loginUser(datiLogin);
-		if(datiLogin.getPasswordInserita().equals(utenteDaAttivare.getPassword()))
-			this.utenteAttivo = utenteDaAttivare;
+	public boolean login(LoginData datiLogin) {
+		this.utenteAttivo = PersistanceFacade.getInstance().loginUser(datiLogin);
+		if(this.utenteAttivo != null)
+			return true;
+		return false;	
 	}
 	
 	//Logout User kills active Instance
 	public void logout() {
 	    SingleSessioneAttiva.instance = null;
+	    this.utenteAttivo = null;
 	}
 
 	//Getters e Setters

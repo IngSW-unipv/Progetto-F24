@@ -57,11 +57,11 @@ public class VisualizzaProfiloController {
 				vpv.getEmailArea().setEditable(false);
 				vpv.getCfArea().setEditable(false);
  				
-				SingleSessioneAttiva.getInstance().getUtenteAttivo().setNome(vpv.getNome());
-				SingleSessioneAttiva.getInstance().getUtenteAttivo().setCognome(vpv.getCognome());
-				SingleSessioneAttiva.getInstance().getUtenteAttivo().setEmail(vpv.getEmail());
-				SingleSessioneAttiva.getInstance().getUtenteAttivo().setCf(vpv.getCodFis());
  				 if(SingleSessioneAttiva.getInstance().modificaProfilo()) {
+ 					SingleSessioneAttiva.getInstance().getUtenteAttivo().setNome(vpv.getNome());
+ 					SingleSessioneAttiva.getInstance().getUtenteAttivo().setCognome(vpv.getCognome());
+ 					SingleSessioneAttiva.getInstance().getUtenteAttivo().setEmail(vpv.getEmail());
+ 					SingleSessioneAttiva.getInstance().getUtenteAttivo().setCf(vpv.getCodFis());
  					 //chiude view visualizzaprofilo e mostra view registrazione effettuata
  				 }else {
  					 //warning view

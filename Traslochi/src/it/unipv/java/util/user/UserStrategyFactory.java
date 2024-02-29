@@ -10,7 +10,7 @@ import it.unipv.java.util.user.strategies.IUserStrategy;
 
 public class UserStrategyFactory {
 	private static UserStrategyFactory instance;
-	private IUserStrategy controllerUtente;
+	private IUserStrategy strategiaUtente;
 	private static final String USER_PROPERTYNAME = "User";
 
 	private UserStrategyFactory() {
@@ -24,23 +24,23 @@ public class UserStrategyFactory {
 		
 	}
 
-	public IUserStrategy getUserControllerStrategy(User tipoUtente) {
+	public IUserStrategy getUserStrategy(User utenteLoggato) {
 		Properties p = new Properties(System.getProperties());
-		String className = tipoUtente.getClass().getSimpleName();
+		String classSimpleName = utenteLoggato.getClass().getSimpleName();
 		try {
 			p.load(new FileInputStream("properties/properties"));
 			String UnformattedString = p.getProperty(USER_PROPERTYNAME);
-			String tipoUtenteClassName = String.format(UnformattedString, className);
+			String tipoUtenteClassName = String.format(UnformattedString, classSimpleName);
 				
 				Constructor<?> c = Class.forName(tipoUtenteClassName).getConstructor();
-				controllerUtente=(IUserStrategy)c.newInstance();
+				strategiaUtente=(IUserStrategy)c.newInstance();
 				
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				controllerUtente=null;
+				strategiaUtente=null;
 			}
-		return controllerUtente;
+		return strategiaUtente;
 	}	
 	
 	public IUserStrategy getUserLoginStrategy(String Email) {
@@ -56,14 +56,14 @@ public class UserStrategyFactory {
 				dominioClassName = p.getProperty("altroDominio.it");
 			
 			Constructor<?> c = Class.forName(dominioClassName).getConstructor();
-			controllerUtente = (IUserStrategy)c.newInstance();
+			strategiaUtente = (IUserStrategy)c.newInstance();
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			controllerUtente = null;
+			strategiaUtente = null;
 		}
-	return controllerUtente;
+	return strategiaUtente;
 }
 
 	public IUserStrategy getUserRegisterStrategy(RegisterData datiRegistrazione) {
@@ -78,13 +78,13 @@ public class UserStrategyFactory {
 				dominioClassName = p.getProperty("altroDominio.it");
 			
 			Constructor<?> c = Class.forName(dominioClassName).getConstructor();
-			controllerUtente = (IUserStrategy)c.newInstance();
+			strategiaUtente = (IUserStrategy)c.newInstance();
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			controllerUtente = null;
+			strategiaUtente = null;
 		}
-	return controllerUtente;
+	return strategiaUtente;
 	}
 }

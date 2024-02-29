@@ -1,10 +1,10 @@
-package it.unipv.java.util.dao;
+package it.unipv.java.persistance.strategy;
 
 import java.io.FileInputStream;
 import java.lang.reflect.Constructor;
 import java.util.Properties;
 
-import it.unipv.java.util.dao.strategies.IDaoFactoryStrategy;
+import it.unipv.java.persistance.strategy.strategies.IDaoFactoryStrategy;
 
 /**
  * La classe StrategyFactory rappresenta l'oggetto Singleton che si occupa di

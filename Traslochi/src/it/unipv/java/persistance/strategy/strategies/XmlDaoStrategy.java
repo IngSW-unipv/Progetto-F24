@@ -1,4 +1,4 @@
-package it.unipv.java.util.dao.strategies;
+package it.unipv.java.persistance.strategy.strategies;
 
 import it.unipv.java.persistance.DaoFactory;
 import it.unipv.java.persistance.dao.cliente.IClienteDao;

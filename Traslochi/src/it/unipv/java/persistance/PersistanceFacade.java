@@ -39,21 +39,10 @@ public class PersistanceFacade {
 		return UserStrategyFactory.getInstance().getUserRegisterStrategy(datiRegistrazione).createUser(this, datiRegistrazione);
 	}
 	
-	
-	
-/*	public boolean modificaProfilo() {
-		switch (SingleSessioneAttiva.getInstance().getUtenteAttivo().getUserType()) {
-		case CLIENTE:
-			return DaoFactory.getInstance().getClientePersistance().updateCliente(SingleSessioneAttiva.getInstance().getUtenteAttivo());
-		case DIPENDENTE:
-			return DaoFactory.getInstance().getDipendentePersistance().updateDipendente(SingleSessioneAttiva.getInstance().getUtenteAttivo());
-		case RESPONSABILE:
-			return DaoFactory.getInstance().getResponsabilePersistance().updateResponsabile(SingleSessioneAttiva.getInstance().getUtenteAttivo());
-		}
-		return false ; 
-	} */
-	
-//	DEVE ESSERE ELIMINA USER? DISAMBIGUARE SU CHI/COME SI POSSANO ELIMINARE USER
+	public boolean modificaProfilo(User utenteAttivo) {
+		return UserStrategyFactory.getInstance().getUserStrategy(utenteAttivo).updateUser(this, utenteAttivo);
+	}
+
 	public boolean eliminaDipendente(User u) {
 			return DaoFactory.getInstance().getDipendentePersistance().deleteDipendente(u);
 	}
@@ -85,24 +74,4 @@ public class PersistanceFacade {
 	public List<User> getTuttiDipendenti() {
 		return DaoFactory.getInstance().getDipendentePersistance().getAllDipendenti();
 	}
-
-	public boolean modificaProfilo(User utenteAttivo) {
-		return UserStrategyFactory.getInstance().getUserControllerStrategy(utenteAttivo).updateUser(this, utenteAttivo);
-	}
-	
-	
-/*	public User getLastUser() {
-		return UserStrategyFactory.getInstance().getUserLoginStrategy().getUser(this, datiLogin);
-	}
-/*	
-	public List<UserModel> mostraDipendenti() {
-		return DaoFactory.getInstance().getDipendentePersistance().getAllDipendenti();
-	}
-
-	public UserModel visualizzaProfilo(UserModel um) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-*/
-
 }

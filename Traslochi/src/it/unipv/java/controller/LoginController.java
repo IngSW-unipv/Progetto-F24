@@ -24,11 +24,10 @@ public class LoginController {
 		loginView.getLoginButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				datiInseriti = new LoginData(loginView.getEmail(), loginView.getPassword());
-				SingleSessioneAttiva.getInstance().login(datiInseriti);
-				User utenteLoggato = SingleSessioneAttiva.getInstance().getUtenteAttivo();
-				if (utenteLoggato != null && utenteLoggato.getEmail().equals(datiInseriti.getEmailInserita())) {
+				if (SingleSessioneAttiva.getInstance().login(datiInseriti)) {
+					User utenteLoggato = SingleSessioneAttiva.getInstance().getUtenteAttivo();
+					UserStrategyFactory.getInstance().getUserStrategy(utenteLoggato).flussoController(this);
 					loginView.setVisible(false);
-					UserStrategyFactory.getInstance().getUserControllerStrategy(utenteLoggato).flussoController(this);
 				} else {
 					WarningView wv = new WarningView();
 					wv.mostraErroreLoginUtente();

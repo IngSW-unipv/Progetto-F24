@@ -12,6 +12,8 @@ import it.unipv.java.view.ClienteView;
 
 public class ClienteStrategy implements IUserStrategy{
 
+	public ClienteStrategy() {}
+	
 	@Override
 	public void flussoController(ActionListener actionListener) {
 		ClienteView cv = new ClienteView();

@@ -27,14 +27,6 @@ public class Responsabile extends User{
 	public String getId() {
 		return this.getIdResponsabile();
 	}
-
-	@Override
-	public void setId(String idUser) {
-		// TODO
-		
-	}
-	
-	
 	
 	public List<User> getDipendentiRegistrati() {
 		return PersistanceFacade.getInstance().getTuttiDipendenti();

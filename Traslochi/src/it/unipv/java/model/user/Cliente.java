@@ -29,11 +29,6 @@ public class Cliente extends User {
 		return this.getIdCliente();
 	}
 
-	@Override
-	public void setId(String idUser) {
-		//TO-DO
-	}
-	
 	public List<PrenotazioneData> getPrenotazioniUtente() {
 		return PersistanceFacade.getInstance().getPrenotazioniCliente();
 	}

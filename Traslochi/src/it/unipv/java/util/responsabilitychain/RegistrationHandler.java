@@ -25,12 +25,12 @@ public class RegistrationHandler {
     }
 
     public void buildChain() {
-       	catenaControlli.add(new ControlloConfermaPassword());
-    	catenaControlli.add(new ControlloPassword());
-    	catenaControlli.add(new ControlloEmail());
-    	catenaControlli.add(new ControlloCF());
-    	catenaControlli.add(new ControlloNome());
     	catenaControlli.add(new VuotoControl());
+    	catenaControlli.add(new ControlloNome());
+    	catenaControlli.add(new ControlloCF());
+    	catenaControlli.add(new ControlloEmail());
+    	catenaControlli.add(new ControlloPassword());
+    	catenaControlli.add(new ControlloConfermaPassword());
     }
 
     public boolean executeChainControllo() {

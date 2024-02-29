@@ -12,6 +12,8 @@ import it.unipv.java.view.DipendentView;
 
 public class DipendenteStrategy implements IUserStrategy{
 
+	public DipendenteStrategy() {}
+	
 	@Override
 	public void flussoController(ActionListener actionListener) {
 		DipendentView dv = new DipendentView();

@@ -48,7 +48,6 @@ public abstract class User {
     }
     
     public abstract String getId();
-    public abstract void setId(String idUser);
     
 	@Override
     public String toString() {

@@ -6,6 +6,7 @@ A livello di funzionalità minime:
 2. Responsabile, dopo che crea un dipendente deve refreshare la sua view
 3. Verifica che i Pattern siano implementati tutti giusti
 4. Test
+5. Uniformare Query
 
 Cose extra da fare:
 1. WarningView refactor

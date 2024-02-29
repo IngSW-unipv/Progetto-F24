@@ -120,7 +120,7 @@ public class RdbClienteDao implements IClienteDao {
 			// Process the result set
 			while (rs.next()) {
 				Cliente c =   new Cliente();
-				c.setId(rs.getString("IDDIPENDENTI")); // Adjust the method names and types accordingly
+				c.setIdCliente(rs.getString("IDDIPENDENTE")); // Adjust the method names and types accordingly
 				c.setNome(rs.getString("NOME"));
 				c.setCognome(rs.getString("COGNOME"));
 				c.setEmail(rs.getString("EMAIL"));
@@ -149,11 +149,13 @@ public class RdbClienteDao implements IClienteDao {
 	public User getCliente(LoginData datiInseriti) {
 	    conn = DatabaseConnection.startConnection(conn, schema);
 	    Cliente cliente = new Cliente();
- 	    String sql = "SELECT IDCliente, Nome, Cognome, CF, Email, Password FROM CLIENTE WHERE EMAIL = ?";
+ 	    String sql = "SELECT IDCliente, Nome, Cognome, CF, Email, Password FROM CLIENTE WHERE EMAIL = ? AND Password = ?";
 	    ResultSet rs = null;
 
 	    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
 	        pstmt.setString(1, datiInseriti.getEmailInserita());
+	        pstmt.setString(2, datiInseriti.getPasswordInserita());
+
 	        rs = pstmt.executeQuery();
 
 	        if (rs.next()) {

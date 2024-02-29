@@ -59,12 +59,13 @@ public class RdbResponsabileDao implements IResponsabileDao{
 	public User getResponsabile(LoginData lm) {
 	    conn = DatabaseConnection.startConnection(conn, schema);
 	    Responsabile responsabile = new Responsabile();
-	    String sql = "SELECT IDResponsabile, Nome, Cognome, CF, Email, Password FROM RESPONSABILE WHERE EMAIL = ? ";
+	    String sql = "SELECT IDResponsabile, Nome, Cognome, CF, Email, Password FROM RESPONSABILE WHERE EMAIL = ? AND Password = ?";
 	    ResultSet rs = null;
 	    
 	    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
 	        
 	        pstmt.setString(1, lm.getEmailInserita()); // Usa il parametro corretto
+	        pstmt.setString(2, lm.getPasswordInserita()); // Usa il parametro corretto
 	        rs = pstmt.executeQuery();
 	        
 	        if (rs.next()) {
