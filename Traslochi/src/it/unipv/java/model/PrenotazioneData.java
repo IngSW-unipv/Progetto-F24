@@ -1,5 +1,7 @@
 package it.unipv.java.model;
 
+import it.unipv.java.util.responsabilitychain.PrenotazioneHandler;
+
 public class PrenotazioneData {
 	private String idPrenotazione;
 	private String idCliente;
@@ -138,6 +140,6 @@ public class PrenotazioneData {
         		", Indirizzo di Consegna: " + indirizzoConsegna + 
         		", Data di Ritiro: " + dataRitiro + 
         		", Data di Consegna: " + dataConsegna
-        		+ ", Importo da Pagare: " + importo + "\n";
+        		+ "\n";
     }
 }
