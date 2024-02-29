@@ -196,18 +196,54 @@ public class WarningView {
 	}
 
 
+
 	public void mostraErrorPrenotazione() {
 		initialize();
 		frame.setVisible(true);
 		label.setText("Registrazione non effettuata!");
 		riprovaButton.setText("Riprova");
 	}
-
+  
+	public void mostraErrorCfErrato() {
+		initialize();
+		frame.setVisible(true);
+		label.setText("Codice Fiscale non valido!");
+		riprovaButton.setText("Riprova");
+	}
 
 	public void mostraConfermaPrenotazione() {
 		initialize();
 		frame.setVisible(true);
 		label.setText("Registrazione effettuata!");
 		riprovaButton.setText("OK");
+
+	public void mostraErrorCampiVuoti() {
+		initialize();
+		frame.setVisible(true);
+		label.setText("Riempi tutti i campi!");
+		riprovaButton.setText("Riprova");	
+	}
+    
+	public void mostraErrorPasswordNonValida() {
+		initialize();
+		frame.setVisible(true);
+		label.setText("La Password dovrebbe avere almeno Un carattere maiuscolo, un numero e un carattere speciale!");
+		riprovaButton.setText("Riprova");
+	}
+
+
+	public void mostraErroreNome() {
+		initialize();
+		frame.setVisible(true);
+		label.setText("Il nome non dovrebbe contenere numeri/caratteri speciali!");
+		riprovaButton.setText("Riprova");	
+	}
+
+
+	public void mostraErrorEmailNonValida() {
+		initialize();
+		frame.setVisible(true);
+		label.setText("La mail non è valida!");
+		riprovaButton.setText("Riprova");			
 	}
 }

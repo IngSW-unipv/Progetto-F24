@@ -33,10 +33,9 @@ public class VuotoControl implements IControllo{
 	        }
 	        return true; 
 	    }
-
-	    private void mostraAvviso() {
+	    public void throwWarningView() {
 	        WarningView wv = new WarningView();
-	        wv.mostraErrorGenerale();
+	        wv.mostraErrorCampiVuoti();
 	        wv.getBottoneRiprova().addActionListener(new ActionListener() {
 	            public void actionPerformed(ActionEvent e) {
 	                wv.closeWindow();

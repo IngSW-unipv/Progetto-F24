@@ -1,4 +1,5 @@
 A livello di funzionalità minime:
+
 1. Aggiustare i controlli di registrazione e implementare controlli:
 																	prenotazione
 																	modifica (volendo)
@@ -9,6 +10,7 @@ A livello di funzionalità minime:
 5. Uniformare Query
 
 Cose extra da fare:
+
 1. WarningView refactor
 2. Eventuale pila di controller/view
 3. PasswordHash
@@ -23,6 +25,7 @@ A livello di ordine:
 2. Organizzazione migliore dei package
 
 DOCUMENTAZIONE:
+
 1.JavaDoc:
 			StrategyFactory
 			DaoFactory
