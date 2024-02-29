@@ -17,11 +17,14 @@ import javax.swing.border.BevelBorder;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JSeparator;
 import javax.swing.JTextArea;
-import javax.swing.JPasswordField;
 import javax.swing.ImageIcon;
 
 public class VisualizzaProfiloView extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JButton buttonTornaIndietro;
 	private JButton buttonModEmail;

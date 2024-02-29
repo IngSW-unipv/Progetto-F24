@@ -3,17 +3,14 @@ package it.unipv.java.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import it.unipv.java.model.user.User;
+import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.view.VisualizzaProfiloView;
 
 public class VisualizzaProfiloController {
-
-	private User um;
 	private VisualizzaProfiloView vpv;
 
 	
-	VisualizzaProfiloController(User um, VisualizzaProfiloView vpv) {
-		this.um = um;
+	public VisualizzaProfiloController(VisualizzaProfiloView vpv) {
 		this.vpv = vpv;
 		setFields();
 		setListeners();
@@ -21,10 +18,10 @@ public class VisualizzaProfiloController {
 
 	
 	private void setFields() {
-		vpv.setNome(um.getNome());
-		vpv.setCognome(um.getCognome());
-		vpv.setEmail(um.getEmail());
-		vpv.setCF(um.getCf());
+		vpv.setNome(SingleSessioneAttiva.getInstance().getUtenteAttivo().getNome());
+		vpv.setCognome(SingleSessioneAttiva.getInstance().getUtenteAttivo().getCognome());
+		vpv.setEmail(SingleSessioneAttiva.getInstance().getUtenteAttivo().getEmail());
+		vpv.setCF(SingleSessioneAttiva.getInstance().getUtenteAttivo().getCf());
  	}
 	
 	private void setListeners() {
@@ -60,12 +57,17 @@ public class VisualizzaProfiloController {
 				vpv.getEmailArea().setEditable(false);
 				vpv.getCfArea().setEditable(false);
  				
-				um.setNome(vpv.getNome());
-				um.setCognome(vpv.getCognome());
-				um.setEmail(vpv.getEmail());
-				um.setCf(vpv.getCodFis());
- 				 
-//				vpm.modificaProfilo(um);
+ 				 if(SingleSessioneAttiva.getInstance().modificaProfilo()) {
+ 					SingleSessioneAttiva.getInstance().getUtenteAttivo().setNome(vpv.getNome());
+ 					SingleSessioneAttiva.getInstance().getUtenteAttivo().setCognome(vpv.getCognome());
+ 					SingleSessioneAttiva.getInstance().getUtenteAttivo().setEmail(vpv.getEmail());
+ 					SingleSessioneAttiva.getInstance().getUtenteAttivo().setCf(vpv.getCodFis());
+ 					 //chiude view visualizzaprofilo e mostra view registrazione effettuata
+ 				 }else {
+ 					 //warning view
+ 				 }
+
+ 				//vpm.modificaProfilo(um);
 			}
 		});
 		

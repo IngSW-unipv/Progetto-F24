@@ -7,15 +7,12 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JSeparator;
 import java.awt.SystemColor;
-import java.awt.EventQueue;
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 import javax.swing.JPasswordField;
 import java.awt.Toolkit;
-import java.awt.event.ActionListener;
 import java.awt.Color;
-import javax.swing.border.EtchedBorder;
 
 public class RegisterView extends JFrame {
 

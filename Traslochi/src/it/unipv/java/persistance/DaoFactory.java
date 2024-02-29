@@ -5,7 +5,7 @@ import it.unipv.java.persistance.dao.dipendente.IDipendenteDao;
 import it.unipv.java.persistance.dao.prenotazione.IPrenotazioneDao;
 import it.unipv.java.persistance.dao.responsabile.IResponsabileDao;
 import it.unipv.java.persistance.dao.turno.ITurnoDao;
-import it.unipv.java.util.dao.DaoStrategyFactory;
+import it.unipv.java.persistance.strategy.DaoStrategyFactory;
 
 /**
  * La classe DaoFactory rappresenta l'oggetto Singleton che si occupa di

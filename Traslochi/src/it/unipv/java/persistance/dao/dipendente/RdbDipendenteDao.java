@@ -10,10 +10,9 @@ import java.util.List;
 
 import it.unipv.java.model.LoginData;
 import it.unipv.java.model.RegisterData;
-import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.user.Dipendente;
 import it.unipv.java.model.user.User;
-import it.unipv.java.persistance.dao.DatabaseConnection;
+import it.unipv.java.persistance.DatabaseConnection;
 
 
 public class RdbDipendenteDao implements IDipendenteDao {
@@ -88,26 +87,34 @@ public class RdbDipendenteDao implements IDipendenteDao {
 
 
  	@Override
-	public boolean deleteDipendente(User u) {
+ 	public boolean deleteDipendente(User u) {
+ 	    Connection conn = null;
 
-		conn = DatabaseConnection.startConnection(conn, schema);
+ 	    try {
+ 	        conn = DatabaseConnection.startConnection(conn, schema);
 
-		String query = "DELETE FROM Dipendente WHERE idDipendente = ? ";
+ 	        // Elimina prima i turni associati al dipendente
+ 	        String deleteTurniQuery = "DELETE FROM Turno WHERE IDDipendente = ?";
+ 	        try (PreparedStatement stTurni = conn.prepareStatement(deleteTurniQuery)) {
+ 	            stTurni.setString(1, u.getId());
+ 	            stTurni.executeUpdate();
+ 	        }
 
-		try (PreparedStatement st1 = conn.prepareStatement(query)) {
+ 	        // Quindi elimina il dipendente
+ 	        String deleteDipendenteQuery = "DELETE FROM Dipendente WHERE IDDipendente = ?";
+ 	        try (PreparedStatement stDipendente = conn.prepareStatement(deleteDipendenteQuery)) {
+ 	            stDipendente.setString(1, u.getId());
+ 	            stDipendente.executeUpdate();
+ 	        }
 
-			st1.setString(1, u.getId());
-			st1.executeUpdate();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		} finally {
-			DatabaseConnection.closeConnection(conn);
-		}
-
-		return true;
-	}
+ 	        return true; // Operazione completata con successo
+ 	    } catch (SQLException e) {
+ 	        e.printStackTrace(); // Gestisci eventuali eccezioni
+ 	        return false;
+ 	    } finally {
+ 	        DatabaseConnection.closeConnection(conn); // Chiudi la connessione
+ 	    }
+ 	}
 
  	public List<User> getAllDipendenti() {
 		List<User> dipendenti = new ArrayList<>();
@@ -125,7 +132,7 @@ public class RdbDipendenteDao implements IDipendenteDao {
 
 			while (rs.next()) {
 				Dipendente dipendente = new Dipendente();
-				dipendente.setId(rs.getString("IDDIPENDENTE"));
+				dipendente.setIdDipendente(rs.getString("IDDIPENDENTE"));
 				dipendente.setNome(rs.getString("NOME"));
 				dipendente.setCognome(rs.getString("COGNOME"));
 				dipendente.setCf(rs.getString("CF"));
@@ -155,11 +162,12 @@ public class RdbDipendenteDao implements IDipendenteDao {
 	public User getDipendente(LoginData ag) {
 		conn = DatabaseConnection.startConnection(conn, schema);
 		Dipendente um = new Dipendente();
-		String sql = "SELECT IDDipendente, Nome, Cognome, CF, Email, Password FROM DIPENDENTE WHERE EMAIL = ?";
+		String sql = "SELECT IDDipendente, Nome, Cognome, CF, Email, Password FROM DIPENDENTE WHERE EMAIL = ? AND Password = ?";
 		ResultSet rs = null;
 
 		try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			pstmt.setString(1, ag.getEmailInserita());
+			pstmt.setString(2, ag.getPasswordInserita());
 			rs = pstmt.executeQuery();
 			
 			

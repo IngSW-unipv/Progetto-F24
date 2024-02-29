@@ -18,3 +18,6 @@
 /AuthGestor.class
 /DeleteModel.class
 /VisualizzaProfiloModel.class
+/LoginData.class
+/RegisterData.class
+/SingleSessioneAttiva.class

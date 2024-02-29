@@ -4,11 +4,9 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import java.awt.Toolkit;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import javax.swing.Box;
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -19,6 +17,10 @@ import javax.swing.JTextField;
 
 public class DipendentView extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField indirizzoLavoro;
 	private JTextField orarioInizioTurno;
@@ -26,6 +28,7 @@ public class DipendentView extends JFrame {
 	private JButton buttonInizioTurno;
 	private JButton buttonFineTurno;
 	private JButton buttonVisProfilo;
+	private JButton buttonLogOut;
 
 	
 	public static void main(String[] args) {
@@ -46,7 +49,7 @@ public class DipendentView extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("resources/IconaRegister.jpg"));
 		setTitle("Bidons");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 923, 507);
+		setBounds(100, 100, 947, 530);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.textHighlightText);
 		contentPane.setBorder(null);
@@ -104,18 +107,18 @@ public class DipendentView extends JFrame {
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 1442, GroupLayout.PREFERRED_SIZE)
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(377)
 							.addComponent(lblNewLabel_1_2, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(255)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 								.addComponent(indirizzoLavoro, Alignment.TRAILING)
 								.addGroup(gl_contentPane.createSequentialGroup()
 									.addComponent(buttonInizioTurno, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
 									.addGap(209)
-									.addComponent(buttonFineTurno, GroupLayout.PREFERRED_SIZE, 82, GroupLayout.PREFERRED_SIZE))))
+									.addComponent(buttonFineTurno, GroupLayout.PREFERRED_SIZE, 82, GroupLayout.PREFERRED_SIZE)))
+							.addGap(108))
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(123)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -125,7 +128,8 @@ public class DipendentView extends JFrame {
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 								.addComponent(orarioFineTurno, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(lblNewLabel_1_1, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE))))
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addGap(712))
+				.addComponent(panel, GroupLayout.DEFAULT_SIZE, 1452, Short.MAX_VALUE)
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -163,21 +167,31 @@ public class DipendentView extends JFrame {
 		buttonVisProfilo.setBackground(SystemColor.textHighlight);
 		buttonVisProfilo.setBorder(null);
 		buttonVisProfilo.setFocusable(false);
+		
+		buttonLogOut = new JButton("Log Out");
+		buttonLogOut.setForeground(SystemColor.window);
+		buttonLogOut.setFont(new Font("Tahoma", Font.BOLD, 11));
+		buttonLogOut.setFocusable(false);
+		buttonLogOut.setBorder(null);
+		buttonLogOut.setBackground(SystemColor.textHighlight);
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
 					.addGap(41)
 					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
-					.addGap(529)
+					.addGap(292)
+					.addComponent(buttonLogOut, GroupLayout.PREFERRED_SIZE, 142, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
 					.addComponent(buttonVisProfilo, GroupLayout.PREFERRED_SIZE, 142, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(580, Short.MAX_VALUE))
+					.addContainerGap(667, Short.MAX_VALUE))
 		);
 		gl_panel.setVerticalGroup(
-			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, gl_panel.createParallelGroup(Alignment.BASELINE)
+			gl_panel.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
 					.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
-					.addComponent(buttonVisProfilo))
+					.addComponent(buttonLogOut, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+					.addComponent(buttonVisProfilo, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
 		);
 		panel.setLayout(gl_panel);
 		contentPane.setLayout(gl_contentPane);
@@ -193,6 +207,10 @@ public class DipendentView extends JFrame {
 	
 	public JButton getButtonFineTurno() {
 		return buttonFineTurno;
+	}
+	
+	public JButton getButtonLogOut() {
+		return buttonLogOut;
 	}
 	
 	public String getOraInizio() {
@@ -218,8 +236,5 @@ public class DipendentView extends JFrame {
 	public void setIndirizzoLavoro(String stringa) {
 		indirizzoLavoro.setText(stringa);
 	}
-	
-	
-	
 	
 }

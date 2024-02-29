@@ -11,4 +11,5 @@ public interface IUserStrategy {
 	public void flussoController(ActionListener actionListener);
 	public User getUser(PersistanceFacade persistanceFacade, LoginData datiLogin);
 	public boolean createUser(PersistanceFacade persistanceFacade, RegisterData datiRegistrazione);
+	public boolean updateUser(PersistanceFacade persistanceFacade, User utenteAttivo);
 }

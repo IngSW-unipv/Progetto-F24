@@ -3,10 +3,9 @@ package it.unipv.java.persistance;
 import java.util.List;
 
 import it.unipv.java.model.LoginData;
-import it.unipv.java.model.PrenotazioneModel;
+import it.unipv.java.model.PrenotazioneData;
 import it.unipv.java.model.RegisterData;
 import it.unipv.java.model.TurnoModel;
-import it.unipv.java.model.user.Dipendente;
 import it.unipv.java.model.user.User;
 import it.unipv.java.util.user.UserStrategyFactory;
 
@@ -33,34 +32,21 @@ public class PersistanceFacade {
 	}
 	
 	public User loginUser(LoginData datiLogin) {
-		return UserStrategyFactory.getInstance().getUserLoginStrategy(datiLogin.getEmailInserita()).getUser(this, datiLogin);
+		return UserStrategyFactory.getInstance().getUserStrategy(datiLogin.getEmailInserita()).getUser(this, datiLogin);
 	}
 	
 	public boolean registerUser(RegisterData datiRegistrazione) {
-		return UserStrategyFactory.getInstance().getUserRegisterStrategy(datiRegistrazione).createUser(this, datiRegistrazione);
+		return UserStrategyFactory.getInstance().getUserStrategy(datiRegistrazione.getEmailInserita()).createUser(this, datiRegistrazione);
 	}
 	
-/*	public boolean modificaProfilo() {
-		switch (SingleSessioneAttiva.getInstance().getUtenteAttivo().getUserType()) {
-		case CLIENTE:
-			return DaoFactory.getInstance().getClientePersistance().updateCliente(SingleSessioneAttiva.getInstance().getUtenteAttivo());
-		case DIPENDENTE:
-			return DaoFactory.getInstance().getDipendentePersistance().updateDipendente(SingleSessioneAttiva.getInstance().getUtenteAttivo());
-		case RESPONSABILE:
-			return DaoFactory.getInstance().getResponsabilePersistance().updateResponsabile(SingleSessioneAttiva.getInstance().getUtenteAttivo());
-		}
-		return false ; 
-	} */
-/*	
-//	DEVE ESSERE ELIMINA USER? DISAMBIGUARE SU CHI/COME SI POSSANO ELIMINARE USER
-	public boolean eliminaDipendente(UserModel user) {
-			return DaoFactory.getInstance().getDipendentePersistance().deleteDipendente(user);
-	}
-*/
-	public boolean getTurno(TurnoModel tm) {
-		return DaoFactory.getInstance().getTurnoPersistance().createTurno(tm);
+	public boolean modificaProfilo(User utenteAttivo) {
+		return UserStrategyFactory.getInstance().getUserStrategy(utenteAttivo).updateUser(this, utenteAttivo);
 	}
 
+	public boolean eliminaDipendente(User u) {
+			return DaoFactory.getInstance().getDipendentePersistance().deleteDipendente(u);
+	}
+	
 	public boolean aggiungiTurno(TurnoModel tm) {
 		return DaoFactory.getInstance().getTurnoPersistance().createTurno(tm);
 	}
@@ -69,15 +55,15 @@ public class PersistanceFacade {
 		return DaoFactory.getInstance().getTurnoPersistance().getAllTurni(); 
 	}
 	
-	public boolean createPrenotazione(PrenotazioneModel datiPrenotazione) {
+	public boolean createPrenotazione(PrenotazioneData datiPrenotazione) {
 		return DaoFactory.getInstance().getPrenotazionePersistance().createPrenotazione(datiPrenotazione);
 	}
 	
-	public List<PrenotazioneModel> getPrenotazioniCliente() {
+	public List<PrenotazioneData> getPrenotazioniCliente() {
 		return DaoFactory.getInstance().getPrenotazionePersistance().getPrenotazioniUtente();
 	}
 	
-	public List<PrenotazioneModel> mostraPrenotazioni() {
+	public List<PrenotazioneData> mostraPrenotazioni() {
 		return DaoFactory.getInstance().getPrenotazionePersistance().getAllPrenotazioni();
 	}
 	
@@ -88,20 +74,4 @@ public class PersistanceFacade {
 	public List<User> getTuttiDipendenti() {
 		return DaoFactory.getInstance().getDipendentePersistance().getAllDipendenti();
 	}
-	
-	
-/*	public User getLastUser() {
-		return UserStrategyFactory.getInstance().getUserLoginStrategy().getUser(this, datiLogin);
-	}
-/*	
-	public List<UserModel> mostraDipendenti() {
-		return DaoFactory.getInstance().getDipendentePersistance().getAllDipendenti();
-	}
-
-	public UserModel visualizzaProfilo(UserModel um) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-*/
-
 }

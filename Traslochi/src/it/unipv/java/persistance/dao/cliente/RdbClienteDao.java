@@ -12,7 +12,7 @@ import it.unipv.java.model.LoginData;
 import it.unipv.java.model.RegisterData;
 import it.unipv.java.model.user.Cliente;
 import it.unipv.java.model.user.User;
-import it.unipv.java.persistance.dao.DatabaseConnection;
+import it.unipv.java.persistance.DatabaseConnection;
 
 
 public class RdbClienteDao implements IClienteDao {
@@ -61,7 +61,7 @@ public class RdbClienteDao implements IClienteDao {
 	public boolean updateCliente(User ag) {
 
 		conn = DatabaseConnection.startConnection(conn, schema);
-		String query = "UPDATE CLIENTE SET NOME=?,COGNOME=?,CF=?,EMAIL=?,PASSWORD=? WHERE id=?";
+		String query = "UPDATE CLIENTE SET NOME=?,COGNOME=?,CF=?,EMAIL=? WHERE IDCliente=?";
 
 		try (PreparedStatement st1 = conn.prepareStatement(query)) {
 
@@ -69,8 +69,7 @@ public class RdbClienteDao implements IClienteDao {
 			st1.setString(2, ag.getCognome());
 			st1.setString(3, ag.getCf());
 			st1.setString(4, ag.getEmail());
-			st1.setString(5, ag.getPassword());
-			st1.setString(6, ag.getId());
+			st1.setString(5, ag.getId());
 
 			st1.executeUpdate();
 
@@ -121,7 +120,7 @@ public class RdbClienteDao implements IClienteDao {
 			// Process the result set
 			while (rs.next()) {
 				Cliente c =   new Cliente();
-				c.setId(rs.getString("IDDIPENDENTI")); // Adjust the method names and types accordingly
+				c.setIdCliente(rs.getString("IDDIPENDENTE")); // Adjust the method names and types accordingly
 				c.setNome(rs.getString("NOME"));
 				c.setCognome(rs.getString("COGNOME"));
 				c.setEmail(rs.getString("EMAIL"));
@@ -150,11 +149,13 @@ public class RdbClienteDao implements IClienteDao {
 	public User getCliente(LoginData datiInseriti) {
 	    conn = DatabaseConnection.startConnection(conn, schema);
 	    Cliente cliente = new Cliente();
- 	    String sql = "SELECT IDCliente, Nome, Cognome, CF, Email, Password FROM CLIENTE WHERE EMAIL = ?";
+ 	    String sql = "SELECT IDCliente, Nome, Cognome, CF, Email, Password FROM CLIENTE WHERE EMAIL = ? AND Password = ?";
 	    ResultSet rs = null;
 
 	    try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
 	        pstmt.setString(1, datiInseriti.getEmailInserita());
+	        pstmt.setString(2, datiInseriti.getPasswordInserita());
+
 	        rs = pstmt.executeQuery();
 
 	        if (rs.next()) {
@@ -181,4 +182,4 @@ public class RdbClienteDao implements IClienteDao {
 	    return cliente;
 	}
 
-}//fine getCliente
+}//fine Cliente

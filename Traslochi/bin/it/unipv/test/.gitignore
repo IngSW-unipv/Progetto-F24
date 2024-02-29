@@ -5,3 +5,8 @@
 /LoginControllerTest.class
 /PrenotazioneTest.class
 /RegisterControllerTest.class
+/LoginTest.class
+/PersistanceFacadeTest.class
+/QueryTest.class
+/StrategyTest.class
+/StrategyTxtTest.class

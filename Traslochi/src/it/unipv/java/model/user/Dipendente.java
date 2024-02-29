@@ -38,10 +38,4 @@ public class Dipendente extends User{
 	public String getId() {
 		return this.getIdDipendente();
 	}
-
-	@Override
-	public void setId(String idUser) {
-		// TODO Auto-generated method stub
-		
-	}
 }

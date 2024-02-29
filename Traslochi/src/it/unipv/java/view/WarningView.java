@@ -11,7 +11,6 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.SystemColor;
 import java.awt.Toolkit;
-import java.awt.Point;
 import javax.swing.SwingConstants;
 
 public class WarningView {
@@ -133,6 +132,13 @@ public class WarningView {
 	public void closeWindow() {
         frame.setVisible(false);
     }
+	
+	public void idErrato() {
+		initialize();
+		frame.setVisible(true);
+		label.setText("ID o CF errato/i");
+		riprovaButton.setText("Riprova");
+	}
 
 
 	public void elimEffettuata() {
@@ -152,6 +158,35 @@ public class WarningView {
 		
 	}
 	
+	public void turnoAssegnato() {
+		initialize();
+		frame.setVisible(true);
+		label.setText("turno assegnato");
+		riprovaButton.setText("ok");
+	}
+	
+	public void turnoNonAssegnato() {
+		initialize();
+		frame.setVisible(true);
+		label.setText("errore nei dati, riprovare");
+		riprovaButton.setText("Riprova");
+		
+	}
+	
+	public void idNonEsistente() {
+		initialize();
+		frame.setVisible(true);
+		label.setText("ID errato, riprovare");
+		riprovaButton.setText("Riprova");
+	}
+	
+	public void spazioVuoto() {
+		initialize();
+		frame.setVisible(true);
+		label.setText("inserire tutti i dati!");
+		riprovaButton.setText("Riprova");
+	}
+	
 	public boolean isVisible() {
 		if (frame.isVisible()) {
 			return true;
@@ -161,6 +196,14 @@ public class WarningView {
 	}
 
 
+
+	public void mostraErrorPrenotazione() {
+		initialize();
+		frame.setVisible(true);
+		label.setText("Registrazione non effettuata!");
+		riprovaButton.setText("Riprova");
+	}
+  
 	public void mostraErrorCfErrato() {
 		initialize();
 		frame.setVisible(true);
@@ -168,6 +211,11 @@ public class WarningView {
 		riprovaButton.setText("Riprova");
 	}
 
+	public void mostraConfermaPrenotazione() {
+		initialize();
+		frame.setVisible(true);
+		label.setText("Registrazione effettuata!");
+		riprovaButton.setText("OK");
 
 	public void mostraErrorCampiVuoti() {
 		initialize();
@@ -175,8 +223,7 @@ public class WarningView {
 		label.setText("Riempi tutti i campi!");
 		riprovaButton.setText("Riprova");	
 	}
-
-
+    
 	public void mostraErrorPasswordNonValida() {
 		initialize();
 		frame.setVisible(true);

@@ -12,7 +12,6 @@ public class VuotoControl implements IControllo{
 	/**
 	 * fa uso di una reflection
 	 */
-
 	 @Override
 	    public boolean controllaParametro(RegisterData datiRegistrazione) {
 	        Field[] campiRegisterData = datiRegistrazione.getClass().getDeclaredFields();
@@ -23,6 +22,7 @@ public class VuotoControl implements IControllo{
 	                try {
 	                    Object valoreCampo = campo.get(datiRegistrazione); // Ottiene il valore del campo
  	                    if (valoreCampo == null || (valoreCampo instanceof String && ((String) valoreCampo).trim().isEmpty())) {
+	                        mostraAvviso(); 
 	                        return false;
 	                    }
 	                } catch (IllegalAccessException e) {
@@ -33,7 +33,6 @@ public class VuotoControl implements IControllo{
 	        }
 	        return true; 
 	    }
-
 	    public void throwWarningView() {
 	        WarningView wv = new WarningView();
 	        wv.mostraErrorCampiVuoti();
@@ -43,5 +42,4 @@ public class VuotoControl implements IControllo{
 	            }
 	        });
 	    }
-
 }
