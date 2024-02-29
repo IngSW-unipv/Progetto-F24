@@ -25,7 +25,6 @@ import it.unipv.java.view.VisualizzaProfiloView;
 public class ResponsabileController implements IController{
 	private ResponsabileView rv;
 
-	// HO TOLTO ASSEGNATURNO E TURNOMODEL DAL COSTRUTTORE --> NIKUZ
 	public ResponsabileController(ResponsabileView rv) {
 		this.rv = rv;
 		this.rv.setVisible(true);
@@ -40,6 +39,9 @@ public class ResponsabileController implements IController{
 			public void actionPerformed(ActionEvent e) {
 				RegisterView registerView = new RegisterView();
 				RegisterController registerController = new RegisterController(registerView);
+				riempiPrenotazioniTXT();
+			    riempiTurnoTXT();
+			    riempiDipendentiTXT();
 				ControllerGestor.getInstance().getStack().push(registerController);
 				rv.setVisible(false);
 			}
@@ -77,9 +79,7 @@ public class ResponsabileController implements IController{
             	ControllerGestor.getInstance().getStack().pop();
             	IController precController = ControllerGestor.getInstance().getStack().peek();
             	precController.getView().setVisible(true);
-//            	LoginView login = new LoginView();
- //           	LoginController lg=new LoginController(login);
- //           	login.setVisible(true);
+//            	
             }
         });
 	 

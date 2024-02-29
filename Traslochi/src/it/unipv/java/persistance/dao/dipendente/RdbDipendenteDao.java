@@ -63,7 +63,7 @@ public class RdbDipendenteDao implements IDipendenteDao {
 	    try {
  	        conn = DatabaseConnection.startConnection(conn, schema);
 	        
- 	        String query = "UPDATE DIPENDENTE SET NOME=?, COGNOME=?, EMAIL=?, PASSWORD=? WHERE ID=?";
+ 	        String query = "UPDATE DIPENDENTE SET NOME=?, COGNOME=?, EMAIL=?, PASSWORD=? WHERE IDDipendente=?";
 	        
  	        try (PreparedStatement st1 = conn.prepareStatement(query)) {
 	            

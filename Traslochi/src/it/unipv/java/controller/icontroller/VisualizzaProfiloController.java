@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 
 import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.view.VisualizzaProfiloView;
+import it.unipv.java.view.WarningView;
 
 public class VisualizzaProfiloController implements IController{
 	private VisualizzaProfiloView vpv;
@@ -59,15 +60,26 @@ public class VisualizzaProfiloController implements IController{
 				vpv.getCognomeArea().setEditable(false);
 				vpv.getEmailArea().setEditable(false);
 				vpv.getCfArea().setEditable(false);
- 				
+ 				WarningView wv= new WarningView();
  				 if(SingleSessioneAttiva.getInstance().modificaProfilo()) {
  					SingleSessioneAttiva.getInstance().getUtenteAttivo().setNome(vpv.getNome());
  					SingleSessioneAttiva.getInstance().getUtenteAttivo().setCognome(vpv.getCognome());
  					SingleSessioneAttiva.getInstance().getUtenteAttivo().setEmail(vpv.getEmail());
  					SingleSessioneAttiva.getInstance().getUtenteAttivo().setCf(vpv.getCodFis());
- 					 //chiude view visualizzaprofilo e mostra view registrazione effettuata
+ 					
+					wv.mostraModificaEffettuata();
+					wv.getBottoneRiprova().addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) {
+							wv.closeWindow();
+						}
+					});
  				 }else {
- 					 //warning view
+					wv.mostraErrorModifiche();
+					wv.getBottoneRiprova().addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) {
+							wv.closeWindow();
+						}
+					});
  				 }
 
  				//vpm.modificaProfilo(um);

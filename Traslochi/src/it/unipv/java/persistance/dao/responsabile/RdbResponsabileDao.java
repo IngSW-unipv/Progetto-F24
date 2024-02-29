@@ -94,8 +94,26 @@ public class RdbResponsabileDao implements IResponsabileDao{
 
 	@Override
 	public boolean updateResponsabile(User ag) {
-		// TODO Auto-generated method stub
-		return false;
+		conn = DatabaseConnection.startConnection(conn, schema);
+		String query = "UPDATE Responsabile SET NOME=?,COGNOME=?,CF=?,EMAIL=? WHERE IDResponsabile=?";
+
+		try (PreparedStatement st1 = conn.prepareStatement(query)) {
+
+			st1.setString(1, ag.getNome());
+			st1.setString(2, ag.getCognome());
+			st1.setString(3, ag.getCf());
+			st1.setString(4, ag.getEmail());
+			st1.setString(5, ag.getId());
+
+			st1.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		} finally {
+			DatabaseConnection.closeConnection(conn);
+		}
+		return true;
 	}
 
 

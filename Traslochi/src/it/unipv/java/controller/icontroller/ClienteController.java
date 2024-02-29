@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import it.unipv.java.model.PrenotazioneData;
 import it.unipv.java.model.SingleSessioneAttiva;
 import it.unipv.java.model.user.Cliente;
+import it.unipv.java.util.controllerpila.ControllerGestor;
 import it.unipv.java.view.ClienteView;
 import it.unipv.java.view.LoginView;
 import it.unipv.java.view.PrenotazioneView;
@@ -47,10 +48,10 @@ public class ClienteController implements IController{
 		clienteView.getBottoneLogOut().addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	SingleSessioneAttiva.getInstance().logout();
-            	LoginView login = new LoginView();
-            	LoginController lg = new LoginController(login);
-            	login.setVisible(true);
             	clienteView.setVisible(false); 
+            	ControllerGestor.getInstance().getStack().pop();
+            	IController precController = ControllerGestor.getInstance().getStack().peek();
+            	precController.getView().setVisible(true); 
             }
         });
 	}
