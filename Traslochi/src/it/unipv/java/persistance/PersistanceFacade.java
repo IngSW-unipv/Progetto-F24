@@ -58,12 +58,6 @@ public class PersistanceFacade {
 			return DaoFactory.getInstance().getDipendentePersistance().deleteDipendente(u);
 	}
 	
-	
-
-	public boolean getTurno(TurnoModel tm) {
-		return DaoFactory.getInstance().getTurnoPersistance().createTurno(tm);
-	}
-
 	public boolean aggiungiTurno(TurnoModel tm) {
 		return DaoFactory.getInstance().getTurnoPersistance().createTurno(tm);
 	}
