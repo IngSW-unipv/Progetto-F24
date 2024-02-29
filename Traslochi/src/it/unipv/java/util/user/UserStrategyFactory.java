@@ -43,31 +43,8 @@ public class UserStrategyFactory {
 		return strategiaUtente;
 	}	
 	
-	public IUserStrategy getUserLoginStrategy(String Email) {
-//		String dominio = datiLogin.getEmailInserita().substring(datiLogin.getEmailInserita().indexOf("@") + 1);
+	public IUserStrategy getUserStrategy(String Email) {
 		String dominio = Email.substring(Email.indexOf("@") + 1);
-		Properties p = new Properties(System.getProperties());
-		
-		try {
-			p.load(new FileInputStream("properties/properties"));
-			String dominioClassName = p.getProperty(dominio);
-			
-			if(dominioClassName == null)
-				dominioClassName = p.getProperty("altroDominio.it");
-			
-			Constructor<?> c = Class.forName(dominioClassName).getConstructor();
-			strategiaUtente = (IUserStrategy)c.newInstance();
-			
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			strategiaUtente = null;
-		}
-	return strategiaUtente;
-}
-
-	public IUserStrategy getUserRegisterStrategy(RegisterData datiRegistrazione) {
-		String dominio = datiRegistrazione.getEmailInserita().substring(datiRegistrazione.getEmailInserita().indexOf("@") + 1);
 		Properties p = new Properties(System.getProperties());
 		
 		try {

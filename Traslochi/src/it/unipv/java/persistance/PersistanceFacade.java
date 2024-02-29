@@ -32,11 +32,11 @@ public class PersistanceFacade {
 	}
 	
 	public User loginUser(LoginData datiLogin) {
-		return UserStrategyFactory.getInstance().getUserLoginStrategy(datiLogin.getEmailInserita()).getUser(this, datiLogin);
+		return UserStrategyFactory.getInstance().getUserStrategy(datiLogin.getEmailInserita()).getUser(this, datiLogin);
 	}
 	
 	public boolean registerUser(RegisterData datiRegistrazione) {
-		return UserStrategyFactory.getInstance().getUserRegisterStrategy(datiRegistrazione).createUser(this, datiRegistrazione);
+		return UserStrategyFactory.getInstance().getUserStrategy(datiRegistrazione.getEmailInserita()).createUser(this, datiRegistrazione);
 	}
 	
 	public boolean modificaProfilo(User utenteAttivo) {
