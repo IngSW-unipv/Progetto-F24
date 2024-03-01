@@ -18,4 +18,4 @@ Ha svariate funzionalità quali:
  
 #### PRESENTAZIONE   
 
-[Link di presentazione] "Documentazione/TraslochiSystem.html"
+[Link di presentazione] Documentazione/TraslochiSystem.html
