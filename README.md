@@ -16,6 +16,3 @@ Ha svariate funzionalità quali:
 * Visualizza e modifica il proprio profilo
 * Il Responsabile consulta i dipendenti presenti e le prenotazioni presenti,asegna e rimuove turni
  
-#### PRESENTAZIONE   
-
-[Link di presentazione] Documentazione/TraslochiSystem.html
